@@ -15,6 +15,34 @@
     "target": "ES2022",
     "module": "preserve"
   },
+  "typeRoots": [
+    "./src/typings"
+  ],
+  "types": [
+    "node",
+    "jquery",
+    "bootstrap",
+    "jqueryui",
+    "spectrum",
+    "Html2Canvas",
+    "bootstrap-select",
+    "eonasdan-bootstrap-datetimepicker",
+    "lodash",
+    "switchery",
+    "moment",
+    "detectizr",
+    "jquery.gwfselect",
+    "jquery.autoclumnlist",
+    "tinycolor",
+    "base64",
+    "prng4",
+    "rng",
+    "rsa",
+    "jsbn",
+    "jsencrypt"
+  ],
+  "noImplicitAny": true,
+
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
