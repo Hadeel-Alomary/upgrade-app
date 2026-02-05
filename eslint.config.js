@@ -34,7 +34,7 @@ module.exports = defineConfig([
 
   // HTML templates in your app (not vendor)
   {
-    files: ["src/**/*.html"],
+    files: ["src/**/*.html" , "src/**/**/*.html"],
     ignores: ["src/static-libraries/vendor/**"], // ignore vendor HTML
     extends: [
       angular.configs.templateRecommended,
