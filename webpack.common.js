@@ -14,6 +14,33 @@ const bundledCssFiles = [
   path.join(process.cwd(), 'src/styles.scss')
 ];
 
+const bundledJsFiles = [
+  "./src\\static-libraries\\vendor\\slick\\lib\\jquery-1.7.min.js",
+  "./src\\static-libraries\\vendor\\slick\\lib\\jquery-ui-1.8.16.custom.min.js",
+  "./src\\static-libraries\\vendor\\slick\\lib\\jquery.event.drag-2.2.js",
+  "./src\\static-libraries\\vendor\\perfect-scrollbar\\perfect-scrollbar.js",
+  "./src\\static-libraries\\vendor\\slick\\slick.core.js",
+  "./src\\static-libraries\\vendor\\slick\\slick.grid.js",
+  "./src\\static-libraries\\vendor\\slick\\slick.dataview.js",
+  "./src\\static-libraries\\vendor\\slick\\plugins\\slick.rowselectionmodel.js",
+  "./src\\static-libraries\\vendor\\slick\\plugins\\slick.autocolumnsize.js",
+  "./src\\static-libraries\\vendor\\chart\\scripts\\cdn\\jquery.min.js",
+  "./src\\static-libraries\\vendor\\chart\\scripts\\cdn\\bootstrap.min.js",
+  "./src\\static-libraries\\vendor\\chart\\scripts\\jquery-ui.min.js",
+  "./src\\static-libraries\\vendor\\chart\\scripts\\moment.min.js",
+  "./src\\static-libraries\\vendor\\chart\\scripts\\html2canvas.min.js",
+  "./src\\static-libraries\\vendor\\chart\\scripts\\switchery.js",
+  "./src\\static-libraries\\vendor\\chart\\scripts\\bootstrap-select.js",
+  "./src\\static-libraries\\vendor\\chart\\scripts\\spectrum.js",
+  "./src\\static-libraries\\vendor\\chart\\scripts\\bootstrap-datetimepicker.min.js",
+  "./src\\static-libraries\\vendor\\base64\\base64.js",
+  "./src\\static-libraries\\vendor\\prng4\\prng4.js",
+  "./src\\static-libraries\\vendor\\rng\\rng.js",
+  "./src\\static-libraries\\vendor\\rsa\\rsa.js",
+  "./src\\static-libraries\\vendor\\jsbn\\jsbn.js",
+  "./src\\static-libraries\\vendor\\jsencrypt\\jsencrypt.js"
+];
+
 module.exports = {
   resolve: {
     extensions: ['.ts', '.js'],
@@ -26,7 +53,9 @@ module.exports = {
   },
   entry: {
     main: ['./src/main.ts'],    // Angular entry
-    styles: bundledCssFiles     // CSS/SCSS entry
+    styles: bundledCssFiles,     // CSS/SCSS entry
+    scripts:bundledJsFiles,
+    polyfills: ['./src/polyfills.ts'],
   },
   module: {
     rules: [
@@ -69,7 +98,11 @@ module.exports = {
         test: /\.ts$/,
         use: [{ loader: 'ts-loader', options: { transpileOnly: true } }],
         exclude: /node_modules/
-      }
+      },
+      {
+        test: /jquery.*\.js$|jquery-ui.*\.js$|bootstrap.*\.js$|moment.*\.js$|slick.*\.js|spectrum.*\.js|switchery.*\.js/,
+        use: ['script-loader']
+      },
     ]
   },
   plugins: [
