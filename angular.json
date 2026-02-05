@@ -10,7 +10,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "my-project": {
+    "upgrade-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -60,10 +60,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "my-project:build:production"
+              "buildTarget": "upgrade-app:build:production"
             },
             "development": {
-              "buildTarget": "my-project:build:development"
+              "buildTarget": "upgrade-app:build:development"
             }
           },
           "defaultConfiguration": "development"
