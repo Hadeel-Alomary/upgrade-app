@@ -1,0 +1,352 @@
+/* dropdown */
+
+.app .dropdown-menu {
+    background-color: #f0f0f0;
+    border-color: #aeaeae;
+}
+
+.arabic .app .dropdown-menu:not(.typeahead-dropdown-menu) {
+    right: 0;
+    left: auto !important;
+}
+.english .app .dropdown-menu:not(.typeahead-dropdown-menu) {
+    right: auto !important;
+    left: 0;
+}
+
+.arabic .app .dropdown-menu.full-width-dropdown-menu,
+.english .app .dropdown-menu.full-width-dropdown-menu {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100%;
+}
+
+.app .dropdown div,
+.app .dropdown span,
+.app .dropdown div:hover,
+.app .dropdown span:hover,
+.app .dropdown-menu div,
+.app .dropdown-menu span,
+.app .dropdown-menu div:hover,
+.app .dropdown-menu span:hover {
+    cursor: default;
+}
+
+.app .dropdown-menu li.menuitem{
+    display: flex;
+    align-items: center;
+    background: none;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #f0f0f0;
+    white-space: nowrap;
+}
+
+.mobile .app .dropdown-menu li.menuitem{
+    padding: 2px 5px;
+    margin: 2px 5px;
+}
+
+.arabic .app .dropdown-menu li.menuitem{
+    direction: rtl;
+    text-align: right;
+}
+
+.english .app .dropdown-menu li.menuitem{
+    direction: ltr;
+    text-align: left;
+    font-weight: normal;
+}
+
+.app .dropdown-menu li.menuitem {
+    color: black;
+}
+
+.app .dropdown-menu li.menuitem:hover {
+    border: 1px solid var(--button-border-color-hover);
+    border-radius: 5px;
+    background-color: white !important;
+}
+
+.app .dropdown-menu li.menuitem > *{
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+}
+
+.arabic .app .dropdown-menu li.menuitem > * {
+    margin-right: 9px;
+}
+
+.english .app .dropdown-menu li.menuitem > * {
+    margin-left: 9px;
+}
+
+.app .dropdown-menu li.menuitem.inactive {
+    color: #999;
+}
+
+.app .dropdown-menu li.menuitem.inactive:hover{
+    border: 1px solid transparent;
+    background-color: transparent !important;
+}
+
+/* common dropdown icon */
+
+.app .dropdown-menu li.menuitem.icon:before {
+    width: 16px;
+    height: 16px;
+    content:"";
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+.app .dropdown-menu li.menuitem.icon:before {
+    background-position:center center;
+}
+
+
+.app .dropdown-menu li.menuitem.icon.tick:before {
+    background-image: url('~img/my-drawings-tick.png');
+}
+
+.app .dropdown-menu li.menuitem.inactive:before {
+    opacity: 0.5;
+}
+
+.app .dropdown-menu li.menuitem.column-properties:before {
+    background-image: url('~img/columns-marketwatch-menu-column-columns-update.png');
+}
+
+.arabic .app .dropdown-menu li.menuitem.icon.tick,
+.arabic .app .dropdown-menu li.menuitem.column-properties{
+    background-position: center right 3px;
+}
+
+.english .app .dropdown-menu li.menuitem.icon.tick,
+.english .app .dropdown-menu li.menuitem.column-properties{
+    background-position: center left 3px;
+}
+
+/* sub-menu */
+/* Based on http://stackoverflow.com/questions/18023493/bootstrap-3-dropdown-sub-menu-missing */
+.app .dropdown-submenu {
+    position:relative;
+}
+.app .dropdown-submenu > .dropdown-menu {
+    top:0;
+    margin-top:-10px;
+}
+
+.arabic .app .dropdown-submenu > .dropdown-menu {
+    margin-right:8px;
+}
+
+.english .app .dropdown-submenu > .dropdown-menu {
+    margin-left: 8px;
+}
+
+.app .dropdown-submenu.expand > .dropdown-menu {
+    display:block;
+}
+
+.app .dropdown-submenu:after {
+    display:block;
+    content:" ";
+    width:0;
+    height:0;
+    border-color:transparent;
+    border-style:solid;
+    position:absolute;
+    top: 8px;
+}
+
+.mobile .app .dropdown-submenu:after {
+    top: 6px;
+}
+
+.arabic .dropdown-submenu:after{
+    left: 3px;
+    border-width:5px 5px 5px 0px;
+    border-right-color:#888;
+}
+
+.english .dropdown-submenu:after{
+    right: 3px;
+    border-width: 5px 0 5px 5px;
+    border-left-color:#888;
+}
+
+.arabic .app .dropdown-submenu:hover:after {
+    border-right-color:#000;
+}
+
+.english .app .dropdown-submenu:hover:after {
+    border-left-color:#000;
+}
+
+.app .dropdown.static {
+    position: static;
+}
+
+/* context-menu (which is actually a dropdown) */
+.arabic .app .dropdown-menu.context-menu{
+    left: auto;
+}
+
+.mobile.arabic .app .dropdown-menu.context-menu {
+    max-width: 300px;
+}
+
+.english .app .dropdown-menu.context-menu {
+    right: auto;
+}
+
+.app .dropdown-menu.context-menu.open {
+    display: block;
+}
+
+.arabic .app .dropdown-menu.context-menu li.menuitem{
+    background-position: right 5px center;
+}
+
+.english .app .dropdown-menu.context-menu li.menuitem{
+    background-position: left 5px center;
+}
+
+/* context-menu > menu-title */
+.app .dropdown-menu.context-menu li.menuitem.menu-title {
+    border-bottom: 1px solid slategrey;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.arabic .app .dropdown-menu.context-menu li.menuitem.menu-title {
+    padding-right: 5px;
+}
+
+.mobile.arabic .app .dropdown-menu.context-menu li.menuitem.menu-title {
+    white-space: pre-wrap;
+}
+
+.english .app .dropdown-menu.context-menu li.menuitem.menu-title {
+    padding-left: 5px;
+}
+
+.app .dropdown-menu.context-menu li.menuitem.menu-title:hover {
+    border: 1px solid transparent;
+    border-radius: 0px;
+    border-bottom: 1px solid slategrey;
+    background-color: transparent !important;
+}
+
+
+/* dropdown divider */
+.app .dropdown-menu .divider {
+    background-color: silver;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+/* dynamic dropdown menu */
+.app .dynamic-dropdown .dynamic-dropdown-menu-elements{
+    min-width: 39px;
+}
+
+/* scrollable dropdown menu */
+
+.app .dropdown-menu.scrollable{
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+.app .dropdown-menu.scrollable::-webkit-scrollbar {
+    width: 5px;
+}
+
+.app .dropdown-menu.scrollable::-webkit-scrollbar-thumb {
+    background: lightgrey;
+    border-radius: 2px;
+}
+
+.app .dropdown-menu.scrollable::-webkit-scrollbar-thumb:hover{
+    background: darkgray;
+}
+
+.app .dropdown-menu.scrollable::-webkit-scrollbar-track {
+    background-color: inherit;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* Font family */
+
+.arabic .app .dropdown-menu.context-menu li.menuitem.menu-title > div {
+    font-family: DroidArabicKufi-Bold;
+    font-weight: bold; /*affect if name in english*/
+}
+
+.english .app .dropdown-menu.context-menu li.menuitem.menu-title > div{
+    font-family: Tahoma Black;
+}
+
+
+/* dark theme */
+
+.dark .app .dropdown-menu,
+.dark .bootstrap-select.btn-group .dropdown-menu,
+.dark .chart-tooltip-container table {
+    background-color: #444;
+    border-color: #777;
+    box-shadow: none;
+}
+
+.dark .app .dropdown-menu li.menuitem,
+.dark .app .typeahead li,
+.dark .app .typeahead li a,
+.dark .dropdown-menu > li > a,
+.dark .chart-tooltip-container td {
+    color: white;
+    border-color: transparent;
+}
+
+.dark .app .dropdown-menu li.menuitem:hover {
+    background-color: #333 !important;
+    border-color: #666;
+}
+
+.dark.arabic .app .dropdown-submenu:hover:after {
+    border-right-color: #fff;
+}
+
+.dark.english .app .dropdown-submenu:hover:after {
+    border-left-color: #fff;
+}
+
+.dark .app .dropdown-menu .divider {
+    background-color: #777;
+}
+
+
+.dark .app .dropdown-menu:not(.typeahead-dropdown-menu) {
+    color: white;
+}
+
+.dark .app .dropdown-menu.context-menu li.menuitem.menu-title,
+.dark .app .dropdown-menu.context-menu li.menuitem.menu-title:hover {
+    border-bottom-color: cadetblue;
+    color: lightgrey;
+}
+
+.dark .app .dropdown-menu li.menuitem.inactive {
+    color: #999;
+}
+
+.dark .app .dropdown-menu li.menuitem.inactive:hover {
+    background-color: transparent !important;
+    border-color: transparent;
+}
+
+.dark .app .dropdown-menu.scrollable::-webkit-scrollbar {
+    background-color: #313131;
+}

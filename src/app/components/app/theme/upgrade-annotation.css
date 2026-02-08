@@ -1,0 +1,81 @@
+.upgrade-annotation-tooltip.tooltip-container {
+    display: inline-block;
+    position: absolute;
+    background-color: #dbdbdb;
+    color: #000;
+    z-index: 1000;
+    cursor: auto;
+    margin-top: 15px;
+    line-height: normal;
+}
+
+.upgrade-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.upgrade-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: linear-gradient(#f5f5f5, #d0d0d0);
+    border: 1px solid #999999;
+    color: gray;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.upgrade-icon:hover {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.25),  0 0 6px rgba(0, 0, 0, 0.12);
+}
+
+.dark .upgrade-icon {
+    background: linear-gradient(#424242, #262626);
+    border: 1px solid #6e6e6e;
+    color: darkgray;
+}
+
+.dark .upgrade-icon:hover {
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.4), 0 0 6px rgba(255, 255, 255, 0.25);
+}
+
+.upgrade-annotation-tooltip {
+    padding: 5px;
+    direction: rtl;
+    font-size: 1.2rem;
+    text-align: right;
+}
+
+.english .upgrade-annotation-tooltip {
+    text-align: left;
+    direction: inherit;
+}
+
+.upgrade-annotation-tooltip div:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+.upgrade-annotation-tooltip .upgrade-link {
+    margin-top: 5px;
+}
+
+.upgrade-annotation-tooltip a {
+    color: #4169ae;
+    font-size: 1.3rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.upgrade-annotation-tooltip a:focus {
+    text-decoration: none;
+}
+
+.dark .upgrade-annotation-tooltip a {
+    color: #4cb4db;
+}

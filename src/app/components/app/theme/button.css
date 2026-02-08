@@ -1,0 +1,392 @@
+
+/* change hover for default button */
+.app .btn-default:hover,
+.app .btn-default:focus,
+.app .btn-default:active,
+.app .btn-default.active {
+    color: #333;
+    background-color: #fafafa;
+    border-color: #777;
+}
+
+body .app .btn span:hover {
+    cursor: pointer;
+}
+
+/* btn purple */
+.btn-purple {
+  color: #ffffff; 
+  background-color: #611BBD; 
+} 
+ 
+.btn-purple:hover, 
+.btn-purple:focus, 
+.btn-purple:active, 
+.btn-purple.active, 
+.open .dropdown-toggle.btn-purple { 
+  color: #ffffff; 
+  background-color: #49247A; 
+} 
+ 
+.btn-purple:active, 
+.btn-purple.active, 
+.open .dropdown-toggle.btn-purple { 
+  background-image: none; 
+} 
+ 
+.btn-purple.disabled, 
+.btn-purple[disabled], 
+fieldset[disabled] .btn-purple, 
+.btn-purple.disabled:hover, 
+.btn-purple[disabled]:hover, 
+fieldset[disabled] .btn-purple:hover, 
+.btn-purple.disabled:focus, 
+.btn-purple[disabled]:focus, 
+fieldset[disabled] .btn-purple:focus, 
+.btn-purple.disabled:active, 
+.btn-purple[disabled]:active, 
+fieldset[disabled] .btn-purple:active, 
+.btn-purple.disabled.active, 
+.btn-purple[disabled].active, 
+fieldset[disabled] .btn-purple.active { 
+  background-color: #611BBD; 
+} 
+
+
+/* antiquewhite */
+
+.btn-antiquewhite { 
+  color: #000; 
+  background-color: antiquewhite;
+  border-color: darkgoldenrod;
+} 
+ 
+.btn-antiquewhite:hover, 
+.btn-antiquewhite:focus, 
+.btn-antiquewhite:active, 
+.btn-antiquewhite.active, 
+.open .dropdown-toggle.btn-antiquewhite { 
+  color: #000; 
+  background-color: bisque; 
+} 
+ 
+.btn-antiquewhite:active, 
+.btn-antiquewhite.active, 
+.open .dropdown-toggle.btn-antiquewhite { 
+  background-image: none; 
+} 
+ 
+.btn-antiquewhite.disabled, 
+.btn-antiquewhite[disabled], 
+fieldset[disabled] .btn-antiquewhite, 
+.btn-antiquewhite.disabled:hover, 
+.btn-antiquewhite[disabled]:hover, 
+fieldset[disabled] .btn-antiquewhite:hover, 
+.btn-antiquewhite.disabled:focus, 
+.btn-antiquewhite[disabled]:focus, 
+fieldset[disabled] .btn-antiquewhite:focus, 
+.btn-antiquewhite.disabled:active, 
+.btn-antiquewhite[disabled]:active, 
+fieldset[disabled] .btn-antiquewhite:active, 
+.btn-antiquewhite.disabled.active, 
+.btn-antiquewhite[disabled].active, 
+fieldset[disabled] .btn-antiquewhite.active { 
+  background-color: antiquewhite; 
+} 
+
+/* tomato */
+.btn-tomato { 
+  color: #ffffff; 
+  background-color: tomato; 
+} 
+ 
+.btn-tomato:hover, 
+.btn-tomato:focus, 
+.btn-tomato:active, 
+.btn-tomato.active, 
+.open .dropdown-toggle.btn-tomato { 
+  color: #ffffff; 
+  background-color: orangered; 
+} 
+ 
+.btn-tomato:active, 
+.btn-tomato.active, 
+.open .dropdown-toggle.btn-tomato { 
+  background-image: none; 
+} 
+ 
+.btn-tomato.disabled, 
+.btn-tomato[disabled], 
+fieldset[disabled] .btn-tomato, 
+.btn-tomato.disabled:hover, 
+.btn-tomato[disabled]:hover, 
+fieldset[disabled] .btn-tomato:hover, 
+.btn-tomato.disabled:focus, 
+.btn-tomato[disabled]:focus, 
+fieldset[disabled] .btn-tomato:focus, 
+.btn-tomato.disabled:active, 
+.btn-tomato[disabled]:active, 
+fieldset[disabled] .btn-tomato:active, 
+.btn-tomato.disabled.active, 
+.btn-tomato[disabled].active, 
+fieldset[disabled] .btn-tomato.active { 
+  background-color: tomato; 
+} 
+
+/* slategray */
+.btn-slategray { 
+  color: #ffffff; 
+  background-color: slategray; 
+} 
+ 
+.btn-slategray:hover, 
+.btn-slategray:focus, 
+.btn-slategray:active, 
+.btn-slategray.active, 
+.open .dropdown-toggle.btn-slategray { 
+  color: #ffffff; 
+  background-color: #405060; 
+} 
+ 
+.btn-slategray:active, 
+.btn-slategray.active, 
+.open .dropdown-toggle.btn-slategray { 
+  background-image: none; 
+} 
+ 
+.btn-slategray.disabled, 
+.btn-slategray[disabled], 
+fieldset[disabled] .btn-slategray, 
+.btn-slategray.disabled:hover, 
+.btn-slategray[disabled]:hover, 
+fieldset[disabled] .btn-slategray:hover, 
+.btn-slategray.disabled:focus, 
+.btn-slategray[disabled]:focus, 
+fieldset[disabled] .btn-slategray:focus, 
+.btn-slategray.disabled:active, 
+.btn-slategray[disabled]:active, 
+fieldset[disabled] .btn-slategray:active, 
+.btn-slategray.disabled.active, 
+.btn-slategray[disabled].active, 
+fieldset[disabled] .btn-slategray.active { 
+  background-color: slategray; 
+} 
+ 
+
+
+/* slateblue */
+.btn-slateblue { 
+  color: #ffffff; 
+  background-color: slateblue; 
+} 
+ 
+.btn-slateblue:hover, 
+.btn-slateblue:focus, 
+.btn-slateblue:active, 
+.btn-slateblue.active, 
+.open .dropdown-toggle.btn-slateblue { 
+  color: #ffffff; 
+  background-color: blueviolet; 
+} 
+ 
+.btn-slateblue:active, 
+.btn-slateblue.active, 
+.open .dropdown-toggle.btn-slateblue { 
+  background-image: none; 
+} 
+ 
+.btn-slateblue.disabled, 
+.btn-slateblue[disabled], 
+fieldset[disabled] .btn-slateblue, 
+.btn-slateblue.disabled:hover, 
+.btn-slateblue[disabled]:hover, 
+fieldset[disabled] .btn-slateblue:hover, 
+.btn-slateblue.disabled:focus, 
+.btn-slateblue[disabled]:focus, 
+fieldset[disabled] .btn-slateblue:focus, 
+.btn-slateblue.disabled:active, 
+.btn-slateblue[disabled]:active, 
+fieldset[disabled] .btn-slateblue:active, 
+.btn-slateblue.disabled.active, 
+.btn-slateblue[disabled].active, 
+fieldset[disabled] .btn-slateblue.active { 
+  background-color: slateblue; 
+}
+
+
+/* darkred */
+.btn-darkred {
+    color: #ffffff;
+    background-color: #990000;
+}
+
+.btn-darkred:hover,
+.btn-darkred:focus,
+.btn-darkred:active,
+.btn-darkred.active,
+.open .dropdown-toggle.btn-darkred {
+    color: #ffffff;
+    background-color: #cc0909;
+}
+
+.btn-darkred:active,
+.btn-darkred.active,
+.open .dropdown-toggle.btn-darkred {
+    background-image: none;
+}
+
+.btn-darkred.disabled,
+.btn-darkred[disabled],
+fieldset[disabled] .btn-darkred,
+.btn-darkred.disabled:hover,
+.btn-darkred[disabled]:hover,
+fieldset[disabled] .btn-darkred:hover,
+.btn-darkred.disabled:focus,
+.btn-darkred[disabled]:focus,
+fieldset[disabled] .btn-darkred:focus,
+.btn-darkred.disabled:active,
+.btn-darkred[disabled]:active,
+fieldset[disabled] .btn-darkred:active,
+.btn-darkred.disabled.active,
+.btn-darkred[disabled].active,
+fieldset[disabled] .btn-darkred.active {
+    background-color: #990000;
+}
+
+
+/* darkgreen */
+.btn-darkgreen {
+    color: #ffffff;
+    background-color: #008c4a;
+}
+
+.btn-darkgreen:hover,
+.btn-darkgreen:focus,
+.btn-darkgreen:active,
+.btn-darkgreen.active,
+.open .dropdown-toggle.btn-darkgreen {
+    color: #ffffff;
+    background-color:#156000;
+}
+
+.btn-darkgreen:active,
+.btn-darkgreen.active,
+.open .dropdown-toggle.btn-darkgreen {
+    background-image: none;
+}
+
+.btn-darkgreen.disabled,
+.btn-darkgreen[disabled],
+fieldset[disabled] .btn-darkgreen,
+.btn-darkgreen.disabled:hover,
+.btn-darkgreen[disabled]:hover,
+fieldset[disabled] .btn-darkgreen:hover,
+.btn-darkgreen.disabled:focus,
+.btn-darkgreen[disabled]:focus,
+fieldset[disabled] .btn-darkgreen:focus,
+.btn-darkgreen.disabled:active,
+.btn-darkgreen[disabled]:active,
+fieldset[disabled] .btn-darkgreen:active,
+.btn-darkgreen.disabled.active,
+.btn-darkgreen[disabled].active,
+fieldset[disabled] .btn-darkgreen.active {
+    background-color: #008c4a;
+}
+
+
+/* dark theme */
+
+.dark .btn:focus {
+    outline: 0;
+}
+
+.dark .btn-primary {
+    background-color: steelblue;
+    border-color: steelblue;
+}
+
+.dark .btn-primary:hover,
+.dark .btn-primary:focus,
+.dark .btn-primary:active{
+    background-color: #2c6292;
+    border-color: #2c6292;
+}
+
+.dark .btn-tomato {
+    background-color: #a54938;
+}
+
+.dark .btn-tomato:hover,
+.dark .btn-tomato:focus,
+.dark .btn-tomato:active {
+    background-color: #862f1f;
+}
+
+.dark .btn-purple {
+    background-color: #6d568c;
+}
+
+.dark .btn-purple:hover,
+.dark .btn-purple:focus,
+.dark .btn-purple:active {
+    background-color: rebeccapurple;
+}
+
+.dark .btn {
+    color: white;
+}
+
+.dark .btn:hover {
+    color: white;
+}
+
+.dark .btn-default:not(.btn-info):not(.btn-success) {
+    background-color: #444;
+    border-color: #666;
+    color: white;
+}
+
+.dark .btn-default:not(.btn-info):not(.btn-success):hover,
+.dark .btn-default:not(.btn-info):not(.btn-success):focus,
+.dark .btn-default:not(.btn-info):not(.btn-success):active{
+    background-color: #333;
+    border-color: #666;
+}
+
+.dark .btn-antiquewhite {
+    background-color: darkgoldenrod;
+}
+
+.dark .btn-antiquewhite:hover {
+    background-color: goldenrod;
+    border-color: goldenrod;
+}
+
+.dark .btn-danger {
+    background-color: indianred;
+    border-color: indianred;
+}
+
+.dark .btn-danger:hover {
+    background-color: #dc3434;
+    border-color: #dc3434;
+}
+
+.dark .btn-darkgreen:hover {
+    background-color: #079e57;
+}
+
+.dark .btn-darkred:hover {
+    background-color: #b50000;
+}
+
+
+.dark .btn-success {
+    background-color: #3e8e3e;
+    border-color: #3e8e3e;
+}
+
+.dark .btn-success:hover {
+    background-color: #327132;
+    border-color: #327132;
+}

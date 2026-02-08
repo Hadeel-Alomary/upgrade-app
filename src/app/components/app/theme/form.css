@@ -1,0 +1,177 @@
+/* form general */
+
+.app form .btn {
+    min-width: 100px;
+}
+
+.app form .form-control {
+    height: 30px;
+    border: 1px solid #8e8e8e;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+
+.app form .form-label {
+    font-size: 1.6rem;
+    color: steelblue;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+
+/* form radio/checkbox right-to-left */
+
+.arabic .app form .radio label,
+.arabic .app form .checkbox label {
+    padding-right: 20px;
+    padding-left: 0;
+}
+
+.english .app form .radio label,
+.english .app form .checkbox label {
+    padding-left: 20px;
+    padding-right: 0;
+}
+
+.arabic .app form .radio input[type=radio],
+.arabic .app form .radio-inline input[type=radio],
+.arabic .app form .checkbox input[type=checkbox],
+.arabic .app form .checkbox-inline input[type=checkbox] {
+    margin-right: -20px;
+    margin-left: 0;
+}
+
+.english .app form .radio input[type=radio],
+.english .app form .radio-inline input[type=radio],
+.english .app form .checkbox input[type=checkbox],
+.english .app form .checkbox-inline input[type=checkbox] {
+    margin-left: -20px;
+    margin-right: 0;
+}
+
+/* form-horizontal */
+.arabic .app .form-horizontal {
+    text-align: right;
+}
+
+.english .app .form-horizontal {
+    text-align: left;
+}
+
+.app .form-group {
+    margin-bottom: 10px;
+}
+
+.arabic .app  .form-horizontal .form-group > * {
+    float:right;
+}
+
+.english .app  .form-horizontal .form-group > * {
+    float:left;
+}
+
+.arabic .app  .form-horizontal .form-group .col-sm-offset-3,
+.arabic .app  .form-horizontal .form-group .col-xs-offset-3 {
+    margin-left: 0;
+    margin-right: 25%;
+}
+
+.english .app  .form-horizontal .form-group .col-sm-offset-3,
+.english .app  .form-horizontal .form-group .col-xs-offset-3 {
+    margin-left: 25%;
+    margin-right: 0;
+}
+
+.arabic .form-horizontal .control-label{
+    text-align: right;
+}
+
+.english .form-horizontal .control-label {
+    text-align: left;
+}
+
+/* disabled */
+
+.app form select.form-control:disabled {
+    background-color: #ebebe4;
+    color: #999;
+    border-color: #aaa;
+}
+
+/* MA if field is disabled to show readonly data, then next styling will emphasis the displayed data and not */
+/* keep it dimmed as in the default disabled field */
+.app form .form-control.readonly-data:disabled,
+.app form select.form-control.readonly-data:disabled {
+    background-color: #eee;
+    color: #333;
+    border-color: #8e8e8e;
+}
+
+
+
+/* form typeahead */
+
+.app form .symbol-selector.typeahead {
+    margin-right: 0;
+    margin-left: 0;
+    height: 30px;
+    position: relative;
+}
+
+.app form .symbol-selector.typeahead .search-icon {
+    margin: 5px 3px 0 5px;
+}
+
+.app form .symbol-selector.typeahead input {
+    background-color: white;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+
+/* validation error messages */
+
+.app form .tickerchart-validation-error-message{
+    padding: 5px 0 0 0 ;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* Font family */
+
+.arabic .app form .form-label {
+    font-family: DroidArabicKufi-Bold;
+}
+
+.english .app form .form-label {
+    font-family: Tahoma Black;
+}
+
+.mobile .form-horizontal .control-label {
+    padding-top: 7px;
+    margin-bottom: 0;
+}
+
+/* dark theme */
+
+.dark .app form .form-label {
+    color: lightskyblue;
+}
+
+.dark .form-control[disabled],
+.dark .form-control[readonly],
+.dark fieldset[disabled] .form-control {
+    background-color: #444;
+}
+
+
+.dark .app form .form-control.readonly-data:disabled,
+.dark .app form select.form-control.readonly-data:disabled {
+    background-color: #444;
+    color: #ccc;
+}

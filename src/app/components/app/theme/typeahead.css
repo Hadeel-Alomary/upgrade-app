@@ -1,0 +1,51 @@
+:root {
+    --typeahead-width: 225px;
+}
+
+.app .typeahead {
+    display: flex;
+}
+
+.arabic .app .typeahead li {
+    text-align: right;
+}
+
+.english .app .typeahead li {
+    text-align: left;
+}
+
+.app .typeahead li {
+    background: none;
+    border: 1px solid #f0f0f0;
+    white-space: nowrap;
+}
+
+.app .typeahead li > a {
+    font-size: 1.2rem;
+    padding: 3px 5px;
+    overflow:hidden;
+}
+
+/* dropdown is going to match the size of the typeahead input field as long as it is larger than the minimum width */
+.app .typeahead .dropdown-menu {
+    min-width: var(--typeahead-width);
+}
+
+.app .typeahead input {
+    background-color: var(--button-back-color-hover);
+    display: inline-block;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    border-radius: 0px;
+    height: 100%;
+    vertical-align: middle;
+    box-shadow:none;
+    font-size: 1.3rem;
+}
+
+.app .typeahead input:focus {
+    outline: 0px;
+}
+
