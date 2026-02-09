@@ -4,7 +4,7 @@ const ReplaceInFileWebpackPlugin = require('replace-in-file-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const { SourceMapDevToolPlugin, DefinePlugin } = require('webpack');
 const common = require('./webpack.common.js');
-const { getOutputFolder, getCleanPlugin } = require('./i18n-helper');
+const { getOutputFolder, getCleanPlugin ,getPublicPath} = require('./i18n-helper');
 const fs = require('fs');
 
 const entryPoints = ['inline', 'polyfills', 'styles', 'main'];
@@ -36,6 +36,14 @@ module.exports = (env) => {
         compile: true,
         minify: false,
         chunks: 'all',
+        excludeChunks: [],
+        cache: false,
+        favicon: false,
+        showErrors: true,
+        buildLanguage: env.locale,
+        scriptBundleUrl: env.locale === "en" ? "/app/en/scripts.bundle.js" : "./scripts.bundle.js",
+        title: env.locale === "en" ? "TickerChart Net" : "تكرتشارت نت",
+        xhtml: true,
         chunksSortMode: (left, right) => {
           const leftIndex = entryPoints.indexOf(left.name);
           const rightIndex = entryPoints.indexOf(right.name);
