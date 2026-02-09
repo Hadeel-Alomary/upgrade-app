@@ -1,39 +1,13 @@
 import {Component, signal, ViewEncapsulation} from '@angular/core';
-import {CommonModule, NgComponentOutlet, NgIf} from '@angular/common';
+import {CommonModule, NgIf} from '@angular/common';
 import {AppComponent} from './app.component';
 
 @Component({
   selector: 'app-index',
   standalone: true,
-  imports: [NgIf ,CommonModule,NgComponentOutlet, AppComponent],
-  template: `
-    <div class="loading-app" *ngIf="loading()">
-      <div class="loading-container">
-        <div>Loading ... </div>
-      </div>
-    </div>
-
-    <div *ngIf="!loading()" class="app-content">
-      <h1>{{ title() }}</h1>
-      <app-root></app-root>
-    </div>
-  `,
-  styleUrls: ['./index.component.css',
-    './theme/vars.css',
-    './theme/font.css',
-    './theme/grid.css',
-    './theme/dropdown.css',
-    './theme/typeahead.css',
-    './theme/tooltip.css',
-    './theme/popover.css',
-    './theme/modal.css',
-    './theme/global.css',
-    './theme/form.css',
-    './theme/button.css',
-    './theme/annotation-delayed.css',
-    './theme/flag-annotation.css',
-    './theme/upgrade-annotation.css',
-    './theme/app-mode-themes/derayah.css'],
+  imports: [NgIf ,CommonModule, AppComponent],
+  templateUrl:'./index.component.html',
+  styleUrls: ['./index.component.css'],
   encapsulation: ViewEncapsulation.None
 })
 export class IndexComponent {
