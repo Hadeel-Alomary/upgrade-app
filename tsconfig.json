@@ -15,8 +15,11 @@
     "target": "ES2022",
     "module": "preserve"
   },
+  "paths": {
+    "@angular/*": ["../node_modules/@angular/*"]
+  },
   "typeRoots": [
-    "./src/typings"
+    "./src/typings","node_modules/@types"
   ],
   "types": [
     "node",
@@ -49,6 +52,11 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts",
+    "./e2e/*.ts"
+  ],
   "files": [],
   "references": [
     {

@@ -1,4 +1,3 @@
-const { merge } = require('webpack-merge');
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { IgnorePlugin } = require('webpack');
@@ -109,9 +108,15 @@ module.exports = {
     new IgnorePlugin({ resourceRegExp: /^\.\/locale$/, contextRegExp: /moment$/ }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: 'src/touch-icon-iphone.png', to: '../', globOptions: { dot: true } }
+        // { from: 'src/assets', to: '../', globOptions: { dot: true, ignore: ['.gitkeep', '**/.DS_Store', '**/Thumbs.db'] } },
+        { from: 'src/touch-icon-iphone.png', to: '../', globOptions: { dot: true } },
+        // { from: 'src/static/vendor', to: '../', globOptions: { dot: true } }
+        {from: 'src/static/font', to: '../static/font'},
+        {from: 'src/static/img', to: '../static/img'}
       ]
     })
   ],
-  experiments: { topLevelAwait: true }
+  node: {
+    global: true
+  }
 };
