@@ -1,6 +1,7 @@
 import {Directive, ElementRef, HostListener} from '@angular/core';
 
 @Directive({
+    standalone:true,
     selector: '[leading-zero-trimmer]'
 })
 

@@ -12,7 +12,7 @@ export class Config {
     }
 
     static getVersion():string {
-        return _g_version;
+        return '0.0.0';
     }
 
     static initElementRunType() {

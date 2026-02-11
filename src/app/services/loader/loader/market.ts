@@ -1,8 +1,9 @@
 import {Tc} from '../../../utils/index';
 
-const find = require("lodash/find");
-const map = require("lodash/map");
-const sortBy = require("lodash/sortBy");
+
+import find from 'lodash/find';
+import map from 'lodash/map';
+import sortBy from 'lodash/sortBy';
 
 export interface Company {
     id: number,

@@ -1,7 +1,7 @@
 import {TcUrlUtils} from "./tc.url.utils";
 import {EnumUtils} from "./enum.utils";
-
-const cloneDeep = require("lodash/cloneDeep");
+import cloneDeep from 'lodash/cloneDeep';
+// const cloneDeep = require("lodash/cloneDeep");
 
 export class Tc {
 

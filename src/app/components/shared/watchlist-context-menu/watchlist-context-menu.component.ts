@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEnc
 import {GridBoxType} from '../grid-box';
 import {AbstractAlert, Accessor, ChannelRequestType, NormalAlert, Watchlist, WatchlistType} from '../../../services';
 import {FeatureType} from '../../../services/auhtorization/feature';
-import {AlertChannelRequest, AlertChannelRequestCaller, ConfirmationCaller, ConfirmationRequest, NewWatchlistCaller, NewWatchlistRequest} from '../../modals';
+// import {AlertChannelRequest, AlertChannelRequestCaller, ConfirmationCaller, ConfirmationRequest, NewWatchlistCaller, NewWatchlistRequest} from '../../modals';
 import {TradingContextMenuComponent} from '../trading-context-menu';
 import {BoxContextMenuComponent} from '../box-context-menu/box-context-menu.component';
 import {ContextMenuDirective} from '../context-menu/context-menu.directive';
@@ -18,7 +18,7 @@ import {NgIf, NgIfContext} from '@angular/common';
     imports:[TradingContextMenuComponent,BoxContextMenuComponent,ContextMenuDirective,NgIf]
 })
 
-export class WatchlistContextMenuComponent  implements  AlertChannelRequestCaller , NewWatchlistCaller , ConfirmationCaller  {
+export class WatchlistContextMenuComponent  {
 
     @Input() canRemoveCompany:boolean = true;
     @Input()  isToolbarShown: boolean;
@@ -53,12 +53,12 @@ export class WatchlistContextMenuComponent  implements  AlertChannelRequestCalle
     public onNewAlert() {
         this.accessor.authorizationService.authorize(FeatureType.ALERT, () => {
             let company = this.accessor.marketsManager.getCompanyBySymbol(this.contextMenuData.symbol);
-            let channelRequest: AlertChannelRequest = {
-                type: ChannelRequestType.Alert,
-                caller: this,
-                alert: NormalAlert.createNewAlert(this.accessor.languageService.arabic ? 'arabic' : 'english', company)
-            };
-            this.accessor.sharedChannel.request(channelRequest);
+            // let channelRequest: AlertChannelRequest = {
+            //     type: ChannelRequestType.Alert,
+            //     caller: this,
+            //     alert: NormalAlert.createNewAlert(this.accessor.languageService.arabic ? 'arabic' : 'english', company)
+            // };
+            // this.accessor.sharedChannel.request(channelRequest);
         })
     }
 
@@ -89,14 +89,14 @@ export class WatchlistContextMenuComponent  implements  AlertChannelRequestCalle
             return;
         }
         let symbol = this.contextMenuData.symbol;
-        let newWatchlistRequest:NewWatchlistRequest = {type: ChannelRequestType.NewWatchlist, caller: this, symbols:[symbol]};
-        this.accessor.sharedChannel.request(newWatchlistRequest);
+        // let newWatchlistRequest:NewWatchlistRequest = {type: ChannelRequestType.NewWatchlist, caller: this, symbols:[symbol]};
+        // this.accessor.sharedChannel.request(newWatchlistRequest);
     }
 
     onWatchlistCreated(watchlist:Watchlist) {
         let message:string = this.accessor.languageService.translate("هل تريد عرض لائحة أسهمي الجديدة؟");
-        let confirmationRequest:ConfirmationRequest = {type: ChannelRequestType.Confirmation, messageLine: message, param: watchlist, caller: this};
-        this.accessor.sharedChannel.request(confirmationRequest);
+        // let confirmationRequest:ConfirmationRequest = {type: ChannelRequestType.Confirmation, messageLine: message, param: watchlist, caller: this};
+        // this.accessor.sharedChannel.request(confirmationRequest);
     }
 
     onConfirmation(confirmed:boolean, param:unknown){
@@ -109,8 +109,8 @@ export class WatchlistContextMenuComponent  implements  AlertChannelRequestCalle
                 let symbols = this.getWatchListSymbols();
                 let removedSymbol = this.contextMenuData.symbol;
                 symbols.splice(symbols.indexOf(removedSymbol), 1);
-                let newWatchlistRequest:NewWatchlistRequest = {type: ChannelRequestType.NewWatchlist, caller: this, symbols: symbols};
-                this.accessor.sharedChannel.request(newWatchlistRequest);
+                // let newWatchlistRequest:NewWatchlistRequest = {type: ChannelRequestType.NewWatchlist, caller: this, symbols: symbols};
+                // this.accessor.sharedChannel.request(newWatchlistRequest);
             }
         }
     }
@@ -120,8 +120,8 @@ export class WatchlistContextMenuComponent  implements  AlertChannelRequestCalle
         if(this.watchlist.type != WatchlistType.UserDefined) {
             let line1:string = this.accessor.languageService.translate("يمكنك الاضافة أو الحذف من لائحة أسهمي الخاصة بك.");
             let line2:string = this.accessor.languageService.translate("هل تريد إنشاء لائحة أسهمي جديدة؟");
-            let confirmationRequest:ConfirmationRequest = {type: ChannelRequestType.Confirmation, messageLine: line1, messageLine2:line2, caller: this};
-            this.accessor.sharedChannel.request(confirmationRequest);
+            // let confirmationRequest:ConfirmationRequest = {type: ChannelRequestType.Confirmation, messageLine: line1, messageLine2:line2, caller: this};
+            // this.accessor.sharedChannel.request(confirmationRequest);
         } else {
             this.accessor.watchlistService.removeSymbolFromWatchlist(this.watchlist, symbol);
             this.onRefreshSlickGrid.emit();

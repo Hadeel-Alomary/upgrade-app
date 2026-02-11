@@ -8,7 +8,9 @@ import {NotificationMethods} from '../notification';
 // import {IntervalType, TrendLineAlertDrawingDefinition} from 'tc-web-chart-lib';
 import {HostedAlert} from './hosted-alert';
 
-const isEqual = require("lodash/isEqual");
+import isEqual from 'lodash/isEqual';
+
+// const isEqual = require("lodash/isEqual");
 
 export class TrendLineAlert extends HostedAlert {
     constructor(

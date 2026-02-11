@@ -4,7 +4,7 @@ import {Feature, FeatureType} from './feature';
 import {Access, AccessType} from './access-type';
 import {ChannelRequestType} from '../shared-channel/channel-request';
 import {SharedChannel} from '../shared-channel';
-import {UpgradeMessageChannelRequest, UpgradeMessageType} from '../../components/modals/popup/upgrade-message/upgrade-message-channel-request';
+// import {UpgradeMessageChannelRequest, UpgradeMessageType} from '../../components/modals/popup/upgrade-message/upgrade-message-channel-request';
 import {AppTcTracker} from '../../utils';
 import {AppModeAuthorizationService} from './app-mode-authorization';
 // import {ChartLibTechnicalIndicatorType, ChartLibTechnicalDrawingType} from 'tc-web-chart-lib';
@@ -44,7 +44,7 @@ export class AuthorizationService {
               if(isMarketGridBoxInPage || !this.isValidFeatureCount(feature, currentCounter)){
                     //Screens Count Limit is exceeded.
                     isValidFeatureCount = false;
-                    upgradeMessageType = this.getUpgradeMessage(feature);
+                    // upgradeMessageType = this.getUpgradeMessage(feature);
                 } else { //Authorized
                     cb();
                     return true;
@@ -52,24 +52,24 @@ export class AuthorizationService {
             }
         }
 
-        let upgradeMessageRequest: UpgradeMessageChannelRequest = {
-            type : ChannelRequestType.UpgradeMessage,
-            upgradeMessageType: upgradeMessageType,
-            feature: feature,
-            isMarketAuthorized: isMarketAuthorized,
-            isMarketGridBoxIncludedInPages: isMarketGridBoxInPage,
-            isValidFeatureCount: isValidFeatureCount,
-            AllowedFeatureCount: this.getFeatureAllowedCounter(feature),
-        };
-        this.sharedChannel.request(upgradeMessageRequest);
+        // let upgradeMessageRequest: UpgradeMessageChannelRequest = {
+        //     type : ChannelRequestType.UpgradeMessage,
+        //     upgradeMessageType: upgradeMessageType,
+        //     feature: feature,
+        //     isMarketAuthorized: isMarketAuthorized,
+        //     isMarketGridBoxIncludedInPages: isMarketGridBoxInPage,
+        //     isValidFeatureCount: isValidFeatureCount,
+        //     AllowedFeatureCount: this.getFeatureAllowedCounter(feature),
+        // };
+        // this.sharedChannel.request(upgradeMessageRequest);
         return false;
     }
 
     private getUpgradeMessage(feature: Feature){
-        if(this.isRegistered()) {
-            return feature.basicCount > feature.registeredCount ? UpgradeMessageType.BASIC_SUBSCRIPTION: UpgradeMessageType.ADVANCED_SUBSCRIPTION;
-        }
-        return UpgradeMessageType.PROFESSIONAL_SUBSCRIPTION;
+        // if(this.isRegistered()) {
+        //     return feature.basicCount > feature.registeredCount ? UpgradeMessageType.BASIC_SUBSCRIPTION: UpgradeMessageType.ADVANCED_SUBSCRIPTION;
+        // }
+        // return UpgradeMessageType.PROFESSIONAL_SUBSCRIPTION;
     }
 
     private isValidFeatureCount(feature: Feature, currentCounter: number): boolean {

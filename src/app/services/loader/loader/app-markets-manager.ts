@@ -5,7 +5,8 @@ import {MiscStateService} from '../../state/misc/misc-state.service';
 import {MarketsManager} from './markets-manager';
 import {ArrayUtils, MarketUtils} from '../../../utils';
 
-const find = require("lodash/find");
+import find from 'lodash/find';
+// const find = require("lodash/find");
 
 @Injectable()
 export class AppMarketsManager implements MarketsManager {

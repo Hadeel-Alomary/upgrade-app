@@ -55,13 +55,13 @@ export class AppComponent implements OnInit, ChannelRequester {
     if(AppBrowserUtils.isDesktop()) {
       AppTcTracker.trackDevice('desktop');
       // http://stackoverflow.com/questions/9958825/how-do-i-bind-twitter-bootstrap-tooltips-to-dynamically-created-elements
-      $('body').tooltip({
-        selector: '[data-toggle="tooltip"]',
-        container: 'body',
-        placement: (tooltip: HTMLElement, element: HTMLElement) => {
-          // return DomUtils.tooltipPosition(this.languageService.getLanguage(), element);
-        }
-      });
+      // $('body').tooltip({
+      //   selector: '[data-toggle="tooltip"]',
+      //   container: 'body',
+      //   placement: (tooltip: HTMLElement, element: HTMLElement) => {
+      //     // return DomUtils.tooltipPosition(this.languageService.getLanguage(), element);
+      //   }
+      // });
     } else {
       AppTcTracker.trackDevice('mobile');
       if(AppBrowserUtils.isIPhone()) {

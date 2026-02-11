@@ -1,6 +1,6 @@
 export {AutoLinkComponent} from "./auto-link/auto-link.component";
 export {WatchlistSelectorComponent} from "./watchlist/index";
-export {SymbolSelectorComponent} from "./symbol-selector/symbol-selector.component";
+// export {SymbolSelectorComponent} from "./symbol-selector/symbol-selector.component";
 export {ContextMenuDirective} from "./context-menu/context-menu.directive";
 export {SlickGrid, SlickGridHost} from "./slick-grid/slick-grid";
 export {NumberWithStepsComponent} from "./number-with-steps/number-with-steps.component";

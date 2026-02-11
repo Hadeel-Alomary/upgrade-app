@@ -12,8 +12,8 @@ import OnDblClickEventArgs = Slick.OnDblClickEventArgs;
 import OnMouseOverEventArgs = Slick.OnMouseOverEventArgs;
 import OnScrollEventArgs = Slick.OnScrollEventArgs;
 import OnContextMenuEventArgs = Slick.OnContextMenuEventArgs;
-
-const cloneDeep = require("lodash/cloneDeep");
+import cloneDeep from 'lodash/cloneDeep';
+// const cloneDeep = require("lodash/cloneDeep");
 
 export interface SlickGridHost {
     filterGrid(item:SlickData):boolean;

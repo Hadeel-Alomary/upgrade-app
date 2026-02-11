@@ -13,7 +13,8 @@ import {NumberWithStepsComponent} from '../number-with-steps/number-with-steps.c
 import {NgForOf} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 
-const filter = require("lodash/filter");
+import filter from 'lodash/filter';
+// const filter = require("lodash/filter");
 
 @Component({
     standalone:true,

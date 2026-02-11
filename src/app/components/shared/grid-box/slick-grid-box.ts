@@ -1,7 +1,7 @@
 import {ChangeDetectorRef} from "@angular/core";
 import {GridData, SlickGrid, SlickGridHost} from '../slick-grid/slick-grid';
 import {GridBox, GridBoxProperties} from "./grid-box";
-import {GridColumnPropertiesRequest, GridColumnPropertiesCaller} from '../../modals/index';
+// import {GridColumnPropertiesRequest, GridColumnPropertiesCaller} from '../../modals/index';
 import {ChannelRequestType, Accessor, GridColumn} from '../../../services/index';
 import {AppBrowserUtils, Tc} from '../../../utils/index';
 import {ColumnDefinition} from '../../../services/slick-grid/slick-grid-columns.service';
@@ -10,9 +10,10 @@ import {MarketWatchCategory} from '../../marketwatch';
 import {FeatureType} from '../../../services/auhtorization/feature';
 import {GridBoxType} from './grid-box-type';
 
-const remove = require("lodash/remove");
+import remove from 'lodash/remove';
+// const remove = require("lodash/remove");
 
-export abstract class SlickGridBox<T extends GridBoxProperties, D extends GridData> extends GridBox<T> implements SlickGridHost, GridColumnPropertiesCaller {
+export abstract class SlickGridBox<T extends GridBoxProperties, D extends GridData> extends GridBox<T> implements SlickGridHost {
 
     protected slickGrid:SlickGrid<D>;
 
@@ -127,17 +128,17 @@ export abstract class SlickGridBox<T extends GridBoxProperties, D extends GridDa
 
     public onGridColumnProperties() {
         this.accessor.authorizationService.authorize((FeatureType.MARKET_WATCH_COLUMN_SETTINGS),() => {
-            let channelRequest:GridColumnPropertiesRequest =
-                {type: ChannelRequestType.GridColumnProperties,
-                    caller: this,
-                    definitions: this.getColumnDefinitions(),
-                    defaultGridColumns: this.getDefaultColumns().map(c => c.id),
-                    selectedGridColumns: this.slickGridBoxProperties.gridColumns.map(c => c.id),
-                    gridBoxType: this.type,
-                    categories: this.getColumnsCategories(),
-
-                };
-            this.accessor.sharedChannel.request(channelRequest);
+            // let channelRequest:GridColumnPropertiesRequest =
+            //     {type: ChannelRequestType.GridColumnProperties,
+            //         caller: this,
+            //         definitions: this.getColumnDefinitions(),
+            //         defaultGridColumns: this.getDefaultColumns().map(c => c.id),
+            //         selectedGridColumns: this.slickGridBoxProperties.gridColumns.map(c => c.id),
+            //         gridBoxType: this.type,
+            //         categories: this.getColumnsCategories(),
+            //
+            //     };
+            // this.accessor.sharedChannel.request(channelRequest);
         })
 
     }

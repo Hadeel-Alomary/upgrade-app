@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 import {ShareholdersLoaderService} from '../../loader';
 import {CompanyShareholdersDetails, ShareholderChangeDetails, ShareholderCompanyDetails, ShareholdersListDetails} from './shareholders';
-import {of} from 'rxjs/';
+import {of} from 'rxjs';
 import {map} from 'rxjs/operators';
 
 @Injectable()

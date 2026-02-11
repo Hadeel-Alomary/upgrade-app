@@ -7,8 +7,8 @@ import {Streamer} from '../../streaming/streamer';
 import {Tc} from '../../../utils';
 import {TimeAndSaleMessage} from '../../streaming/shared';
 import {TradesSummary} from './trades-summary';
-
-const round = require('lodash/round');
+import round from 'lodash/round';
+// const round = require('lodash/round');
 
 @Injectable()
 export class TradesSummaryService {

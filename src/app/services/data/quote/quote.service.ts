@@ -8,7 +8,7 @@ import {NewsService} from '../news/index';
 import {AnalysisCenterService} from '../analysis-center/index';
 import {Streamer} from "../../streaming/index";
 import {StreamerQuoteUpdater, NewsQuoteUpdater, AlertQuoteUpdater, AnalysisQuoteUpdater, TechnicalIndicatorQuoteUpdater, TechnicalScopeQuoteUpdater} from './quote-updater/index';
-import {MessageBoxRequest} from '../../../components/modals/popup/message-box';
+// import {MessageBoxRequest} from '../../../components/modals/popup/message-box';
 import {ChannelRequestType, SharedChannel} from '../../shared-channel';
 import {LanguageService} from '../../state/language';
 import {TechnicalScopeQuoteService, TechnicalIndicatorQuoteService} from '../technical-indicator';
@@ -214,7 +214,7 @@ export class QuoteService {
     private showExceedMessage(marketName:string): void {
         let message: string = this.languageService.translate('اشتراكك الحالي يدعم متابعة (700) شركة في') + ' ' + marketName;
         let message2:string = this.languageService.translate('الرجاء حذف بعض الشركات الحالية لتتمكن من متابعة شركات أخرى .');
-        let request: MessageBoxRequest = {type: ChannelRequestType.MessageBox, messageLine: message,messageLine2: message2};
-        this.sharedChannel.request(request);
+        // let request: MessageBoxRequest = {type: ChannelRequestType.MessageBox, messageLine: message,messageLine2: message2};
+        // this.sharedChannel.request(request);
     }
 }

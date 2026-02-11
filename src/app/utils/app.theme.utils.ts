@@ -1,6 +1,6 @@
 // import {IIndicatorOptions, IndicatorParam,ParameterOptions, ParameterValueType} from 'tc-web-chart-lib';
-
-const cloneDeep = require('lodash/cloneDeep');
+import cloneDeep from 'lodash/cloneDeep';
+// const cloneDeep = require('lodash/cloneDeep');
 
 export class AppThemeUtils {
 

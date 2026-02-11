@@ -1,12 +1,16 @@
 import {ChangeDetectionStrategy, Component, ElementRef, OnInit, Renderer2, ViewEncapsulation} from '@angular/core';
 import {LanguageService} from '../../../../services/state/language';
+import {NgClass, NgIf} from '@angular/common';
+import {FormsModule} from '@angular/forms';
 
 @Component({
+    standalone:true,
     selector: 'password-field-wrapper',
     templateUrl: './password-field-wrapper.component.html',
     styleUrls: ['./password-field-wrapper.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    imports:[NgIf,FormsModule,NgClass]
 })
 export class PasswordFieldWrapperComponent implements OnInit {
 

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs/internal/Observable';
+import {Observable} from 'rxjs';
 import {MarketUtils, Tc} from '../../../utils';
 // import {LiquidityPoint} from '../../data/liquidity/liquidity-point';
 import {map} from 'rxjs/operators';

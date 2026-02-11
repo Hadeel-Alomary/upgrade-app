@@ -8,7 +8,8 @@ import {FilterConditionComponent} from '../filter-condition';
 import {DropdownToggleDirective} from '../../../ng2-bootstrap/components/dropdown/dropdown-toggle.directive';
 import {DropdownMenuDirective} from '../../../ng2-bootstrap/components/dropdown/dropdown-menu.directive';
 
-const cloneDeep = require("lodash/cloneDeep");
+import cloneDeep from 'lodash/cloneDeep';
+// const cloneDeep = require("lodash/cloneDeep");
 
 @Component({
     standalone:true,

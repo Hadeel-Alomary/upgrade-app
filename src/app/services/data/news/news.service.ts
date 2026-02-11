@@ -6,11 +6,12 @@ import {MarketSummaryService, MarketSummary, MarketSummaryStatus} from '../marke
 import {News} from './news';
 import {MiscStateService} from '../../state/index';
 import {CategoryNews} from './category-news';
-import {Observable} from 'rxjs/internal/Observable';
-import {of} from 'rxjs/internal/observable/of';
+import {Observable} from 'rxjs';
+import {of} from 'rxjs';
 import {tap} from 'rxjs/operators';
 
-const remove = require("lodash/remove");
+import remove from 'lodash/remove';
+// const remove = require("lodash/remove");
 
 @Injectable()
 export class NewsService {

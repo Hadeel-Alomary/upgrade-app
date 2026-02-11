@@ -13,8 +13,11 @@ import {AuthorizationService} from '../../auhtorization';
 import {PredefinedWatchlistService} from '../../predefined-watchlist';
 import {FeatureType} from '../../auhtorization/feature';
 
-const remove = require("lodash/remove");
-const isEqual = require("lodash/isEqual");
+import remove from 'lodash/remove';
+import isEqual from 'lodash/isEqual';
+
+// const remove = require("lodash/remove");
+// const isEqual = require("lodash/isEqual");
 
 @Injectable()
 export class WatchlistService {

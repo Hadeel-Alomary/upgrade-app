@@ -2,7 +2,8 @@ import {DockingItemDirective} from './docking-item.directive';
 
 import {Tc} from "../../../utils/index";
 
-const maxBy = require("lodash/maxBy");
+import maxBy from 'lodash/maxBy';
+// const maxBy = require("lodash/maxBy");
 
 export class FloatingItemSelector {
 

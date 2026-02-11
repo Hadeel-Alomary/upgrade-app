@@ -3,7 +3,7 @@ import {SlickGridBox, SlickGridBoxProperties} from './slick-grid-box';
 import {GridBoxType} from './grid-box-type';
 import {Accessor, AutoLinkType, ChannelRequestType, Company, Market, SymbolBoxOpenRequest} from '../../../services/index';
 import {AppBrowserUtils, Tc} from '../../../utils/index';
-import {Subscription} from 'rxjs/internal/Subscription';
+import {Subscription} from 'rxjs';
 import {GridData} from '../slick-grid/slick-grid';
 import {AppModeFeatureType} from '../../../services/auhtorization/app-mode-authorization';
 

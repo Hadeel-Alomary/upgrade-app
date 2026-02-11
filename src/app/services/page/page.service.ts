@@ -14,7 +14,8 @@ import {GridBoxType} from '../../components/shared/grid-box/grid-box-type';
 import {AppModeAuthorizationService, AuthorizationService} from '../auhtorization';
 import {GridBox} from '../../components/shared/grid-box';
 
-const remove = require("lodash/remove");
+import remove from 'lodash/remove';
+// const remove = require("lodash/remove");
 
 @Injectable()
 export class PageService {

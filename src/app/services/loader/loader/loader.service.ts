@@ -26,7 +26,9 @@ import {BsfLoginInfo} from './bsf-login-info';
 import {TcAuthenticatedHttpClient} from '../../../utils/app.tc-authenticated-http-client.service';
 import {AlkhabeercapitalLoginInfo} from './alkhabeercapital-login-info';
 
-const sortBy = require("lodash/sortBy");
+import sortBy from 'lodash/sortBy';
+
+// const sortBy = require("lodash/sortBy");
 
 @Injectable()
 export class Loader {

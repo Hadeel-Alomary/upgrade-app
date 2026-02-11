@@ -9,8 +9,8 @@ import {map} from 'rxjs/operators';
 import {LanguageService} from '../../state/language';
 import {ShareholderChangeDetails, ShareholderCompanyDetails, ShareholdersListDetails, CompanyShareholdersDetails} from '../../data/shareholders/shareholders';
 
-const find = require("lodash/find");
-
+// const find = require("lodash/find");
+import find from 'lodash/find';
 @Injectable()
 export class ShareholdersLoaderService extends ProxiedUrlLoader {
     private baseUrl: string;

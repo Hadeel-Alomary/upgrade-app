@@ -1,7 +1,7 @@
 import {TimeAndSaleMessage} from '../../streaming/shared';
 import {Tc} from '../../../utils';
-
-const round = require('lodash/round');
+import round from 'lodash/round';
+// const round = require('lodash/round');
 
 export class TradesSummary {
     constructor(

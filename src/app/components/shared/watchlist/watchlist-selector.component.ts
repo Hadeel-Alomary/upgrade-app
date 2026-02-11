@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnDestroy, Output, ViewEncapsulation} from '@angular/core';
 import {Accessor, AuthorizationService, ChannelRequestType, PredefinedWatchlistService, Watchlist, WatchlistService, WatchlistType} from '../../../services/index';
 // import {NewWatchlistCaller, NewWatchlistRequest} from '../../index';
-import {NewWatchlistCaller, NewWatchlistRequest, WatchlistPropertiesRequest} from '../../modals/index';
+// import {NewWatchlistCaller, NewWatchlistRequest} from '../../modals/index';
 import {SubscriptionLike as ISubscription} from 'rxjs';
 import {FeatureType} from '../../../services/auhtorization/feature';
 import {AppBrowserUtils} from '../../../utils';
@@ -22,7 +22,7 @@ import {SubmenuToggleDirective} from '../submenu-toggle/submenu-toggle.directive
     imports:[DropdownDirective,DropdownToggleDirective,DropdownMenuDirective,NgFor,NgIf,SubmenuToggleDirective]
 })
 
-export class WatchlistSelectorComponent implements NewWatchlistCaller, OnDestroy {
+export class WatchlistSelectorComponent implements  OnDestroy {
 
     @Input() watchlist:Watchlist;
     @Input() includeIndices:boolean = true;
@@ -73,17 +73,17 @@ export class WatchlistSelectorComponent implements NewWatchlistCaller, OnDestroy
 
     onUpdateWatchlists() {
         this.authorizationService.authorize(FeatureType.WATCHLIST_ADD, () => {
-            let watchlistPropertiesRequest:WatchlistPropertiesRequest = {type: ChannelRequestType.WatchlistProperties};
+            // let watchlistPropertiesRequest:WatchlistPropertiesRequest = {type: ChannelRequestType.WatchlistProperties};
             if( this.watchlist.type == WatchlistType.Predefined ||  this.watchlist.type == WatchlistType.UserDefined) {
-                watchlistPropertiesRequest.watchlist = this.watchlist;
+                // watchlistPropertiesRequest.watchlist = this.watchlist;
             }
-            this.accessor.sharedChannel.request(watchlistPropertiesRequest);
+            // this.accessor.sharedChannel.request(watchlistPropertiesRequest);
         })
     }
 
     onNewWatchlist() {
-        let newWatchlistRequest:NewWatchlistRequest = {type: ChannelRequestType.NewWatchlist, caller: this};
-        this.accessor.sharedChannel.request(newWatchlistRequest);
+        // let newWatchlistRequest:NewWatchlistRequest = {type: ChannelRequestType.NewWatchlist, caller: this};
+        // this.accessor.sharedChannel.request(newWatchlistRequest);
     }
 
     /* template helpers */

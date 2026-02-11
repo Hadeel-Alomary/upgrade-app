@@ -4,7 +4,7 @@ import {
     ConditionType,
     CompositeCondition,
     LogicOperator,
-    LogicOperatorType,    
+    LogicOperatorType,
     SimpleCondition,
     SimpleConditionOperand,
     SimpleConditionFieldOperand,
@@ -16,7 +16,8 @@ import {
 } from './condition/index';
 import {Tc} from '../../../utils/index';
 
-const extend = require("lodash/extend");
+import extend from 'lodash/extend';
+// const extend = require("lodash/extend");
 
 export class FilterSerializer {
 

@@ -2,7 +2,9 @@ import {Injectable} from '@angular/core';
 // import {Interval, IntervalType, BaseIntervalType} from 'tc-web-chart-lib';
 import {StateKey, WorkspaceStateService} from '../../state';
 
-const remove = require('lodash/remove');
+import remove from 'lodash/remove';
+
+// const remove = require('lodash/remove');
 
 @Injectable()
 export class IntervalService {

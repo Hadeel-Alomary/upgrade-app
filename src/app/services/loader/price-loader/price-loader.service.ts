@@ -6,10 +6,13 @@ import {PriceData} from './price-data';
 import {AppTcTracker, MarketUtils, Tc} from '../../../utils/index';
 import {CredentialsStateService} from '../../state/index';
 // import {Interval, Period} from 'tc-web-chart-lib';
+import cloneDeep from 'lodash/cloneDeep';
+// const cloneDeep = require("lodash/cloneDeep");
+// const round = require("lodash/round");
+// const clone = require("lodash/clone");
 
-const cloneDeep = require("lodash/cloneDeep");
-const round = require("lodash/round");
-const clone = require("lodash/clone");
+import round from 'lodash/round';
+import clone from 'lodash/clone';
 
 // MA lastPriceData is the last entry of the price data coming from loader "before" grouping.
 // it is needed for intraday grouping, in order to know where to start applying TAS

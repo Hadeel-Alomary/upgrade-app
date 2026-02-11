@@ -27,7 +27,27 @@
               "src/static"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss",
+              "src/static-libraries/vendor/slick/css/smoothness/jquery-ui-1.8.16.custom.css",
+              "src/static-libraries/vendor/slick/slick.grid.css",
+              "src/static-libraries/vendor/chart/css/bootstrap-datetimepicker.min.css",
+              "src/static-libraries/vendor/chart/css/bootstrap-select.min.css",
+              "src/static-libraries/vendor/chart/css/scxNumericField.min.css",
+              "src/static-libraries/vendor/chart/css/spectrum.min.css"
+            ],
+            "scripts": [
+              "src/static-libraries/vendor/slick/lib/jquery-1.7.min.js",
+              "src/static-libraries/vendor/slick/lib/jquery-ui-1.8.16.custom.min.js",
+              "src/static-libraries/vendor/slick/lib/jquery.event.drag-2.2.js",
+              "src/static-libraries/vendor/slick/slick.core.js",
+              "src/static-libraries/vendor/slick/slick.grid.js",
+              "src/static-libraries/vendor/slick/slick.dataview.js",
+              "src/static-libraries/vendor/slick/plugins/slick.rowselectionmodel.js",
+              "src/static-libraries/vendor/chart/scripts/moment.min.js",
+              "src/static-libraries/vendor/chart/scripts/switchery.js",
+              "src/static-libraries/vendor/chart/scripts/bootstrap-select.js",
+              "src/static-libraries/vendor/chart/scripts/spectrum.js",
+              "src/static-libraries/vendor/chart/scripts/bootstrap-datetimepicker.min.js"
             ]
           },
           "configurations": {

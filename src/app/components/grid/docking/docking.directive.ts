@@ -23,7 +23,9 @@ import {SharedChannel, ChannelRequest, ChannelRequestType} from '../../../servic
 
 import {SubscriptionLike as ISubscription} from 'rxjs';
 
-const remove = require("lodash/remove");
+import remove from 'lodash/remove';
+
+// const remove = require("lodash/remove");
 
 @Directive({
     standalone:true,

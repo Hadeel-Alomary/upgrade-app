@@ -242,14 +242,14 @@ export class RunningAppComponent implements OnDestroy {
 
 
     // MA if the session expires on server side, then we need to "reload"
-    this.subscriptions.push(
-      (<TcErrorHandler>this.errorHandler).getUnauthorizedRequestStream().subscribe( () => {
-        // MA we are operating from exception context, and this is why I needed setTimeout
-        window.setTimeout(() => {
-          this.sharedChannel.request({type:ChannelRequestType.Reload});
-        }, 0);
-      })
-    );
+    // this.subscriptions.push(
+    //   (<TcErrorHandler>this.errorHandler).getUnauthorizedRequestStream().subscribe( () => {
+    //     // MA we are operating from exception context, and this is why I needed setTimeout
+    //     window.setTimeout(() => {
+    //       this.sharedChannel.request({type:ChannelRequestType.Reload});
+    //     }, 0);
+    //   })
+    // );
 
 
   }

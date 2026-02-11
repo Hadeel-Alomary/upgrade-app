@@ -1,5 +1,4 @@
-import {Subscription} from 'rxjs/internal/Subscription';
-import {Subject} from 'rxjs/internal/Subject';
+import {Subscription,Subject} from 'rxjs';
 
 export class LoadingMaskManualTrigger {
 

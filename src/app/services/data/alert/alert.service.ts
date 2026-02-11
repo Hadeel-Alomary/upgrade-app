@@ -9,7 +9,7 @@ import {CredentialsStateService, LanguageService} from '../../state/index';
 import {AuthorizationService} from '../../auhtorization';
 import {FeatureType} from '../../auhtorization/feature';
 import {TrendLineAlert} from './trend-line-alert';
-import {BehaviorSubject} from 'rxjs/internal/BehaviorSubject';
+import {BehaviorSubject} from 'rxjs';
 import {ChartAlert} from './chart-alert';
 import {HostedAlert} from './hosted-alert';
 import {map} from 'rxjs/operators';

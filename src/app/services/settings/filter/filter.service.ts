@@ -6,7 +6,8 @@ import {BuiltinFilterFactory} from './builtin-filter-factory';
 import {StringUtils, AppTcTracker} from "../../../utils/index";
 import {Loader} from '../../loader/loader';
 
-const remove = require("lodash/remove");
+import remove from 'lodash/remove';
+// const remove = require("lodash/remove");
 
 @Injectable()
 export class FilterService{

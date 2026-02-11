@@ -2,7 +2,7 @@ import {Component, Input, Output, EventEmitter, ViewEncapsulation, ChangeDetecti
 import {AutoLinkType, SharedChannel, ChannelRequest, ChannelRequestType, AuthorizationService, MarketsManager} from '../../../services/index';
 import {FeatureType} from '../../../services/auhtorization/feature';
 import {AppBrowserUtils, MarketUtils} from '../../../utils';
-import {AnnotationDelayedRequest} from '../../modals/annotation-delayed-modal/annotation-delayed-modal.component';
+// import {AnnotationDelayedRequest} from '../../modals/annotation-delayed-modal/annotation-delayed-modal.component';
 
 @Component({
     selector: 'box-title',
@@ -65,12 +65,12 @@ export class BoxTitleComponent {
     }
 
     openAnnotationDelayedModal() {
-        let request: AnnotationDelayedRequest = {
-            type: ChannelRequestType.AnnotationDelayed,
-            symbol: this.getSymbol()
-        }
-
-        this.sharedChannel.request(request);
+        // let request: AnnotationDelayedRequest = {
+        //     type: ChannelRequestType.AnnotationDelayed,
+        //     symbol: this.getSymbol()
+        // }
+        //
+        // this.sharedChannel.request(request);
     }
 
     public getSymbol(): string {
