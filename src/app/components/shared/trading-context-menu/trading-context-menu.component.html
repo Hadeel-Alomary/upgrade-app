@@ -1,0 +1,18 @@
+<li *ngIf="showContextMenu" role="menuitem" class="trading-context-menu menuitem dropdown-submenu trading-screens icon" dropdown-submenu-toggle>
+    <div i18n="@@trading-context-menu_sellOrBuy">بيع أو شراء</div>
+
+    <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
+
+        <li class="menuitem open-trading-buy icon" role="menuitem" (click)="onOpenBuy()" [class.inactive]="!canBuyAndSell()">
+            <div i18n="@@trading-context-menu_buy">شراء</div>
+        </li>
+
+        <li class="menuitem open-trading-sell icon" role="menuitem" (click)="onOpenSell()" [class.inactive]="!canBuyAndSell()">
+            <div i18n="@@trading-context-menu_sell">بيع</div>
+        </li>
+
+
+    </ul>
+</li>
+
+<li *ngIf="showContextMenu" class="divider dropdown-divider"></li>

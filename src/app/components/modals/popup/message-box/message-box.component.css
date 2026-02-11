@@ -1,0 +1,46 @@
+.message-box .modal-body .message-line {
+    font-size: 1.6rem;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    line-height: 3rem;
+}
+
+
+.message-box .modal-body .modal-btns .btn {
+    width: 100px;
+    margin: 10px;
+}
+
+
+.message-box .modal-dialog .modal-content .modal-body .message-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.message-box .modal-dialog .modal-content .modal-body .message-container .message-icon {
+    min-width: 25px;
+    height: 25px;
+    margin-left: 15px;
+}
+
+.english .message-box .modal-dialog .modal-content .modal-body .message-container .message-icon {
+    margin-right: 15px;
+}
+
+.message-box .modal-dialog .modal-content .modal-body .message-container .message-icon:before {
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    content: "";
+    display: inline-block;
+}
+
+.message-box .modal-dialog .modal-content .modal-body .message-container .message-icon.valid-img:before {
+    background-image: url('~img/correct.png');
+}
+
+.dark .message-box .modal-dialog .modal-content .modal-body .message-container .message-icon.valid-img:before{
+    filter: none;
+}

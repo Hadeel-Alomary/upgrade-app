@@ -1,0 +1,47 @@
+.box-context-menu{
+    padding:0;
+}
+
+.app .dropdown-menu li.menuitem.box-context-menu.open-screen:before {
+    background-image: url('~img/window-highlighted.png');
+}
+
+.arabic .app .dropdown-menu li.menuitem.box-context-menu.open-screen{
+    background-position: right 5px center;
+}
+
+.english .app .dropdown-menu li.menuitem.box-context-menu.open-screen{
+    background-position: left 5px center;
+}
+
+.box-context-menu li.menuitem.open-detailed-quote:before {
+    background-image: url('~img/marketwatch-menu-add-detail-quote.png');
+}
+
+.box-context-menu li.menuitem.open-chart:before {
+    background-image: url('~img/chart-center.png');
+}
+
+.box-context-menu li.menuitem.open-market-depth-by-order:before {
+    background-image: url('~img/marketwatch-menu-add-market-depth.png');
+}
+
+.box-context-menu li.menuitem.open-market-depth-by-price:before {
+    background-image: url('~img/marketwatch-menu-add-market-depth-grouped.png');
+}
+
+.box-context-menu li.menuitem.open-time-and-sale:before {
+    background-image: url('~img/marketwatch-menu-add-time-and-sale.png');
+}
+
+.box-context-menu li.menuitem.open-trades-summary:before {
+    background-image: url('~img/marketwatch-trades-summary.png');
+}
+
+.box-context-menu li.menuitem.financial-reports-icon:before {
+    background-image: url('~img/toolbar-financial-reports.png');
+}
+
+.box-context-menu li.menuitem.open-company-news:before {
+    background-image: url('~img/marketwatch-menu-add-news.png');
+}

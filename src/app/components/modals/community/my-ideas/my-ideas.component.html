@@ -1,0 +1,44 @@
+<div class="my-ideas" [loading-mask-directive]="waitingSubscription">
+    <div *ngIf="myIdeas">
+        <div class="idea" *ngFor="let idea of myIdeas;index as index" [class.no-border]="index == myIdeas.length-1 && index!==0">
+
+            <div class="avatar">
+                <div *ngIf="!idea.avatarUrl" class="default-avatar"></div>
+                <img *ngIf="idea.avatarUrl" [src]="idea.avatarUrl">
+            </div>
+
+            <div class="idea-info">
+                <div class="idea-header-info">
+                    <div class="idea-owner-info">
+                        <div class="name bold-text" (click)="openUserProfileOnCommunity(idea.nickName)">{{idea.profileName}}</div>
+                        <div *ngIf="!authorTypeIsUser(idea.authorType)" class="user-type">{{getAuthorTypeDescription(idea.authorType)}}</div>
+                    </div>
+                    <div class="vertical-dots-icon" (click)="showContextMenu($event , idea)"></div>
+                </div>
+                <div class="idea-type-date">
+                    <div class="{{idea.accessType.className}}">{{getIdeaAccessTypeDescription(idea.accessType)}}</div>
+                    <div>{{idea.created | date:'LLLL, dd' }}</div>
+                </div>
+                <div class="idea-title wrap-text" (click)="openIdeaOnCommunity(idea.name)">{{idea.title}}</div>
+                <div class="symbol-and-interval">
+                    <div class="symbol" (click)="openCompanyPageInCommunity(idea.company.id)">{{getCompanyName(idea.company)}} ({{getSymbolWithoutMarket(idea.company)}})</div>
+                    <div class="interval-name" *ngIf="idea.intervalName"> , {{idea.intervalName}}</div>
+                </div>
+
+                <div class="attachment-container">
+                    <img *ngIf="idea.thumbnailUrl" src="{{idea.thumbnailUrl}}" (click)="openIdeaOnCommunity(idea.name)"/>
+                    <div *ngIf="!idea.thumbnailUrl" class="video-url-container"></div>
+                    <div *ngIf="showVideoPlayerIcon(idea)" class="video-player-icon"></div>
+                </div>
+
+                <div class="idea-description wrap-text">{{idea.description}}</div>
+                <div *ngIf="idea.description.length > 80" class="show-more" (click)="openIdeaOnCommunity(idea.name)" i18n="@@folowing_ideas_show_more">المزيد ...</div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<community-context-menu [contextMenu]="contextMenu"
+                        (onOpenUserProfilePage)="openUserProfileOnCommunity($event)"
+                        (onOpenIdeaPage)="openIdeaOnCommunity($event)"
+                        (onOpenCompanyPage)="openCompanyPageInCommunity($event)"></community-context-menu>

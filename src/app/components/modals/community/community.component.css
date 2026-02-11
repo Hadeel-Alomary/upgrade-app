@@ -1,0 +1,85 @@
+.community-window {
+    position: absolute;
+    z-index: 4;
+    top: 45px;
+    height: calc(100% - 85px);
+    right: 40px;
+    width: 365px;
+}
+
+.english .community-window {
+   left: 40px;
+}
+
+.community-window .vertical-window {
+    border: solid #888 1px;
+    height: 100%;
+    background-color: #f1f3f6;
+}
+
+.community-window .vertical-window .window-header {
+    direction: rtl;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #b2b5be;
+    line-height: 40px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.english .community-window .vertical-window .window-header {
+    direction: ltr;
+}
+
+.community-window .vertical-window .window-header .title {
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+}
+
+.community-window .vertical-window .window-header .title .title-icon:before {
+    content:"";
+    display:inline-block;
+    width: 40px;
+    height: 100%;
+    background: no-repeat center;
+}
+
+.community-window .vertical-window .window-header .title .title-label {
+    font-size: 2rem;
+}
+
+.community-window .vertical-window .window-header .close{
+    font-size: 25px;
+    margin-left: 8px;
+}
+
+.english .community-window .vertical-window .window-header .close{
+    margin-right: 8px;
+}
+
+.community-window .vertical-window .window-header .title .title-icon.ideas-icon:before{
+    background-image: url('~img/community-ideas-light.png');
+}
+
+.community-window .vertical-window .window-header .title .title-icon.notifications-icon:before {
+    background-image: url('~img/community-notifications-light.png');
+}
+
+.community-window .vertical-window .window-header .title .title-icon.my-ideas-icon:before{
+    background-image: url('~img/community-my-ideas-light.png');
+}
+
+.community-window .vertical-window .window-body {
+    height: calc(100% - 42px);
+}
+
+/*dark theme*/
+.dark .community-window .vertical-window {
+    background-color: #444;
+}
+
+.dark .community-window .vertical-window .window-header {
+    color: white;
+}

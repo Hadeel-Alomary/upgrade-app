@@ -1,0 +1,10 @@
+<div  *ngIf="!flagAnnotation; else isFlagAAnnotation" class="annotation-delayed-tooltip tooltip-container" [class.chart-tooltip]="isChart">
+    <annotation-delayed [isChart]="isChart" [marketName]="marketName" [symbol]="symbol"></annotation-delayed>
+</div>
+
+<ng-template #isFlagAAnnotation>
+    <div class="flag-annotation-tooltip custom-tooltip">
+        <div class="flag-annotation-text">{{flagAnnotation}}</div>
+        <div class="flag-annotation-btn" (click)="onClickFlagAnnotation()">{{getFlagAnnotationTxt()}}</div>
+    </div>
+</ng-template>

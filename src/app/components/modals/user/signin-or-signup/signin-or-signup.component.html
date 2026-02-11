@@ -1,0 +1,42 @@
+<div bsModal #signinOrSignupModal="bs-modal" class="modal fade signin-or-signup centered" tabindex="-1" role="dialog" (onHidden)="signinOrSignupModal.hide()" [config]="{backdrop:'static'}">
+
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <div class="modal-body compact">
+
+        <div class="modal-title bold-font" i18n="@@signin_or_signup_title">تسجيل الدخول في حساب تكرتشارت</div>
+
+        <div class="modal-subtitle" i18n="@@signin_or_signup_subtitle">لكي تتمكن من حفظ رسوماتك البيانية واستخدام العديد من الميزات، يرجى تسجيل الدخول</div>
+
+        <div class="options">
+
+          <div class="signin option" (click)="onSignInSelection()">
+            <div class="text">
+              <div class="description" i18n="@@signin_or_signup_signinDescription">هل لديك اسم مستخدم وكلمة سر؟</div>
+              <div class="action bold-font" i18n="@@signin_or_signup_signinAction">الدخول إلى حسابي</div>
+            </div>
+          </div>
+
+          <div class="signup option" (click)="onSignUpSelection()">
+            <div class="text">
+              <div class="description" i18n="@@signin_or_signup_signupDescription">هل أنت زائر جديد؟</div>
+              <div class="action bold-font" i18n="@@signin_or_signup_signupAction">تسجيل حساب جديد</div>
+            </div>
+          </div>
+
+
+
+        </div>
+
+        <div *ngIf="!isVisitor()">
+          <a class="btn btn-sm btn-default btn-close" (click)="signinOrSignupModal.hide()" i18n="@@signin_or_signup_close">إغلاق</a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,23 @@
+.simple-condition-editor .btns {
+    display: inline-block;
+}
+
+.arabic .simple-condition-editor .btns {
+    margin-right: 165px;
+}
+
+.english .simple-condition-editor .btns {
+    margin-left: 165px;
+}
+
+.simple-condition-editor .btns > .btn {
+    min-width: 120px;
+}
+
+.arabic .simple-condition-editor .btns > .btn {
+    margin-left: 10px;
+}
+
+.english .simple-condition-editor .btns > .btn {
+    margin-right: 10px;
+}

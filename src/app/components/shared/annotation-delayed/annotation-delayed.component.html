@@ -1,0 +1,19 @@
+<div class="annotation-delayed">
+    <div class="annotation-header">
+        <div class="annotation-delayed-icon"></div>
+        <div *ngIf="derayahAnnotationDelayed()">
+            <div class="annotation-delayed-info">
+                <div class="annotation-delayed-title" i18n="@@annotation-delayed_delayedData">البيانات متأخرة</div>
+                <div class="annotation-delayed-text">{{getAnnotationDelayedForDerayahMode()}}</div>
+                <div class="annotation-delayed-derayah">{{getAnnotationDelayedFooterForDerayahMode()}}</div>
+            </div>
+
+        </div>
+        <div *ngIf="!derayahAnnotationDelayed()" class="annotation-delayed-info">
+            <div class="annotation-delayed-title" i18n="@@annotation-delayed_delayedData">البيانات متأخرة</div>
+            <div class="annotation-delayed-text">{{getAnnotationDelayedText()}}</div>
+            <div class="annotation-delayed-link"><a href="https://www.tickerchart.com/ar/live/buy" target="_blank" i18n="@@annotation-delayed_subscribe"> اشترك بالبيانات اللحظية</a></div>
+        </div>
+
+    </div>
+</div>

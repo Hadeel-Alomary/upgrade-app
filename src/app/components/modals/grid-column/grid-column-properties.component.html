@@ -1,0 +1,71 @@
+<div bsModal #propertiesModal="bs-modal" class="modal fade grid-column-properties centered" tabindex="-1" role="dialog" [config]="{backdrop:'static'}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="propertiesModal.hide()">
+          <span>&times;</span>
+        </button>
+        <h4 class="modal-title" i18n="@@gird-column-properties_header">إعدادت الأعمدة</h4>
+      </div>
+      <div class="modal-body" [style.height]="getHeight() + 'px'">
+
+        <div class="column-properties-container">
+
+          <div *ngIf="propertiesModal.isShown" class="column-picker-container">
+
+            <div class="from-container">
+              <div class="container-label" i18n="@@gird-column-properties_unshownColumns">الأعمدة غير الظاهرة</div>
+
+                <select *ngIf="categories && categories.length" class="category-list" #categoryType (change)="onCategoryTypeChange(categoryType.value)">
+                    <option *ngFor="let category of categories" value="{{category.type}}" [selected]="isCategorySelected(category)">
+                        {{category.name | translate}}</option>
+                </select>
+
+              <select-box [entries]="outColumns"
+                          [selection]="outSelectBoxSelection"
+                          [width]="getSelectBoxWidth()"
+                          [height]="getSelectBoxHeight()"
+                          [translate]="true"
+                          (outputSelection)="onOutSelectBoxSelection($event)"
+                          (outputDoubleClick)="onDoubleClickOutSelectBox($event)"></select-box>
+            </div>
+
+            <div class="arrows-container">
+              <div class="to-left-arrow" (click)="onAddColumn()"></div>
+              <div class="to-right-arrow" (click)="onRemoveColumn()"></div>
+            </div>
+
+            <div class="to-container">
+              <div class="container-label" i18n="@@gird-column-properties_shownColumns">الأعمدة الظاهرة</div>
+                <div *ngIf="categories && categories.length" (click)="inSelectBoxSelection = inColumns" class="select-all-btn image-btn" i18n="@@gird-column-properties_chooseAll">إختيار الجميع</div>
+                <select-box [entries]="inColumns"
+                          [selection]="inSelectBoxSelection"
+                          [width]="getSelectBoxWidth()"
+                          [height]="getSelectBoxHeight()"
+                          [ticked]="true"
+                          [translate]="true"
+                          (outputSelection)="onInSelectBoxSelection($event)"
+                          (outputDoubleClick)="onDoubleClickInSelectBox($event)"></select-box>
+              <div class="order-btns">
+                <div class="order-up-btn image-btn" (click)="onOrderColumnsUp()" i18n="@@gird-column-properties_up">أعلى</div>
+                <div class="order-down-btn image-btn" (click)="onOrderColumnsDown()" i18n="@@gird-column-properties_down">أسفل</div>
+              </div>
+
+              <div class="restore-btn">
+                <button class="btn btn-sm btn-slateblue" (click)="onRestoreOriginalSettings()" i18n="@@gird-column-properties_resetDefaultSettings">العودة للتنسيق الأصلي</button>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div> <!-- modal-body -->
+
+      <div class="modal-footer">
+        <button class="btn btn-primary" (click)="onDone()" i18n="@@gird-column-properties_apply">موافق</button>
+      </div>
+    </div>
+  </div>
+</div>

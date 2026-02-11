@@ -1,0 +1,9 @@
+<div class="grid-container" #gridContainer>
+  <window-toolbar *ngIf="isDesktop()" (outputAddMarketBox)="onAddMarketBox($event)" (outputAddSymbolBox)="onAddSymbolBox($event)"></window-toolbar>
+  <div class="grid-wrapper" >
+      <grid *ngFor="let page of pages" [page]="page" [active]="page == selectedPage"></grid>
+  </div>
+  <!-- NK When we need another floating-toolbar we should create floating-toolbar-container component and add all the toolbars there -->
+  <trading-floating-toolbar *ngIf="showTradingToolbar"></trading-floating-toolbar>
+  <overlay-boxes-container *ngIf="!isDesktop()"></overlay-boxes-container>
+</div>

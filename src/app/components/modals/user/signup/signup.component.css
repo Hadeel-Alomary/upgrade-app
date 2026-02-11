@@ -1,0 +1,117 @@
+.signup .signup-form .form-label {
+    color: steelblue;
+}
+
+.signup input::placeholder {
+    color: #999;
+}
+
+.signup input {
+    color: #000;
+}
+
+.signup .mobile-verification-form .mobile-verification-steps {
+    font-size: 1.4rem;
+    margin: 10px 10px;
+    text-align: center;
+    line-height: 30px;
+    border-color: #31708f
+}
+
+.signup .mobile-verification-form .mobile {
+    direction: ltr;
+    font-size: 1.8rem;
+}
+
+.mobile .signup .mobile-verification-form .mobile {
+    font-size: 1.3rem;
+}
+
+.signup .mobile-verification-form .mobile-confirmation-row > * {
+    line-height: 3rem;
+    vertical-align: middle;
+    height: 3rem;
+    margin-bottom: 0px;
+}
+
+.signup .mobile-verification-form .mobile-confirmation-row .aligned {
+    text-align: left;
+}
+
+.signup .mobile-verification-form .resend-code {
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.signup .signup-successful {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    overflow: hidden;
+    background-color: honeydew;
+    border: 1px solid darkgray;
+    margin: 10px 10px;
+    height: 150px;
+    direction: rtl;
+}
+
+.signup .signup-successful > div {
+    text-align: center;
+    color: darkgreen;
+}
+
+
+.signup .signup-successful > div:first-child {
+    font-size: 2rem;
+}
+
+.signup .signup-successful > div:last-child {
+    font-size: 1.6rem;
+}
+
+
+.mobile .signup .signup-successful > div:first-child {
+    font-size: 1.5rem;
+}
+
+.mobile .signup-successful > div:last-child  {
+    font-size: 1.2rem;
+}
+
+
+.mobile .signup .form-group > div {
+    padding-right: 3px;
+    padding-left: 3px;
+}
+
+/* bold font */
+
+.arabic .signin-or-signup.modal .bold-font {
+    font-family: DroidArabicKufi-Bold;
+}
+
+.english .signin-or-signup.modal .bold-font {
+    font-family: "Tahoma Black";
+}
+
+
+/* dark theme */
+
+.dark .signup input {
+    color: white;
+}
+
+.dark .signup .mobile-verification-form .mobile-verification-steps {
+    border-color: #31708f;
+    color: deepskyblue;
+    background-color: #4a5154;
+}
+
+.dark .signup .signup-successful {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.dark .signup .signup-successful > div {
+    color: lightskyblue;
+}

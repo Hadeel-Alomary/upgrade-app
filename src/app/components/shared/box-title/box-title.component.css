@@ -1,0 +1,229 @@
+.box-title.box-toolbar {
+    background-color: var(--title-back-color);
+    border-bottom: 1px solid grey;
+    box-sizing: border-box;
+    height: 23px;
+}
+
+.box-title.box-toolbar.summary-box {
+    height: 30px;
+    align-items: center;
+}
+
+.hide-toolbar .box-title.box-toolbar.summary-box {
+    border-bottom: 1px solid grey;
+}
+
+/* if window toolbar is hidden, then hide the border */
+.hide-toolbar .box-title.box-toolbar {
+    border-bottom: 0px;
+}
+
+.arabic .box-title .box-toolbar-title {
+    text-align: right;
+    direction: rtl;
+}
+
+/*Todo : check these comments */
+
+.box-title .box-toolbar-title {
+    max-width: 80%;
+    font-size: 1.2rem;
+    padding: 0px 5px;
+    line-height: 22px;
+    vertical-align:middle;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.box-title .box-toolbar-title .english {
+    font-family:Arial;
+    font-weight: bold;
+}
+
+.box-title .box-toolbar-title .title > div{
+    display: inline-block;
+}
+
+.box-title .box-title-container {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.box-title .handle.handle-icon {
+    width: 30px;
+    height: 22px;
+    opacity: 0.35;
+}
+
+.box-title .handle.handle-icon:hover {
+    opacity: 1;
+}
+
+.box-title .handle.handle-icon:before {
+    background-image: url('~img/move.png');
+    background-position:center;
+    background-repeat: no-repeat;
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+/* separator */
+.box-title.box-toolbar .box-toolbar-separator {
+    margin-top: 0px;
+}
+
+/* box toolbar icons */
+
+.english .box-title .box-toolbar-icons {
+    right: 0;
+    left: auto;
+    flex-direction: row;
+    padding-right: 5px;
+}
+
+.arabic .box-title .box-toolbar-icons {
+    left: 0;
+    flex-direction: row-reverse;
+    padding-left: 5px;
+}
+
+.box-title .box-toolbar-icons {
+    display: flex;
+    height: 22px;
+    position: absolute;
+}
+
+.box-title .box-toolbar-icons .box-toolbar-icon:before {
+    content:"";
+    background-position:center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.arabic .box-title .box-toolbar-icons .box-toolbar-icon:first-child {
+    margin-right: 15px;
+}
+
+.english .box-title .box-toolbar-icons .box-toolbar-icon:first-child {
+    margin-left: 15px;
+}
+
+.box-title .box-toolbar-icons .box-toolbar-icon {
+    width: 21px;
+    background-color: var(--title-back-color);
+    opacity: 0.5;
+    margin-top: 2px;
+    margin-bottom: 2px;
+
+}
+
+.arabic .box-title .box-toolbar-icons .box-toolbar-icon {
+    margin-left: 0;
+    margin-right: 5px;
+}
+
+.english .box-title .box-toolbar-icons .box-toolbar-icon {
+    margin-left: 0;
+    margin-right: 5px;
+}
+
+.box-title .box-toolbar-icons .box-toolbar-icon.bordered {
+    border-radius: 3px;
+    border: 1px solid #666;
+}
+
+
+.box-title .box-toolbar-icons .box-toolbar-icon:hover {
+    opacity: 1;
+    cursor:pointer;
+}
+
+.box-title .box-toolbar-icons .box-toolbar-icon.box-toolbar-close:before {
+    background-image: url('~img/highlighted-tab-close.png');
+}
+
+/* box-title maximize styling */
+
+.box-title .box-toolbar-icons .box-toolbar-icon.box-toolbar-maximize:before {
+    background-image: url('~img/maximize-window-enable.png');
+}
+
+.maximized .box-title {
+    background-color: bisque;
+}
+
+.maximized .box-title .box-toolbar-icons .box-toolbar-icon {
+    background-color:transparent;
+}
+
+.maximized .box-title .box-toolbar-icons .box-toolbar-icon.box-toolbar-maximize:before {
+    opacity: 0.8;
+    background-image: url('~img/maximize-window-disable.png');
+}
+
+.maximized .box-title .box-toolbar-icons .box-toolbar-icon.box-toolbar-maximize:hover {
+    opacity: 1.0;
+}
+
+.box-title .box-toolbar-icon.maximize-summary-box ,
+.box-title .box-toolbar-icon.export {
+    height: 22px;
+    width: 22px;
+    margin-left: 5px;
+    position: absolute;
+    left: 0;
+}
+
+.box-title .box-toolbar-icon.maximize-summary-box:before ,
+.box-title .box-toolbar-icon.export:before{
+    width: 100%;
+    height: 100%;
+    content: "";
+    display: inline-block;
+}
+
+.box-title .box-toolbar-icon.maximize-summary-box:before {
+    background: url('~img/full-screen.png') no-repeat center;
+}
+
+.box-title .box-toolbar-icon.export:before {
+    background: url('~img/export-overlay-chart.png') no-repeat center;
+}
+
+.box-title .box-toolbar-icon.maximize-summary-box.maximized:before {
+    background-image: url('~img/normal-screen.png');
+}
+
+/* font family */
+.arabic .box-title .box-toolbar-title {
+    font-family: DroidArabicKufi-Bold;
+}
+
+.english .box-title .box-toolbar-title {
+    font-family: Tahoma Black;
+    text-align: left;
+    direction: ltr;
+    margin-right: 50px;
+}
+.english .box-title .box-toolbar-title .annotation-delayed-tooltip{
+    font-family: Tahoma;
+}
+
+.english .box-title .box-toolbar-title .annotation-delayed-tooltip{
+    font-family: Tahoma;
+}
+/* dark theme */
+
+.dark .box-title.box-toolbar {
+    background-color: #444;
+    color: lightgrey;
+}
+
+.dark .box-title .box-toolbar-icons .box-toolbar-icon {
+    background-color: transparent;
+}

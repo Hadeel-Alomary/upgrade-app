@@ -1,0 +1,5 @@
+<div *ngIf="listOfNumberOfPages.length > 0" class="pagination">
+    <div class="last-pages" i18n="@@pagination_lastPages">آخر الصفحات</div>
+    <div class="english" *ngFor="let number of listOfNumberOfPages" (click)="pageNumberChange(number)" [class.active]="number == activePage">{{number}}</div>
+    <div *ngIf="showMoreButton" class="english show-more" (click)="onMoreButtonClicked()" i18n="@@pagination_more">المزيد...</div>
+</div>

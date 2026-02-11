@@ -1,0 +1,64 @@
+<div bsModal #SupportInfoModal="bs-modal" class="modal fade support-info" tabindex="-1" role="dialog" [config]="{backdrop:'static'}">
+    <div *ngIf="userInfo" class="modal-dialog">
+        <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" (click)="hideMe()"><span>&times;</span></button>
+                    <h5 class="modal-title" i18n="@@support-info_technicalSupport">الدعم الفني</h5>
+                </div>
+                <div class="modal-body support-info-container">
+
+                    <div class="welcome-message">
+                        <div class="welcome-text">
+                            <div i18n="@@support-info_welcomeText">أهلا بك</div>
+                            <div>{{userInfo.name}}</div>
+                        </div>
+                        <div class="welcome-note" i18n="@@support-info_welcomeNote">فريق الدعم الفني جاهز للاجابه على جميع استفساراتك خلال الأوقات والقنوات التالية </div>
+                    </div>
+
+                    <div class="work-time-days">
+                        <div class="paragraph-title" i18n="@@support-info_technicalSupportWorkTime">وقت عمل فريق الدعم الفني </div>
+                        <div class="hours-days">
+                            <div class="working-days">{{workingDays}}</div>
+                            <div class="working-hours">{{workingHours}}</div>
+                        </div>
+                    </div>
+
+                    <div class="communications-channels-container">
+                        <div class="paragraph-title" i18n="@@support-info_communicationsChannelsAvailable">قنوات الاتصال المتوفرة </div>
+
+                        <div class="communications-channels">
+
+                            <div>
+                                <div class="icon phone-icon"></div>
+                                <div class="phone1-container">
+                                    <div i18n="@@support-info_insideSaudi">من داخل السعودية</div>
+                                    <div class="phone1">{{insideSaudiNumber}}</div>
+                                </div>
+                                <div class="phone2-container">
+                                    <div i18n="@@support-info_outsideSaudi">من خارج السعودية</div>
+                                    <div class="phone2">{{outsideSaudiNumber}}</div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="icon whatsapp-icon"></div>
+                                <div i18n="@@support-info_whatsAppNumber">رقم الواتس اب</div>
+                                <div class="whatsapp-number" (click)="openChatOnWhatsAppPage()">{{whatsAppNumber}}</div>
+                            </div>
+
+                            <div>
+                                <div class="icon mail-icon"></div>
+                                <div class="send-email-text" i18n="@@support-info_sendToUsAnEmail" (click)="openContactUsModal()">ارسل لنا بريد الكتروني ...</div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-default btn-sm" (click)="hideMe()" i18n="@@support-info_cancel">الغاء</a>
+                </div>
+        </div>
+    </div>
+</div>

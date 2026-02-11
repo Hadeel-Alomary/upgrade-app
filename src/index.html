@@ -1,13 +1,182 @@
 <!doctype html>
-<html lang="en">
+<html lang="ar" style="height: 100%;">
 <head>
-  <meta charset="utf-8">
-  <title>MyProject</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="google" content="notranslate">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <title></title>
+
+  <link rel="apple-touch-icon" href="/touch-icon-iphone.png">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134696025-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-134696025-1');
+  </script>
+
+  <script>
+    let isChromium = window.chrome;
+    let winNav = window.navigator;
+    let vendorName = winNav.vendor;
+    let isOpera = winNav.userAgent.indexOf("OPR") > -1;
+    let isIEedge = winNav.userAgent.indexOf("Edge") > -1;
+    let isSafari = winNav.userAgent.indexOf('Safari') != -1 && winNav.userAgent.indexOf('Chrome') == -1;
+    let isFirefox = winNav.userAgent.toLowerCase().indexOf('firefox') > -1;
+    let isAndroid = winNav.userAgent.indexOf('Android') !== -1;
+    let isiPad = winNav.userAgent.indexOf('iPad') !== -1;
+    let isiPhone = winNav.userAgent.indexOf('iPhone') !== -1;
+    let isiPod = winNav.userAgent.indexOf('iPod') !== -1;
+    let smallScreenWidth = screen.width <= 500;
+
+    window.mobileCheck = function () {
+      return isiPad || isiPhone || isiPod || isAndroid || smallScreenWidth;
+    };
+
+    window.tabletCheck = function () {
+      let userAgent = navigator.userAgent.toLowerCase();
+      return /ipad|tablet|kindle|silk|playbook|nexus 7|xoom/i.test(userAgent);
+    };
+
+    let googleChrome = isChromium && vendorName === "Google Inc." && !isOpera;
+    let firefox = isFirefox && !window.mobileCheck();
+    let edge = isIEedge && !window.mobileCheck();
+    let isBot = /bot|googlebot|crawler|spider|robot/i.test(navigator.userAgent);
+
+    let loadAngular = true;
+
+    if (!googleChrome && !isSafari && !firefox && !edge && !isBot) {
+      loadAngular = false;
+      window.location = '/browser.html';
+    }
+
+    let selectedLanguage = location.pathname.split('/')[2] === 'en' ? 'en' : 'ar';
+    localStorage.setItem("TC_LANGUAGE", selectedLanguage);
+
+    let webAppMode = window.location.href.indexOf('derayah.tickerchart.net') === 0
+      ? 'derayah'
+      : 'tickerchart';
+
+    localStorage.setItem("TC_WEBAPP_MODE", webAppMode);
+
+    if (selectedLanguage === 'ar') {
+      document.title = webAppMode === 'derayah' ? 'دراية تريد' : 'تكرتشارت نت';
+    } else {
+      document.title = webAppMode === 'derayah' ? 'Derayah Trade' : 'TickerChart Net';
+    }
+
+    let favicon = document.createElement('link');
+    favicon.rel = 'shortcut icon';
+    favicon.type = webAppMode === 'derayah' ? 'image/png' : 'image/x-icon';
+    favicon.href = webAppMode === 'derayah'
+      ? '/favicon-derayah.png'
+      : '/favicon.ico';
+
+    document.head.appendChild(favicon);
+
+    if (window.mobileCheck() && selectedLanguage !== 'ar') {
+      window.location.replace('/');
+      loadAngular = false;
+    }
+
+    if (loadAngular) {
+      let mobileClass = window.mobileCheck() ? 'mobile' : '';
+      document.addEventListener("DOMContentLoaded", function () {
+        document.body.className = webAppMode + ' ' + mobileClass;
+      });
+    }
+  </script>
+
+  <style>
+    .tickerchart .loading-app,
+    .derayah .loading-app,
+    .derayah .derayah-loading-container {
+      height: 100%;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mobile .loading-app img {
+      transform: scale(0.6, 0.6);
+      -ms-transform: scale(0.6, 0.6);
+      -webkit-transform: scale(0.6, 0.6);
+    }
+
+    .tickerchart .loading-app {
+      background-color: black;
+    }
+
+    .dark.derayah .loading-app {
+      background-color: #fff;
+      height: 100%;
+    }
+
+    .tickerchart .loading-app .tickerchart-loading-container .tickerchart-logo {
+      margin-top: 20px;
+    }
+
+    .tickerchart .derayah-loading-container {
+      display: none;
+    }
+
+    .derayah .derayah-loading-container {
+      flex-direction: column;
+      padding-bottom: 100px;
+    }
+
+    .derayah.mobile .loading-app .derayah-loading-container {
+      flex-direction: column;
+    }
+
+    .derayah .tickerchart-loading-container {
+      display: none;
+    }
+
+    .derayah .derayah-loading-container .derayah-loading-img {
+      width: 170px;
+      height: 185px;
+    }
+
+    .derayah .derayah-loading-container .derayah-loading-img img {
+      width: 170px;
+    }
+
+    .derayah.mobile .loading-app .derayah-loading-container .derayah-loading-img {
+      width: auto;
+      height: 180px;
+    }
+
+    .derayah .derayah-loading-container .powered-by-tickerchart {
+      position: absolute;
+      bottom: 8%;
+    }
+  </style>
 </head>
-<body>
-  <app-index></app-index>
+
+<body class="notranslate">
+
+<app-root>
+  <div class="loading-app">
+    <div class="tickerchart-loading-container">
+      <div class="ajax-wheels">
+        <img src="static/img/ajax.gif">
+      </div>
+      <div class="tickerchart-logo">
+        <img src="static/img/tickerchart-logo-white.png">
+      </div>
+    </div>
+
+  </div>
+</app-root>
+
 </body>
 </html>

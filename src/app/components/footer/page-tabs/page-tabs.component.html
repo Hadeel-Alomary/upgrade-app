@@ -1,0 +1,27 @@
+<div class="page-tabs tabs">
+  <!-- http://stackoverflow.com/questions/31548311/angular-2-html-binding -->
+  <div *ngFor="let page of pages">
+    <div *ngIf="inRange(page)" class="tab" [class.active]="page == selectedPage" [class.editable]="multiplePages()" (click)="onSelectPage(page)">
+        <div [class.page-name-container]="unAuthorizedMarketWatchPage(page.tag)">
+            <div class="title" [innerHTML]="page.title | englishMarker" overflow-with-tooltip [tooltipTitle]="page.title" [forceUpdateTooltip]="page.active"></div>
+            <span *ngIf="unAuthorizedMarketWatchPage(page.tag)"  class="unauthorized-lock-icon"></span>
+        </div>
+        <div class="icons">
+        <div *ngIf="multiplePages()" class="icon rename-icon" (click)="onChangeTitle()"></div>
+        <div *ngIf="multiplePages() && (1 < pages.length) && allowAddNewPage()" class="icon close-icon" (click)="onDeletePage()"></div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="showNavigationDropdown()" dropdown>
+    <div  class="navigation-arrow up" dropdownToggle></div>
+    <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="single-button">
+      <li role="menuitem" *ngFor="let page of pages" class="menuitem icon" [class.tick]="page == selectedPage" (click)="onSelectPage(page)">
+        <span>{{page.title}}</span>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="allowAddNewPage()" class="tab new-page" (click)="onAddNewPage()"><div class="title"></div></div>
+
+</div>

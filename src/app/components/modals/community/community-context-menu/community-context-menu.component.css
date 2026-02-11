@@ -1,0 +1,11 @@
+.context-menu li.menuitem.user-profile:before {
+    background-image: url('~img/followers.png');
+}
+
+.context-menu li.menuitem.show-idea:before {
+    background-image: url('~img/idea.png');
+}
+
+.context-menu li.menuitem.show-company-ideas:before {
+    background-image: url('~img/ideas.png');
+}

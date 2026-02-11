@@ -1,0 +1,46 @@
+<div *ngIf="notifications" class="following-notifications">
+    <div class="notification {{highlightNewNotification(notification)}}" *ngFor="let notification of notifications;index as index" [class.no-border]="index == notifications.length-1 && index!==0">
+
+        <div class="avatar">
+            <div *ngIf="!notification.avatarUrl" class="default-avatar"></div>
+            <img *ngIf="notification.avatarUrl" [src]="notification.avatarUrl">
+        </div>
+
+        <div class="notification-info">
+            <div class="notification-header-info">
+                <div class="notification-owner-info">
+                    <div class="name bold-text" (click)="openUserProfileOnCommunity(notification.nickName)">{{notification.profileName}}</div>
+                    <div *ngIf="!authorTypeIsUser(notification.authorType)" class="user-type">{{ getAuthorTypeDescription(notification.authorType)}}</div>
+                </div>
+                <div class="vertical-dots-icon" (click)="showContextMenu($event , notification)"></div>
+            </div>
+
+            <div class="notification-type-date">
+                <div class="{{notification.notificationType.className}}">{{getNotificationTypeDescription(notification.notificationType)}}</div>
+                <div class="date">{{notification.created | date:'LLLL, dd' }}</div>
+            </div>
+
+            <div *ngIf="notification.idea">
+                <div class="idea-title wrap-text" (click)="openIdeaPageOnCommunity(notification.idea.name)">{{notification.idea.title}}</div>
+
+                <div class="symbol-and-interval">
+                    <div class="symbol" (click)="openCompanyPageInCommunity(notification.idea.company.id)">{{getCompanyName(notification.idea.company)}} ({{getSymbolWithoutMarket(notification.idea.company)}})</div>
+                    <div class="interval-name" *ngIf="notification.idea.intervalName"> , {{notification.idea.intervalName}}</div>
+                </div>
+
+                <div class="attachment-container">
+                    <img *ngIf="notification.idea.thumbnailUrl" src="{{notification.idea.thumbnailUrl}}" (click)="openIdeaPageOnCommunity(notification.idea.name)"/>
+                    <div *ngIf="!notification.idea.thumbnailUrl" class="video-url-container"></div>
+                    <div *ngIf="showVideoPlayerIcon(notification.idea)" class="video-player-icon"></div>
+                </div>
+
+                <div class="idea-description wrap-text">{{notification.idea.description}}</div>
+                <div *ngIf="notification.idea.description.length > 80" class="show-more" (click)="openIdeaPageOnCommunity(notification.idea.name)" i18n="@@folowing_notofications_show_more">المزيد ...</div>
+            </div>
+        </div>
+    </div>
+</div>
+<community-context-menu [contextMenu]="contextMenu"
+                        (onOpenUserProfilePage)="openUserProfileOnCommunity($event)"
+                        (onOpenIdeaPage)="openIdeaPageOnCommunity($event)"
+                        (onOpenCompanyPage)="openCompanyPageInCommunity($event)"></community-context-menu>

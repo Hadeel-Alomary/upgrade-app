@@ -1,0 +1,45 @@
+<script src="../slick-grid/slick-grid.ts"></script>
+<li role="menuitem" class="box-context-menu menuitem dropdown-submenu open-screen icon" dropdown-submenu-toggle>
+  <div i18n="@@box-context-menu_openScreen">فتح شاشة</div>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
+    <li class="menuitem open-detailed-quote icon" role="menuitem" (click)="openWindow(gridBoxType.DetailedQuote)">
+      <div i18n="@@box-context-menu_detailedQuote">السعر المفصل</div>
+       <div *ngIf="!isAuthorizedGridBox(gridBoxType.DetailedQuote)" class="unauthorized-lock-icon"></div>
+    </li>
+    <li class="menuitem open-chart icon" role="menuitem" (click)="openWindow(gridBoxType.Chart)">
+      <div i18n="@@box-context-menu_chart">الرسم البياني</div>
+        <div *ngIf="!isAuthorizedGridBox(gridBoxType.Chart)" class="unauthorized-lock-icon"></div>
+
+    </li>
+    <li class="menuitem open-market-depth-by-order icon" role="menuitem"
+        (click)="openWindow(gridBoxType.MarketDepthByOrder)">
+      <div i18n="@@box-context-menu_marketDepthOrder">عمق السوق حسب الترتيب</div>
+        <div *ngIf="!isAuthorizedGridBox(gridBoxType.MarketDepthByOrder)" class="unauthorized-lock-icon"></div>
+
+    </li>
+    <li class="menuitem open-market-depth-by-price icon" role="menuitem"
+        (click)="openWindow(gridBoxType.MarketDepthByPrice)">
+      <div i18n="@@box-context-menu_marketDepthPrice">عمق السوق حسب السعر</div>
+        <div *ngIf="!isAuthorizedGridBox(gridBoxType.MarketDepthByPrice)" class="unauthorized-lock-icon"></div>
+
+    </li>
+    <li class="menuitem open-time-and-sale icon" role="menuitem" (click)="openWindow(gridBoxType.TimeAndSale)">
+      <div i18n="@@box-context-menu_trades">الصفقات</div>
+        <div *ngIf="!isAuthorizedGridBox(gridBoxType.TimeAndSale)" class="unauthorized-lock-icon"></div>
+
+    </li>
+      <li *ngIf="canShowTradesSummary()" class="menuitem open-trades-summary icon" role="menuitem" (click)="openWindow(gridBoxType.TradesSummary)">
+          <div i18n="@@box-context-menu_tradesSummary">ملخص الصفقات</div>
+          <div *ngIf="!isAuthorizedGridBox(gridBoxType.TradesSummary)" class="unauthorized-lock-icon"></div>
+      </li>
+      <li class="menuitem financial-reports-icon icon" role="menuitem" (click)="openWindow(gridBoxType.CompanyFinancialStatements)">
+          <div i18n="@@box-context-menu_financialData">البيانات المالية</div>
+          <div *ngIf="!isAuthorizedGridBox(gridBoxType.CompanyFinancialStatements)" class="unauthorized-lock-icon"></div>
+
+      </li>
+    <li class="menuitem open-company-news icon" role="menuitem" (click)="openWindow(gridBoxType.CompanyNews)">
+      <div i18n="@@box-context-menu_announcements">الاعلانات</div>
+        <div *ngIf="!isAuthorizedGridBox(gridBoxType.CompanyNews)" class="unauthorized-lock-icon"></div>
+    </li>
+  </ul>
+</li>

@@ -1,0 +1,284 @@
+/* modal */
+
+.grid-column-properties .modal-dialog {
+    max-width: 600px;
+}
+
+.mobile .grid-column-properties .modal-dialog {
+    width: 96%;
+}
+
+.grid-column-properties .modal-dialog .modal-body {
+    display: flex;
+}
+
+.mobile .grid-column-properties .modal-dialog .modal-body {
+    padding: 5px;
+}
+
+    /* column-properties-container */
+
+.grid-column-properties .column-properties-container {
+    border: 1px solid #8e8e8e;
+    border-radius: 5px;
+    flex-grow: 1;
+    height: 100%;
+    padding: 0 10px;
+    background-color:#e0e0e0;
+    display: flex;
+    justify-content: center;
+}
+
+.arabic .grid-column-properties .column-properties-container {
+    margin-right: 10px;
+}
+
+.mobile.arabic .grid-column-properties .column-properties-container {
+    margin-right: 0px;
+    width: 100%;
+}
+
+.english .grid-column-properties .column-properties-container {
+    margin-left: 10px;
+}
+
+/* column-picker-container */
+
+.grid-column-properties .column-properties-container .column-picker-container {
+    display: flex;
+}
+
+.mobile .grid-column-properties .column-properties-container .column-picker-container {
+    width: 100%;
+}
+
+.mobile .grid-column-properties .column-properties-container .column-picker-container .from-container,
+.mobile .grid-column-properties .column-properties-container .column-picker-container .to-container{
+    width: calc(50% - 18px);
+}
+
+.grid-column-properties .column-properties-container .column-picker-container .container-label {
+    font-size: 1.4rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.grid-column-properties .column-properties-container .column-picker-container .from-container .category-list {
+    height: 27px;
+    padding: 1px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    border: 1px solid #626262;
+    font-size: 1.3rem;
+    outline: none;
+}
+
+/* column-picker-container order-btns */
+
+.grid-column-properties .column-properties-container .column-picker-container .image-btn.select-all-btn {
+    padding-right: 0px;
+    margin-bottom: 10px;
+    height: 27px;
+    width: 200px;
+}
+
+.grid-column-properties .column-properties-container .column-picker-container .image-btn.select-all-btn:before {
+    background-image: url('~img/watchlist-tickbox.png');
+}
+
+.grid-column-properties .column-properties-container .column-picker-container .image-btn.select-all-btn:hover:before {
+    background-image: url('~img/watchlist-tickbox-highlighted.png');
+}
+
+.grid-column-properties .column-properties-container .column-picker-container .order-btns {
+    display: flex;
+    justify-content: center;
+    width: 150px;
+}
+
+.grid-column-properties .column-properties-container .column-picker-container .image-btn {
+    display: flex;
+    align-items: center;
+}
+
+.grid-column-properties .column-properties-container .column-picker-container .image-btn:before {
+    content: "";
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 20px;
+}
+
+.grid-column-properties .column-properties-container .column-picker-container .image-btn.order-up-btn {
+    margin-top: 10px;
+    width:200px;
+}
+
+.grid-column-properties .column-properties-container .column-picker-container .image-btn.order-up-btn:before {
+    background-image: url('~img/up.png');
+}
+
+.mobile .grid-column-properties .column-properties-container .column-picker-container .image-btn.order-up-btn,
+.mobile .grid-column-properties .column-properties-container .column-picker-container .image-btn.order-down-btn{
+    width: 80px;
+    height: 20px;
+    line-height: 25px;
+}
+
+.grid-column-properties .column-properties-container .column-picker-container .image-btn.order-up-btn:hover:before {
+    background-image: url('~img/up-highlighted.png');
+}
+
+
+.grid-column-properties .column-properties-container .column-picker-container .image-btn.order-down-btn {
+    margin-top: 10px;
+    width:200px;
+}
+
+.grid-column-properties .column-properties-container .column-picker-container .image-btn.order-down-btn:before {
+    background-image: url('~img/down.png');
+}
+
+.grid-column-properties .column-properties-container .column-picker-container .image-btn.order-down-btn:hover:before {
+    background-image: url('~img/down-highlighted.png');
+}
+
+
+/* column-picker-container restore-btn */
+
+.grid-column-properties .column-properties-container .column-picker-container .restore-btn {
+    margin-top: 20px;
+}
+
+.mobile .grid-column-properties .column-properties-container .column-picker-container .restore-btn .btn {
+    font-size: 1.1rem;
+    padding: 2px;
+}
+
+.arabic .grid-column-properties .column-properties-container .column-picker-container .restore-btn {
+    text-align: left;
+}
+
+.english .grid-column-properties .column-properties-container .column-picker-container .restore-btn {
+    text-align: right;
+}
+
+
+/* column-picker-container > arrows-container */
+
+.grid-column-properties .column-properties-container .column-picker-container .arrows-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 10px 0 10px;
+    height: 370px;
+}
+
+.mobile .grid-column-properties .column-properties-container .column-picker-container .arrows-container {
+    margin: 6px 0 0 0;
+}
+
+.grid-column-properties .column-properties-container .column-picker-container .arrows-container > div {
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    border-color: transparent;
+    border-radius: 5px;
+}
+
+.mobile .grid-column-properties .column-properties-container .column-picker-container .arrows-container > div {
+    width: 26px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.grid-column-properties .column-properties-container .column-picker-container .arrows-container > div:hover {
+    background-color: white;
+    border: 1px solid #8e8e8e;
+}
+
+.grid-column-properties .column-properties-container .column-picker-container .arrows-container > div:before {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.arabic .grid-column-properties .column-properties-container .column-picker-container .arrows-container .to-left-arrow:before {
+    background-image: url('~img/watchlist-left.png');
+}
+
+.english .grid-column-properties .column-properties-container .column-picker-container .arrows-container .to-left-arrow:before {
+    background-image: url('~img/watchlist-right.png');
+}
+
+.arabic .grid-column-properties .column-properties-container .column-picker-container .arrows-container .to-right-arrow:before {
+    background-image: url('~img/watchlist-right.png');
+}
+
+.english .grid-column-properties .column-properties-container .column-picker-container .arrows-container .to-right-arrow:before {
+    background-image: url('~img/watchlist-left.png');
+}
+
+
+/* image-btn */
+
+.grid-column-properties .image-btn {
+    width: 100px;
+    cursor:pointer;
+    color: black;
+}
+
+.arabic .grid-column-properties .image-btn {
+    text-align:right;
+}
+
+.english .grid-column-properties .image-btn {
+    text-align: left;
+}
+
+
+.grid-column-properties .image-btn:hover {
+    color: #ff4500;
+}
+
+/* font family */
+
+.arabic .grid-column-properties .column-properties-container .column-picker-container .container-label {
+    font-family: DroidArabicKufi-Bold;
+}
+
+.mobile .grid-column-properties .column-properties-container .column-picker-container .container-label {
+    font-size: 1.2rem;
+}
+
+.english .grid-column-properties .column-properties-container .column-picker-container .container-label {
+    font-family: Tahoma Black;
+}
+
+
+/* dark theme */
+
+.dark .grid-column-properties .column-properties-container {
+    background-color: #555;
+    border-color: #666;
+}
+
+.dark .grid-column-properties .column-properties-container .column-picker-container .arrows-container > div:hover {
+    background-color: #222;
+    border: #666;
+}
+
+.dark .grid-column-properties .image-btn:hover {
+    color: deepskyblue;
+}
+
+.dark .grid-column-properties .image-btn,
+.dark .grid-column-properties .column-properties-container .column-picker-container .container-label {
+    color: lightgrey;
+}

@@ -1,0 +1,25 @@
+<div *ngIf="!loading" class="active-running-app" disablePageZoom>
+<!--  <tabs-guide *ngIf="showPageNavigationGuide()" [shown]="true" [config]="{top: 0, bottom: 40, left: 0, right: 0}"></tabs-guide>-->
+<!--  <flash-message></flash-message>-->
+<!--  <market-summary></market-summary>-->
+<!--  <grid-container [selectedPage]="selectedPage"></grid-container>-->
+<!--  <footer [selectedPage]="selectedPage" (outputPage)="onSelectPage($event)" (outputDeletePage)="onDeletePage($event)" (outputLogout)="onLogout()"></footer>-->
+</div>
+<div>Im Hereee</div>
+<!--<div class="modals-container">-->
+<!--  <modals-container></modals-container>-->
+<!--</div>-->
+
+<div *ngIf="loading" class="loading-app">
+  <div class="tickerchart-loading-container">
+    <div class="ajax-wheels"><img src="static/img/ajax.gif"></div>
+    <div class="tickerchart-logo"><img src="static/img/tickerchart-logo-white.png"></div>
+  </div>
+
+<!--  <div class="derayah-loading-container">-->
+<!--    <div class="derayah-trade-logo"><img src="~img/derayah-trade-logo.png"></div>-->
+<!--    <div class="derayah-loading-img"><img src="~img/derayah-loading-mask.gif"></div>-->
+<!--    <div class="powered-by-tickerchart"><img src="~img/powered-by-tickerchart-logo-gray-180px.png"></div>-->
+<!--  </div>-->
+</div>
+

@@ -1,0 +1,64 @@
+.grid-notification-bar {
+    display: flex;
+    height: 30px;
+    line-height: 30px;
+    background-color: #fdbd1a;
+    justify-content: space-between;
+}
+
+.arabic .grid-notification-bar {
+    flex-direction: row-reverse;
+
+}
+
+.english .grid-notification-bar {
+    flex-direction: row;
+    font-family: Tahoma;
+}
+
+.grid-notification-bar .message {
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 1.3rem;
+    display: flex;
+}
+
+.mobile .grid-notification-bar .message {
+    font-size: 1.15rem;
+}
+
+.arabic .grid-notification-bar .message {
+    margin-right: 5px;
+}
+
+.english .grid-notification-bar .message {
+    margin-left: 5px;
+}
+
+.grid-notification-bar .action {
+    height: 22px;
+    margin: 4px 3px;
+    padding: 0px 5px;
+    font-size: 1.3rem;
+    background-color: bisque;
+}
+
+.grid-notification-bar .action:hover {
+    background-color: white;
+}
+
+
+/* dark theme */
+
+.dark .grid-notification-bar {
+    background-color: #45480c;
+    color: white;
+}
+.dark .grid-notification-bar .action {
+    background-color: #6b4e07;
+}
+
+.dark .grid-notification-bar .action:hover {
+    background-color: #453107;
+}
+

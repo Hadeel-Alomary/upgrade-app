@@ -1,0 +1,270 @@
+/* footer */
+
+.footer {
+    background-color: #CCC;
+    position: relative;
+    height: 35px;
+}
+
+.footer .upper-border {
+    border-top: 1px solid #888;
+}
+
+.english .footer .upper-border {
+    margin-left: 40px;
+}
+.arabic .footer .upper-border {
+    margin-right: 40px;
+}
+
+/* footer footer-btns */
+
+.footer .footer-btns {
+    position: absolute;
+    top: 4px;
+    display:flex;
+}
+
+.arabic .footer .footer-btns {
+    left: 10px;
+    right: auto;
+    flex-direction: row;
+}
+
+.english .footer .footer-btns {
+    right: 10px;
+    left: auto;
+    flex-direction: row-reverse;
+}
+
+.arabic .footer .footer-btns > * {
+    margin-right: 5px;
+}
+
+.english .footer .footer-btns > * {
+    margin-right: 0px;
+    margin-left: 5px;
+}
+
+.footer .footer-btns .btn-small {
+    height: 28px;
+    font-size: 1.2rem;
+    line-height: 19px;
+    padding: 3px 7px;
+}
+
+.arabic .footer .footer-btns .btn-small {
+    direction: rtl;
+    text-align: right;
+}
+
+.english .footer .footer-btns .btn-small {
+    direction: ltr;
+    text-align: left;
+}
+
+.footer .footer-btns .btn-small .icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align:middle;
+}
+
+.arabic .footer .footer-btns .btn-small .icon {
+    background-position: right;
+    margin-left: 4px;
+}
+.english .footer .footer-btns .btn-small .icon {
+    background-position: left;
+    margin-right: 4px;
+}
+
+.footer .footer-btns .btn-small .btn-small-text {
+    vertical-align: middle;
+}
+
+.footer .footer-btns .btn-small .icon:before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.footer .footer-btns .btn-small .icon.icon-my-account:before {
+    background-image: url('~img/footer-settings.png');
+}
+
+.footer .footer-btns .btn-small .icon.icon-logout:before {
+    background-image: url('~img/footer-logout.png');
+}
+
+.footer .footer-btns .btn-small .icon.icon-login:before {
+    background-image: url('~img/footer-login.png');
+}
+.footer .footer-btns .btn-small .icon.icon-trading:before ,
+.footer .footer-btns .btn-small .icon.icon-subscription:before {
+    background-image: url('~img/footer-trading.png');
+}
+
+.footer .footer-btns .btn-small .icon.icon-reset-workspace:before{
+    background-image: url('~img/footer-reset-workspace.png');
+}
+
+.footer .footer-btns .separator:before{
+    background-image: url('~img/separator2.png');
+    display: inline-block;
+    width: 10px;
+    height: 100%;
+    vertical-align: middle;
+    content: "";
+}
+
+/* footer buttons */
+
+.footer .footer-btns .btn-small {
+    display: flex;
+    align-items: center;
+}
+
+.footer .footer-btns .btn-small.btn-icon {
+    background-color: #ccc;
+    padding: 2px 4px;
+}
+
+.footer .footer-btns .btn-small.btn-icon .icon {
+    height: 22px;
+    width: 24px;
+    margin: 0px;
+}
+
+.footer .footer-btns .btn-small.btn-icon .icon:before {
+    content: "";
+    height: 22px;
+    width: 24px;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+.footer .footer-btns .btn-small.btn-icon .icon.icon-font-size {
+    height: 22px;
+    width: 26px;
+}
+
+.footer .footer-btns .btn-small.btn-icon:hover {
+    background-color: white;
+}
+
+
+.footer .footer-btns .btn-small .icon.icon-save-workspace:before {
+    background-image: url('~img/cloud-load.png');
+}
+
+@keyframes cloud-uploading-animation {
+    0% {background-position:0px 0px;}
+    16.67% {background-position:0px -22px;}
+    33.33% {background-position:0px -44px;}
+    50% {background-position:0px -66px;}
+    66.67% {background-position:0px -88px;}
+    83.33%, 100% {background-position:0px -110px;}
+}
+
+.footer .footer-btns .btn-small .icon.icon-save-workspace.saving:before {
+    background-image: url('~img/cloud-uploading.png');
+    width:24px;
+    height:22px;
+    animation: cloud-uploading-animation 1.5s infinite steps(1);
+}
+
+.footer .footer-btns .workspace-name {
+    color: #000;
+    font-family: DroidArabicKufi-Bold;
+    font-size: 1.2rem;
+    line-height: 28px;
+    margin-right: 5px;
+    max-width: 150px;
+    cursor: pointer;
+}
+
+.english .footer .footer-btns .workspace-name {
+    margin-right: 0px;
+    margin-left: 5px;
+}
+
+.footer .footer-btns .btn-small .icon.icon-screen.fullscreen:before {
+    background-image: url('~img/full-screen.png');
+}
+
+.footer .footer-btns .btn-small .icon.icon-screen.normal:before {
+    background-image: url('~img/normal-screen.png');
+}
+
+.footer .footer-btns .btn-small .icon.icon-technical-support:before {
+    background-image: url('~img/footer-support.png');
+}
+
+.footer .footer-btns .btn-small .icon.icon-switch-theme:before {
+    background-image: url('~img/moon.png');
+}
+
+.footer .footer-btns .btn-small .icon.icon-font-size:before {
+    background-image: url('~img/footer-font.png');
+}
+
+
+/* footer font size */
+
+.app .footer .dropdown-menu li.menuitem .font-size.small {
+    font-size: 12px;
+}
+
+.app .footer .dropdown-menu li.menuitem .font-size.normal {
+    font-size: 13px;
+}
+
+.app .footer .dropdown-menu li.menuitem .font-size.large {
+    font-size: 15px;
+}
+
+
+/* dark theme */
+
+.dark .footer {
+    background-color: #333;
+}
+
+.dark .footer .footer-btns .btn-small.btn-icon {
+    background-color: #333;
+    border-color: #333;
+}
+
+.dark .footer .footer-btns .btn-small.btn-icon:hover {
+    background-color: #000;
+    border-color: #000;
+}
+
+.dark .footer .upper-border {
+    border-color: #666;
+}
+
+.dark .footer .footer-btns .btn-small .icon.icon-switch-theme:before {
+    background-image: url('~img/sun.png');
+    filter: none;
+}
+
+.dark .footer .footer-btns .btn-small .icon.icon-my-account:before,
+.dark .footer .footer-btns .btn-small .icon.icon-trading:before,
+.dark .footer .footer-btns .btn-small .icon.icon-subscription:before,
+.dark .footer .footer-btns .btn-small .icon.icon-logout:before,
+.dark .footer .footer-btns .btn-small .icon.icon-reset-workspace:before {
+    filter: none;
+}
+
+.dark .footer .footer-btns .btn-small .icon.icon-login:before {
+    filter: none;
+}
+
+.dark .footer .workspace-name {
+    color: gainsboro;
+}

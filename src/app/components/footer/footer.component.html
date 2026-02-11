@@ -1,0 +1,42 @@
+<div class="footer">
+  <div class="upper-border"></div>
+  <page-tabs [selectedPage]="selectedPage" (outputPage)="onSelectPage($event)" (outputDeletePage)="onDeletePage($event)"></page-tabs>
+  <div class="footer-btns" dropdown>
+    <a *ngIf="isRegistered()" class="btn btn-small btn-tomato" (click)="onLogout()"><span class="icon icon-logout"></span><span class="btn-small-text" i18n="@@footer_logout">خروج</span></a>
+    <a *ngIf="isRegistered()" class="btn btn-small btn-primary btn-settings" (click)="onMyAccount()"><span class="icon icon-my-account"></span><span class="btn-small-text" i18n="@@footer_myAccount">حسابي</span></a>
+    <a *ngIf="showSubscribeBtn()" class="btn btn-small btn-darkgreen btn-subscription" (click)="onSubscription()"><span class="icon icon-subscription"></span><span class="btn-small-text" i18n="@@footer_subscribe">اشترك</span></a>
+    <a *ngIf="showBrokerConnectionBtn() && appModeAllowedFeature(appModeFeatureType.BROKER_CONNECTION_BTN)" class="btn btn-small btn-purple btn-trading" (click)="onBrokerActivate()"><span class="icon icon-trading"></span><span class="btn-small-text" i18n="@@footer_trading">تداول</span></a>
+    <a *ngIf="appModeAllowedFeature(appModeFeatureType.RESET_WORKSPACE_BTN)" class="btn btn-small btn-purple btn-reset-workspace" (click)="onResetWorkspace()"><span class="icon icon-reset-workspace"></span><span class="btn-small-text" i18n="@@footer_resetWorkspace">الوضع الإفتراضي</span></a>
+    <a *ngIf="isVisitor()" class="btn btn-small btn-primary" (click)="onSignin()"><span class="icon icon-login"></span><span class="btn-small-text" i18n="@@footer_login">تسجيل الدخول</span></a>
+    <div *ngIf="isRegistered() && appModeAllowedFeature(appModeFeatureType.SUPPORT)" class="separator"></div>
+    <a *ngIf="isRegistered() && appModeAllowedFeature(appModeFeatureType.SUPPORT)" class="btn btn-small btn-default btn-icon" (click)="onTechnicalSupport()" data-toggle="tooltip" data-placement="top" data-animation="false" i18n-title="@@footer_technicalSupport" title="الدعم الفني"><span class="icon icon-technical-support"></span></a>
+    <div *ngIf="hasWorkspaceLoaded() && !isBasicSubscriber()" class="separator"></div>
+    <a *ngIf="hasWorkspaceLoaded() && appModeAllowedFeature(appModeFeatureType.SAVE_WORKSPACE)" class="btn btn-small btn-default btn-icon" (click)="onSelectWorkspace()" data-toggle="tooltip" data-placement="top" data-animation="false" i18n-title="@@footer_selectWorkspace" title="اختيار مساحة العمل">
+        <span class="icon icon-save-workspace" [class.saving]="savingWorkspace"></span>
+        <div class="workspace-name" [innerHTML]="getWorkspaceName() | englishMarker"></div>
+    </a>
+    <div class="separator"></div>
+    <a class="btn btn-small btn-default btn-icon" (click)="onToggleScreenMode()" data-toggle="tooltip" data-placement="top" data-animation="false" i18n-title="@@footer_screenMode" [attr.data-original-title]="screenModeTooltipTitle | translate"><span class="icon icon-screen {{screenModeCssClass}}"></span></a>
+    <div class="separator"></div>
+    <a class="btn btn-small btn-default btn-icon" data-toggle="tooltip" data-placement="right" data-animation="false" i18n-title="@@footer_fontSize" title="تغيير حجم الخط" dropdownToggle><span class="icon icon-font-size"></span></a>
+    <div class="separator"></div>
+
+
+   <div *ngIf="appModeAllowedFeature(appModeFeatureType.POWERED_BY_TICKER_CHART)" class="powered-by-tickerchart">
+       <span class="icon icon-powered-by-tickerchart"></span>
+   </div>
+
+    <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="single-button">
+      <li role="menuitem" class="menuitem icon" (click)="onFontSize(fontSize.Small)" [class.tick] = "isSelectedFont(fontSize.Small)">
+        <div class="font-size small" i18n="@@footer_smallFont">صغير</div>
+      </li>
+      <li role="menuitem" class="menuitem icon" (click)="onFontSize(fontSize.Normal)" [class.tick] = "isSelectedFont(fontSize.Normal)">
+        <div class="font-size normal" i18n="@@footer_mediumFont">متوسط</div>
+      </li>
+      <li role="menuitem" class="menuitem icon" (click)="onFontSize(fontSize.Large)" [class.tick] = "isSelectedFont(fontSize.Large)">
+        <div class="font-size large" i18n="@@footer_largeFont">كبير</div>
+      </li>
+    </ul>
+
+  </div>
+</div>

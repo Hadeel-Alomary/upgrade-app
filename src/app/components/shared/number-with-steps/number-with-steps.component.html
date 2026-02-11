@@ -1,0 +1,21 @@
+<div *ngIf="isArrowSteps" class="number-with-steps" [class.active]="isInputFieldClicked()" [class.disabled]="disabled" tabindex="0" #arrowSteps>
+    <input class="english" type="number" [step]="step" (keypress)="mustBeNumber($event)" [value]="valueAsString()" (input)="fireUserInput($event.target.value)" (change)="setNumValue($event.target.value)" [placeholder]="placeHolder" i18n-placeholder="{{placeHolderTransitionStatement}}" (mousewheel)="onInputMouseWheel($event)" (click)="shadingInputValueInMobile()" [disabled]="disabled" #inputArrow>
+    <div class="up-down-arrow-container">
+        <div class="up-arrow-container" (click)="increaseInputValue()">
+            <div class="arrow-up"></div>
+        </div>
+        <div class="down-arrow-container" (click)="decreaseInputValue()">
+            <div class="arrow-down"></div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!isArrowSteps" class="number-with-plus-minus-steps" [class.active]="isInputFieldClicked()" [class.disabled]="disabled" tabindex="0" #plusMinusSteps>
+    <div class="plus-minus-arrow-container">
+        <div class="minus-arrow-container icon" (click)="decreaseInputValue()"></div>
+        <input class="english" type="{{formatWhole?'text':'number'}}" [step]="step" (keypress)="mustBeNumber($event)" [value]="valueAsString()" (input)="fireUserInput($event.target.value)" (change)="setNumValue($event.target.value)" [placeholder]="placeHolder" i18n-placeholder="{{placeHolderTransitionStatement}}" (mousewheel)="onInputMouseWheel($event)" (click)="shadingInputValueInMobile()" [disabled]="disabled" #inputPlusMinus>
+
+        <div class="plus-arrow-container icon" (click)="increaseInputValue()"></div>
+    </div>
+</div>
+

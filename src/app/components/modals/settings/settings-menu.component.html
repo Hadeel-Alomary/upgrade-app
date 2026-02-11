@@ -1,0 +1,125 @@
+<div class="settings-menu iphone-allow-scrolling" [@expandChanged]="expanded ? {value: 'expanded', params: {menuWidth:isDesktop() ? 300 : 250}} : 'collapsed'">
+
+    <div *ngIf="userInfo" id="settings_menu">
+
+        <div class="settings-label entry-label account-username">
+            <div class="icon"></div>
+            <div><span i18n="@@settings-menu_username">المستخدم</span><span class="highlight">{{getUsername()}}</span></div>
+        </div>
+      <div *ngIf="appModeAllowedFeature(appModeFeatureType.ACCOUNT_SUBSCRIPTION_TYPE)" class="settings-label entry-label account-subscription-type">
+        <div class="icon"></div>
+        <div><span i18n="@@settings-menu_subscriptionType">نوع الاشتراك</span><span class="highlight">{{getPackageType()}}</span></div>
+        <div *ngIf="showUpgradeSubscriptionBtn()" class="btn btn-small btn-darkgreen btn-subscription" (click)="onSubscription()"><div class="icon icon-subscription"></div><div class="upgrade-text" i18n="@@settings-menu_upgrade">ترقية</div></div>
+      </div>
+        <div *ngIf="showSubscriptionDates() && appModeAllowedFeature(appModeFeatureType.SUBSCRIPTION_END_DATE)" class="settings-label entry-label account-expiry">
+            <div class="icon"></div>
+            <div><span i18n="@@settings-menu_subscriptionEndDate">تاريخ الانتهاء</span><span class="highlight">{{getPackageEndDate() | isoDateFormatter}}</span></div>
+        </div>
+
+        <div *ngIf="appModeAllowedFeature(appModeFeatureType.ACCOUNT_INFO)" class="account-info-container panel">
+            <a class="settings-label header-label account-header accordion-toggle" data-toggle="collapse"
+               data-parent="#settings_menu" href="#account_info" i18n="@@settings-menu_accountInfo">معلومات الحساب</a>
+            <div id="account_info" class="collapse in">
+                <div class="settings-label entry-label clickable account-subscriptions">
+                    <div class="icon"></div>
+                    <div><a href="javascript:void(0);" i18n="@@settings-menu_currentSubscriptions" (click)="openSubscriptionsUrl()">مشاهدة الاشتراكات الحالية</a></div>
+                </div>
+                <div class="settings-label entry-label clickable account-renew">
+                    <div class="icon"></div>
+                    <div><a href="javascript:void(0);" i18n="@@settings-menu_renewSubscription" (click)="openSubscribeUrl()">تجديد الاشتراك</a></div>
+                </div>
+                <div *ngIf="isDesktop()" class="settings-label entry-label clickable account-points">
+                    <div class="icon"></div>
+                    <div><a href="javascript:void(0);" i18n="@@settings-menu_viewAccount" (click)="openRewardUrl()">مشاهدة العضوية</a></div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="allowBrokerSelection() && appModeAllowedFeature(appModeFeatureType.TRADING_MENU)" class="trading-menu-container panel">
+            <a class="settings-label header-label account-header accordion-toggle collapsed" data-toggle="collapse"
+               data-parent="#settings_menu" href="#broker_links" i18n="@@settings-menu_thirdParty">التداول مع الوسيط</a>
+            <div id="broker_links" class="collapse">
+                <div *ngIf="!connectedWithBroker" class="settings-label entry-label clickable trading-login">
+                    <div class="icon"></div>
+                    <div><a href="javascript:void(0);" (click)="onBrokerActivate()" i18n="@@settings-menu_connectWithThirdParty">الربط مع الوسيط</a></div>
+                </div>
+                <div *ngIf="connectedWithBroker" class="settings-label entry-label clickable trading-logout">
+                    <div class="icon"></div>
+                    <div><a href="javascript:void(0);" (click)="onBrokerDeactivate()" i18n="@@settings-menu_disconnectWithThirdParty">فك الربط مع الوسيط</a></div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="!isDesktop() && isRegistered() && appModeAllowedFeature(appModeFeatureType.SAVE_WORKSPACE)" class="settings-label entry-label clickable save-workspace">
+            <div class="workspace-icon-container"><div class="icon save-workspace" [class.saving]="savingWorkspace"></div></div>
+            <div><a href="javascript:void(0);" (click)="onUpdateWorkspace()">{{getSaveWorkspaceText()}}</a></div>
+        </div>
+
+        <div *ngIf="appModeAllowedFeature(appModeFeatureType.CONTACT_US)" class="contact-us-container panel">
+            <a class="settings-label header-label account-header accordion-toggle collapsed" data-toggle="collapse"
+               data-parent="#settings_menu" href="#contact_us" i18n="@@settings-menu_contactUs">اتصل بنا</a>
+            <div id="contact_us" class="collapse">
+                <div class="settings-label entry-label clickable support">
+                    <div class="icon"></div>
+                    <div><a href="javascript:void(0);" (click)="onTechnicalSupport()" i18n="@@settings-menu_technicalSupport">الدعم الفني</a></div>
+                </div>
+                <div class="settings-label entry-label clickable download" *ngIf="isDesktop()">
+                    <div class="icon"></div>
+                    <div><a [href]="supportProgramUrl" i18n="@@settings-menu_downloadHelpSoftware">تحميل برنامج المساعدة</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="font-size-container panel" *ngIf="!isDesktop() && isAllowedFontSize(appModeFeatureType.FONT_SIZE)">
+            <a class="settings-label header-label account-header accordion-toggle collapsed" data-toggle="collapse"
+               data-parent="#settings_menu" href="#change_font_size" i18n="@@settings-menu_changeFontSize">تغيير حجم الخط</a>
+            <div id="change_font_size" class="collapse">
+                <div class="settings-label entry-label clickable small-font-size" >
+                    <div class="icon"></div>
+                    <div><a href="javascript:void(0);" (click)="onFontSize(fontSize.Small)" i18n="@@footer_smallFont">صغير</a></div>
+                </div>
+                <div class="settings-label entry-label clickable normal-font-size">
+                    <div class="icon"></div>
+                    <div><a href="javascript:void(0);" (click)="onFontSize(fontSize.Normal)" i18n="@@footer_mediumFont">متوسط</a></div>
+                </div>
+                <div class="settings-label entry-label clickable large-font-size">
+                    <div class="icon"></div>
+                    <div><a href="javascript:void(0);" (click)="onFontSize(fontSize.Large)" i18n="@@footer_largeFont">كبير</a></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="general-settings-container panel">
+            <a class="settings-label header-label account-header accordion-toggle collapsed" data-toggle="collapse"
+               data-parent="#settings_menu" href="#general_settings" i18n="@@settings-menu_otherSettings">اعدادات أخرى</a>
+            <div id="general_settings" class="collapse">
+                <div class="settings-label entry-label clickable reset-workspace">
+                    <div class="icon"></div>
+                    <div><a href="javascript:void(0);" (click)="onResetWorkspace()" i18n="@@settings-menu_resetDefaultSettings">العودة للإعدادات الافتراضية</a></div>
+                </div>
+                <div class="settings-label entry-label clickable switch-theme">
+                    <div class="icon"></div>
+                    <div><a href="javascript:void(0);" (click)="onSwitchTheme()">{{getSwitchThemeText()}}</a></div>
+                </div>
+                <div class="settings-label entry-label clickable change-language" *ngIf="isDesktop()">
+                    <div class="icon"></div>
+                    <div><a href="javascript:void(0);" (click)="onSwitchLanguage()">{{getSwitchLanguageText()}}</a></div>
+                </div>
+            </div>
+        </div>
+
+
+
+      <div class="logout-container panel">
+        <div class="expand">
+          <div class="settings-label entry-label clickable logout">
+            <div class="icon"></div>
+            <div><a href="javascript:void(0);" (click)="onLogout()" i18n="@@settings-menu_logout">خروج من الحساب</a></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+</div>

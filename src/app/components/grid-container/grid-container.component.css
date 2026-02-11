@@ -1,0 +1,41 @@
+.grid-container  {
+    height: 100%;
+    display: flex;
+    align-items:stretch;
+}
+
+.arabic .grid-container{
+    flex-direction: row-reverse;
+}
+
+.english .grid-container{
+    flex-direction: row;
+}
+
+.grid-container > .grid-wrapper {
+    flex: 1;
+}
+
+.arabic .grid-container window-toolbar {
+    border-left: 1px solid #999;
+}
+
+.english .grid-container window-toolbar{
+    border-right: 1px solid #999;
+}
+
+.grid-container window-toolbar {
+    background-color: #ccc;
+}
+
+
+/* dark theme */
+
+.dark .grid-container window-toolbar {
+    background-color: #333;
+}
+
+.dark.arabic .grid-container window-toolbar,
+.dark.english .grid-container window-toolbar {
+    border-color: #666;
+}

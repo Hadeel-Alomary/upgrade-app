@@ -1,0 +1,102 @@
+.range-bar {
+    height: 60px;
+}
+
+.range-bar .balloon-container {
+    position: relative;
+    height: 14px;
+    margin: 0 5px 0;
+}
+
+.range-bar .balloon-container .open-balloon,
+.range-bar .balloon-container .close-balloon{
+    position: absolute;
+    margin-left: -5px;
+    height: 14px;
+    transition: left 0.3s;
+}
+
+.range-bar .range-area-container {
+    position: relative;
+    margin: 0 5px 0;
+    top: 1px;
+    height: 10px;
+}
+
+.range-bar .range-area-container .left-area,
+.range-bar .range-area-container .right-area {
+    position: absolute;
+    background: lightgrey;
+    height: 10px;
+    border-style: solid;
+    border-color: #fff;
+    transition: all 0.3s;
+}
+
+.range-bar .range-area-container .right-area {
+    border-width: 0 0 0 1px;
+}
+
+.range-bar .range-area-container .left-area {
+    border-width: 0 1px 0 0;
+}
+
+.range-bar .range-area-container .range-area {
+    position: absolute;
+    height: 10px;
+    background: #26a69a;
+    transition: all 0.3s;
+}
+
+.range-bar .labels-container {
+    position: relative;
+    top: 4px;
+    height: 20px;
+}
+
+.range-bar .labels-container .min-label,
+.range-bar .labels-container .max-label {
+    position: absolute;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.range-bar .labels-container .min-label {
+    text-align: left;
+    padding-left: 4px;
+}
+
+.range-bar .labels-container .max-label {
+    text-align: right;
+    padding-right: 6px;
+}
+
+.range-bar .labels-container .caption-label {
+    position: absolute;
+    text-align: center;
+    color: #787878;
+    font-size: 1.1rem;
+    width: 100%;
+}
+
+/* dark theme */
+
+.dark .range-bar .range-area-container .left-area,
+.dark .range-bar .range-area-container .right-area {
+    background: #777;
+    border-color: rgb(55, 55, 55);
+}
+
+.dark .range-bar .range-area-container .range-area {
+    background: rgb(32, 204, 61);
+}
+
+.dark .range-bar .labels-container .max-label,
+.dark .range-bar .labels-container .min-label {
+    color: white;
+}
+
+.dark .range-bar .labels-container .caption-label {
+    color: #aaa;
+}

@@ -1,0 +1,50 @@
+<div bsModal #propertiesModal="bs-modal" class="modal fade technical-scope-properties centered" tabindex="-1" role="dialog" [config]="{backdrop:'static'}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button (click)="propertiesModal.hide()" class="close" type="button">
+                    <span>&times;</span>
+                </button>
+                <h4 class="modal-title" i18n="@@technical-scope-properties_header">إختيار الاشارات الفنية</h4>
+            </div>
+            <div class="modal-body">
+                <div class="signals-properties-container" *ngIf="propertiesModal.isShown">
+                    <div class="from-container" #fromContainer>
+                        <div class="container-label" i18n="@@technical-scope-properties_unShownSignals">الإشارات الفنية غير المشاهدة</div>
+                        <div class="category-list">
+                                <select #categoryType (change)="onCategoryTypeChange(categoryType.value)">
+                                    <option *ngFor="let category of allCategories" value="{{category.type}}" [selected]="isCategorySelected(category)">
+                                        {{category.name | translate}}</option>
+                                </select>
+                            </div>
+                        <select-box (outputDoubleClick)="onDoubleClickOutSelectBox($event)"
+                                        (outputSelection)="onOutSelectBoxSelection($event)"
+                                        [entries]="getOutSignals()"
+                                        [height]="getSelectBoxHeight()"
+                                        [selection]="outSelectBoxSelection"
+                                        [translate]="true"
+                                        [width]="getSelectBoxWidth(fromContainer)"></select-box>
+                    </div>
+                    <div class="arrows-container">
+                        <div (click)="onAddSignals()" class="to-left-arrow"></div>
+                        <div (click)="onRemoveSignals()" class="to-right-arrow"></div>
+                    </div>
+                    <div class="to-container" #toContainer>
+                        <div class="container-label" i18n="@@technical-scope-properties_shownSignals">الإشارات الفنية المشاهدة</div>
+                        <div (click)="inSelectBoxSelection = getInSignals()" class="select-all-btn image-btn" i18n="@@technical-scope-properties_chooseAll">إختيار الجميع</div>
+                        <select-box (outputDoubleClick)="onDoubleClickInSelectBox($event)"
+                                        (outputSelection)="onInSelectBoxSelection($event)"
+                                        [entries]="getInSignals()"
+                                        [height]="getSelectBoxHeight()"
+                                        [selection]="inSelectBoxSelection"
+                                        [ticked]="true"
+                                        [width]="getSelectBoxWidth(toContainer)"></select-box>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button (click)="onDone()" class="btn btn-primary" i18n="@@technical-scope-properties_apply">موافق</button>
+            </div>
+        </div>
+    </div>
+</div>

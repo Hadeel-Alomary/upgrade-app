@@ -1,0 +1,34 @@
+<div dropdown class="static filter-selector">
+  <div class="toolbar-button" dropdownToggle>
+    <div class="toolbar-icon filter-icon">{{getSelectedFilterName()}}</div>
+  </div>
+
+  <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="single-button">
+
+    <li role="menuitem" class="menuitem" (click)="onSelectFilter(defaultFilter)">
+      <div>{{defaultFilter.name | translate}}</div>
+    </li>
+
+    <li class="divider dropdown-divider"></li>
+
+    <li *ngFor="let filter of builtinFilters" role="menuitem" class="menuitem" (click)="onSelectFilter(filter)">
+      <div>{{filter.name | translate}}</div>
+    </li>
+
+    <li *ngIf="userDefinedFilters.length" class="divider dropdown-divider"></li>
+
+    <li *ngFor="let filter of userDefinedFilters" role="menuitem" class="menuitem" (click)="onSelectFilter(filter)">
+      <div>{{filter.name}}</div>
+    </li>
+
+    <li *ngIf="isAllowedAddOrEditFilter()" class="divider dropdown-divider"></li>
+    <li *ngIf="isAllowedAddNewFilter()" role="menuitem" class="menuitem" (click)="onNewFilter()">
+      <div i18n="@@marketwatch-filter_newFilter">اضافة تصفية جديدة</div>
+    </li>
+    <li *ngIf="isAllowedEditFilter()" role="menuitem" class="menuitem" (click)="onUpdateFilters()">
+      <div i18n="@@marketwatch-filter_editFilter">تعديل التصفيات</div>
+    </li>
+
+  </ul>
+
+</div>

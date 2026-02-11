@@ -1,0 +1,177 @@
+.floating-toolbar{
+    position: absolute;
+    z-index: 1000;
+    top: 15px;
+    right: 100px;
+}
+
+.trading-floating-toolbar{
+    width: 281px;
+    height: 50px;
+    display: flex;
+    background-color: #EFEFF2;
+}
+
+.arabic .trading-floating-toolbar{
+    flex-direction: row-reverse;
+}
+
+.english .trading-floating-toolbar{
+    flex-direction: row;
+}
+
+.trading-floating-toolbar .floating-drag{
+    flex-direction: row;
+    width: 20px;
+    height: 50px;
+    cursor: move;
+    border: 1px solid #8e8e8e;
+}
+
+.trading-floating-toolbar .floating-drag:before{
+    background-image: url('~img/trading/dots-menu.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    width:100%;
+    height:100%;
+    content: "";
+}
+
+.arabic .trading-floating-toolbar .floating-drag{
+    border-left: none;
+}
+
+.english .trading-floating-toolbar .floating-drag{
+    border-right: none;
+}
+
+
+.trading-floating-toolbar .floating-body{
+    width: 261px;
+    display: flex;
+}
+
+.arabic .trading-floating-toolbar .floating-body{
+    flex-direction: row;
+}
+
+.english .trading-floating-toolbar .floating-body{
+    flex-direction: row-reverse;
+}
+
+.trading-floating-toolbar .floating-body > div {
+    width: 77px;
+}
+
+.trading-floating-toolbar .floating-body .symbol{
+    width: 107px;
+}
+
+.trading-floating-toolbar .floating-body > div .item-title,
+.trading-floating-toolbar .floating-body > div .item-value{
+    height: 25px;
+    width: 77px;
+    line-height: 22px;
+}
+
+.trading-floating-toolbar .floating-body > .symbol .item-title,
+.trading-floating-toolbar .floating-body > .symbol .item-value{
+    width: 107px;
+}
+
+.trading-floating-toolbar .floating-body > div .item-title{
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.trading-floating-toolbar .floating-body > div .item-value{
+    font-family: Arial;
+    font-weight: bolder;
+    font-size: 1.6rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.trading-floating-toolbar .floating-body .buy,
+.trading-floating-toolbar .floating-body .sell{
+    border: solid 1px #8e8e8e;
+}
+
+.trading-floating-toolbar .floating-body .buy{
+    background-color: #e1f8e1;
+}
+
+.trading-floating-toolbar .floating-body .buy:not(.inactive):hover{
+    cursor: pointer;
+    background-color: #6df46d;
+}
+
+.trading-floating-toolbar .floating-body .sell{
+    background-color: #ffe5e5;
+}
+
+.trading-floating-toolbar .floating-body .sell.inactive,
+.trading-floating-toolbar .floating-body .buy.inactive{
+    opacity: 0.6;
+}
+
+.trading-floating-toolbar .floating-body .sell:not(.inactive):hover{
+    cursor: pointer;
+    background-color: #f46f6f;
+}
+
+.trading-floating-toolbar .floating-body .symbol{
+    border-bottom: 1px solid #8e8e8e;
+    border-top: 1px solid #8e8e8e;
+}
+
+
+/* font family */
+
+.arabic .trading-floating-toolbar .floating-body > div .item-title{
+    font-family: DroidArabicKufi-Bold;
+}
+
+.english .trading-floating-toolbar .floating-body > div .item-title{
+    font-family: Tahoma Black;
+}
+
+
+/* dark theme */
+.dark .trading-floating-toolbar .floating-body {
+    color: white;
+}
+
+.dark .trading-floating-toolbar .floating-body .buy {
+    background-color: #1d351d;
+}
+
+.dark .trading-floating-toolbar .floating-body .buy:not(.inactive):hover {
+    background-color: #2e7d32;
+}
+
+.dark .trading-floating-toolbar .floating-body .sell {
+    background-color: #441616;
+}
+
+.dark .trading-floating-toolbar .floating-body .sell:not(.inactive):hover {
+    background-color: #aa0000;
+}
+
+.dark .trading-floating-toolbar .floating-body .symbol,
+.dark .trading-floating-toolbar .floating-drag {
+    background-color: #313131;
+}
+
+.dark .trading-floating-toolbar .floating-body .buy,
+.dark .trading-floating-toolbar .floating-body .sell,
+.dark .trading-floating-toolbar .floating-body .symbol
+.dark .trading-floating-toolbar .floating-drag {
+    border-color: #666;
+}
+
+.dark .trading-floating-toolbar .floating-drag:before {
+    opacity: 0.75;
+}

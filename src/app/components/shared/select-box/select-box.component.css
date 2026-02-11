@@ -1,0 +1,83 @@
+.select-box {
+    border: 1px solid #8e8e8e;
+    background-color: white;
+    overflow: auto;
+}
+
+.arabic .select-box{
+    text-align: right;
+}
+
+.english .select-box{
+    text-align: left;
+}
+
+.mobile .select-box {
+    overflow-x: auto;
+}
+
+.select-box .entry {
+    margin: 3px;
+    padding: 1px 6px;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    white-space: nowrap;
+    cursor:default;
+}
+
+.mobile .select-box .entry {
+    width: max-content;
+}
+
+.select-box .entry:hover {
+    background-color: #f8f9fa;
+    border-color: #858585;
+}
+
+.select-box .entry.ticked:before {
+    background-image: url('~img/my-drawings-tick.png');
+    background-position: right;
+    background-repeat: no-repeat;
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 12px;
+}
+
+.english .select-box .entry.ticked:before {
+    background-position: left;
+}
+
+.select-box .selected {
+    background-color: #fffdf1;
+    border-color: #f9a775;
+}
+
+
+/* dark theme */
+
+.dark .select-box {
+    background-color: #444;
+    border-color: #666;
+}
+
+.dark .select-box .entry {
+    border-color: transparent;
+}
+
+.dark .select-box .entry:hover {
+    background-color: #222;
+    border-color: #666;
+}
+
+.dark .select-box .selected {
+    background-color: #735d28;
+    border-color: transparent;
+}
+
+.dark .select-box .selected:hover {
+    background-color: #735d28;
+    cursor: pointer;
+    border-color: transparent;
+}

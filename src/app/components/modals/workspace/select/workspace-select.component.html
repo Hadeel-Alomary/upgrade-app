@@ -1,0 +1,98 @@
+<div bsModal #workspaceSelectModal="bs-modal" class="modal workspace-select fade" tabindex="-1" role="dialog" aria-hidden="true" [config]="{backdrop: 'static'}" (onhidden)="workspaceSelectModal.hide()">
+    <div class="modal-dialog" *ngIf="shown">
+        <div class="modal-content" [loading-mask-directive]="waitingSubscription">
+
+            <div class="modal-header">
+                <h4 class="modal-title" i18n="@@workspace-select_header">اختيار مساحة عمل</h4>
+                <button *ngIf="!isForceSelection()" type="button" class="close" aria-label="Close" (click)="hideModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <div *ngIf="isForceSelection()" class="force-selection-note" i18n="@@workspace-select_forceSelectionNote">المساحة الأساسية مفتوحة في متصفح آخر. الرجاء اختيار المساحة التي ترغب في فتحها إو إنشاء مساحة جديدة.</div>
+
+                <form #createWorkspaceForm="ngForm" class="form-horizontal">
+                    <div *ngFor="let id of getSortedWorkspaceIds()" class="form-group-container {{workspaceRowClassName(id)}}">
+                        <div *ngIf="isLockedWorkspace(id)">
+                            <div class="lock-note bold-text" i18n="@@workspace-select_lockNote">** هذه المساحة حاليا مفتوحة في متصفح آخر. عند نقلها إلى هذا المتصفح سيتم إغلاقها في المتصفح الآخر **</div>
+                            <div class="form-group">
+                                <div class="col-sm-2 control-label default-settings">
+                                    <span *ngIf="isDefaultWorkspace(id)" class="label bold-txt" i18n="@@workspace-select_default">الأساسية</span>
+                                    <a class="bold-text" *ngIf="!isDefaultWorkspace(id)" (click)="markAsDefaultWorkspace(id)" i18n="@@workspace-select_makeDefault">جعلها الأساسية؟</a>
+                                </div>
+                                <div class="col-sm-3 control-label"><span i18n="@@workspace-select_name">الاسم: </span>&nbsp;<span [innerHTML]="workspacesList[id].name | englishMarker"></span></div>
+                                <div class="col-sm-3 control-label update-column"><span i18n="@@workspace-select_lastUpdate">آخر تحديث: </span><span class="english">{{workspacesList[id].lastUpdated}}</span></div>
+                                <div class="col-sm-4 action-column">
+                                    <button class="btn btn-purple btn-sm action-width" (click)="onOpenWorkspace(id)" i18n="@@workspace-select_moveWorkspace">نقل المساحة إلى هذا المتصفح</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="isMyWorkspace(id)">
+                            <div class="form-group">
+                                <div class="col-sm-2 control-label default-settings">
+                                    <span *ngIf="isDefaultWorkspace(id)" class="label bold-text" i18n="@@workspace-select_default">الأساسية</span>
+                                    <a class="bold-text" *ngIf="!isDefaultWorkspace(id)" (click)="markAsDefaultWorkspace(id)" i18n="@@workspace-select_makeDefault">جعلها الأساسية؟</a>
+                                </div>
+                                <div class="col-sm-3 control-label"><span i18n="@@workspace-select_name">الاسم: </span>&nbsp;<span [innerHTML]="workspacesList[id].name | englishMarker"></span></div>
+                                <div class="col-sm-3 control-label update-column"><span i18n="@@workspace-select_lastUpdate">آخر تحديث: </span><span class="english">{{workspacesList[id].lastUpdated}}</span></div>
+                                <div class="col-sm-4 control-label action-column">
+                                    <div class="loaded bold-text action-width" i18n="@@workspace-select_selectedWorkspace">المساحة المختارة حاليا</div>
+                                    <div class="btn-save-workspace" (click)="updateWorkspace()">
+                                        <span class="icon icon-save-workspace" [class.saving]="savingWorkspace"></span>
+                                        <span [hidden]="savingWorkspace" i18n="@@workspace-select_save">حفظ</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="isAvailableWorkspace(id)">
+                            <div class="form-group">
+                                <div class="col-sm-2 control-label default-settings">
+                                    <span *ngIf="isDefaultWorkspace(id)" class="label bold-txt" i18n="@@workspace-select_default">الأساسية</span>
+                                    <a class="bold-text" *ngIf="!isDefaultWorkspace(id)" (click)="markAsDefaultWorkspace(id)" i18n="@@workspace-select_makeDefault">جعلها الأساسية؟</a>
+                                </div>
+                                <div class="col-sm-3 control-label"><span i18n="@@workspace-select_name">الاسم: </span>&nbsp;<span [innerHTML]="workspacesList[id].name | englishMarker"></span></div>
+                                <div class="col-sm-3 control-label update-column"><span i18n="@@workspace-select_lastUpdate">آخر تحديث: </span><span class="english">{{workspacesList[id].lastUpdated}}</span></div>
+                                <div class="col-sm-4 action-column">
+                                    <button class="btn btn-primary btn-sm action-width" (click)="onOpenWorkspace(id)" i18n="@@workspace-select_openWorkspace">فتح المساحة</button>
+                                    <button class="btn btn-tomato btn-sm btn-delete" (click)="onDeleteWorkspace(id)" i18n="@@workspace-select_deleteWorkspace">حذف</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group-container workspace-add">
+                        <div class="form-group form-label">
+                            <label class="col-sm-12" i18n="@@workspace-select_createWorkspace">إنشاء مساحة عمل جديدة</label>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-3 control-label"  i18n="@@workspace-select_createCopyOfWorkspace">نسخة من مساحة العمل</div>
+                            <div class="col-sm-5">
+                                <select class="form-control" [(ngModel)]="newWorkspaceFromId" name="newWorkspaceFromId">
+                                    <option value="" [attr.selected]="true" i18n="@@workspace-select_defaultWorkspace">مساحة العمل الافتراضية</option>
+                                    <option *ngFor="let id of getSortedWorkspaceIds()" value="{{id}}">&nbsp;<span [innerHTML]="workspacesList[id].name | englishMarker"></span></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-3 control-label" i18n="@@workspace-select_newWorkspaceName">اسم مساحة العمل الجديدة</div>
+                            <div class="col-sm-5">
+                                <input class="form-control" [(ngModel)]="newWorkspaceName" type="text" name="newWorkspaceName" i18n-placeholder="@@workspace-select_newWorkspaceName" placeholder="اسم مساحة العمل الجديدة" manualErrorValidator manualError="{{manualErrorMsg}}"/>
+                            </div>
+                            <div class="col-sm-4 action-column">
+                                <button class="btn btn-success btn-sm action-width" (click)="onCreateWorkspace()" i18n="@@workspace-select_createWorkspace">إنشاء مساحة عمل جديدة</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div *ngIf="!isForceSelection()" class="footer-row">
+                    <button class="btn btn-default" (click)="hideModal()" i18n="@@workspace-select_close">إغلاق</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

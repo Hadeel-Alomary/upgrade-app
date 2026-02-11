@@ -1,0 +1,1 @@
+export {LoaderMessageComponent} from './loader-message.component';

@@ -1,0 +1,7 @@
+<div class="grid-notification-bar">
+    <div class="message">
+        <span class="static-message" [innerHTML]="notification.message | translate | englishMarker"></span>
+    </div>
+    <button type="button" class="btn action" (click)="onOutputAction()">{{notification.action | translate}} </button>
+</div>
+

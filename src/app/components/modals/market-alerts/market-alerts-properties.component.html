@@ -1,0 +1,54 @@
+<div bsModal #propertiesModal="bs-modal" class="modal fade market-alerts-properties centered" tabindex="-1" role="dialog" [config]="{backdrop:'static'}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="propertiesModal.hide()">
+          <span>&times;</span>
+        </button>
+        <h4 class="modal-title" i18n="@@market-alerts-properties_header">اختيار احداث راصد السوق</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="alert-properties-container">
+          
+          <div *ngIf="propertiesModal.isShown" class="alert-picker-container">
+            
+            <div class="from-container">
+              <div class="container-label" i18n="@@market-alerts-properties_unshownActions">الاحداث غير الظاهرة</div>
+              <select-box [entries]="outAlerts"
+                          [selection]="outSelectBoxSelection"
+                          [width]="getSelectBoxWidth()"
+                          [height]="getSelectBoxHeight()"
+                          [translate]="true"
+                          (outputSelection)="onOutSelectBoxSelection($event)"
+                          (outputDoubleClick)="onDoubleClickOutSelectBox($event)"></select-box>
+            </div>
+            
+            <div class="arrows-container">
+              <div class="to-left-arrow" (click)="onAddAlert()"></div>
+              <div class="to-right-arrow" (click)="onRemoveAlert()"></div>
+            </div>
+            
+            <div class="to-container">
+              <div class="container-label" i18n="@@market-alerts-properties_shownActions">الاحداث الظاهرة</div>
+              <select-box [entries]="inAlerts"
+                          [selection]="inSelectBoxSelection"
+                          [width]="getSelectBoxWidth()"
+                          [height]="getSelectBoxHeight()"
+                          [ticked]="true"
+                          (outputSelection)="onInSelectBoxSelection($event)"
+                          (outputDoubleClick)="onDoubleClickInSelectBox($event)"></select-box>              
+            </div> 
+
+          </div>
+
+        </div>
+        
+      </div> <!-- modal-body -->
+      
+      <div class="modal-footer">
+        <button class="btn btn-primary" (click)="onDone()" i18n="@@market-alerts-properties_apply">موافق</button>
+      </div>
+    </div>
+  </div>
+</div>

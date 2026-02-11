@@ -1,0 +1,74 @@
+.inactive-tab.modal .modal-dialog {
+    max-width: 600px;
+}
+
+.mobile .inactive-tab.modal .modal-header .modal-title {
+    font-size: 1.6rem;
+}
+
+.inactive-tab.modal .messages-container {
+    min-height: 250px;
+    display: flex;
+}
+
+.inactive-tab.modal .messages-container:before {
+    content: "";
+    display: inline-block;
+    width: 130px;
+    height: 250px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('~img/exclamation-mark.png');
+}
+
+.mobile .inactive-tab.modal .messages-container:before {
+    height: 180px;
+    background-size: 42px;
+}
+
+.inactive-tab.modal .messages-container > div {
+    margin: 10px 0px;
+    font-size: 1.6rem;
+    line-height: 4rem;
+}
+
+.mobile .inactive-tab.modal .messages-container > div {
+    font-size: 1.4rem;
+}
+
+.inactive-tab.modal .messages-container .message-header {
+    margin-top: 20px;
+    font-family: DroidArabicKufi-Bold;
+    font-size: 1.8rem;
+}
+
+.mobile .inactive-tab.modal .messages-container .message-header {
+    font-size: 1.5rem;
+}
+
+.inactive-tab.modal .messages-container .message-body {
+    margin-top: 20px;
+}
+
+.english .inactive-tab.modal .messages-container .message-header {
+    font-family: "Tahoma Black";
+}
+
+.app .inactive-tab.modal .modal-footer {
+    text-align: center;
+}
+
+.app .inactive-tab.modal .modal-footer .refresh-button {
+    margin: 0;
+}
+
+.app .inactive-tab.modal .modal-footer .btn {
+    min-width: 100px;
+    width: auto;
+}
+
+/* dark theme */
+.dark .inactive-tab.modal .messages-container:before {
+    background-image: url('~img/exclamation-mark-dark.png');
+    filter: none;
+}

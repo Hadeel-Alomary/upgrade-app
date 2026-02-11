@@ -1,0 +1,16 @@
+.mobile .contact-us.modal .modal-header .modal-title {
+    font-size: 1.5rem;
+}
+
+.mobile .contact-us form .form-label{
+    font-size: 1.5rem;
+}
+
+.mobile .contact-us .col-sm-3 ,
+.mobile .contact-us .col-sm-9 {
+    padding-left: 0;
+}
+
+.contact-us form textarea.form-control {
+    height: 200px;
+}

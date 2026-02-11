@@ -1,0 +1,10 @@
+<div class="recaptcha-container">
+<ngx-recaptcha2 #recaptchaElement
+                [siteKey]="siteKey"
+                (reset)="handleReset()"
+                (expire)="handleExpire()"
+                (success)="handleSuccess($event)"
+                [(ngModel)]="recaptchaInput"
+                [theme]="getTheme()"
+                [hl]="getLanguage()"></ngx-recaptcha2>
+</div>

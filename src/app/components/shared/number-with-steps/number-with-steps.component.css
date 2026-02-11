@@ -1,0 +1,189 @@
+.number-with-steps {
+    display: flex;
+    background-color: white;
+    height: 24px;
+    color: #000;
+    pointer-events: auto;
+    border: 1px solid darkgray;
+    border-radius: 3px;
+}
+
+.number-with-steps.active,
+.number-with-steps:focus {
+    outline: 0;
+    box-shadow: rgba(102, 175, 233, 0.537) 0 0 7.18874px 0;
+}
+
+.number-with-steps input[disabled] {
+    background-color: inherit;
+}
+
+.number-with-steps.disabled {
+    border: 1px solid darkgray;
+    color: darkgray;
+    pointer-events: none;
+}
+
+.iphone .number-with-steps.disabled {
+    color: black;
+}
+
+.number-with-steps input[type=number]::-webkit-inner-spin-button,
+.number-with-steps input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.number-with-steps input {
+    border: none;
+    width: 100%;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-right: 5px;
+}
+
+.english .number-with-steps  input {
+    margin-left: 5px;
+}
+
+.number-with-steps  input:focus {
+    outline: none;
+}
+
+.number-with-steps .up-down-arrow-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 5px;
+}
+
+.english .number-with-steps .up-down-arrow-container {
+    margin-right: 5px;
+    margin-left: 0;
+}
+
+.mobile .number-with-steps .up-down-arrow-container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 0;
+}
+
+.mobile .number-with-steps .up-down-arrow-container .up-arrow-container {
+    padding-top: 8px;
+}
+
+.mobile .number-with-steps .up-down-arrow-container .down-arrow-container {
+    padding-top: 9px;
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+.mobile .number-with-steps .up-down-arrow-container .down-arrow-container,
+.mobile .number-with-steps .up-down-arrow-container .up-arrow-container {
+    padding-right: 7px;
+    padding-left: 7px;
+}
+
+.number-with-steps .arrow-down ,
+.number-with-steps .arrow-up {
+    cursor: pointer;
+}
+
+.number-with-steps .arrow-up {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid black;
+    margin-bottom: 5px;
+}
+
+.number-with-steps.disabled .arrow-up {
+    border-bottom: 5px solid darkgray;
+}
+
+.number-with-steps .arrow-down {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid black;
+}
+
+.number-with-steps.disabled .arrow-down {
+    border-top: 5px solid darkgray;
+}
+
+/* dark theme */
+.dark .number-with-steps {
+    background-color: #333;
+}
+
+.dark .number-with-steps .arrow-up {
+    border-bottom: 5px solid white;
+}
+
+.dark .number-with-steps .arrow-down {
+    border-top: 5px solid white;
+}
+
+.dark .number-with-steps.disabled input {
+    color: grey;
+}
+
+.dark .number-with-steps.disabled .arrow-up {
+    border-bottom: 5px solid grey;
+}
+
+.dark .number-with-steps.disabled .arrow-down {
+    border-top: 5px solid grey;
+}
+
+ .number-with-plus-minus-steps .plus-minus-arrow-container {
+    display: flex;
+    line-height: 2;
+    flex-direction: row-reverse;
+}
+
+ .modal .number-with-plus-minus-steps .plus-minus-arrow-container {
+     flex-direction: row;
+ }
+
+.english .number-with-plus-minus-steps .plus-minus-arrow-container {
+    flex-direction: row;
+}
+
+.number-with-plus-minus-steps .plus-minus-arrow-container .icon:before {
+    display: inline-block;
+    width: 16px;
+    height: 25%;
+    content:"";
+    background-repeat:no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.number-with-plus-minus-steps .plus-minus-arrow-container .minus-arrow-container.icon:before {
+    background-image: url('~img/minus-sign-gray.png');
+}
+
+.number-with-plus-minus-steps .plus-minus-arrow-container .minus-arrow-container.icon:hover:before {
+    background-image: url('~img/minus-sign-black.png');
+}
+
+.number-with-plus-minus-steps .plus-minus-arrow-container .plus-arrow-container.icon:before {
+    background-image: url('~img/plus-sign-gray.png');
+}
+
+.number-with-plus-minus-steps .plus-minus-arrow-container .plus-arrow-container.icon:hover:before {
+    background-image: url('~img/plus-sign-black.png');
+}
+
+.number-with-plus-minus-steps .plus-minus-arrow-container input,
+.number-with-plus-minus-steps .plus-minus-arrow-container input:focus-visible{
+    border: none;
+    outline: 0;
+
+}
+
+.number-with-plus-minus-steps .plus-minus-arrow-container input {
+    text-align: center;
+    background-color: transparent;
+    width: 120px;
+}

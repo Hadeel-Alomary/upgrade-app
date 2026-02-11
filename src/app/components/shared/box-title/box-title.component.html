@@ -1,0 +1,28 @@
+<div class="box-toolbar box-title" (dblclick)="onToggleMaximize()" [class.summary-box]="isOverlayBox">
+
+  <div *ngIf="isDynamicLayout()" class="handle handle-icon"></div>
+  <div *ngIf="autoLink && isDynamicLayout()" class="box-toolbar-separator handle-separator"></div>
+
+  <div *ngIf="autoLink && isDesktop()" class="box-toolbar-child">
+    <auto-link [autoLink]="autoLink" (outputAutoLink)="onAutoLinkChanged($event)"></auto-link>
+  </div>
+
+  <div *ngIf="title && isDesktop()" class="box-toolbar-separator"></div>
+  <div class="box-toolbar-title box-toolbar-child" data-toggle="tooltip" [class.handle]="isDynamicLayout()" [class.fill]="isDesktop()">
+      <div class="title">
+          <div  [innerHTML]="title"></div>
+          <div *ngIf="showDelayedAnnotation() && isDesktop()" custom-tooltip [symbol]="getSymbol()" class="annotation-delayed-icon icon"></div>
+      </div>
+  </div>
+    <div *ngIf="showDelayedAnnotation() && !isDesktop()" (click)="openAnnotationDelayedModal()" class="annotation-delayed-icon icon"></div>
+
+
+  <div *ngIf="isDesktop()" class="box-toolbar-icons">
+    <div class="box-toolbar-icon box-toolbar-maximize" (click)="onToggleMaximize()"></div>
+    <div *ngIf="isDynamicLayout()" class="box-toolbar-icon box-toolbar-close bordered" (click)="onClose()"></div>
+  </div>
+
+  <div *ngIf="!isDesktop() && isOverlayBox" [class.maximized]="overlayBoxMaximized" [class.export]="!changeMaximizeBtn" [class.maximize-summary-box]="changeMaximizeBtn" class="box-toolbar-icon" (click)="onToggleOverlayBoxMaximized()"></div>
+
+</div>
+

@@ -1,0 +1,42 @@
+.filter-condition {
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.arabic .filter-condition{
+    direction: rtl;
+}
+
+.english .filter-condition{
+    direction: ltr;
+}
+
+.filter-condition .label-text,
+.filter-condition select {
+    margin: 5px;
+    height: 24px;
+}
+
+.filter-condition .label-text {
+    font-size: 1.3rem;
+    line-height: 22px;
+    white-space: nowrap;
+}
+
+.filter-condition select {
+    width:105px;
+    border-radius:3px;
+    font-size: 1.3rem;
+}
+
+.filter-condition .number-with-steps {
+    margin: 5px;
+    width: 60%;
+}
+
+.mobile .filter-condition .number-with-steps {
+    width: 80%;
+}

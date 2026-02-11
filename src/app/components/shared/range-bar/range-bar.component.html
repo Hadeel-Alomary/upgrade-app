@@ -1,0 +1,28 @@
+<div class="range-bar">
+
+    <div class="balloon-container">
+        <div *ngIf="showOpenPriceBalloon()" class="open-balloon" [style.left]="getOpenBalloonPosPct() + '%'"  data-toggle="tooltip" data-placement="bottom" data-animation="false" [attr.data-original-title]="getOpenPriceTitle()">
+            <svg viewBox="0 0 9 13" width="9" height="13">
+                <path d="M9 4.5c0 .528-.138 1.02-.258 1.505C8 9 4.5 13 4.5 13S1 9 .26 6.007C.137 5.522 0 5.03 0 4.5a4.5 4.5 0 0 1 9 0z" [attr.fill]="openPriceBalloonColor()" [attr.opacity]="balloonOpacity()"/>
+            </svg>
+        </div>
+        <div *ngIf="showClosePriceBalloon()" class="close-balloon" [style.left]="getCloseBalloonPosPct() + '%'" data-toggle="tooltip" data-placement="bottom" data-animation="false" [attr.data-original-title]="getClosePriceTitle()">
+            <svg viewBox="0 0 9 13" width="9" height="13">
+                <path d="M9 4.5c0 .528-.138 1.02-.258 1.505C8 9 4.5 13 4.5 13S1 9 .26 6.007C.137 5.522 0 5.03 0 4.5a4.5 4.5 0 0 1 9 0z" [attr.fill]="closePriceBalloonColor()" [attr.opacity]="balloonOpacity()"/>
+            </svg>
+        </div>
+    </div>
+
+    <div class="range-area-container">
+        <div class="left-area" [style.left]="0" [style.width]="getRangePosPct() + '%'"></div>
+        <div class="range-area" [style.left]="getRangePosPct() + '%'" [style.width]="getRangeWidthPct() +'%'" [style.background]="getRangeColor()"></div>
+        <div class="right-area" [style.left]="getRangePosPct() + getRangeWidthPct() + '%'" [style.width]="100 - getRangePosPct() - getRangeWidthPct() + '%'"></div>
+    </div>
+
+    <div class="labels-container">
+        <div class="min-label english">{{getFormattedMinPrice()}}</div>
+        <div class="max-label english">{{getFormattedMaxPrice()}}</div>
+        <div class="caption-label">{{getCaption()}}</div>
+    </div>
+
+</div>

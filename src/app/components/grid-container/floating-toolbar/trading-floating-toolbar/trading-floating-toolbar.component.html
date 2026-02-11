@@ -1,0 +1,24 @@
+<div *ngIf="isDesktop()" [draggable-element]="'.floating-drag'" (elementDropped)="savePosition($event)" class="floating-toolbar trading-floating-toolbar" [class.hidden]="!visible">
+
+    <div class="floating-drag"></div>
+
+    <div class="floating-body">
+
+        <div class="sell" (click)="onOpenSell()" [class.inactive]="!canBuyAndSell()">
+            <div class="item-title" i18n="@@trading-floating-toolbar_sell">بيع</div>
+            <div class="item-value">{{bidPrice}}</div>
+        </div>
+
+        <div class="symbol">
+            <div class="item-title" i18n="@@trading-floating-toolbar_symbol">الرمز</div>
+            <div class="item-value">{{symbol}}</div>
+        </div>
+
+        <div class="buy" (click)="onOpenBuy()" [class.inactive]="!canBuyAndSell()">
+            <div class="item-title" i18n="@@trading-floating-toolbar_buy">شراء</div>
+            <div class="item-value">{{askPrice}}</div>
+        </div>
+
+    </div>
+
+</div>

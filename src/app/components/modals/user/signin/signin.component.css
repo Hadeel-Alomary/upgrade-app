@@ -1,0 +1,145 @@
+.signin .signin-form .form-label {
+    color: steelblue;
+}
+
+.signin .signin-form input {
+    font-weight: bold;
+    color: black;
+}
+
+.signin .signin-form input::placeholder {
+    color: #999;
+}
+
+.signin .signin-form .invalid-login {
+    border: 1px solid maroon;
+    background-color: mistyrose;
+    color: maroon;
+    margin-right: 150px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0px 10px;
+}
+
+.english .signin .signin-form .invalid-login {
+    margin-right: 0px;
+    margin-left: 150px;
+}
+
+.mobile .signin .signin-form .invalid-login {
+    margin-right: 0px;
+    text-align: center;
+}
+
+.mobile .signin .signin-form .btns {
+    float: left;
+    padding-left: 0px;
+}
+
+.arabic .signin .signin-form .btns > * {
+    margin-left: 10px;
+}
+
+.english .signin .signin-form .btns > * {
+    margin-right: 10px;
+}
+
+.mobile .signin .signin-form .btns .btn {
+    min-width: 90px;
+}
+
+.signin .signin-form .modal-body {
+    min-height: 170px;
+}
+
+.signin .signin-form .login-successful {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    overflow: hidden;
+    background-color: #cee3f0;
+    border: 1px solid #b3c7d4;
+    margin-top: 5px;
+}
+
+.mobile .signin .signin-form .login-successful {
+    width: 300px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.signin .signin-form .login-successful > div {
+    text-align: center;
+    color: #01579b;
+}
+
+
+.signin .signin-form .login-successful > div:first-child {
+    font-size: 2rem;
+}
+
+.signin .signin-form .login-successful > div:last-child {
+    font-size: 1.6rem;
+}
+
+.mobile .signin .signin-form .login-successful > div:first-child {
+    font-size: 1.5rem;
+}
+
+.mobile .signin .signin-form .login-successful > div:last-child {
+    font-size: 1.2rem;
+}
+
+.signin .forget-password {
+    font-size: 1.2rem;
+    margin: 20px 0px 10px 0px;
+}
+
+.mobile .signin .forget-password .col-sm-3 {
+    display: none;
+}
+
+.signin .forget-password .col-sm-9 {
+    padding: 0px 5px;
+}
+
+.mobile .signin .forget-password .col-sm-9 {
+    padding: 0px;
+}
+
+.signin .forget-password a {
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+/* bold font */
+
+.arabic .signin.modal .bold-font {
+    font-family: DroidArabicKufi-Bold;
+}
+
+.english .signin.modal .bold-font {
+    font-family: "Tahoma Black";
+}
+
+/* dark theme */
+.dark .signin .signin-form input {
+    color: white;
+}
+
+.dark .signin .signin-form .invalid-login {
+    background-color: transparent;
+    border-color: tomato;
+    color: tomato;
+}
+
+.dark .signin .signin-form .login-successful > div {
+    color: lightskyblue;
+}
+
+.dark .signin .signin-form .login-successful {
+    background-color: transparent;
+    border-color: transparent;
+}

@@ -1,0 +1,34 @@
+<div bsModal #optionalMessageBoxModal="bs-modal" class="modal fade optional-message-box" tabindex="-1" role="dialog" [config]="{backdrop:'static'}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h4 class="modal-title" i18n="@@optional-message-box_header">{{getMessageTitle()}}</h4>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="message-icon" [class.confirmation]="confirmation"></div>
+
+        <div class="message-lines">
+
+          <div class="message-line">{{messageLine | translate}}</div>
+          <div *ngIf="messageLine2" class="message-line">{{messageLine2 | translate}}</div>
+
+          <div class="show-again message-line">
+            <label>
+              <input #hide type="checkbox" [(ngModel)]="hideMessage">
+              <span i18n="@@optional-message-box_doNotShowAgain">الرجاء عدم اظهار هذه الرسالة مرة أخرى</span>
+            </label>
+          </div>
+
+          <div class="modal-btns">
+            <button class="btn btn-success" (click)="onClose()" i18n="@@optional-message-box_close">إغلاق</button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="auto-link static" dropdown>
+  <div class="color-holder toolbar {{autoLinkColor(autoLink)}}" dropdownToggle></div>
+  <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="single-button">
+    
+    <li role="menuitem" class="menuitem" (click)="setAutoLink(noneAutoLink)">
+      <div class="color-holder none"></div>
+      <div>{{text['none'] | translate}}</div>
+    </li>
+    
+    <li class="divider dropdown-divider"></li>
+
+    <li *ngFor="let autoLink of coloredAutoLinks()" role="menuitem" class="menuitem" (click)="setAutoLink(autoLink)">
+      <div class="color-holder {{autoLinkColor(autoLink)}}"></div>
+      <div>{{text[autoLinkColor(autoLink)] | translate}}</div>
+    </li>
+    
+  </ul>
+</div>

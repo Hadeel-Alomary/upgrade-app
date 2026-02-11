@@ -1,0 +1,36 @@
+<div class="watchlist-context-menu">
+    <ul class="dropdown-menu context-menu" context-menu [left]="this.contextMenuData.left" [top]="this.contextMenuData.top" role="menu" aria-labelledby="single-button">
+        <li class="menuitem menu-title non-selectable" role="menuitem">
+            <div>{{this.contextMenuData?.name}}</div>
+        </li>
+        <trading-context-menu *ngIf="!isVisitor()" [symbol]="this.contextMenuData.symbol"></trading-context-menu>
+        <box-context-menu *ngIf="!isVisitor()" (outputBoxType)="openWindow($event)"></box-context-menu>
+        <li *ngIf="!isVisitor()" class="divider dropdown-divider"></li>
+        <li *ngIf="!isVisitor()" class="menuitem add-alert icon" role="menuitem" (click)="onNewAlert()">
+            <div i18n="@@watchlist-context-menu_addAlert">اضافة تنبيه</div>
+            <div *ngIf="!isAuthorizedGridBox(FeatureType.ALERT)" class="unauthorized-lock-icon"></div>
+
+        </li>
+        <li class="divider dropdown-divider"></li>
+        <li role="menuitem" class="menuitem dropdown-submenu add-company icon" dropdown-submenu-toggle>
+            <div i18n="@@watchlist-context-menu_addCompanyTo">إضافة شركة إلى</div>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
+                <li *ngFor="let watchlist of getContextMenuWatchlists()" class="menuitem icon" role="menuitem" (click)="onAddingSelectedSymbolToWatchlist(watchlist)">
+                    <div>{{watchlist.name}}</div>
+                </li>
+                <li *ngIf="0 < getContextMenuWatchlists().length" class="divider dropdown-divider"></li>
+                <li class="menuitem icon" role="menuitem" (click)="onNewWatchlist()">
+                    <div i18n="@@watchlist-context-menu_newWatchlist">لائحة أسهمي جديدة</div>
+                </li>
+            </ul>
+        </li>
+        <li *ngIf="canRemoveCompany" class="menuitem remove-company icon" role="menuitem" (click)="onRemoveCompany()">
+            <div i18n="@@watchlist-context-menu_deleteCompany">حذف شركة</div>
+        </li>
+        <li class="divider dropdown-divider"></li>
+        <li class="menuitem icon" role="menuitem" (click)="toggleToolbarVisibility()" [class.tick]="isToolbarShown">
+            <div i18n="@@watchlist-context-menu_showToolbox">اظهار شريط الأدوات</div>
+        </li>
+    </ul>
+</div>
+

@@ -1,0 +1,256 @@
+.my-ideas {
+    height: 100%;
+    overflow-x: hidden;
+    font-size: 1.2rem;
+    direction: rtl;
+    text-align: right;
+}
+
+.english .my-ideas {
+    direction: ltr;
+    text-align: left;
+}
+
+.my-ideas::-webkit-scrollbar {
+    width: 5px;
+}
+
+.my-ideas::-webkit-scrollbar-thumb {
+    background: lightgrey;
+}
+
+.my-ideas::-webkit-scrollbar-thumb:hover {
+    background: darkgray;
+}
+
+.my-ideas .idea {
+    display: flex;
+    flex-direction: row;
+    min-width: 340px;
+    background-color: white;
+    border-bottom: #b2b5be 1px solid;
+}
+
+.my-ideas .idea.no-border {
+    border-bottom: none;
+}
+
+.my-ideas .idea .avatar img ,
+.my-ideas .idea .avatar .default-avatar {
+    width: 30px;
+    height: 30px;
+}
+
+.my-ideas .idea  .avatar .default-avatar:before {
+    width: 30px;
+    height: 30px;
+    content: " ";
+    display: inline-block;
+    background: url("~img/analyst_default_avatar.png") no-repeat center;
+}
+
+.my-ideas .idea .avatar {
+    width: 40px;
+    padding: 0 5px;
+    margin-top: 5px;
+}
+
+.my-ideas .idea .idea-info {
+    flex: 1;
+}
+
+.my-ideas .idea .idea-info .idea-header-info {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.my-ideas .idea .idea-info .idea-header-info .idea-owner-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    line-height: 30px;
+}
+
+.my-ideas .idea .idea-info .idea-header-info .idea-owner-info .name {
+    font-size: 1.3rem;
+}
+
+.my-ideas .idea .idea-info .idea-header-info .idea-owner-info > div ,
+.my-ideas .idea .idea-type-date > div {
+    margin-left: 10px;
+}
+
+.my-ideas .idea .idea-info .idea-header-info .idea-owner-info .user-type {
+    color: black;
+    background-color: #FDB703;
+    border-radius: 15px;
+    padding: 0 7px;
+    line-height: 20px;
+    font-size: 1rem;
+}
+
+.my-ideas .idea .idea-info .idea-header-info .vertical-dots-icon {
+    height: 23px;
+    padding: 1px;
+    border-radius: 2px;
+    margin-left: 5px;
+}
+
+.english .my-ideas .idea .idea-info .idea-header-info .vertical-dots-icon {
+    margin-right: 5px;
+}
+
+.my-ideas .idea .idea-info .idea-header-info .vertical-dots-icon:hover  {
+    background-color: lightgrey;
+    cursor: pointer;
+}
+
+.my-ideas .idea .idea-info .idea-header-info .vertical-dots-icon:before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 20px;
+    background: no-repeat center;
+    background-image: url('~img/context-menu.png');
+}
+
+.my-ideas .idea .idea-info .idea-type-date {
+    line-height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.my-ideas .idea .idea-info .idea-type-date .public-idea,
+.my-ideas .idea .idea-info .idea-type-date .private-idea {
+    line-height: 20px;
+    padding: 0 7px;
+    color: white;
+}
+
+.my-ideas .idea .idea-info .idea-type-date .public-idea {
+    background-color: #159D15;
+}
+
+.my-ideas .idea .idea-info .idea-type-date .private-idea {
+    background-color: #FB6A5F;
+}
+
+.my-ideas .idea .idea-info .idea-title ,
+.my-ideas .idea .idea-info .symbol-and-interval {
+    line-height: 30px;
+}
+
+.my-ideas .idea .idea-info .symbol-and-interval {
+    display: flex;
+    align-items: center;
+}
+
+.my-ideas .idea .idea-info .symbol-and-interval .interval-name {
+    padding-right: 3px;
+}
+
+.my-ideas .idea .idea-info .idea-title:hover ,
+.my-ideas .idea .idea-info .idea-header-info .idea-owner-info .name:hover ,
+.my-ideas .idea .idea-info .symbol-and-interval .symbol:hover {
+    cursor: pointer;
+    color: #1e88e5;
+}
+
+.my-ideas .idea .idea-info .attachment-container {
+    width: 249px;
+    height: 142px;
+    min-height: 142px;
+    border: 1px solid grey;
+    cursor: pointer;
+    position: relative;
+}
+
+.my-ideas .idea .idea-info .attachment-container  img {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+}
+
+.my-ideas .idea .idea-info .attachment-container > div {
+    position: absolute;
+}
+
+.my-ideas .idea .idea-info .attachment-container .video-url-container {
+    width: 100%;
+    height: 100%;
+    background-color: lightgrey;
+}
+
+.my-ideas .idea .idea-info .attachment-container .video-player-icon {
+    width: 35px;
+    height: 30px;
+    margin: auto;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    background: url('~img/video-player.png') no-repeat center;
+}
+
+.my-ideas .idea .idea-info .idea-description {
+    line-height: 25px;
+    max-height: 50px;
+    overflow: hidden;
+}
+
+.my-ideas .idea .idea-info .show-more {
+    cursor: pointer;
+    color: #1e88e5;
+    width: 50px;
+}
+
+.my-ideas .idea .bold-text {
+    font-family: DroidArabicKufi-Bold;
+    color: black;
+}
+
+.my-ideas .idea .wrap-text {
+    word-wrap: break-word;
+    width: 300px;
+}
+
+
+/*dark theme*/
+.dark .my-ideas .idea {
+    background-color: #333;
+    color: white;
+}
+
+.dark .my-ideas::-webkit-scrollbar {
+    width: 8px;
+}
+
+.dark .my-ideas::-webkit-scrollbar-thumb,
+.dark .my-ideas::-webkit-scrollbar-thumb:hover {
+    background: #717171;;
+}
+
+.dark .my-ideas .idea .bold-text ,
+.dark .my-ideas .idea .idea-type-date > div {
+    color: white;
+}
+
+.dark .my-ideas .idea .idea-type-date .public-idea {
+    background-color: #56E856;
+}
+
+.dark .my-ideas .idea .idea-info .idea-header-info .vertical-dots-icon:hover {
+    background-color:#444
+}
+
+.dark .my-ideas .idea .idea-info .attachment-container .video-url-container {
+    background-color: #444;
+}

@@ -1,0 +1,457 @@
+.settings-menu {
+    display: block;
+    background-color: #333;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-top: 45px;
+    margin-bottom: 40px;
+    z-index: 100;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.mobile .settings-menu{
+    margin-bottom: 56px;
+}
+
+.mobile-rotated .settings-menu {
+    margin-top: 5px;
+}
+
+.mobile-rotated .settings-menu,
+.tablet .settings-menu {
+    margin-bottom: 36px;
+}
+
+.arabic .settings-menu{
+    left: 0;
+    right: auto;
+}
+
+.english .settings-menu{
+    left: auto;
+    right: 0;
+}
+
+/* settings-menu > settings-label */
+
+.settings-menu .settings-label {
+    width: 100%;
+    color: white;
+    white-space: nowrap;
+    height: 45px;
+    line-height: 44px;
+    display: block;
+}
+
+.arabic .settings-menu .settings-label {
+    text-align: right;
+    direction: rtl;
+}
+.english .settings-menu .settings-label {
+    text-align: left;
+    direction: ltr;
+}
+
+.settings-menu .settings-label div {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.settings-menu  a.settings-label {
+    color: #fff;
+    width: 100%;
+}
+.settings-menu  a,
+.settings-menu  a:hover,
+.settings-menu  a:active,
+.settings-menu  a:focus,
+.settings-menu  a:visited{
+    text-decoration: none;
+}
+
+.settings-menu .settings-label .icon {
+    width: 50px;
+    height: 100%;
+}
+
+/* settings-menu > settings-label header-label */
+
+.settings-menu .settings-label.header-label {
+    border-bottom: solid 1px #555;
+}
+
+.arabic .settings-menu .settings-label.header-label {
+    padding-right: 25px;
+}
+
+.english .settings-menu .settings-label.header-label {
+    padding-left: 25px;
+}
+
+.settings-menu .settings-label.header-label.accordion-toggle.collapsed{
+    background-color: #202020;
+}
+
+.settings-menu .settings-label.header-label.accordion-toggle.collapsed:hover{
+    background-color: #000;
+}
+
+.settings-menu .settings-label.header-label.accordion-toggle{
+    background-color: #000;
+}
+
+/* settings-menu > settings-label label-entry */
+
+.settings-menu .settings-label.entry-label {
+    border-bottom: 1px solid #aaa;
+    background-color: #1e2f2f;
+    cursor: pointer;
+}
+
+.settings-menu .settings-label.entry-label span {
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.mobile .settings-menu .settings-label.entry-label span {
+    margin-left: 5px;
+}
+
+.english .settings-menu .settings-label.entry-label span {
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+.english .mobile .settings-menu .settings-label.entry-label span {
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+.settings-menu .settings-label.entry-label span.highlight {
+    font-family: arial;
+    direction: ltr;
+    font-weight: bold;
+    font-size: 1.7rem;
+    color: gold;
+}
+
+.mobile .settings-menu .settings-label.entry-label span.highlight {
+    font-size: 1.4rem;
+}
+
+.arabic .settings-menu .settings-label.entry-label.account-subscription-type span.highlight {
+    font-family:DroidArabicKufi-Bold;
+}
+
+.english .settings-menu .settings-label.entry-label.account-subscription-type span.highlight {
+    font-family:"Tahoma Black";
+}
+
+.arabic .settings-menu .settings-label.entry-label span.highlight {
+    padding-right: 5px;
+}
+.english .settings-menu .settings-label.entry-label span.highlight {
+    padding-left: 5px;
+}
+
+
+/* settings-menu > settings-label label-entry clickable */
+
+
+.settings-menu .settings-label.entry-label.clickable {
+    background-color: #333;
+    border-bottom: 1px solid #555;
+}
+
+.mobile .settings-menu .settings-label.entry-label.clickable,
+.settings-menu .settings-label.entry-label.clickable:hover {
+    background-color: #444;
+}
+
+.settings-menu .settings-label.entry-label.clickable.logout {
+    background-color: #150000;
+}
+
+.mobile .settings-menu .settings-label.entry-label.clickable.logout,
+.settings-menu .settings-label.entry-label.clickable.logout:hover {
+    background-color: #250000;
+}
+
+
+.settings-menu .settings-label.entry-label.clickable a {
+    color: #999;
+}
+
+.settings-menu .settings-label.entry-label.clickable .icon {
+    opacity: 0.50;
+}
+
+.mobile .settings-menu .settings-label.entry-label.clickable a,
+.settings-menu .settings-label.entry-label.clickable:hover a {
+    color: white;
+    text-decoration: none;
+}
+
+.mobile .settings-menu .settings-label.entry-label.clickable .icon,
+.settings-menu .settings-label.entry-label.clickable:hover .icon {
+    opacity: 1;
+}
+
+/* icons */
+
+
+.settings-menu .settings-label .icon:before {
+    content:"";
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    width:100%;
+    height:100%;
+}
+
+.settings-menu .settings-label.account-username .icon:before {
+    background-image: url('~img/account-username.png');
+}
+
+.settings-menu .settings-label.account-subscription-type .icon:before {
+    background-image: url('~img/account-subscription-type.png');
+}
+
+.settings-menu .settings-label.account-expiry .icon:before {
+    background-image: url('~img/account-expiry.png');
+}
+
+.settings-menu .settings-label.account-subscriptions .icon:before {
+    background-image: url('~img/account-subscriptions.png');
+}
+
+.settings-menu .settings-label.account-renew .icon:before {
+    background-image: url('~img/account-renew.png');
+}
+
+.settings-menu .settings-label.account-activation .icon:before {
+    background-image: url('~img/account-activation.png');
+}
+
+.settings-menu .settings-label.account-points .icon:before {
+    background-image: url('~img/account-points.png');
+}
+
+.settings-menu .settings-label.support .icon:before {
+    background-image: url('~img/support.png');
+}
+
+.settings-menu .settings-label.download .icon:before {
+    background-image: url('~img/download.png');
+}
+
+.settings-menu .settings-label.trading-login .icon:before {
+    background-image: url('~img/trading/login.png');
+}
+
+.settings-menu .settings-label.trading-logout .icon:before,
+.settings-menu .settings-label.logout .icon:before {
+    background-image: url('~img/trading/logout.png');
+}
+
+.settings-menu .settings-label.trading-url .icon:before {
+    background-image: url('~img/settings.png');
+}
+
+.settings-menu .settings-label.reset-workspace .icon:before{
+    background-image: url('~img/revert.png');
+}
+
+.arabic .settings-menu .settings-label.change-language .icon:before{
+    background-image: url('~img/english-light.png');
+}
+
+.english .settings-menu .settings-label.change-language .icon:before{
+    background-image: url('~img/arabic-light.png');
+}
+
+.settings-menu .settings-label.screen-mode .icon.normal:before {
+    background-image: url('~img/normal-screen.png');
+    filter: invert();
+}
+
+.settings-menu .settings-label.screen-mode .icon.fullscreen:before {
+    background-image: url('~img/full-screen.png');
+    filter: invert();
+}
+
+.settings-menu .settings-label.small-font-size .icon:before{
+    filter: invert(1);
+    background-image: url('~img/small-font.png');
+}
+
+.settings-menu .settings-label.normal-font-size .icon:before{
+    filter: invert(1);
+    background-image: url('~img/normal-font.png');
+}
+
+.settings-menu .settings-label.large-font-size .icon:before{
+    filter: invert(1);
+    background-image: url('~img/large-font.png');
+}
+
+.settings-menu .settings-label.save-workspace {
+    display: flex;
+}
+
+.settings-menu .settings-label.save-workspace .workspace-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    height: 87%;
+}
+
+.settings-menu .settings-label.save-workspace .icon.save-workspace{
+    width:24px;
+    height:22px;
+}
+
+.settings-menu .settings-label.save-workspace .icon.save-workspace:before {
+    background-image: url('~img/cloud-save2.png');
+    filter: invert();
+}
+
+@keyframes cloud-uploading-animation {
+    0% {background-position:0px 0px;}
+    16.67% {background-position:0px -22px;}
+    33.33% {background-position:0px -44px;}
+    50% {background-position:0px -66px;}
+    66.67% {background-position:0px -88px;}
+    83.33%, 100% {background-position:0px -110px;}
+}
+
+.settings-menu .settings-label.save-workspace .icon.save-workspace.saving:before {
+    background-image: url('~img/cloud-uploading.png');
+    width:24px;
+    height:22px;
+    animation: cloud-uploading-animation 1.5s infinite steps(1);
+}
+
+
+.settings-menu .settings-label.switch-theme .icon:before{
+    background-image: url('~img/moon.png');
+    filter: invert();
+}
+
+/* accordion icon */
+
+.settings-menu .accordion-toggle:after {
+    font-family: 'Glyphicons Halflings';
+    content: "\e114";
+    color: grey;
+    position: absolute;
+}
+
+.arabic .settings-menu .accordion-toggle:after{
+    left: 2px;
+}
+
+.english .settings-menu .accordion-toggle:after{
+    right: 2px;
+}
+
+.settings-menu .accordion-toggle.collapsed:after {
+    content: "\e080";
+}
+
+/* MA don't show icons while animating */
+.settings-menu.ng-animating .accordion-toggle:after,
+.settings-menu.ng-animating .accordion-toggle.collapsed:after{
+    display: none;
+}
+
+
+/* panel */
+
+/*NK i have to add panel class to accordion to work but i do not need any style from it*/
+/* https://stackoverflow.com/questions/19425165/bootstrap-3-accordion-button-toggle-data-parent-not-working */
+.settings-menu .panel{
+    margin-bottom: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+
+/* font family */
+.arabic .settings-menu {
+    font-family: DroidArabicKufi-Bold;
+}
+
+.english .settings-menu {
+    font-family: Tahoma Black;
+}
+
+.arabic .settings-menu .change-language {
+    font-family: Tahoma Black;
+}
+
+.english .settings-menu .change-language {
+    font-family: DroidArabicKufi-Bold;
+}
+
+/*subscription btn*/
+.settings-menu .settings-label .btn-subscription .icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+}
+
+.english .settings-menu .settings-label .btn-subscription .icon {
+    margin-right: 3px;
+    margin-left: 0;
+}
+
+.mobile .settings-menu .settings-label .btn-subscription .icon {
+    margin-right: 0;
+    margin-left: 3px;
+}
+
+.mobile .settings-menu .settings-label .btn-subscription .upgrade-text {
+    font-size: 11px;
+}
+
+.settings-menu .settings-label .btn-subscription .icon.icon-subscription:before {
+    background-image: url('~img/footer-trading.png');
+}
+
+.settings-menu .settings-label .btn-subscription .icon:before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.settings-menu .settings-label .btn-subscription {
+    font-size: 1.2rem;
+    padding: 3px 3px;
+    vertical-align: text-top
+}
+
+.english .settings-menu .settings-label .btn-subscription {
+    padding: 3px;
+}
+
+/* dark theme */
+
+.dark .settings-menu *:before {
+    filter: none;
+}
+
+.dark .settings-menu .settings-label.switch-theme .icon:before {
+    background-image: url('~img/sun.png');
+    filter: none;
+}
+

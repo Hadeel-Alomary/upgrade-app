@@ -1,0 +1,13 @@
+.loader-message .modal-body .message-line {
+    font-size: 1.6rem;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+.loader-message .modal-body .modal-btns .btn {
+    width: 100px;
+    margin: 10px;
+}
+
+

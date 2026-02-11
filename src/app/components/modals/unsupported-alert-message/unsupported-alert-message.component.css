@@ -1,0 +1,26 @@
+.unsupported-alert-message .modal-body .unsupported-alert-message-content{
+    text-align: right;
+    margin-right: 25px;
+}
+
+.english .unsupported-alert-message .modal-body .unsupported-alert-message-content{
+    text-align: left;
+    margin-left: 25px;
+}
+
+.unsupported-alert-message .modal-body .unsupported-alert-message-content .title {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.unsupported-alert-message .modal-body .unsupported-alert-message-content div:not(:last-child) {
+    margin-bottom: 25px;
+}
+
+.unsupported-alert-message .modal-body .unsupported-alert-message-content .interval-options {
+    display: flex;
+}
+
+.unsupported-alert-message .modal-body .unsupported-alert-message-content .interval-options li{
+    margin-bottom: 5px;
+}

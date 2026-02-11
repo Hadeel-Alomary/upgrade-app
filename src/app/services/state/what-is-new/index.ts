@@ -1,0 +1,1 @@
+export {WhatIsNewService} from './what-is-new.service';

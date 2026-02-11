@@ -1,0 +1,44 @@
+.arabic .app .modal .modal-content.english .modal-body {
+    direction: ltr;
+}
+
+.english .app .modal .modal-content.arabic .modal-body {
+    direction: rtl;
+}
+
+.english .app .switch-language-confirmation.modal .modal-header .modal-title {
+    font-family: DroidArabicKufi-Bold;
+}
+
+.arabic .app .switch-language-confirmation.modal .modal-header .modal-title {
+    font-family: "Tahoma Black";
+}
+
+.switch-language-confirmation .modal-body .confirmation-message {
+    font-size: 1.6rem;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.english .switch-language-confirmation .modal-body .confirmation-message {
+    font-family: DroidArabicKufi-Bold;
+}
+
+.arabic .switch-language-confirmation .modal-body .confirmation-message {
+    font-family: "Tahoma Black";
+}
+
+.switch-language-confirmation .modal-body .confirmation-btns .btn {
+    width: 100px;
+    margin: 10px;
+}
+
+.english .switch-language-confirmation .modal-body .confirmation-btns .btn {
+    font-family: DroidSansArabic;
+}
+
+.arabic .switch-language-confirmation .modal-body .confirmation-btns .btn {
+    font-family: Arial;
+}
+
+

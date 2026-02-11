@@ -1,0 +1,21 @@
+<div bsModal #switchLanguageConfirmationModal="bs-modal" class="modal fade switch-language-confirmation" tabindex="-1" role="dialog">
+  <div class="modal-dialog" *ngIf="shown">
+    <div class="modal-content" [ngClass]="languageClass">
+
+      <div class="modal-header">
+        <h4 class="modal-title">{{title}}</h4>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="confirmation-message">{{messageLine}}</div>
+
+        <div class="confirmation-btns">
+          <button class="btn btn-success" (click)="onSelection(true)">{{confirmYes}}</button>
+          <button class="btn btn-danger" (click)="onSelection(false)">{{confirmNo}}</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

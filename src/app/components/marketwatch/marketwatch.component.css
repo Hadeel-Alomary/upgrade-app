@@ -1,0 +1,291 @@
+/* marketwatch grid header icons */
+
+.arabic .marketwatch .slick-header-column.news,
+.arabic .marketwatch .slick-header-column.company-alert,
+.arabic .marketwatch .slick-header-column.flag{
+    text-align: right;
+    padding-right: 2px;
+    padding-left: 1px;
+}
+
+.english .marketwatch .slick-header-column.news,
+.english .marketwatch .slick-header-column.company-alert,
+.english .marketwatch .slick-header-column.flag{
+    text-align: left;
+    padding-left: 2px;
+    padding-right: 1px;
+}
+
+.mobile .marketwatch .box-toolbar {
+    overflow-x: auto;
+}
+
+.mobile .marketwatch .box-toolbar::-webkit-scrollbar {
+    display: none;
+}
+
+.mobile .marketwatch .box-toolbar .box-toolbar-child .toolbar-button {
+    width: max-content;
+}
+
+.mobile .marketwatch .box-toolbar .box-toolbar-child .symbol-selector {
+    width: 300px;
+}
+
+.marketwatch .slick-header-column.news > .slick-column-name,
+.marketwatch .slick-header-column.company-alert > .slick-column-name,
+.marketwatch .slick-header-column.flag > .slick-column-name{
+    width: 65%;
+}
+
+.arabic .marketwatch .slick-cell.marketalerts,
+.arabic .marketwatch .slick-header-column.marketalerts,
+.arabic .marketwatch .slick-cell.technicalscope,
+.arabic .marketwatch .slick-header-column.technicalscope {
+    text-align: right;
+}
+
+.english .marketwatch .slick-cell.marketalerts,
+.english .marketwatch .slick-header-column.marketalerts,
+.english .marketwatch .slick-cell.technicalscope,
+.english .marketwatch .slick-header-column.technicalscope {
+    text-align: left;
+}
+
+.marketwatch .slick-cell.marketalerts,
+.marketwatch .slick-cell.technicalscope {
+    font-weight: bold;
+}
+
+.marketwatch .slick-header-column .header-icon {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+
+.marketwatch .slick-header-column .header-icon:before {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.marketwatch .slick-header-column .header-icon.header-alert:before {
+    background-image: url('~img/alert-mw-header.png');
+}
+
+.marketwatch .slick-header-column .header-icon.header-flag:before {
+    background-image: url('~img/marketwatch-flag-header.png');
+}
+
+.marketwatch .slick-header-column .header-icon.header-news:before {
+    background-image: url('~img/news-mw-header.png');
+}
+
+/* marketwatch grid cells */
+
+.arabic .marketwatch .slick-cell.name,
+.arabic .marketwatch .slick-cell.symbol,
+.arabic .marketwatch .slick-header-column.name,
+.arabic .marketwatch .slick-header-column.symbol {
+    text-align:right;
+}
+
+.english .marketwatch .slick-cell.name,
+.english .marketwatch .slick-cell.symbol,
+.english .marketwatch .slick-header-column.name,
+.english .marketwatch .slick-header-column.symbol {
+    text-align: left;
+}
+
+.marketwatch .slick-cell.symbol {
+    display: flex; /*Ehab: Needs for annotation delayed D letter*/
+}
+
+.marketwatch .slick-cell.name {
+    font-weight: normal;
+    display: flex;
+}
+
+.marketwatch.hide-name-delyed-annotation .slick-cell.name .annotation-delayed-icon {
+    display: none;
+}
+
+.marketwatch .slick-cell.flag > .flag-icon,
+.marketwatch .slick-cell.company-alert > .alert-icon,
+.marketwatch .slick-cell.news > .news-icon,
+.marketwatch .slick-cell.analysis > .analysis-icon {
+    width: 26px;
+    height: 16px;
+}
+.marketwatch .slick-cell.flag > .flag-icon:before,
+.marketwatch .slick-cell.company-alert >.alert-icon:before,
+.marketwatch .slick-cell.news > .news-icon:before,
+.marketwatch .slick-cell.analysis >.analysis-icon:before {
+    background-repeat: no-repeat;
+    display: inline-block;
+    content: "";
+    width:100%;
+    height: 100%;
+    background-position: center;
+}
+
+
+.marketwatch .slick-cell.flag > .flag-icon.r:before {
+    background-image: url('~img/marketwatch-flag-red.png');
+}
+
+.marketwatch .slick-cell.flag > .flag-icon.o:before {
+    background-image: url('~img/marketwatch-flag-orange.png');
+}
+
+.marketwatch .slick-cell.flag > .flag-icon.y:before {
+    background-image: url('~img/marketwatch-flag-yellow.png');
+}
+
+.marketwatch .slick-cell.company-alert >.alert-icon.shown:before {
+    background-image: url('~img/marketwatch-alert.png');
+}
+
+.marketwatch .slick-cell.news >.news-icon.shown.viewed:before{
+    background-image: url('~img/news-open.png');
+}
+.marketwatch .slick-cell.news >.news-icon.shown.not-viewed:before{
+    background-image: url('~img/news-close.png');
+}
+
+.marketwatch .slick-cell.analysis >.analysis-icon.shown.viewed:before{
+    background-image: url('~img/analysis-watched.png');
+}
+
+.marketwatch .slick-cell.analysis >.analysis-icon.shown.not-viewed:before{
+    background-image: url('~img/analysis-not-watched.png');
+}
+
+.marketwatch .slick-cell.liquidityInflowPercent {
+    padding: 0px;
+    margin: 0px;
+}
+
+.marketwatch .slick-cell.liquidityInflowPercent > div {
+    padding-top: 2px;
+    width: 100%;
+    height: 100%;
+}
+
+.marketwatch .slick-cell .technical-scope-alert{
+    font-weight: bold;
+    font-family: Arial;
+}
+
+.marketwatch .slick-cell .circle {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+}
+
+.arabic .marketwatch .slick-cell .circle {
+    margin-left: 5px;
+    margin-right: 3px;
+}
+
+.english .marketwatch .slick-cell .circle {
+    margin-left: 3px;
+    margin-right: 5px;
+}
+
+.marketwatch .slick-cell.marketalerts > div,
+.marketwatch .slick-cell.technicalscope > div {
+    display: inline-block;
+    vertical-align:middle;
+    margin-top: 2px;
+}
+
+/* MA app is needed to force selector for limit-up and limit-down to override other settings */
+.app .marketwatch .slick-row.limit-up,
+.app .marketwatch .slick-row.limit-up .slick-cell {
+    background-color: lightgreen;
+}
+.app .marketwatch .slick-row.limit-down,
+.app .marketwatch .slick-row.limit-down .slick-cell {
+    background-color: pink;
+}
+
+.app .marketwatch .slick-row.is-index,
+.app .marketwatch .slick-row.is-index .slick-cell {
+    background-color: #D1CDE4;
+}
+
+.app .marketwatch .slick-row.section-row,
+.app .marketwatch .slick-row.section-row .slick-cell {
+    background-color: #D1CDE4;
+}
+
+.app .marketwatch .slick-row .slick-cell .section-name {
+    font-family: DroidSansArabic;
+    font-weight: bold;
+    text-align: right;
+}
+
+.english .app .marketwatch .slick-row .slick-cell .section-name {
+    font-family: Arial;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* marketwatch context menu */
+
+.marketwatch li.menuitem.add-alert:before {
+    background-image: url('~img/alert-mw-header.png');
+}
+
+.marketwatch li.menuitem.add-company:before {
+    background-image: url('~img/alert-add.png');
+}
+
+.marketwatch li.menuitem.remove-company:before {
+    background-image: url('~img/menu-delete-focused.png');
+}
+
+/* toolbar */
+.marketwatch .toolbar-button .columns-icon:before {
+    background-image: url('~img/settings-knob.png');
+}
+
+/* dark theme */
+
+.dark .app .marketwatch .slick-row.limit-up,
+.dark .app .marketwatch .slick-row.limit-up .slick-cell {
+    background: #0e400e;
+}
+
+.dark .app .marketwatch .slick-row.is-index,
+.dark .app .marketwatch .slick-row.is-index .slick-cell {
+    background-color: #002d3a;
+}
+
+.dark .app .marketwatch .slick-row.section-row,
+.dark .app .marketwatch .slick-row.section-row .slick-cell {
+    background-color: #002d3a;
+}
+
+.dark .app .marketwatch .slick-row.limit-down,
+.dark .app .marketwatch .slick-row.limit-down .slick-cell {
+    background: #441616;
+}
+
+.dark .marketwatch .slick-cell.flag > .flag-icon:before {
+    filter:brightness(2);
+    opacity: 0.8;
+}
+
+.dark .marketwatch .slick-cell.analysis >.analysis-icon.shown.not-viewed:before {
+    filter: none;
+}
+
+.dark .marketwatch .slick-cell.company-alert >.alert-icon.shown:before {
+    background-image: url('~img/marketwatch-alert-dark.png');
+    filter: none;
+}

@@ -1,0 +1,1 @@
+export {MarketsTickSizeLoaderService} from './markets-tick-size-loader.service';

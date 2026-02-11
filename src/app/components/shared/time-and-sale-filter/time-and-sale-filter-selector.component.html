@@ -1,0 +1,21 @@
+<div class="static time-and-sale-filter" dropdown autoClose="outsideClick" [(isOpen)]="isDropDownOpen">
+  <div class="toolbar-button" dropdownToggle [class.activated]="filter.active">
+    <div class="toolbar-icon filter-icon" i18n="@@time-and-sale-filter-selector_filter">التصفية</div>
+  </div>
+
+  <div class="dropdown-body full-width-dropdown-menu" dropdownMenu role="menu">
+
+    <filter-condition [(filter)]="filter.priceFilter" [decimalPlaces]="2" label="السعر"></filter-condition>
+    <filter-condition [(filter)]="filter.volumeFilter" label="الحجم"></filter-condition>
+    <filter-condition [(filter)]="filter.amountFilter" label="القيمة"></filter-condition>
+
+    <div class="interaction-buttons">
+      <button class="btn btn-success" (click)="onApply()" i18n="@@time-and-sale-filter-selector_applyFilter">تطبيق</button>
+      <button class="btn btn-warning" (click)="onCancel()" i18n="@@time-and-sale-filter-selector_cancelFilter">الغاء</button>
+      <button class="btn btn-default" (click)="onClose()" i18n="@@time-and-sale-filter-selector_close">إغلاق</button>
+    </div>
+
+  </div>
+
+</div>
+

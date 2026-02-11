@@ -1,0 +1,16 @@
+.date-time-picker{
+    width: 120px;
+}
+
+.date-time-picker .form-control[readonly]{
+    cursor:pointer;
+}
+
+.date-time-picker .form-control[disabled] {
+    cursor: not-allowed;
+}
+
+/* dark theme */
+.dark .date-time-picker *:before {
+    filter: none;
+}

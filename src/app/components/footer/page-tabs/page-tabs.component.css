@@ -1,0 +1,284 @@
+/* page tabs > tabs  */
+
+.page-tabs.tabs {
+    display: flex;
+}
+
+.arabic .page-tabs.tabs {
+    flex-direction: row-reverse;
+    margin-right: 40px;
+}
+.english .page-tabs.tabs {
+    flex-direction: row;
+    margin-left: 40px;
+}
+
+
+/* page tabs > tabs > tab */
+
+.page-tabs.tabs .tab {
+    height: 30px;
+    position:relative;
+    margin-top: -1px;
+    border-radius: 0px 0px 8px 8px;
+    border: 1px solid #888;
+    background-color: lavender;
+    line-height: 25px;
+    color: #888;
+    cursor: pointer;
+    font-size: 1.2rem;
+    width: 120px;
+}
+
+.arabic .page-tabs.tabs .tab {
+    text-align: right;
+    margin-right: 10px;
+}
+
+.english .page-tabs.tabs .tab {
+    text-align: left;
+    margin-left: 10px;
+}
+
+.page-tabs.tabs .tab:hover {
+    background-color: lightgrey;
+    color: #666;
+}
+
+.page-tabs .tab.active,
+.page-tabs .tab.active:hover {
+    cursor:default;
+    background-color: white;
+    border-top: 1px solid #fff;
+    color: black;
+}
+
+.page-tabs .tab.active.editable,
+.page-tabs .tab.active.editable:hover{
+    width: 150px;
+    cursor:pointer;
+}
+
+.page-tabs .tab.new-page {
+    color: white;
+    margin-right:6px;
+    width: 36px;
+    background-color: mediumpurple;
+}
+
+.page-tabs .tab.new-page:before {
+    background-image: url('~img/add-page.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    content: "";
+    display: inline-block;
+    width: 34px;
+    height: 25px;
+}
+
+.page-tabs .tab.new-page:hover {
+    background-color: indigo;
+    color:white;
+}
+
+/* page tabs > tabs > tab > title */
+
+.page-tabs.tabs .tab .title {
+    margin-right: 10px;
+    margin-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    text-align:center;
+}
+
+.arabic .page-tabs.tabs .tab .title {
+    direction: rtl;
+}
+
+.english .page-tabs.tabs .tab .title {
+    direction: ltr;
+}
+
+.page-tabs.tabs .tab .title .english {
+    font-family: Arial;
+    font-weight: bold;
+}
+
+.arabic .page-tabs .tab.active.editable .title {
+    margin-left: 40px;
+    direction: rtl;
+}
+
+.english .page-tabs .tab.active .title {
+    margin-right: 40px;
+    direction: ltr;
+}
+
+/* page tabs > tabs > tab > icons */
+
+.page-tabs.tabs .tab .icons {
+    position: absolute;
+    top: 0;
+    width: 32px;
+    height: 24px;
+    display: none;
+}
+
+.english .page-tabs.tabs .tab .icons {
+    right: 2px;
+    left: auto;
+}
+.arabic .page-tabs.tabs .tab .icons {
+    left: 2px;
+    right: auto;
+}
+
+.page-tabs.tabs .tab.active .icons {
+    display: flex;
+}
+
+.arabic .page-tabs.tabs .tab.active .icons {
+    flex-direction: row-reverse;
+}
+.english .page-tabs.tabs .tab.active .icons {
+    flex-direction: row;
+}
+
+.page-tabs.tabs .tab .icons .icon {
+    width: 16px;
+    height: 24px;
+    opacity: 0.5;
+}
+
+.page-tabs.tabs .tab .icons .icon:before {
+    background-position: center;
+    background-repeat: no-repeat;
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 24px;
+}
+.page-tabs.tabs .page-name-container {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.english .page-tabs.tabs .page-name-container {
+    flex-direction: row;
+}
+
+.page-tabs.tabs .page-name-container .title {
+    margin-left: 0;
+}
+
+.english .page-tabs.tabs .page-name-container .title {
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+.page-tabs.tabs .unauthorized-lock-icon:before {
+    margin-top: 5px;
+}
+
+.page-tabs.tabs .tab .icons .icon.rename-icon:before {
+    background-image: url('~img/note-mw-header.png');
+}
+
+.page-tabs.tabs .tab .icons .icon.close-icon:before {
+    background-image: url('~img/highlighted-tab-close.png');
+}
+
+/* page tabs navgiation icons  */
+
+.page-tabs .navigation-arrow {
+    width: 22px;
+    height: 22px;
+    margin-top: 2px;
+}
+
+.page-tabs .navigation-arrow.up:hover:before {
+    cursor: pointer;
+    background-image: url('~img/prev-page-navigation-highlight.png');
+}
+
+.page-tabs .navigation-arrow.in-active{
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.page-tabs .navigation-arrow.up:before {
+    background-image: url('~img/prev-page-navigation.png');
+    transform:scaleX(1);
+    transform:rotate(270deg);
+    content: "";
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+}
+
+.arabic .page-tabs .navigation-arrow.up {
+    margin-right: 5px;
+}
+
+.english .page-tabs .navigation-arrow.up {
+    margin-left: 5px;
+}
+
+/* font family */
+.arabic .page-tabs.tabs .tab {
+    font-family: DroidArabicKufi-Bold;
+}
+
+.english .page-tabs.tabs .tab {
+    font-family: Tahoma Black;
+}
+
+
+/* dark theme */
+
+.dark .page-tabs.tabs .tab.active,
+.dark .page-tabs.tabs .tab.active:hover {
+    background-color: #000;
+    color: white;
+    border-top: 1px solid #000;
+}
+
+.dark .page-tabs.tabs .tab {
+    background-color: #444;
+    color: #ccc;
+    border: 1px solid #666;
+}
+
+.dark .page-tabs.tabs .tab:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark .page-tabs .tab.new-page {
+    background-color: #3b0062;
+}
+
+.dark .page-tabs .tab.new-page:hover {
+    background-color: indigo;
+}
+
+.dark .page-tabs .tab.new-page:before {
+    filter: none;
+    opacity: 0.75;
+}
+
+.dark .page-tabs .tab.new-page:hover:before {
+    opacity: 1;
+}
+
+.dark .page-tabs .navigation-arrow.up:before {
+    opacity: 0.5;
+    filter: none;
+}
+
+.dark .page-tabs .navigation-arrow.up:hover:before {
+    opacity: 1;
+    background-image: url('~img/prev-page-navigation.png');
+    filter: none;
+}

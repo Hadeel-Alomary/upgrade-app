@@ -1,0 +1,227 @@
+/* general css */
+.grid-body {
+    display: none;
+    height: calc(100% - 6px);/* NK margin-top 3 and margin-bottom 3 */
+}
+
+.grid-body.empty:before {
+    background-image: url('~img/empty-page.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+
+.english .grid-body.empty:before {
+    background-image: url('~img/empty-page-english.png');
+}
+
+.grid-body.active {
+    display: block;
+}
+
+.grid-body .grid-item  {
+    border: solid #888 3px;
+    position: relative;
+}
+
+
+/* docking item */ 
+
+/* MA DO NOT set z-index on this if you want the menus to appear over floating windows */
+.grid-body .docking-item  {
+    border: solid #888 3px;
+    background-color: white;
+    position: absolute;
+    /* default width of the box, expect boxes to override this with their custom settings */
+    width: 300px;
+    height: 300px;    
+}
+
+
+.grid-body .docking-item.floating {
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    z-index: 2;
+}
+
+.grid-body .docking-item.floating.selected {
+    z-index: 3;
+}
+
+.grid-body .docking-item.maximized {
+    border-color: coral;
+    z-index: 4;
+}
+
+/* docking container */
+
+.grid-body.docking-container {
+    position: relative;
+    margin: 3px;
+}
+
+/* docking container */
+
+.grid-body.docking-container .docking-container-placeholder,
+.grid-body.docking-container .docking-container-arrows,
+.grid-body.docking-container .docking-container-root-icon {
+    z-index: 4;
+    position:absolute;
+    display: none;
+}
+
+.grid-body.docking-container .docking-container-separator {
+    z-index: 1;
+    position:absolute;
+    display: none;
+}
+
+.grid-body.docking-container .docking-container-separator.active,
+.grid-body.docking-container .docking-container-placeholder.active,
+.grid-body.docking-container .docking-container-arrows.active,
+.grid-body.docking-container .docking-container-root-icon.active {
+    display: block;
+}
+
+.grid-body.docking-container .docking-container-separator {
+    background-color: indigo;
+    opacity: 0.75;
+}
+
+.grid-body.docking-container .docking-container-placeholder {
+    background-color: darkslateblue;
+    opacity: 0.5;
+}
+
+.grid-body.docking-container .docking-container-root-icon {
+    width: 40px;
+    height: 40px;
+    opacity: 0.5;
+    left: 50%;
+    top: 50%;
+}
+
+.grid-body.docking-container .docking-container-root-icon:before {
+    background-image: url('~img/window.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    display:inline-block;
+    content: "";
+    width: 40px;
+    height: 40px;
+}
+
+.grid-body.docking-container .docking-container-root-icon.highlight {
+    opacity: 1.0;
+}
+
+/* docking container arrows */
+
+.grid-body.docking-container .docking-container-arrows {
+    width: 100px;
+    height: 100px;
+}
+
+.grid-body.docking-container .docking-container-arrows > .docking-arrow {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    opacity: 0.5;
+}
+
+.grid-body.docking-container .docking-container-arrows > .docking-arrow:before {
+    background-image: url('~img/arrow.png');
+    height: 40px;
+    width: 40px;
+    content: "";
+    display: inline-block;
+}
+
+.grid-body.docking-container .docking-container-arrows > .docking-arrow.highlight {
+    opacity: 1.0;
+}
+
+.grid-body.docking-container .docking-container-arrows .docking-arrow.left {
+    left: 0px;
+    top: 30px;
+    transform: scaleX(-1);
+}
+
+.grid-body.docking-container .docking-container-arrows .docking-arrow.bottom {
+    left: 30px;
+    bottom: 0px;
+    transform: rotate(90deg);
+}
+
+.grid-body.docking-container .docking-container-arrows .docking-arrow.top {
+    top: 0px;
+    left: 30px;
+    transform: rotate(-90deg);
+}
+
+.grid-body.docking-container .docking-container-arrows .docking-arrow.right {
+    top: 30px;
+    right: 0px;
+}
+
+/* cursor */
+/* those are "floating window" resize cursor, and they should override any cursors defined in children (except default) */
+/* MA for cursor-default, we don't override it on children as it can affect normal behaivor (no resizing) */
+/* and overriding "working" things, as in resizing cursor for the grid columns */
+.grid-body.cursor-default {
+    cursor:default;
+}
+
+.grid-body.cursor-ew-resize,
+.grid-body.cursor-ew-resize * {
+    cursor:ew-resize !important;
+}
+
+.grid-body.cursor-ns-resize,
+.grid-body.cursor-ns-resize * {
+    cursor:ns-resize !important;
+}
+
+.grid-body.cursor-nesw-resize,
+.grid-body.cursor-nesw-resize * {
+    cursor:nesw-resize !important;
+}
+
+.grid-body.cursor-nwse-resize,
+.grid-body.cursor-nwse-resize * {
+    cursor:nwse-resize !important;
+}
+
+
+/* dark theme */
+
+.dark .grid-body.docking-container .docking-container-root-icon:before,
+.dark .grid-body.docking-container .docking-container-arrows > .docking-arrow:before {
+    filter: none;
+}
+
+.dark .grid-body .docking-item.maximized {
+    border-color: goldenrod;
+}
+
+.dark .grid-body.docking-container .docking-container-separator {
+    background-color: #1876d2;
+}
+
+.dark .grid-body.empty:before {
+    background-image: url('~img/empty-page-dark.png');
+    filter: none;
+}
+
+.dark.english .grid-body.empty:before {
+    background-image: url('~img/empty-page-english-dark.png');
+    filter: none;
+}
+
+.dark .grid-body .docking-item {
+    background-color: #444;
+}

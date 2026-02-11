@@ -1,0 +1,22 @@
+<div bsModal #messageBoxModal="bs-modal" class="modal fade message-box" tabindex="-1" role="dialog" [config]="{backdrop:'static'}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h4 class="modal-title">{{getMessageTitle()}}</h4>
+      </div>
+        <div  class="modal-body">
+            <div [class.message-container]="showSuccessIcon">
+                <div *ngIf="showSuccessIcon" class="message-icon valid-img"></div>
+                <div class="message-line">{{messageLine | translate}}</div>
+                <div *ngIf="messageLine2" class="message-line">{{messageLine2 | translate}}</div>
+
+                <div class="modal-btns" [hidden]="hideCloseBtn">
+                    <button class="btn btn-success" (click)="onClose()" i18n="@@message-box_close">إغلاق</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+  </div>
+</div>

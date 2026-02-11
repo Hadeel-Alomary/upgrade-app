@@ -1,0 +1,11 @@
+<div class="banner-message" [class.shown]="isShown" [class.closing]="!isShown">
+  <div *ngIf="bannerMessage" class="banner-container" (click)="closeOnClick()">
+    <a class="close-btn" (click)="closeMessage()">&times;</a>
+    <div class="body">
+      <a href="{{bannerMessage.url}}" target="_blank" class="image-anchor">
+        <img class="banner-image" [src]="getImageUrl()" (load)="showBannerMessage()" alt="banner image">
+      </a>
+      <a class="btn btn-default btn-lg action-button" href="{{bannerMessage.url}}" target="_blank">{{getUrlText()}}</a>
+    </div>
+  </div>
+</div>

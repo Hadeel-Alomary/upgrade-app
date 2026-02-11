@@ -1,0 +1,15 @@
+<div class="filter-condition">
+  <div class="label-text">{{label | translate}}</div>
+  <select #selectOperator (change)="setOperator(selectOperator.value)" [ngModel]="filter.operator.type">
+    <option *ngFor="let operator of operators" value="{{operator.type}}">{{operator.name | translate}}</option>
+  </select>
+    <number-with-steps [numValue]="filter.value1" (numValueChange)="filter.value1 = $event; fireChange();"
+                       [decimalPlaces]="decimalPlaces"></number-with-steps>
+    <number-with-steps *ngIf="isFromToOperatorSelected()" [numValue]="filter.value2"
+                       (numValueChange)="filter.value2 = $event; fireChange();" [decimalPlaces]="decimalPlaces"></number-with-steps>
+</div>
+
+
+
+
+

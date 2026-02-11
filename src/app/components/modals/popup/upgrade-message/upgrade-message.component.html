@@ -1,0 +1,74 @@
+<div bsModal #upgradeMessageModal="bs-modal" class="modal fade upgrade-message" tabindex="-1" role="dialog">
+  <div *ngIf="showContent()" class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-body">
+
+          <div *ngIf="appModeAllowedFeature(appModeFeatureType.BROKER_MODE_UPGRADE_MESSAGE)" >
+              <div class="upgrade-derayah-mode-body">
+                  <div class="upgrade-header-body">
+                      <div *ngIf="isFeatureScreensCounterInvalid()">
+                          {{getFeatureScreensCounterInvalidMessageForDerayahMode()}}
+                      </div>
+
+                      <div *ngIf="isMultipleAlertsFeature()" class="market-authorized-header">
+                          {{getAlertsReachedLimitMessageForDerayahMode()}}
+                      </div>
+
+                      <div *ngIf="showPaidMarketsMessage()">
+                          {{getPaidMarketMessageForDerayahMode()}}
+                      </div>
+                  </div>
+                  <div class="upgrade-header-buttons">
+                      <button class="btn btn-default" (click)="onClose()" i18n="@@upgrade_message_close">إغلاق</button>
+                  </div>
+              </div>
+          </div>
+          <div *ngIf="!appModeAllowedFeature(appModeFeatureType.BROKER_MODE_UPGRADE_MESSAGE)">
+              <div  class="upgrade-package">
+
+                  <div class="upgrade-container bold-font">
+                      <div class="line-container">
+                          <div  class="line">{{getFeatureMessage()}}</div>
+                          <div class="upgrade-header-text">
+                              <div *ngIf="showPaidMarketsMessage()" class="market-authorized-header" i18n="@@upgrade_message_marketAuthorizedHeader">
+                                  هذه الميزة تدعم الأسواق ذات الاشتراكات المدفوعة فقط.
+                              </div>
+
+                              <div *ngIf="!isGenericUpgradeMessage()">
+                                  <div *ngIf="isFeatureScreensCounterInvalid()" class="market-authorized-header">
+                                      {{getFeatureScreensCounterInvalidMessage()}}
+                                  </div>
+
+                                  <div *ngIf="isMultiplePagesFeature()" class="market-authorized-header">
+                                      {{getMultiplePagesReachedLimitFeatureMessage()}}
+                                  </div>
+
+                                  <div *ngIf="isMultipleAlertsFeature()" class="market-authorized-header">
+                                      {{getAlertsReachedLimitMessage()}}
+                                  </div>
+
+                                  <div *ngIf="isAddMoreThanFiveIndicatorsFeature()" class="basic-header">
+                                      {{getAddMoreThanFiveIndicatorsMessage()}}
+                                  </div>
+
+                              </div>
+                              <div>{{getUpgradeMessages()}}</div>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+
+              <div class="upgrade-header-buttons">
+                  <a *ngIf="!showUpgradeButton()" href="javascript:void(0);" class="btn btn-primary btn-subscribe bold-font" (click)="openBuyUrl();" i18n="@@upgrade_message_subscribe">اشترك الآن</a>
+                  <a *ngIf="showUpgradeButton()" href="javascript:void(0);" class="btn btn-primary btn-subscribe bold-font" (click)="openSubscriptionUpgradeUrl()" i18n="@@upgrade_message_subscriptionUpgrade">ترقية الإشتراك</a>
+                  <button class="btn btn-default" (click)="onClose()" i18n="@@upgrade_message_close">إغلاق</button>
+              </div>
+
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>

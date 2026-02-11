@@ -1,0 +1,70 @@
+/* drop down */
+.time-and-sale-filter .dropdown-body {
+    margin:0 auto;
+    overflow: hidden;
+}
+
+.time-and-sale-filter .dropdown-body .interaction-buttons {
+    display: flex;
+}
+
+.arabic .time-and-sale-filter .dropdown-body .interaction-buttons {
+    flex-direction: row-reverse;
+}
+
+.english .time-and-sale-filter .dropdown-body .interaction-buttons {
+    flex-direction: row;
+}
+
+/* filter condition */
+.time-and-sale-filter .filter-condition .label-text {
+    width: 40px;
+}
+
+.arabic .time-and-sale-filter .filter-condition .label-text {
+    text-align: right;
+}
+
+.english .time-and-sale-filter .filter-condition .label-text {
+    text-align: left;
+}
+
+/* toolbar button */
+.time-and-sale-filter .toolbar-button.activated {
+    color: #D2691E;
+}
+
+.time-and-sale-filter .toolbar-button .filter-icon:before {
+    background-image: url('~img/filter-unselected.png');
+}
+
+
+.time-and-sale-filter .toolbar-button.activated .filter-icon:before {
+    background-image: url('~img/filter-selected.png');
+}
+
+/* interaction buttons */
+
+.time-and-sale-filter .dropdown-body .interaction-buttons {
+    height: 35px;
+    margin-right: 46px;
+}
+
+.time-and-sale-filter .dropdown-body .interaction-buttons button {
+    height: 25px;
+    line-height: 10px;
+    margin-top: 5px;
+    font-size: 1.2rem;
+    min-width: 60px;
+
+}
+
+.arabic .time-and-sale-filter .dropdown-body .interaction-buttons button {
+    margin-right: 8px;
+
+}
+
+.english .time-and-sale-filter .dropdown-body .interaction-buttons button {
+    margin-left: 8px;
+}
+

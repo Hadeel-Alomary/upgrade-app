@@ -1,0 +1,54 @@
+<div dropdown class="static watchlist-selector">
+    <div class="toolbar-button" dropdownToggle>
+        <div class="toolbar-icon watchlist-icon">{{watchlist.name}}</div>
+    </div>
+    <ul class="dropdown-menu scrollable iphone-allow-scrolling" dropdownMenu role="menu" aria-labelledby="single-button" [style.max-height]="getDropdownMaxHeight(dropDownMenuElement) + 'px'" #dropDownMenuElement>
+
+        <span>
+            <li *ngFor="let watchlist of getPredefinedWatchlists()" role="menuitem" class="menuitem" (click)="onSelectWatchlist(watchlist)">
+               <div>{{watchlist.name}}</div>
+            </li>
+        </span>
+
+        <span *ngIf="getExternalWatchlists().length > 0">
+            <li  class="divider dropdown-divider"></li>
+            <li  role="menuitem" class="menuitem dropdown-submenu" dropdown-submenu-toggle>
+                <div i18n="@@watchlist-selector_smartMenu">القائمة الذكية</div>
+                <ul class="dropdown-menu iphone-allow-scrolling" role="menu" aria-labelledby="single-button" [style.position]="'fixed'">
+                    <li *ngFor="let watchlist of getExternalWatchlists()" role="menuitem" class="menuitem" (click)="onSelectWatchlist(watchlist)">
+                        <div>{{watchlist.name}}</div>
+                    </li>
+                </ul>
+            </li>
+        </span>
+
+        <span *ngIf="includeUserWatchLists">
+            <li *ngIf="getUserDefinedWatchlists().length" class="divider dropdown-divider"></li>
+            <li *ngIf="getUserDefinedWatchlists().length" role="menuitem" class="menuitem dropdown-submenu" dropdown-submenu-toggle>
+                <div i18n="@@watchlist-selector_userDefinedWatchlists">لوائح أسهمي</div>
+                <ul class="dropdown-menu iphone-allow-scrolling" role="menu" aria-labelledby="single-button" [style.position]="'fixed'">
+                    <li *ngFor="let watchlist of getUserDefinedWatchlists()" role="menuitem" class="menuitem" (click)="onSelectWatchlist(watchlist)">
+                        <div>{{watchlist.name}}</div>
+                    </li>
+                </ul>
+            </li>
+        </span>
+
+        <li *ngIf="showFollowPredefinedWatchlists()" class="divider dropdown-divider"></li>
+
+        <li *ngIf="showFollowPredefinedWatchlists()"  role="menuitem" class="menuitem" (click)="onFollowPredefinedWatchlists()">
+            <div i18n="@@watchlist-selector_followPredefinedWatchlists">متابعة الأسواق</div>
+        </li>
+
+        <li class="divider dropdown-divider"></li>
+
+        <li role="menuitem" class="menuitem" (click)="onNewWatchlist()">
+                <div i18n="@@watchlist-selector_addNewWatchlist">اضافة لائحة أسهمي جديدة</div>
+            </li>
+            <li role="menuitem" class="menuitem" (click)="onUpdateWatchlists()">
+                <div i18n="@@watchlist-selector_editWatchlist">تعديل لوائح أسهمي</div>
+            </li>
+
+    </ul>
+
+</div>

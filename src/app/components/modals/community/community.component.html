@@ -1,0 +1,18 @@
+<div class="community-window" [@expandChanged]="isWindowShown ? 'expanded' : 'collapsed'" (@expandChanged.done)="finishExpanding()">
+    <div  class="vertical-window">
+        <div class="window-header">
+            <div class="title">
+                <div class="title-icon {{getIconClassName()}}"></div>
+                <div class="title-label">{{getWindowTitle() | translate}}</div>
+            </div>
+            <button type="button" class="close" aria-label="Close" (click)="closeWindow()">
+                <div aria-hidden="true">&times;</div>
+            </button>
+        </div>
+        <div class="window-body" *ngIf="communityTabType">
+            <following-ideas [class.hidden]="!isIdeasTabOpened()"></following-ideas>
+            <following-notifications [class.hidden]="!isNotificationsTabOpened()" [notifications]="notifications"></following-notifications>
+            <my-ideas [class.hidden]="!isMyIdeasTabOpened()"></my-ideas>
+        </div>
+    </div>
+</div>

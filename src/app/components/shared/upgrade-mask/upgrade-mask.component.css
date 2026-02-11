@@ -1,0 +1,24 @@
+.upgrade-annotation-container {
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dark .upgrade-annotation-container {
+    color: #d3d3d3;
+}
+
+.english .upgrade-annotation-container {
+    direction: ltr;
+}
+
+.upgrade-annotation-container .warning-icon {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 10px;
+    display: inline-flex;
+    background-repeat: no-repeat;
+    background-image: url('~img/trading/popup-alert.png');
+}

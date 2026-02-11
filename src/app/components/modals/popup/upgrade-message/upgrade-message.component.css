@@ -1,0 +1,170 @@
+/* modal style */
+
+.upgrade-message .modal-content,
+.upgrade-message .modal-body {
+    border-radius: 15px;
+}
+.upgrade-message.modal .modal-content .modal-body {
+    background-color: white;
+}
+
+/* basic package style */
+
+.upgrade-message .line-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 300px;
+}
+
+.mobile .upgrade-message .line-container {
+    min-width: auto;
+}
+
+/* premium package style */
+
+.upgrade-message .upgrade-package .upgrade-container {
+    font-size: 2.3rem;
+    min-height: 165px;
+    display: flex;
+    line-height: 5rem;
+}
+
+.upgrade-message .upgrade-package .upgrade-container:before {
+    background-image: url("~img/premium-package-icon.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 400px;
+    height: 168px;
+    content: "";
+    display: inline-block;
+}
+
+.mobile .upgrade-message .upgrade-package .upgrade-container {
+    background-size: 90px;
+    font-size: 2rem;
+    line-height: 3.5rem;
+}
+
+.mobile .upgrade-message .upgrade-package .upgrade-container:before {
+    width: 160px;
+    background-size: contain;
+}
+
+.upgrade-message .upgrade-package .upgrade-container .line:first-child {
+    color: maroon;
+}
+
+.upgrade-message .upgrade-package .upgrade-container .line:last-child {
+    font-size: 2rem;
+}
+
+.mobile .upgrade-message .upgrade-package .upgrade-container .line:last-child {
+    font-size: 1.5rem;
+}
+
+.upgrade-message .upgrade-package .upgrade-header-text {
+    font-size: 1.4rem;
+    line-height: 3.5rem;
+    text-align: center;
+    margin: 0px 30px 10px 30px;
+}
+
+.upgrade-message .upgrade-package .upgrade-header-text .market-authorized-header{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #a51717;
+}
+
+.mobile .upgrade-message .upgrade-package .upgrade-header-text {
+    font-size: 1.3rem;
+    line-height: 2.6rem;
+}
+
+.upgrade-message .upgrade-package .upgrade-footer {
+    margin-bottom: 25px;
+}
+
+.upgrade-message  .upgrade-header-text > a {
+    font-size: 1.5rem;
+    line-height: 4rem;
+}
+
+.mobile .upgrade-message  .upgrade-header-text > a {
+    font-size: 1.2rem;
+    line-height: 0;
+}
+
+.upgrade-message .upgrade-footer .note {
+    font-size: 1.5rem;
+    margin-top: 12px;
+    color: maroon;
+}
+
+.mobile .upgrade-message .upgrade-footer .note {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* buttons style */
+
+.upgrade-message .upgrade-header-buttons {
+    position: relative;
+    text-align:center;
+}
+.upgrade-message .upgrade-header-buttons > .btn:first-child {
+    font-size: 1.4rem;
+    min-width: 120px;
+}
+
+.upgrade-message .upgrade-header-buttons > .btn:last-child {
+    position: absolute;
+    left: 10px;
+    top: 0;
+}
+
+.english .upgrade-message .upgrade-header-buttons > .btn:last-child {
+    left: auto;
+    right: 10px;
+}
+
+/* bold font */
+
+.arabic .upgrade-message .bold-font {
+    font-family: DroidArabicKufi-Bold;
+}
+
+.english .upgrade-message .bold-font {
+    font-family: "Tahoma Black";
+}
+
+/* video url */
+
+.upgrade-message .video-url span {
+    vertical-align: middle;
+}
+
+.upgrade-message .video-url .glyphicon {
+    margin: 5px;
+    font-size: 2rem;
+}
+
+
+/* dark theme */
+
+.dark .upgrade-message .upgrade-header-text .note {
+    color: tomato;
+}
+
+.dark .upgrade-message .upgrade-footer .note {
+    color: #fb5252;
+}
+
+.dark .upgrade-message .upgrade-package .upgrade-container .line:first-child {
+    color: deepskyblue;
+}
+
+.dark .upgrade-message .video-url .glyphicon:before {
+    filter: none;
+}

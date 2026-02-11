@@ -1,0 +1,7 @@
+<div class="loading-mask-backdrop"
+     @fadeInOut
+     *ngIf="isActive()">
+</div>
+<div class="loading-mask" *ngIf="isActive()" @fadeInOut>
+    <div class="loading-mask-wrapper"></div>
+</div>

@@ -1,0 +1,9 @@
+<div class="select-box iphone-allow-scrolling" [style.width]="width + 'px'" [style.height]="height + 'px'">
+  <div *ngFor="let entry of entries" class="entry"
+       [class.selected]="isSelected(entry)"
+       [class.ticked]="ticked"
+       (click)="onSelect(entry)"
+       (mousedown)="onMouseDown($event)">
+    {{name(entry)}}
+  </div>  
+</div>

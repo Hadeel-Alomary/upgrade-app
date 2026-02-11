@@ -1,0 +1,134 @@
+<div class="window-toolbar" [style.max-height]="maxHeight()">
+
+  <div class="window-toolbar-separator market-windows-btn {{expandMarketWindows}}" (click)="onExpandMarketWindows()" i18n="@@window-toolbar_market">سوق</div>
+
+    <div class="windows market-windows" overflow-toolbar [containerHeight]="windowHeight()" [@expandMarketWindows]="expandMarketWindows">
+        <div class="icon icon-bg-color icon-screen marketwatch" [class.inactive]="isUnauthorized(FeatureType.MARKET_WATCH_SCREEN)" (click)="onAddMarketBox(gridBoxType.Marketwatch)" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_marketwatch" title="متابع السوق">
+            <span *ngIf="isUnauthorized(FeatureType.MARKET_WATCH_SCREEN)" class="lock-icon"></span>
+        </div>
+        <div class="icon icon-bg-color icon-screen index-analysis" [class.inactive]="isUnauthorized(FeatureType.INDEX_ANALYSIS_SCREEN)" (click)="onAddMarketBox(gridBoxType.IndexAnalysis)" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_indexAnalysis" title="تحليل المؤشر">
+            <span *ngIf="isUnauthorized(FeatureType.INDEX_ANALYSIS_SCREEN)" class="lock-icon"></span>
+        </div>
+        <div class="icon icon-bg-color icon-screen market-trades" [class.inactive]="isUnauthorized(FeatureType.MARKET_TRADES_SCREEN)" (click)="onAddMarketBox(gridBoxType.MarketTrades)" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_marketTrades" title="صفقات السوق">
+            <span *ngIf="isUnauthorized(FeatureType.MARKET_TRADES_SCREEN)" class="lock-icon"></span>
+        </div>
+        <div class="icon icon-bg-color icon-screen market-alerts" [class.inactive]="isUnauthorized(FeatureType.MARKET_ALERTS_SCREEN)" (click)="onAddMarketBox(gridBoxType.MarketAlerts)" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_marketScope" title="راصد السوق">
+            <span *ngIf="isUnauthorized(FeatureType.MARKET_ALERTS_SCREEN)" class="lock-icon"></span>
+        </div>
+        <div class="icon icon-bg-color icon-screen large-trades" [class.inactive]="isUnauthorized(FeatureType.BIG_TRADES_SCREEN)" (click)="onAddMarketBox(gridBoxType.BigTrades)" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_bigTrades" title="الصفقات الكبيرة">
+            <span *ngIf="isUnauthorized(FeatureType.BIG_TRADES_SCREEN)" class="lock-icon"></span>
+        </div>
+        <div *ngIf="isFeatureAllowed(appModeFeatureType.MARKET_MOVERS_SCREEN)" class="icon icon-bg-color icon-screen market-movers" [class.inactive]="isUnauthorized(FeatureType.MARKET_MOVERS_SCREEN)" (click)="onAddMarketBox(gridBoxType.MarketMovers)" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_marketMovers" title="محركو السوق">
+            <span *ngIf="isUnauthorized(FeatureType.MARKET_MOVERS_SCREEN)" class="lock-icon"></span>
+        </div>
+        <div *ngIf="isFeatureAllowed(appModeFeatureType.TECHNICAL_SCOPE_SCREEN)" class="icon icon-bg-color icon-screen technical-scope" [class.inactive]="isUnauthorized(FeatureType.TECHNICAL_SCOPE_SCREEN)" (click)="onAddMarketBox(gridBoxType.TechnicalScope)" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_technicalScope" title="راصد الإشارات الفنية">
+            <span *ngIf="isUnauthorized(FeatureType.TECHNICAL_SCOPE_SCREEN)" class="lock-icon"></span>
+        </div>
+        <div class="icon icon-bg-color icon-screen financial-data" [class.inactive]="isUnauthorized(FeatureType.FINANCIAL_DATA)"  (click)="onAddMarketBox(gridBoxType.FinancialData)" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_financialData" title="البيانات المالية">
+            <span *ngIf="isUnauthorized(FeatureType.FINANCIAL_DATA)" class="lock-icon"></span>
+        </div>
+        <div *ngIf="hasTadMarket() && isFeatureAllowed(appModeFeatureType.MAJOR_SHAREHOLDERS_SCREEN)" [class.inactive]="isUnauthorized(FeatureType.MAJOR_SHAREHOLDERS_SCREEN)" class="icon icon-bg-color icon-screen shareholders" (click)="onAddMarketBox(gridBoxType.Shareholders)" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_majorShareholders" title="كبار الملاك">
+           <span *ngIf="isUnauthorized(FeatureType.MAJOR_SHAREHOLDERS_SCREEN)" class="lock-icon"></span>
+        </div>
+        <div *ngIf="isFeatureAllowed(appModeFeatureType.ANALYSIS_CENTER_SCREEN)" class="icon icon-bg-color icon-screen analysis-center" [class.inactive]="isUnauthorized(FeatureType.ANALYSIS_CENTER_SCREEN)" (click)="onAddMarketBox(gridBoxType.AnalysisCenter)" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_analysisCenter" title="مركز التحليلات">
+            <span *ngIf="isUnauthorized(FeatureType.ANALYSIS_CENTER_SCREEN)" class="lock-icon"></span>
+        </div>
+        <div class="icon icon-bg-color icon-screen market-pre-open borderless" [class.inactive]="isUnauthorized(FeatureType.MARKET_PREOPEN_SCREEN)" (click)="onAddMarketBox(gridBoxType.MarketPreOpen)" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_marketPreopen" title="مزاد الإفتتاح و الإغلاق">
+            <span *ngIf="isUnauthorized(FeatureType.MARKET_PREOPEN_SCREEN)" class="lock-icon"></span>
+        </div>
+
+        <div class="static dynamic-dropdown" dropdown>
+          <div class="icon icon-bg-color borderless dynamic-dropdown-toggle" dropdownToggle>
+            <div class="toolbar-icon dynamic-dropdown-menu-icon"></div>
+          </div>
+          <div class="dropdown dynamic-dropdown-menu-elements" role="menu" dropdownMenu aria-labelledby="single-button"></div>
+        </div>
+  </div>
+
+  <div class="window-toolbar-separator company-windows-btn {{expandCompanyWindows}}" (click)="onExpandCompanyWindows()" i18n="@@window-toolbar_companies">شركات</div>
+
+    <div class="windows company-windows" overflow-toolbar [containerHeight]="windowHeight()" [@expandCompanyWindows]="expandCompanyWindows">
+        <div class="icon icon-bg-color icon-screen chart" [class.inactive]="isUnauthorized(FeatureType.CHART_SCREEN)" (click)="onAddSymbolBox(gridBoxType.Chart)" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_chart" title="الرسم البياني">
+            <span *ngIf="isUnauthorized(FeatureType.CHART_SCREEN)" class="lock-icon"></span>
+        </div>
+        <div class="icon icon-bg-color icon-screen detailed-quote" [class.inactive]="isUnauthorized(FeatureType.DETAILED_QUOTE_SCREEN)" (click)="onAddSymbolBox(gridBoxType.DetailedQuote)" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_detailedQuote" title="السعر المفصل">
+            <span *ngIf="isUnauthorized(FeatureType.DETAILED_QUOTE_SCREEN)" class="lock-icon"></span>
+        </div>
+        <div class="icon icon-bg-color icon-screen time-and-sale" [class.inactive]="isUnauthorized(FeatureType.TIME_AND_SALE_SCREEN)" (click)="onAddSymbolBox(gridBoxType.TimeAndSale)" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_timeAndSale" title="الصفقات">
+            <span *ngIf="isUnauthorized(FeatureType.TIME_AND_SALE_SCREEN)" class="lock-icon"></span>
+        </div>
+        <div *ngIf="isFeatureAllowed(appModeFeatureType.SHOW_TRADES_SUMMARY)" class="icon icon-bg-color icon-screen trades-summary" [class.inactive]="isUnauthorized(FeatureType.TRADES_SUMMARY_SCREEN)" (click)="onAddSymbolBox(gridBoxType.TradesSummary)" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_tradesSummary" title="ملخص الصفقات">
+            <span *ngIf="isUnauthorized(FeatureType.TRADES_SUMMARY_SCREEN)" class="lock-icon"></span>
+        </div>
+        <div class="icon icon-bg-color icon-screen market-depth-by-price" [class.inactive]="isUnauthorized(FeatureType.MARKET_DEPTH_BY_PRICE_SCREEN)" (click)="onAddSymbolBox(gridBoxType.MarketDepthByPrice)" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_marketDepthPrice" title="عمق السوق حسب السعر">
+            <span *ngIf="isUnauthorized(FeatureType.MARKET_DEPTH_BY_PRICE_SCREEN)" class="lock-icon"></span>
+        </div>
+        <div class="icon icon-bg-color icon-screen market-depth-by-order" [class.inactive]="isUnauthorized(FeatureType.MARKET_DEPTH_BY_ORDER_SCREEN)" (click)="onAddSymbolBox(gridBoxType.MarketDepthByOrder)" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_marketDepthOrder" title="عمق السوق حسب الترتيب">
+            <span *ngIf="isUnauthorized(FeatureType.MARKET_DEPTH_BY_ORDER_SCREEN)" class="lock-icon"></span>
+        </div>
+        <div class="icon icon-bg-color icon-screen financial-data" [class.inactive]="isUnauthorized(FeatureType.COMPANY_FINANCIAL_STATEMENTS)" (click)="onAddSymbolBox(gridBoxType.CompanyFinancialStatements)" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_financialData" title="البيانات المالية">
+            <span *ngIf="isUnauthorized(FeatureType.COMPANY_FINANCIAL_STATEMENTS)" class="lock-icon"></span>
+        </div>
+        <div class="icon icon-bg-color icon-screen announcement borderless" [class.inactive]="isUnauthorized(FeatureType.COMPANY_NEWS_SCREEN)" (click)="onAddSymbolBox(gridBoxType.CompanyNews)" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_companyNews" title="إعلانات الشركة">
+            <span *ngIf="isUnauthorized(FeatureType.COMPANY_NEWS_SCREEN)" class="lock-icon"></span>
+        </div>
+
+        <div class="static dynamic-dropdown" dropdown>
+            <div class="icon icon-bg-color borderless dynamic-dropdown-toggle" dropdownToggle>
+                <div class="toolbar-icon dynamic-dropdown-menu-icon"></div>
+            </div>
+            <div class="dropdown dynamic-dropdown-menu-elements" role="menu" dropdownMenu aria-labelledby="single-button"></div>
+        </div>
+     </div>
+
+  <div *ngIf="showTradingWindows" class="window-toolbar-separator trading-windows-btn {{expandTradingWindows}}" (click)="onExpandTradingWindows()" i18n="@@window-toolbar_thirdPart">تداول</div>
+  <div *ngIf="showTradingWindows" class="windows trading-windows" overflow-toolbar [containerHeight]="windowHeight()" [@expandTradingWindows]="expandTradingWindows">
+    <div class="icon icon-bg-color icon-screen trading-positions" [class.inactive]="isUnauthorized(FeatureType.TRADING_POSITIONS_SCREEN)" (click)="onAddTradingPositionsScreen()" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_tradingPositions" title="محفظة الأسهم">
+        <span *ngIf="isUnauthorized(FeatureType.TRADING_POSITIONS_SCREEN)" class="lock-icon"></span>
+    </div>
+    <div class="icon icon-bg-color icon-screen trading-orders" [class.inactive]="isUnauthorized(FeatureType.TRADING_ORDERS_SCREEN)" (click)="onAddTradingOrdersScreen()" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_tradingOrders" title="أوامر البيع و الشراء">
+        <span *ngIf="isUnauthorized(FeatureType.TRADING_ORDERS_SCREEN)" class="lock-icon"></span>
+    </div>
+    <div *ngIf="shouldDisplayAccountBalances()" class="icon icon-bg-color icon-screen trading-account" [class.inactive]="isUnauthorized(FeatureType.TRADING_ACCOUNT_BALANCE_SCREEN)" (click)="onAddTradingAccountBalanceScreen()" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_accountBalance" title="رصيد الحساب">
+        <span *ngIf="isUnauthorized(FeatureType.TRADING_ACCOUNT_BALANCE_SCREEN)" class="lock-icon"></span>
+    </div>
+    <div *ngIf="showAccountTransactions()" class="icon icon-bg-color icon-screen trading-account" [class.inactive]="isUnauthorized(FeatureType.TRADING_ACCOUNT_TRANSACTIONS_SCREEN)" (click)="onShowAccountTransactions()" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_accountTransactions" title="حركات الحساب">
+        <span *ngIf="isUnauthorized(FeatureType.TRADING_ACCOUNT_TRANSACTIONS_SCREEN)" class="lock-icon"></span>
+    </div>
+    <div *ngIf="showTransferMoney()" class="icon icon-bg-color icon-screen trading-transfer-money" [class.inactive]="isUnauthorized(FeatureType.TRADING_TRANSFER_MONEY_SCREEN)" (click)="onShowTransferMoney()" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_transferMoney" title="التحويل النقدي">
+        <span *ngIf="isUnauthorized(FeatureType.TRADING_TRANSFER_MONEY_SCREEN)" class="lock-icon"></span>
+    </div>
+    <div *ngIf="shouldDisplaySettings()" class="icon icon-bg-color icon-screen trading-settings" (click)="onShowSettingsModal()" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_settings" title="الإعدادات"></div>
+    <div class="icon icon-bg-color icon-screen trading-floating-bar borderless" (click)="onToggleTradingToolbar()" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_tradingToolbar" title="شريط البيع و الشراء"></div>
+  </div>
+
+  <div *ngIf="appModeAllowedFeature(appModeFeatureType.COMMUNITY_WINDOWS)" class="window-toolbar-separator community-btn {{expandCommunityWindows}} {{notificationClass()}}" (click)="onExpandCommunityWindows()" i18n="@@window-toolbar_community">المجتمع</div>
+
+    <div *ngIf="appModeAllowedFeature(appModeFeatureType.COMMUNITY_WINDOWS)" class="windows community-windows" [@expandCommunityWindows]="expandCommunityWindows" (@expandCommunityWindows.start)="startCommunityWindowExpanding()" (@expandCommunityWindows.done)="finishCommunityWindowExpanding()">
+        <div class="icon icon-bg-color icon-screen community-ideas" [class.inactive]="isUnauthorized(FeatureType.COMMUNITY)" [class.focus]="communityIdeasIconFocused" (click)="onToggleCommunityIdeas()" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_followingTheIdeas" title="متابعة الأفكار">
+            <span *ngIf="isUnauthorized(FeatureType.COMMUNITY)" class="lock-icon"></span>
+        </div>
+        <div class="icon-with-counter" (click)="onToggleCommunityNotifications()">
+            <div class="icon icon-bg-color icon-screen community-notifications" [class.inactive]="isUnauthorized(FeatureType.COMMUNITY)" [class.focus]="communityNotificationIconFocused" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_followingTheNotifications" title="متابعة الإشعارات">
+                <span *ngIf="isUnauthorized(FeatureType.COMMUNITY)" class="lock-icon"></span>
+            </div>
+            <div *ngIf="showNewNotificationsCounter()" class="notifications-counter english">{{getUnreadNotificationsCounterAsString()}}</div>
+        </div>
+        <div class="icon icon-bg-color icon-screen community-my-ideas" [class.inactive]="isUnauthorized(FeatureType.COMMUNITY)" [class.focus]="communityMyIdeasIconFocused" (click)="onToggleCommunityMyIdeas()" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_myIdeas" title="أفكاري">
+            <span *ngIf="isUnauthorized(FeatureType.COMMUNITY)" class="lock-icon"></span>
+        </div>
+    </div>
+
+    <div class="window-toolbar-separator tools-btn {{expandTools}}" (click)="onExpandTools()" i18n="@@window-toolbar_tools">أدوات</div>
+
+    <div class="tools" [@expandTools]="expandTools">
+        <div class="icon icon-bg-color icon-tool watchlist" (click)="onOpenWatchlist()" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_watchlists" title="لائحة أسهمي"></div>
+        <div class="icon icon-bg-color icon-tool alert-icon" [class.inactive]="isUnauthorized(FeatureType.ALERT)" (click)="onOpenAlert()" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_alertsCenter" title="مركز التنبيهات">
+            <span *ngIf="isUnauthorized(FeatureType.ALERT)" class="lock-icon"></span>
+        </div>
+        <div *ngIf="isFeatureAllowed(appModeFeatureType.FILTER)" class="icon icon-bg-color icon-tool filter-icon" [class.inactive]="isUnauthorized(FeatureType.FILTER)" (click)="onOpenFilter()" data-toggle="tooltip" data-placement="left" data-animation="false" i18n-title="@@window-toolbar_filters" title="تصفية لائحة الأسهم">
+            <span *ngIf="isUnauthorized(FeatureType.FILTER)" class="lock-icon"></span>
+        </div>
+    </div>
+
+</div>

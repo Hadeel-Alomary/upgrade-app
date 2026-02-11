@@ -1,0 +1,8 @@
+<div [class.hidden]="!show" class="upgrade-annotation-container" [style.height]="height + 'px'">
+    <div class="warning-icon"></div>
+    <div class="upgrade-msg">
+        <div *ngIf="isChart" i18n="@@upgrade-mask_chart">الرسم البياني يحتوي على رسومات فنية ومؤشرات متقدمة, تحتاج الى تجديد الاشتراك للمتابعة .</div>
+        <div *ngIf="!isChart" i18n="@@upgrade-mask_screens">الشاشة تحتوي على بيانات متقدمة. تحتاج الى تجديد الاشتراك للمتابعة .</div>
+    </div>
+</div>
+

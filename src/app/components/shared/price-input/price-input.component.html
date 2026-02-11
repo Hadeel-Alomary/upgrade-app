@@ -1,0 +1,23 @@
+<div class="price-input" [class.disabled]="disabled">
+    <div class="number-with-steps-container">
+        <number-with-steps [numValue]="getRoundedPrice()" (numValueChange)="setPrice($event); emitValueChange()"
+                           (onDecreaseValue)="onPriceChange(true)"
+                           (onIncreaseValue)= "onPriceChange(false)"
+                           [minValue]="getMinValue()" [decimalPlaces]="getDecimalPlaces()" [step]="priceStep" [disabled]="disabled"></number-with-steps>
+    </div>
+
+    <div *ngIf="listOfPrices" class="drop-down-container">
+        <div class="drop-down-arrow-container" (click)="toggleDropDownMenu()">
+            <div class="select-arrow"></div>
+        </div>
+        <div class="drop-down-list iphone-allow-scrolling" [@slideInOut]="dropDownMenuSlidingState()" #dropDownListView>
+            <div class="drop-down-list-container" *ngFor="let price of listOfPrices;index as index">
+                <div class="price-container {{valueToClassName(price)}}" (click)="onSelectPriceChange(price)" [class.selected]="isValueSelected(price)">
+                    <div>{{price}}</div>
+                    <div class="price-text" *ngIf="index == 0" i18n="@@price-input_maxLimit">- الحد الأعلى</div>
+                    <div class="price-text" *ngIf="index == listOfPrices.length-1" i18n="@@price-input_minLimit">- الحد الأدنى</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

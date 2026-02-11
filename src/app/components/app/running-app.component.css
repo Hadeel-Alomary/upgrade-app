@@ -1,0 +1,9 @@
+.active-running-app{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.active-running-app grid-container{
+  height: calc(100% - 75px);/*NK footer: 35px, market-summary: 40px*/
+}
