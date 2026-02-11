@@ -1,19 +1,22 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, forwardRef, HostListener, Input, Output, ViewChild, ViewEncapsulation} from '@angular/core';
 import {BS_VIEW_PROVIDERS} from '../../../ng2-bootstrap/ng2-bootstrap';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import {AppBrowserUtils} from '../../../utils/index';
-import {MathUtils} from 'tc-web-chart-lib';
+import {AppBrowserUtils, MathUtils} from '../../../utils/index';
+// import {MathUtils} from 'tc-web-chart-lib';
 import {MarketTick} from '../../../services/data/markets-tick-size/market-tick';
 import {NumberWithStepsComponent} from '..';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {NgIf} from '@angular/common';
 
 @Component({
+    standalone:true,
     selector: 'price-input',
     templateUrl: './price-input.component.html',
     styleUrls: ['./price-input.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     viewProviders: [BS_VIEW_PROVIDERS],
+    imports:[NumberWithStepsComponent,NgIf],
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
@@ -170,7 +173,7 @@ export class PriceInputComponent implements ControlValueAccessor {
     }
 
     @HostListener('document:click', ['$event'])
-    private onDocumentClick(event: Event) {
+     onDocumentClick(event: Event) {
         if (this.dropDownListElement && this.dropDownListElement.nativeElement !== null) {
             let isDropDownArrowClicked: boolean = $(event.target).hasClass('drop-down-arrow-container')
                 || $(event.target).parents().hasClass('drop-down-arrow-container');

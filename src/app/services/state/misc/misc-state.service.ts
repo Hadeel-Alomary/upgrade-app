@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {SharedChannel, ChannelRequestType} from '../../shared-channel/index';
-import {StringUtils} from 'tc-web-chart-lib';
+import {StringUtils} from '../../../utils';
 
 
 @Injectable()

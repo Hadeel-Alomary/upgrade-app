@@ -8,6 +8,7 @@ import {
 
 @Directive({
     selector: '[overflow-toolbar]',
+    standalone:true
 })
 
 export class OverflowToolbar implements OnChanges {

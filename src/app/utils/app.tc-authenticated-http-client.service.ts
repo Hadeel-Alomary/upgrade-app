@@ -4,10 +4,10 @@ import {Observable, of} from 'rxjs';
 import {map, switchMap} from 'rxjs/operators';
 import {AppTcTracker} from './app.tc-tracker';
 import {CredentialsStateService, LanguageService} from '../services/state';
-import {Tc} from 'tc-web-chart-lib';
-import {MessageBoxRequest} from '../components/index';
+// import {Tc} from 'tc-web-chart-lib';
 import {ChannelRequester, ChannelRequestType, SharedChannel} from '../services/shared-channel';
 import {AppModeAuthorizationService, AppModeFeatureType} from '../services/auhtorization/app-mode-authorization';
+// import {MessageBoxRequest} from '../components/modals';
 
 @Injectable()
 export class TcAuthenticatedHttpClient {
@@ -56,16 +56,16 @@ export class TcAuthenticatedHttpClient {
     showDisconnectModal() : void {
         let self = this;
         let messageText:string = this.languageService.translate('لا يمكن الاتصال بالانترنت. يرجى المحاولة لاحقا.');
-        let request: MessageBoxRequest = {
-            type: ChannelRequestType.MessageBox,
-            messageLine: messageText,
-            requester: new class implements ChannelRequester {
-                onRequestComplete(): void {
-                    self.sharedChannel.request({type:ChannelRequestType.Reload});
-                }
-            }
-        };
-        this.sharedChannel.request(request);
+        // let request: MessageBoxRequest = {
+        //     type: ChannelRequestType.MessageBox,
+        //     messageLine: messageText,
+        //     requester: new class implements ChannelRequester {
+        //         onRequestComplete(): void {
+        //             self.sharedChannel.request({type:ChannelRequestType.Reload});
+        //         }
+        //     }
+        // };
+        // this.sharedChannel.request(request);
     }
 
     private get(url: string, options?: Object): Observable<Object> {

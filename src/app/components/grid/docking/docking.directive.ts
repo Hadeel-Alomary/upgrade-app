@@ -26,13 +26,14 @@ import {SubscriptionLike as ISubscription} from 'rxjs';
 const remove = require("lodash/remove");
 
 @Directive({
+    standalone:true,
     selector: '[docking]',
     inputs: ['config: docking', 'active: active'],
     host: {
         '(mousemove)': 'onMouseMove($event)',
         '(mousedown)': 'onMouseDown($event)',
         '(mouseup)': 'onMouseUp($event)',
-        '(window:resize)': 'onResize($event)',
+        '(window:resize)': 'onResize()',
     }
 })
 

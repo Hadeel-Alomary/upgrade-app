@@ -48,27 +48,27 @@
     padding-left: 4px;
 }
 .custom-dropdown-container .downward-arrow-icon:before {
-    background-image: url('~img/downward-arrow-gray.png');
+    /*background-image: url('~img/downward-arrow-gray.png');*/
 }
 
 .custom-dropdown-container .downward-arrow-icon:hover:before {
-    background-image: url('~img/downward-arrow-black.png');
+    /*background-image: url('~img/downward-arrow-black.png');*/
 }
 
 .custom-dropdown-container .left-arrow-icon:before {
-    background-image: url('~img/left-arrow-gray.png');
+    /*background-image: url('~img/left-arrow-gray.png');*/
 }
 
 .custom-dropdown-container .left-arrow-icon:hover:before {
-    background-image: url('~img/left-arrow-black.png');
+    /*background-image: url('~img/left-arrow-black.png');*/
 }
 
 .custom-dropdown-container .right-arrow-icon:before {
-    background-image: url('~img/right-arrow-gray.png');
+    /*background-image: url('~img/right-arrow-gray.png');*/
 }
 
 .custom-dropdown-container .right-arrow-icon:hover:before {
-    background-image: url('~img/right-arrow-black.png');
+    /*background-image: url('~img/right-arrow-black.png');*/
 }
 
 .custom-dropdown-container .icon.hide-arrow {
@@ -83,7 +83,7 @@
     text-align: left;
 }
 .custom-dropdown-container li.tick:before {
-    background-image: url('~img/my-drawings-tick.png');
+    /*background-image: url('~img/my-drawings-tick.png');*/
     background-position: bottom right 3px;
 }
 

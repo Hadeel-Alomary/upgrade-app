@@ -5,7 +5,7 @@ import {LoadingMaskComponent} from './loading-mask.component';
 import {SubscriptionTracker} from './subscription-tracker';
 
 @Directive({
-    selector: '[loading-mask-directive]'
+    selector: '[loading-mask-directive]',standalone:true
 })
 export class LoadingMaskDirective implements OnChanges {
     @Input('loading-mask-directive') subscription: Subscription;

@@ -1,5 +1,5 @@
-<div *ngIf="loadApp" class="app">
-  <running-app
-
-               ></running-app>
+<div *ngIf="loadApp && !isMobile()" class="app">
+  <running-app (outputLogout)="onLogout()"
+               (outputOnFailToLogin)="onFailToLogin($event)"
+               (outputReload)="onReload()"></running-app>
 </div>

@@ -6,13 +6,13 @@ import {Company} from '../../loader/loader/market';
 import {AlertType} from './alert-type';
 import {NotificationMethods} from '../notification';
 import {AlertTriggerType} from './alert-trigger';
-import {IntervalType} from 'tc-web-chart-lib';
+// import {IntervalType} from 'tc-web-chart-lib';
 
 export class NormalAlert extends AbstractAlert {
 
     constructor(
         id: string,
-        interval: IntervalType,
+        // interval: any , //IntervalType,
         paused: boolean,
         reactivateMinutes: boolean,
         triggerTypeValue: AlertTriggerType,
@@ -33,14 +33,14 @@ export class NormalAlert extends AbstractAlert {
         public operator: string,
         public value: number
     ) {
-        super(id, interval, paused, reactivateMinutes, triggerTypeValue, fireOnChange, expiryDate, message, language, expired,
+        super(id, paused, reactivateMinutes, triggerTypeValue, fireOnChange, expiryDate, message, language, expired,
               createdAt, updatedAt, company, lastTriggerTime, history, notificationMethods, type, deleted);
     }
 
     public static createNewAlert(language: string, company: Company, value: number = 0): NormalAlert {
         return new NormalAlert(
             null,
-            IntervalType.Day,
+             // 'day', //IntervalType.Day,
             false,
             false,
             AlertTriggerType.ONCE,

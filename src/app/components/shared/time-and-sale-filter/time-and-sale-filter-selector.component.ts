@@ -3,24 +3,30 @@ import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Outp
 import {TimeAndSaleFilter} from './time-and-sale-filter';
 import {AuthorizationService} from '../../../services/auhtorization';
 import {FeatureType} from '../../../services/auhtorization/feature';
+import {DropdownDirective} from '../../../ng2-bootstrap/components/dropdown/dropdown.directive';
+import {FilterConditionComponent} from '../filter-condition';
+import {DropdownToggleDirective} from '../../../ng2-bootstrap/components/dropdown/dropdown-toggle.directive';
+import {DropdownMenuDirective} from '../../../ng2-bootstrap/components/dropdown/dropdown-menu.directive';
 
 const cloneDeep = require("lodash/cloneDeep");
 
 @Component({
+    standalone:true,
     selector: 'time-and-sale-filter-selector',
     templateUrl:'./time-and-sale-filter-selector.component.html',
     styleUrls:['./time-and-sale-filter-selector.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    imports:[DropdownDirective,FilterConditionComponent,DropdownToggleDirective,DropdownMenuDirective]
 })
 
 export class TimeAndSaleFilterSelectorComponent implements OnChanges {
-    
+
     @Input() inFilter:TimeAndSaleFilter;
     @Output() outputFilter = new EventEmitter();
 
      filter:TimeAndSaleFilter = TimeAndSaleFilter.newFilter();
-    
+
      isDropDownOpen:boolean;
 
      constructor(public authorizationService:AuthorizationService){}
@@ -30,7 +36,7 @@ export class TimeAndSaleFilterSelectorComponent implements OnChanges {
     ngOnChanges() {
         this.filter = cloneDeep(this.inFilter);
     }
-    
+
      onApply():void{
         this.authorizationService.authorize(FeatureType.FILTER_SETTINGS, () => {
             this.filter.active = true;

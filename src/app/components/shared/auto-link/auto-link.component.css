@@ -32,33 +32,33 @@
     display: inline-block;
 }
 
-.auto-link .color-holder.green:before {
-    background-image: url('~img/color-bars-green.png');
-}
+/*.auto-link .color-holder.green:before {*/
+/*    background-image: url('~img/color-bars-green.png');*/
+/*}*/
 
-.auto-link .color-holder.brown:before {
-    background-image: url('~img/color-bars-brown.png');
-}
+/*.auto-link .color-holder.brown:before {*/
+/*    background-image: url('~img/color-bars-brown.png');*/
+/*}*/
 
-.auto-link .color-holder.blue:before {
-    background-image: url('~img/color-bars-blue.png');
-}
+/*.auto-link .color-holder.blue:before {*/
+/*    background-image: url('~img/color-bars-blue.png');*/
+/*}*/
 
-.auto-link .color-holder.none:before {
-    background-image: url('~img/color-bars-none.png');
-}
+/*.auto-link .color-holder.none:before {*/
+/*    background-image: url('~img/color-bars-none.png');*/
+/*}*/
 
-.auto-link .color-holder.orange:before {
-    background-image: url('~img/color-bars-orange.png');
-}
+/*.auto-link .color-holder.orange:before {*/
+/*    background-image: url('~img/color-bars-orange.png');*/
+/*}*/
 
-.auto-link .color-holder.red:before {
-    background-image: url('~img/color-bars-red.png');
-}
+/*.auto-link .color-holder.red:before {*/
+/*    background-image: url('~img/color-bars-red.png');*/
+/*}*/
 
-.auto-link .color-holder.yellow:before {
-    background-image: url('~img/color-bars-yellow.png');
-}
+/*.auto-link .color-holder.yellow:before {*/
+/*    background-image: url('~img/color-bars-yellow.png');*/
+/*}*/
 
 /* dark theme */
 .dark .auto-link *:before {

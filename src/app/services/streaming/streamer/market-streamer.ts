@@ -5,14 +5,14 @@ import {HeartbeatManager} from "./heartbeat-manager";
 import {QuoteMessage, TimeAndSaleMessage, MarketSummaryMessage, MarketDepthMessage, MarketAlertMessage, MessageType, HeartbeatMessage} from '../shared/index';
 import {AbstractStreamer} from "./abstract-streamer";
 import {DebugModeService} from '../../debug-mode/index';
-import {RealTimeChartUpdaterMessage} from 'tc-web-chart-lib';
+// import {RealTimeChartUpdaterMessage} from 'tc-web-chart-lib';
 import {AuthorizationService} from '../../auhtorization';
 
 export class MarketStreamer extends AbstractStreamer {
 
     private quoteMessageStream:Subject<QuoteMessage>;
-    private ChartIntradayMessageStream:Subject<RealTimeChartUpdaterMessage>;
-    private ChartDailyMessageStream:Subject<RealTimeChartUpdaterMessage>;
+    // private ChartIntradayMessageStream:Subject<RealTimeChartUpdaterMessage>;
+    // private ChartDailyMessageStream:Subject<RealTimeChartUpdaterMessage>;
     private timeAndSaleMessageStream:Subject<TimeAndSaleMessage>;
     private marketSummaryStream:Subject<MarketSummaryMessage>;
     private marketDepthByOrderStream:Subject<MarketDepthMessage>;
@@ -40,8 +40,8 @@ export class MarketStreamer extends AbstractStreamer {
         this.marketAlertStream = new Subject();
         this.bigTradeStream = new Subject();
 
-        this.ChartIntradayMessageStream = new Subject();
-        this.ChartDailyMessageStream = new Subject();
+        // this.ChartIntradayMessageStream = new Subject();
+        // this.ChartDailyMessageStream = new Subject();
 
         this.marketDepthByPriceTopic = this.market.marketDepthByPriceTopic;
         this.marketDepthByOrderTopic = this.market.marketDepthByOrderTopic;
@@ -161,13 +161,13 @@ export class MarketStreamer extends AbstractStreamer {
         return this.timeAndSaleMessageStream;
     }
 
-    getChartIntradayMessageStream():Subject<RealTimeChartUpdaterMessage> {
-        return this.ChartIntradayMessageStream;
-    }
-
-    getChartDailyMessageStream():Subject<RealTimeChartUpdaterMessage> {
-        return this.ChartDailyMessageStream;
-    }
+    // getChartIntradayMessageStream():Subject<RealTimeChartUpdaterMessage> {
+    //     return this.ChartIntradayMessageStream;
+    // }
+    //
+    // getChartDailyMessageStream():Subject<RealTimeChartUpdaterMessage> {
+    //     return this.ChartDailyMessageStream;
+    // }
 
     getMarketSummaryStream():Subject<MarketSummaryMessage> {
         return this.marketSummaryStream;
@@ -194,13 +194,13 @@ export class MarketStreamer extends AbstractStreamer {
                 this.processQuoteMessage(message as QuoteMessage);
                 break;
             case MessageType.TIME_AND_SALE:
-                this.processTimeAndSaleMessage(message as TimeAndSaleMessage);
+                this.processTimeAndSaleMessage(message as unknown as TimeAndSaleMessage);
                 break;
             case MessageType.HEARTBEAT:
-                this.processHeartbeatMessage(message as HeartbeatMessage);
+                this.processHeartbeatMessage(message as unknown as HeartbeatMessage);
                 break;
             case MessageType.MARKET_SUMMARY:
-                this.processMarketSummaryMessage(message as MarketSummaryMessage);
+                this.processMarketSummaryMessage(message as unknown as MarketSummaryMessage);
                 break;
             case MessageType.MARKET_DEPTH_BY_ORDER:
             case MessageType.MARKET_DEPTH_BY_PRICE:
@@ -209,17 +209,17 @@ export class MarketStreamer extends AbstractStreamer {
                 this.processMarketDepthMessage(messageType, message as MarketDepthMessage);
                 break;
             case MessageType.MARKET_ALERT:
-                this.processMarketAlertMessage(message as MarketAlertMessage);
+                this.processMarketAlertMessage(message as unknown as MarketAlertMessage);
                 break;
             case MessageType.BIG_TRADE:
-                this.processBigTradeMessage(message as TimeAndSaleMessage);
+                this.processBigTradeMessage(message as unknown as TimeAndSaleMessage);
                 break;
-            case MessageType.CHART_INTRADAY:
-                this.processChartIntradayMessage(message as RealTimeChartUpdaterMessage);
-                break;
-            case MessageType.CHART_DAILY:
-                this.processChartDailyMessage(message as RealTimeChartUpdaterMessage);
-                break;
+            // case MessageType.CHART_INTRADAY:
+            //     this.processChartIntradayMessage(message as RealTimeChartUpdaterMessage);
+            //     break;
+            // case MessageType.CHART_DAILY:
+            //     this.processChartDailyMessage(message as RealTimeChartUpdaterMessage);
+            //     break;
             default:
                 Tc.error("unknown message type " + messageType + " for message " + message);
                 break;
@@ -234,27 +234,27 @@ export class MarketStreamer extends AbstractStreamer {
     }
 
     private processTimeAndSaleMessage(groupedMessage:TimeAndSaleMessage){
-        (this.splitGroupedMessage(groupedMessage) as TimeAndSaleMessage[]).forEach(message => {
+        (this.splitGroupedMessage(groupedMessage) as unknown as TimeAndSaleMessage[]).forEach(message => {
             let topicSegments:string[] = MarketUtils.splitTopic(message['topic']);
             message.symbol = topicSegments[1] + '.' + topicSegments[2];
             this.timeAndSaleMessageStream.next(message);
         });
     }
 
-    private processChartIntradayMessage(message:RealTimeChartUpdaterMessage){
-        let topicSegments:string[] = MarketUtils.splitTopic(message['topic']);
-            message.symbol = topicSegments[1] + '.' + topicSegments[2];
-            this.ChartIntradayMessageStream.next(message);
-    }
+    // private processChartIntradayMessage(message:RealTimeChartUpdaterMessage){
+    //     let topicSegments:string[] = MarketUtils.splitTopic(message['topic']);
+    //         message.symbol = topicSegments[1] + '.' + topicSegments[2];
+    //         // this.ChartIntradayMessageStream.next(message);
+    // }
 
-    private processChartDailyMessage(message:RealTimeChartUpdaterMessage){
-        let topicSegments:string[] = MarketUtils.splitTopic(message['topic']);
-        message.symbol = topicSegments[1] + '.' + topicSegments[2];
-        this.ChartDailyMessageStream.next(message);
-    }
+    // private processChartDailyMessage(message:RealTimeChartUpdaterMessage){
+    //     let topicSegments:string[] = MarketUtils.splitTopic(message['topic']);
+    //     message.symbol = topicSegments[1] + '.' + topicSegments[2];
+    //     // this.ChartDailyMessageStream.next(message);
+    // }
 
     private processBigTradeMessage(groupedMessage:TimeAndSaleMessage){
-        (this.splitGroupedMessage(groupedMessage) as TimeAndSaleMessage[]).forEach(message => {
+        (this.splitGroupedMessage(groupedMessage) as unknown as TimeAndSaleMessage[]).forEach(message => {
             message.symbol = message['symbol'];
             this.bigTradeStream.next(message);
         });
@@ -275,47 +275,37 @@ export class MarketStreamer extends AbstractStreamer {
     }
 
     private processMarketAlertMessage(groupedMessage:MarketAlertMessage) {
-        (this.splitGroupedMessage(groupedMessage) as MarketAlertMessage[]).forEach(message => {
+        (this.splitGroupedMessage(groupedMessage) as unknown as MarketAlertMessage[]).forEach(message => {
             this.marketAlertStream.next(message);
         });
     }
 
-    private splitGroupedMessage(groupedMessage:{[key:string]:unknown}):{[key:string]:unknown} {
+  private splitGroupedMessage(groupedMessage: { [key: string]: unknown }): { [key: string]: string }[] {
+    let fields: { [key: string]: string[] } = {};
+    let numberOfMessages = -1;
 
-        let fields:{[key:string]:string[]} = {};
+    Object.keys(groupedMessage).forEach(key => {
+      if (key === 'topic') return;
+      let values = (groupedMessage[key] as string).split(';');
+      values.pop();
+      if (numberOfMessages === -1) {
+        numberOfMessages = values.length;
+      } else {
+        Tc.assert(numberOfMessages === values.length, "wrong number of grouped fields");
+      }
+      fields[key] = values;
+    });
 
-        let numberOfMessages:number = -1;
-
-        Object.keys(groupedMessage).forEach( key => {
-
-            if(key == 'topic'){ return; } // MA topic is not grouped
-
-            let values:string[] = (groupedMessage[key] as string).split(';');
-            values.pop(); // remove the last value as we have an extra separator ';' at end
-
-            if(numberOfMessages == -1){
-                numberOfMessages = values.length;
-            } else { // ensure that length of all fields is the same
-                Tc.assert(numberOfMessages == values.length, "wrong number of grouped fields");
-            }
-
-            fields[key] = values;
-
-        });
-
-        let messages:{[key:string]:string}[] = [];
-
-        for(let index:number = 0; index < numberOfMessages; ++index){
-            let message:{[key:string]:string} = {};
-            message['topic'] = groupedMessage['topic'] as string; // not grouped field
-            Object.keys(fields).forEach( key => {
-                message[key] = fields[key][index];
-            });
-            messages.push(message);
-        }
-
-        return messages;
-
+    const messages: { [key: string]: string }[] = [];
+    for (let i = 0; i < numberOfMessages; i++) {
+      const message: { [key: string]: string } = {};
+      message['topic'] = groupedMessage['topic'] as string;
+      Object.keys(fields).forEach(key => message[key] = fields[key][i]);
+      messages.push(message);
     }
+
+    return messages;
+  }
+
 
 }

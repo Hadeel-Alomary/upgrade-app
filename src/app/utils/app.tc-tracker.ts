@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {TcUrlUtils,EnumUtils ,ChartLibTechnicalIndicatorType} from 'tc-web-chart-lib';
+// import {TcUrlUtils,EnumUtils ,ChartLibTechnicalIndicatorType} from 'tc-web-chart-lib';
 import {GridBoxType} from "../components/shared/grid-box/grid-box-type";
 import {Config} from '../config/config';
 import {CredentialsStateService} from "../services/state/credentials/credentials-state.service";
 import {ForceLogoutType} from "../services/logout/force-logout-type";
 import {FontSize} from "../services/state/misc/misc-state.service";
-import {IntervalType, PeriodType , ChartLibPriceStyleType} from 'tc-web-chart-lib';
+// import {IntervalType, PeriodType , ChartLibPriceStyleType} from 'tc-web-chart-lib';
 import {AppBrowserUtils} from './app.browser.utils';
 
 @Injectable()
@@ -44,11 +44,11 @@ export class AppTcTracker {
     }
 
     static trackForceLogout(type:ForceLogoutType) {
-        AppTcTracker.instance.track('logout', 'error', EnumUtils.enumValueToString(ForceLogoutType, type).toLowerCase());
+        // AppTcTracker.instance.track('logout', 'error', EnumUtils.enumValueToString(ForceLogoutType, type).toLowerCase());
     }
 
     static trackFontSize(fontSize:FontSize) {
-        AppTcTracker.instance.track('font', EnumUtils.enumValueToString(FontSize, fontSize).toLowerCase());
+        // AppTcTracker.instance.track('font', EnumUtils.enumValueToString(FontSize, fontSize).toLowerCase());
     }
 
     static trackCampaignId(campaignId: string, trackingId:string) {
@@ -114,21 +114,21 @@ export class AppTcTracker {
     static trackChartScreenshot() {
         AppTcTracker.instance.track('chart', 'screenshot');
     }
-    static trackChartPriceStyle(type:ChartLibPriceStyleType) {
-        AppTcTracker.instance.track('chart', 'pricestyle', EnumUtils.enumValueToString(ChartLibPriceStyleType, type).toLowerCase());
-    }
-    static trackChartPeriod(type:PeriodType){
-        AppTcTracker.instance.track('chart', 'period', EnumUtils.enumValueToString(PeriodType, type).toLowerCase());
-    }
-    static trackChartInterval(type:IntervalType) {
-        AppTcTracker.instance.track('chart', 'interval', EnumUtils.enumValueToString(IntervalType, type).toLowerCase());
-    }
-    static trackChartIndicator(type:ChartLibTechnicalIndicatorType) {
-        AppTcTracker.instance.track('chart', 'indicator', EnumUtils.enumValueToString(ChartLibTechnicalIndicatorType, type).toLowerCase());
-    }
-    static trackChartMovingAverage(type:ChartLibTechnicalIndicatorType, period:number) {
-        AppTcTracker.instance.track('chart', 'avg', EnumUtils.enumValueToString(ChartLibTechnicalIndicatorType, type).toLowerCase() + '-' + period);
-    }
+    // static trackChartPriceStyle(type:ChartLibPriceStyleType) {
+    //     AppTcTracker.instance.track('chart', 'pricestyle', EnumUtils.enumValueToString(ChartLibPriceStyleType, type).toLowerCase());
+    // }
+    // static trackChartPeriod(type:PeriodType){
+    //     AppTcTracker.instance.track('chart', 'period', EnumUtils.enumValueToString(PeriodType, type).toLowerCase());
+    // }
+    // static trackChartInterval(type:IntervalType) {
+    //     AppTcTracker.instance.track('chart', 'interval', EnumUtils.enumValueToString(IntervalType, type).toLowerCase());
+    // }
+    // static trackChartIndicator(type:ChartLibTechnicalIndicatorType) {
+    //     AppTcTracker.instance.track('chart', 'indicator', EnumUtils.enumValueToString(ChartLibTechnicalIndicatorType, type).toLowerCase());
+    // }
+    // static trackChartMovingAverage(type:ChartLibTechnicalIndicatorType, period:number) {
+    //     AppTcTracker.instance.track('chart', 'avg', EnumUtils.enumValueToString(ChartLibTechnicalIndicatorType, type).toLowerCase() + '-' + period);
+    // }
 
     /* track volume profiler */
     static trackVolumeProfilerRequest() {
@@ -156,12 +156,12 @@ export class AppTcTracker {
     }
 
     /* track open screen */
-    static trackAddBox(type:GridBoxType) {
-        AppTcTracker.instance.track('grid', 'add-box', EnumUtils.enumValueToString(GridBoxType, type).toLowerCase());
-    }
-    static trackCloseBox(type:GridBoxType) {
-        AppTcTracker.instance.track('grid', 'close-box', EnumUtils.enumValueToString(GridBoxType, type).toLowerCase());
-    }
+    // static trackAddBox(type:GridBoxType) {
+    //     AppTcTracker.instance.track('grid', 'add-box', EnumUtils.enumValueToString(GridBoxType, type).toLowerCase());
+    // }
+    // static trackCloseBox(type:GridBoxType) {
+    //     AppTcTracker.instance.track('grid', 'close-box', EnumUtils.enumValueToString(GridBoxType, type).toLowerCase());
+    // }
     static trackOpenWatchlistProperties() {
         AppTcTracker.instance.track('watchlist', 'properties');
     }
@@ -506,9 +506,9 @@ export class AppTcTracker {
 
     /* report critical errors via email */
     static reportCriticalError(subject: string, message: string) {
-        AppTcTracker.instance.http.post(TcUrlUtils.url('/m/liveweb/report/error'),
-            JSON.stringify({subject: subject, message: message}))
-            .subscribe(() => {}, error => {});
+        // AppTcTracker.instance.http.post(TcUrlUtils.url('/m/liveweb/report/error'),
+        //     JSON.stringify({subject: subject, message: message}))
+        //     .subscribe(() => {}, error => {});
     }
 
     /* referer */
@@ -538,7 +538,7 @@ export class AppTcTracker {
             let version:string = Config.getVersion();
             if(Config.isProd()) {
                 let loggingDomain = AppBrowserUtils.isMobile() ? 'https://netmobile-log.tickerchart.net' : 'https://netdesktop-log.tickerchart.net';
-                this.http.post(TcUrlUtils.url(loggingDomain + `/l/r/v/${version}/u/${username}`), JSON.stringify(this.tracks)).subscribe(() => {}, error => {});
+                // this.http.post(TcUrlUtils.url(loggingDomain + `/l/r/v/${version}/u/${username}`), JSON.stringify(this.tracks)).subscribe(() => {}, error => {});
             } else {
                 console.log("track: " + JSON.stringify(this.tracks));
             }

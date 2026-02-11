@@ -1,5 +1,6 @@
 import {Renderer2} from '@angular/core';
-import {LanguageType} from "../components/chart/language/language-type";
+import {LanguageType} from '../services';
+// import {LanguageType} from "../components/chart/language/language-type";
 
 export class DomUtils {
 

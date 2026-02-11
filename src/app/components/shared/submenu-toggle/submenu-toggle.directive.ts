@@ -2,6 +2,7 @@ import {AppBrowserUtils, DomUtils} from '../../../utils/index';
 import { Directive, ElementRef, Renderer2, HostListener } from '@angular/core';
 
 @Directive({
+  standalone:true,
     selector: '[dropdown-submenu-toggle]'
 })
 

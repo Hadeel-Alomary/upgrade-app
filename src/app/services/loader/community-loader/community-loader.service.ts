@@ -7,7 +7,7 @@ import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {CommunityIdeaType,  CommunityNotification,  CommunityNotificationType,  CommunityFollowingIdea,  CommunityAuthorType,  AuthorType,  NotificationType,  IdeaType,  CommunityIdea,  CommunityMyIdea, IdeaAccessType, MyIdeaAccessType} from '../../data/community/community';
 import {CommunityNotificationMessage} from '../../streaming/shared/message';
-import {Interval} from 'tc-web-chart-lib';
+// import {Interval} from 'tc-web-chart-lib';
 import {LanguageService} from '../../state/language';
 import {TcAuthenticatedHttpClient} from "../../../utils/app.tc-authenticated-http-client.service";
 
@@ -69,30 +69,30 @@ export class CommunityLoaderService extends ProxiedUrlLoader {
     private processIdeas(IdeasResponse:  FollowingIdeaResponse[]): CommunityFollowingIdea[] {
         let communityIdeas: CommunityFollowingIdea[] = [];
 
-        for (let ideaResponse of IdeasResponse) {
-            let item: CommunityFollowingIdea = {
-                name: ideaResponse.name,
-                title: ideaResponse.title,
-                description: ideaResponse.description,
-                created: moment(ideaResponse.created).format('YYYY-MM-DD'),
-                url: ideaResponse.url,
-                thumbnailUrl: ideaResponse.thumbnail,
-                videoUrl: ideaResponse.video_url,
-                nickName: ideaResponse.nick_name,
-                profileName: ideaResponse.profile_name,
-                authorType: this.getAuthorType(ideaResponse.user_type),
-                avatarUrl: ideaResponse.avatar,
-                ideaType:this.getIdeaType(ideaResponse.result_type) ,
-                updateText: ideaResponse.update_text,
-                unread: ideaResponse.unread,
-                company:this.getCompanyById(ideaResponse.company_id),
-                intervalName:Interval.getIntervalNameFromCommunityServerMessage(ideaResponse.interval_name , ideaResponse.interval_repeat, this.languageService.arabic),
-            };
-
-            if(this.companyIncludedInUserSubscription(item.company)) {
-                communityIdeas.push(item);
-            }
-        }
+        // for (let ideaResponse of IdeasResponse) {
+        //     let item: CommunityFollowingIdea = {
+        //         name: ideaResponse.name,
+        //         title: ideaResponse.title,
+        //         description: ideaResponse.description,
+        //         created: moment(ideaResponse.created).format('YYYY-MM-DD'),
+        //         url: ideaResponse.url,
+        //         thumbnailUrl: ideaResponse.thumbnail,
+        //         videoUrl: ideaResponse.video_url,
+        //         nickName: ideaResponse.nick_name,
+        //         profileName: ideaResponse.profile_name,
+        //         authorType: this.getAuthorType(ideaResponse.user_type),
+        //         avatarUrl: ideaResponse.avatar,
+        //         ideaType:this.getIdeaType(ideaResponse.result_type) ,
+        //         updateText: ideaResponse.update_text,
+        //         unread: ideaResponse.unread,
+        //         company:this.getCompanyById(ideaResponse.company_id),
+        //         intervalName:Interval.getIntervalNameFromCommunityServerMessage(ideaResponse.interval_name , ideaResponse.interval_repeat, this.languageService.arabic),
+        //     };
+        //
+        //     if(this.companyIncludedInUserSubscription(item.company)) {
+        //         communityIdeas.push(item);
+        //     }
+        // }
 
         return communityIdeas;
     }
@@ -109,28 +109,28 @@ export class CommunityLoaderService extends ProxiedUrlLoader {
     private processMyIdeas(MyIdea: MyIdeaResponse[]): CommunityMyIdea[] {
         let communityMyIdeas: CommunityMyIdea[] = [];
 
-        for (let myIdea of MyIdea) {
-            let myIdeas: CommunityMyIdea = {
-                name: myIdea.name,
-                title: myIdea.title,
-                description: myIdea.description,
-                accessType: this.getIdeaAccessType(myIdea.access_type),
-                created: moment(myIdea.created).format('YYYY-MM-DD'),
-                url: myIdea.url,
-                thumbnailUrl: myIdea.thumbnail,
-                videoUrl: myIdea.video_url,
-                nickName: myIdea.nick_name,
-                profileName: myIdea.profile_name,
-                authorType: this.getAuthorType(myIdea.user_type),
-                avatarUrl: myIdea.avatar,
-                company:this.getCompanyById(myIdea.company_id),
-                intervalName:Interval.getIntervalNameFromCommunityServerMessage(myIdea.interval_name , myIdea.interval_repeat, this.languageService.arabic),
-            };
-
-            if(this.companyIncludedInUserSubscription(myIdeas.company)) {
-              communityMyIdeas.push(myIdeas);
-            }
-        }
+        // for (let myIdea of MyIdea) {
+        //     let myIdeas: CommunityMyIdea = {
+        //         name: myIdea.name,
+        //         title: myIdea.title,
+        //         description: myIdea.description,
+        //         accessType: this.getIdeaAccessType(myIdea.access_type),
+        //         created: moment(myIdea.created).format('YYYY-MM-DD'),
+        //         url: myIdea.url,
+        //         thumbnailUrl: myIdea.thumbnail,
+        //         videoUrl: myIdea.video_url,
+        //         nickName: myIdea.nick_name,
+        //         profileName: myIdea.profile_name,
+        //         authorType: this.getAuthorType(myIdea.user_type),
+        //         avatarUrl: myIdea.avatar,
+        //         company:this.getCompanyById(myIdea.company_id),
+        //         intervalName:Interval.getIntervalNameFromCommunityServerMessage(myIdea.interval_name , myIdea.interval_repeat, this.languageService.arabic),
+        //     };
+        //
+        //     if(this.companyIncludedInUserSubscription(myIdeas.company)) {
+        //       communityMyIdeas.push(myIdeas);
+        //     }
+        // }
 
         return communityMyIdeas;
     }
@@ -158,7 +158,7 @@ export class CommunityLoaderService extends ProxiedUrlLoader {
             }
 
             if (!notificationTypeIsUserFollow) {
-                item.idea = this.getNotificationIdeaData(notification);
+                // item.idea = this.getNotificationIdeaData(notification);
             }
 
             notificationList.push(item);
@@ -167,23 +167,23 @@ export class CommunityLoaderService extends ProxiedUrlLoader {
         return notificationList;
     }
 
-    private getNotificationIdeaData(notification: NotificationResponse) :CommunityIdea {
-        return {
-            name: notification.idea.name,
-            title: notification.idea.title,
-            description: notification.idea.description,
-            created: notification.idea.created,
-            url: notification.idea.url,
-            thumbnailUrl: notification.idea.thumbnail,
-            videoUrl: notification.idea.video_url,
-            nickName: notification.idea.nick_name,
-            profileName: notification.idea.profile_name,
-            authorType: this.getAuthorType(notification.idea.user_type),
-            avatarUrl: notification.idea.avatar,
-            company: this.getCompanyById(notification.idea.company_id),
-            intervalName:Interval.getIntervalNameFromCommunityServerMessage(notification.idea.interval_name ,notification.idea.interval_repeat,this.languageService.arabic),
-        }
-    }
+    // private getNotificationIdeaData(notification: NotificationResponse) :CommunityIdea {
+    //     return {
+    //         name: notification.idea.name,
+    //         title: notification.idea.title,
+    //         description: notification.idea.description,
+    //         created: notification.idea.created,
+    //         url: notification.idea.url,
+    //         thumbnailUrl: notification.idea.thumbnail,
+    //         videoUrl: notification.idea.video_url,
+    //         nickName: notification.idea.nick_name,
+    //         profileName: notification.idea.profile_name,
+    //         authorType: this.getAuthorType(notification.idea.user_type),
+    //         avatarUrl: notification.idea.avatar,
+    //         company: this.getCompanyById(notification.idea.company_id),
+    //         intervalName:Interval.getIntervalNameFromCommunityServerMessage(notification.idea.interval_name ,notification.idea.interval_repeat,this.languageService.arabic),
+    //     }
+    // }
 
     public  mapMessageToCommunityNotifications(message: CommunityNotificationMessage):CommunityNotification {
         let notificationTypeIsUserFollow:boolean = this.getNotificationType(message.notification_type).type == NotificationType.USER_FOLLOW;
@@ -198,23 +198,23 @@ export class CommunityLoaderService extends ProxiedUrlLoader {
             created: moment(message.created).format('YYYY-MM-DD'),
         };
 
-        if (!notificationTypeIsUserFollow) {
-            item.idea = {
-                name: message.idea_name,
-                title: message.idea_title,
-                description: message.idea_description,
-                created: message.idea_created,
-                url: message.idea_url,
-                thumbnailUrl: message.idea_thumbnail,
-                videoUrl: message.idea_video_url,
-                nickName: message.idea_nick_name,
-                profileName: message.idea_profile_name,
-                authorType:this.getAuthorType(message.idea_user_type),
-                avatarUrl: message.idea_avatar,
-                company: this.getCompanyById(message.idea_company_id),
-                intervalName:Interval.getIntervalNameFromCommunityServerMessage(message.interval_name , message.interval_repeat, this.languageService.arabic),
-            }
-        }
+        // if (!notificationTypeIsUserFollow) {
+        //     item.idea = {
+        //         name: message.idea_name,
+        //         title: message.idea_title,
+        //         description: message.idea_description,
+        //         created: message.idea_created,
+        //         url: message.idea_url,
+        //         thumbnailUrl: message.idea_thumbnail,
+        //         videoUrl: message.idea_video_url,
+        //         nickName: message.idea_nick_name,
+        //         profileName: message.idea_profile_name,
+        //         authorType:this.getAuthorType(message.idea_user_type),
+        //         avatarUrl: message.idea_avatar,
+        //         company: this.getCompanyById(message.idea_company_id),
+        //         intervalName:Interval.getIntervalNameFromCommunityServerMessage(message.interval_name , message.interval_repeat, this.languageService.arabic),
+        //     }
+        // }
 
         return item;
     }

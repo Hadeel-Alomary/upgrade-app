@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/internal/Observable';
+import {Observable} from 'rxjs';
 import {UserLoaderService} from '../loader/user';
 import {HttpHeaders} from '@angular/common/http';
 import {GenericResponse, SendForgetPasswordLoginVerificationResponse, SendMobileVerificationResponse} from '../loader/user/user-loader.service';

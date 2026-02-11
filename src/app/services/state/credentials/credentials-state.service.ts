@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {StringUtils} from 'tc-web-chart-lib';
+import {StringUtils} from '../../../utils';
 
 @Injectable()
 export class CredentialsStateService {

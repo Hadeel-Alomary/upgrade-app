@@ -6,6 +6,8 @@ import {TypeaheadOptions} from './typeahead-options.class';
 import {positionService} from '../position';
 import {Ng2BootstrapConfig, Ng2BootstrapTheme} from '../ng2-bootstrap-config';
 import {AppBrowserUtils, StringUtils} from '../../../utils';
+import {FormsModule} from '@angular/forms';
+import {CommonModule} from '@angular/common';
 const TEMPLATE:any = {
   [Ng2BootstrapTheme.BS4]: `
   <div class="dropdown-menu"
@@ -33,6 +35,7 @@ const TEMPLATE:any = {
   `
 };
 @Component({
+  standalone:true,
   selector: 'typeahead-container',
   template: `
   <ul class="dropdown-menu typeahead-dropdown-menu"
@@ -47,7 +50,8 @@ const TEMPLATE:any = {
     </li>
   </ul>
   `,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  imports:[FormsModule,CommonModule ]
 })
 export class TypeaheadContainerComponent {
   public parent:TypeaheadDirective;

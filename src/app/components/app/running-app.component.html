@@ -2,13 +2,12 @@
 <!--  <tabs-guide *ngIf="showPageNavigationGuide()" [shown]="true" [config]="{top: 0, bottom: 40, left: 0, right: 0}"></tabs-guide>-->
 <!--  <flash-message></flash-message>-->
 <!--  <market-summary></market-summary>-->
-<!--  <grid-container [selectedPage]="selectedPage"></grid-container>-->
-<!--  <footer [selectedPage]="selectedPage" (outputPage)="onSelectPage($event)" (outputDeletePage)="onDeletePage($event)" (outputLogout)="onLogout()"></footer>-->
+  <grid-container [selectedPage]="selectedPage"></grid-container>
+  <footer [selectedPage]="selectedPage" (outputPage)="onSelectPage($event)" (outputDeletePage)="onDeletePage($event)" (outputLogout)="onLogout()"></footer>
 </div>
-<div>Im Hereee</div>
-<!--<div class="modals-container">-->
+<div class="modals-container">
 <!--  <modals-container></modals-container>-->
-<!--</div>-->
+</div>
 
 <div *ngIf="loading" class="loading-app">
   <div class="tickerchart-loading-container">

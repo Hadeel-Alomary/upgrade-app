@@ -5,8 +5,9 @@ import {LanguageService} from '../../../services/index';
 import {AbstractSyncValidator} from './abstract-sync-validator';
 
 @Directive({
+    standalone:true,
     selector: '[lessThanOrEqualNumberValidator][ngModel]',
-    providers: [{provide: NG_VALIDATORS, useExisting: LessThanOrEqualNumberValidatorDirective, multi: true}],
+    // providers: [{provide: NG_VALIDATORS, useExisting: LessThanOrEqualNumberValidatorDirective, multi: true}],
     inputs: ['activated', 'maxNumber']
 })
 export class LessThanOrEqualNumberValidatorDirective extends AbstractSyncValidator implements Validator, AfterViewInit, OnChanges{

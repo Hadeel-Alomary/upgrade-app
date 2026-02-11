@@ -1,19 +1,24 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, OnDestroy, QueryList, ViewChild, ViewChildren, ViewEncapsulation} from '@angular/core';
 import {GridBoxType} from '../shared/grid-box/index';
 import {GridComponent} from '../grid/grid.component';
-import {AppModeAuthorizationService, AutoLinkService, ChannelRequest, ChannelRequestType, MarketsManager, Page, PageService, SharedChannel, TradingService, WatchlistService} from '../../services/index';
+import {AppModeAuthorizationService, AutoLinkService, ChannelRequest, ChannelRequestType, MarketsManager, Page, PageService, SharedChannel, WatchlistService} from '../../services/index';
 import {SubscriptionLike as ISubscription} from 'rxjs';
-import {BrokerType} from '../../services/trading/broker/broker';
+// import {BrokerType} from '../../services/trading/broker/broker';
 import {AppBrowserUtils} from '../../utils';
 import {AppModeFeatureType} from '../../services/auhtorization/app-mode-authorization';
+import {WindowToolbarComponent} from './window-toolbar/window-toolbar.component';
+import {TradingFloatingToolbarComponent} from './floating-toolbar';
+import {NgFor, NgIf} from '@angular/common';
 
 
 @Component({
     selector: 'grid-container',
+    standalone:true,
     templateUrl:'./grid-container.component.html',
     styleUrls:['./grid-container.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    imports:[WindowToolbarComponent,GridComponent,TradingFloatingToolbarComponent,NgIf,NgFor]
 })
 
 export class GridContainerComponent implements OnDestroy {
@@ -34,7 +39,7 @@ export class GridContainerComponent implements OnDestroy {
                  public pageService:PageService,
                  public marketsManager:MarketsManager,
                  public sharedChannel:SharedChannel,
-                 public tradingService:TradingService,
+                 // public tradingService:TradingService,
                  private watchlistService: WatchlistService,
                  private appModeAuthorizationService: AppModeAuthorizationService,
                  public cd:ChangeDetectorRef){
@@ -48,11 +53,11 @@ export class GridContainerComponent implements OnDestroy {
             }
         })
 
-        this.subscriptions.push(this.tradingService.getSessionStream()
-            .subscribe(validSession => this.onTradingSession(validSession)));
-
-        this.subscriptions.push(this.tradingService.getBrokerSelectionStream()
-            .subscribe(brokerType => this.onBrokerSelection(brokerType)));
+        // this.subscriptions.push(this.tradingService.getSessionStream()
+        //     .subscribe(validSession => this.onTradingSession(validSession)));
+        //
+        // this.subscriptions.push(this.tradingService.getBrokerSelectionStream()
+        //     .subscribe(brokerType => this.onBrokerSelection(brokerType)));
 
     }
 
@@ -105,17 +110,17 @@ export class GridContainerComponent implements OnDestroy {
         return symbol;
     }
 
-    onBrokerSelection(brokerType: BrokerType): void {
-         if(!this.appModeAllowedFeature(AppModeFeatureType.SELECT_DERAYAH_BROKER)) {
-             if(brokerType == BrokerType.None) {
-                 if(this.grids){
-                     for(let grid of this.grids.toArray()){
-                         grid.removeTradingBoxes();
-                     }
-                 }
-             }
-         }
-    }
+    // onBrokerSelection(brokerType: BrokerType): void {
+    //      if(!this.appModeAllowedFeature(AppModeFeatureType.SELECT_DERAYAH_BROKER)) {
+    //          if(brokerType == BrokerType.None) {
+    //              if(this.grids){
+    //                  for(let grid of this.grids.toArray()){
+    //                      grid.removeTradingBoxes();
+    //                  }
+    //              }
+    //          }
+    //      }
+    // }
 
     private appModeAllowedFeature(featureType: AppModeFeatureType) : boolean {
         return this.appModeAuthorizationService.appModeAllowedFeature(featureType)

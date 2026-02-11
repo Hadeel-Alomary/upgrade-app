@@ -67,7 +67,7 @@
 }
 
 .page-tabs .tab.new-page:before {
-    background-image: url('~img/add-page.png');
+    /*background-image: url('~img/add-page.png');*/
     background-position: center;
     background-repeat: no-repeat;
     content: "";
@@ -182,11 +182,11 @@
 }
 
 .page-tabs.tabs .tab .icons .icon.rename-icon:before {
-    background-image: url('~img/note-mw-header.png');
+    /*background-image: url('~img/note-mw-header.png');*/
 }
 
 .page-tabs.tabs .tab .icons .icon.close-icon:before {
-    background-image: url('~img/highlighted-tab-close.png');
+    /*background-image: url('~img/highlighted-tab-close.png');*/
 }
 
 /* page tabs navgiation icons  */
@@ -199,7 +199,7 @@
 
 .page-tabs .navigation-arrow.up:hover:before {
     cursor: pointer;
-    background-image: url('~img/prev-page-navigation-highlight.png');
+    /*background-image: url('~img/prev-page-navigation-highlight.png');*/
 }
 
 .page-tabs .navigation-arrow.in-active{
@@ -208,7 +208,7 @@
 }
 
 .page-tabs .navigation-arrow.up:before {
-    background-image: url('~img/prev-page-navigation.png');
+    /*background-image: url('~img/prev-page-navigation.png');*/
     transform:scaleX(1);
     transform:rotate(270deg);
     content: "";
@@ -279,6 +279,6 @@
 
 .dark .page-tabs .navigation-arrow.up:hover:before {
     opacity: 1;
-    background-image: url('~img/prev-page-navigation.png');
+    /*background-image: url('~img/prev-page-navigation.png');*/
     filter: none;
 }

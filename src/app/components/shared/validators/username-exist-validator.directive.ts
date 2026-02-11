@@ -5,6 +5,7 @@ import {AbstractSyncValidator} from './abstract-sync-validator';
 import {LanguageService} from '../../../services';
 
 @Directive({
+    standalone:true,
     selector: '[usernameExistValidator][ngModel]',
     providers: [{provide: NG_VALIDATORS, useExisting: UsernameExistValidatorDirective, multi: true}],
     inputs: ['usernameExistValid', "usernameNotExistValid"]

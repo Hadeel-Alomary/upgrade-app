@@ -5,6 +5,7 @@ import {AbstractSyncValidator} from './abstract-sync-validator';
 import {LanguageService} from '../../../services';
 
 @Directive({
+    standalone:true,
     selector: '[mobileExistValidator][ngModel]',
     providers: [{provide: NG_VALIDATORS, useExisting: MobileExistValidatorDirective, multi: true}],
     inputs: ['mobileExistValid', 'mobileNotExistValid']

@@ -29,7 +29,7 @@
 }
 
 .trading-floating-toolbar .floating-drag:before{
-    background-image: url('~img/trading/dots-menu.png');
+    /*background-image: url('~img/trading/dots-menu.png');*/
     background-repeat: no-repeat;
     background-position: center;
     display: inline-block;

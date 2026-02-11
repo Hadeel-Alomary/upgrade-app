@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren, ViewEncapsulation} from '@angular/core';
-import {AppModeAuthorizationService, AuthorizationService, ChannelRequest, ChannelRequestType, DerayahOrder, DerayahOrderType, MarketBoxOpenRequest, MarketsManager, Page, PageService, SharedChannel, SymbolBoxOpenRequest, WorkspaceStateService} from '../../services/index';
-import {ArrayUtils, StringUtils, AppTcTracker} from '../../utils/index';
+import {AppModeAuthorizationService, AuthorizationService, ChannelRequest, ChannelRequestType, MarketBoxOpenRequest, MarketsManager, Page, PageService, SharedChannel, SymbolBoxOpenRequest, WorkspaceStateService} from '../../services/index';
+import {AppTcTracker} from '../../utils/index';
 import {GridBox, GridBoxType} from '../shared/grid-box/index';
 import {DockingConfig, DockingItemConfig, DockingItemEvent} from './docking/docking-config';
 import {DockingDirective} from './docking/docking.directive';
@@ -12,14 +12,18 @@ import {DockingItemDirective} from './docking';
 import {GridBoxProperties} from '../shared/grid-box/grid-box';
 import {FeatureGridBox} from '../../services/auhtorization/feature-grid-box';
 import {AppModeFeatureType} from '../../services/auhtorization/app-mode-authorization';
+import {MarketwatchComponent} from '../marketwatch';
+import {NgFor, NgIf} from '@angular/common';
 
 // Annotation section
 @Component({
+    standalone:true,
     selector: 'grid',
     templateUrl:'./grid.component.html',
     styleUrls:['./grid.component.css', './grid.box-toolbar.css'],
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
+    imports:[MarketwatchComponent,DockingDirective,DockingItemDirective,NgIf,NgFor]
 })
 
 // Component controller
@@ -132,7 +136,7 @@ export class GridComponent implements OnInit, OnDestroy {
     /* config */
 
      addDockingItem(type:GridBoxType):DockingItemConfig{
-        AppTcTracker.trackAddBox(type);
+        // AppTcTracker.trackAddBox(type);
         let newBox:DockingItemConfig = this.generateDefaultItemConfig(type);
         this.config.addBox(newBox);
         return newBox;
@@ -143,13 +147,20 @@ export class GridComponent implements OnInit, OnDestroy {
         let size = this.getDefaultBoxSize(type);
 
         return {
-            id: StringUtils.guid(),
+            id: this.boxGuid(),
             width: size.width,
             height: size.height,
             type:type,
             properties: {}
         };
     }
+
+  private boxGuid():string {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+      return v.toString(16);
+    });
+  }
 
      getDefaultBoxSize(type:GridBoxType):{width:number, height:number} {
 
@@ -296,7 +307,7 @@ export class GridComponent implements OnInit, OnDestroy {
 
     onCloseBox(id:string){
          let item:DockingItemDirective = this.dockingDirective.items.find(item => item.config.id == id);
-         AppTcTracker.trackCloseBox(item.config.type);
+         // AppTcTracker.trackCloseBox(item.config.type);
         this.config.removeBox(id);
         this.dockingDirective.removeItem(id);
         this.pageService.setActivePageChanged();
@@ -383,10 +394,15 @@ class GridConfig {
     }
 
     boxes():DockingItemConfig[] {
-        return ArrayUtils.values(this.boxesConfig);
+        return this.stringValues(this.boxesConfig);
     }
 
-    addBox(box:DockingItemConfig) {
+    private stringValues<T>(obj:{[key:string]: T} ):T[] {
+      return Object.keys(obj).map(function(v) { return obj[v];})
+    }
+
+
+  addBox(box:DockingItemConfig) {
         this.boxesConfig[box.id] = box;
     }
 

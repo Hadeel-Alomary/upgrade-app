@@ -112,28 +112,28 @@ export class GeneralPurposeStreamer extends AbstractStreamer{
         let messageType:MessageType = this.getMessageType(message['topic'] as string);
         switch (messageType){
             case MessageType.ALERTS:
-                this.processAlertsMessage(message as AlertMessage);
+                this.processAlertsMessage(message as unknown as AlertMessage);
                 break;
             case MessageType.NEWS:
-                this.processNewsMessage(message as NewsMessage);
+                this.processNewsMessage(message as unknown as NewsMessage);
                 break;
             case MessageType.ANALYSIS:
-                this.processAnalysisMessage(message as AnalysisMessage);
+                this.processAnalysisMessage(message as unknown as AnalysisMessage);
                 break;
             case MessageType.HEARTBEAT:
-                this.processHeartbeatMessage(message as HeartbeatMessage);
+                this.processHeartbeatMessage(message as unknown as HeartbeatMessage);
                 break;
             case MessageType.VIRTUAL_TRADING:
-                this.processVirtualTradingMessage(message as TradingMessage);
+                this.processVirtualTradingMessage(message as unknown as TradingMessage);
                 break;
             case MessageType.COMMUNITY_NOTIFICATIONS:
-                this.processCommunityNotificationsMessage(message as CommunityNotificationMessage);
+                this.processCommunityNotificationsMessage(message as unknown as CommunityNotificationMessage);
                 break;
             case MessageType.TECHNICAL_SCOPE:
-                    this.processTechnicalScopeMessage(message as TechnicalScopeMessage);
+                    this.processTechnicalScopeMessage(message as unknown as TechnicalScopeMessage);
                     break;
             case MessageType.TECHNICAL_SCOPE_QUOTE:
-                this.processTechnicalScopeQuoteMessage(message as TechnicalScopeMessage);
+                this.processTechnicalScopeQuoteMessage(message as unknown as TechnicalScopeMessage);
                 break;
             default:
                 Tc.error('unknown message type: ' + MessageType[messageType]);

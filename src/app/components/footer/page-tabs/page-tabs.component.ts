@@ -1,20 +1,27 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, Output, SimpleChange, ViewEncapsulation} from '@angular/core';
-import {ConfirmationCaller, ConfirmationRequest, PageTitleCaller, PageTitleRequest, UpgradeMessageChannelRequest, UpgradeMessageType} from '../../../components/modals/index';
-import {AppModeAuthorizationService, AuthorizationService, ChannelRequest, ChannelRequestType, LanguageService, Page, PageService, SharedChannel, TradingService, WorkspaceStateService} from '../../../services/index';
-import {Tc, AppTcTracker} from '../../../utils/index';
+// import {ConfirmationCaller, ConfirmationRequest, PageTitleCaller, PageTitleRequest, UpgradeMessageChannelRequest, UpgradeMessageType} from '../../../components/modals/index';
+import {AppModeAuthorizationService, AuthorizationService, ChannelRequest, ChannelRequestType, LanguageService, Page, PageService, SharedChannel, WorkspaceStateService} from '../../../services/index';
+import {AppTcTracker} from '../../../utils/index';
 import {Feature, FeatureType} from '../../../services/auhtorization/feature';
-import {BrokerType} from '../../../services/trading/broker/broker';
+// import {BrokerType} from '../../../services/trading/broker/broker';
 import {AppModeFeatureType} from '../../../services/auhtorization/app-mode-authorization';
+import {OverflowWithTooltipDirective} from '../../shared';
+import {DropdownDirective} from '../../../ng2-bootstrap/components/dropdown/dropdown.directive';
+import {DropdownToggleDirective} from '../../../ng2-bootstrap/components/dropdown/dropdown-toggle.directive';
+import {DropdownMenuDirective} from '../../../ng2-bootstrap/components/dropdown/dropdown-menu.directive';
+import {NgFor, NgIf} from '@angular/common';
 
 @Component({
+    standalone:true,
     selector: 'page-tabs',
     templateUrl:'./page-tabs.component.html',
     styleUrls:['./page-tabs.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    imports:[OverflowWithTooltipDirective,DropdownDirective,DropdownToggleDirective,DropdownMenuDirective,NgIf,NgFor]
 })
 
-export class PageTabsComponent implements ConfirmationCaller, PageTitleCaller, OnChanges {
+export class PageTabsComponent implements  OnChanges {
 
     @Input() selectedPage:Page;
     @Output() outputPage = new EventEmitter();
@@ -33,7 +40,7 @@ export class PageTabsComponent implements ConfirmationCaller, PageTitleCaller, O
                  public cd:ChangeDetectorRef,
                  public languageService:LanguageService,
                  public authorizationService:AuthorizationService,
-                 private tradingService:TradingService,
+                 // private tradingService:TradingService,
                  private workspaceStateService: WorkspaceStateService,
                  public appModeAuthorizationService: AppModeAuthorizationService) {
         this.pages = pageService.getPages();
@@ -48,11 +55,11 @@ export class PageTabsComponent implements ConfirmationCaller, PageTitleCaller, O
             }
         });
 
-        tradingService.getBrokerSelectionStream().subscribe((brokerType: BrokerType) => {
-            if (brokerType == BrokerType.None && this.hasTradingPage()) { // Broker disconnection.
-                this.unloadTradingBuiltinPage();
-            }
-        });
+        // tradingService.getBrokerSelectionStream().subscribe((brokerType: BrokerType) => {
+        //     if (brokerType == BrokerType.None && this.hasTradingPage()) { // Broker disconnection.
+        //         this.unloadTradingBuiltinPage();
+        //     }
+        // });
     }
 
     unloadTradingBuiltinPage() {
@@ -74,32 +81,32 @@ export class PageTabsComponent implements ConfirmationCaller, PageTitleCaller, O
         return  this.pageService.hasBuiltinPageWithTag(this.TRADING_TAG);
     }
 
-    private getTradingPageName(brokerType: BrokerType) {
-        switch(brokerType) {
-            case BrokerType.Derayah:
-                return 'derayah';
-            case BrokerType.Snbcapital:
-                return 'snbcapital';
-            case BrokerType.Riyadcapital:
-                return 'riyadcapital';
-            case BrokerType.Alinmainvest:
-                return 'alinmainvest';
-            case BrokerType.Aljaziracapital:
-                return 'aljaziracapital';
-            case BrokerType.VirtualTrading:
-                return 'trading';
-            case BrokerType.Tradestation:
-                return 'tradestation';
-            case BrokerType.Musharaka:
-                return 'musharaka';
-            case BrokerType.Bsf:
-                return 'bsf';
-            case BrokerType.Alkhabeercapital:
-                return 'alkhabeercapital';
-            default:
-                Tc.error("no trading page for broker type " + brokerType);
-        }
-    }
+    // private getTradingPageName(brokerType: BrokerType) {
+    //     switch(brokerType) {
+    //         case BrokerType.Derayah:
+    //             return 'derayah';
+    //         case BrokerType.Snbcapital:
+    //             return 'snbcapital';
+    //         case BrokerType.Riyadcapital:
+    //             return 'riyadcapital';
+    //         case BrokerType.Alinmainvest:
+    //             return 'alinmainvest';
+    //         case BrokerType.Aljaziracapital:
+    //             return 'aljaziracapital';
+    //         case BrokerType.VirtualTrading:
+    //             return 'trading';
+    //         case BrokerType.Tradestation:
+    //             return 'tradestation';
+    //         case BrokerType.Musharaka:
+    //             return 'musharaka';
+    //         case BrokerType.Bsf:
+    //             return 'bsf';
+    //         case BrokerType.Alkhabeercapital:
+    //             return 'alkhabeercapital';
+    //         default:
+    //             // Tc.erro/r("no trading page for broker type " + brokerType);
+    //     }
+    // }
 
     ngOnChanges(changes: {[propertyName: string]: SimpleChange}) {
         if(changes['selectedPage']) {
@@ -139,16 +146,16 @@ export class PageTabsComponent implements ConfirmationCaller, PageTitleCaller, O
     /* interactive events */
 
      onDeletePage() {
-        Tc.assert(1 < this.pages.length, "cannot delete the last page");
+        // Tc.assert(1 < this.pages.length, "cannot delete the last page");
         let messageLine1:string = this.languageService.translate("حذف الصفحة سوف يشمل حذف الرسوم البيانية والتنبيهات الموجودة في الصفحة.");
         let messageLine2:string = this.languageService.translate('هل ترغب في حذف ') + this.selectedPage.title + this.languageService.translate(' بجميع محتوياتها؟');
-        let confirmationRequest:ConfirmationRequest = {type: ChannelRequestType.Confirmation, messageLine: messageLine1, messageLine2:messageLine2, caller: this};
-        this.sharedChannel.request(confirmationRequest);
+        // let confirmationRequest:ConfirmationRequest = {type: ChannelRequestType.Confirmation, messageLine: messageLine1, messageLine2:messageLine2, caller: this};
+        // this.sharedChannel.request(confirmationRequest);
     }
 
      onChangeTitle() {
-        let pageTitleRequest:PageTitleRequest = {type: ChannelRequestType.PageTitle, page: this.selectedPage, caller: this};
-        this.sharedChannel.request(pageTitleRequest);
+        // let pageTitleRequest:PageTitleRequest = {type: ChannelRequestType.PageTitle, page: this.selectedPage, caller: this};
+        // this.sharedChannel.request(pageTitleRequest);
     }
 
      onSelectPage(page:Page) {
@@ -188,20 +195,20 @@ export class PageTabsComponent implements ConfirmationCaller, PageTitleCaller, O
 
     private showMultiplePagesUpgradeMessage(): void {
         let feature = Feature.getFeature(FeatureType.MULTIPLE_PAGES);
-        let upgradeMessageRequest: UpgradeMessageChannelRequest = {
-            type : ChannelRequestType.UpgradeMessage,
-            upgradeMessageType: UpgradeMessageType.PROFESSIONAL_SUBSCRIPTION,
-            feature: feature,
-            isMarketAuthorized: true,
-            isValidFeatureCount:true
-        };
-        this.sharedChannel.request(upgradeMessageRequest);
+        // let upgradeMessageRequest: UpgradeMessageChannelRequest = {
+        //     type : ChannelRequestType.UpgradeMessage,
+        //     upgradeMessageType: UpgradeMessageType.PROFESSIONAL_SUBSCRIPTION,
+        //     feature: feature,
+        //     isMarketAuthorized: true,
+        //     isValidFeatureCount:true
+        // };
+        // this.sharedChannel.request(upgradeMessageRequest);
     }
 
     showReachedMaxOpenedPagesMessage(): void {
          let message:string = '.لا يمكنك إضافة أكثر من 10 صفحات. لإضافة صفحة جديدة تحتاج إلى حذف صفحة حالية';
-         let confirmationRequest:ConfirmationRequest = {type: ChannelRequestType.MessageBox, messageLine: this.languageService.translate(message), caller: this};
-         this.sharedChannel.request(confirmationRequest);
+         // let confirmationRequest:ConfirmationRequest = {type: ChannelRequestType.MessageBox, messageLine: this.languageService.translate(message), caller: this};
+         // this.sharedChannel.request(confirmationRequest);
     }
 
     /* page range */

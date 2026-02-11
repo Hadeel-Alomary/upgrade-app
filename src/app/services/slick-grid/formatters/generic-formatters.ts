@@ -9,9 +9,9 @@ import {TimeAndSale} from '../../data/time-and-sale';
 import {MarketAlert} from '../../data/market-alert';
 import {TechnicalScopeSignal} from '../../data/technical-scope/technical-scope-signal';
 import {Quote} from '../../data/quote';
-import {FinancialData} from '../../data';
+// import {FinancialData} from '../../data';
 import {AppModeAuthorizationService, AuthorizationService} from '../../auhtorization';
-import {FinancialIndicatorRealTimeData} from '../../data/financials/financial-indicator-streamer.service';
+// import {FinancialIndicatorRealTimeData} from '../../data/financials/financial-indicator-streamer.service';
 
 export class GenericFormatters implements Formatter{
 
@@ -87,7 +87,7 @@ export class GenericFormatters implements Formatter{
             case SlickGridFormatter.AnnotationDelayed:
                 return this.annotationDelayedFormatter(value, dataContext, columnDef);
             case SlickGridFormatter.FlagAnnotation:
-                return this.flagAnnotationFormatter(value, dataContext);
+                // return this.flagAnnotationFormatter(value, dataContext);
             case SlickGridFormatter.balloonAnnotation:
                 return this.balloonAnnotationFormater(value)
         }
@@ -226,7 +226,7 @@ export class GenericFormatters implements Formatter{
     }
 
     private annotationDelayedFormatter(value: unknown, dataContext: GridData, columnDef: ColumnDefinition) {
-        let dataContext1 = dataContext as Quote | TimeAndSale | MarketAlert | FinancialData;
+        let dataContext1 = dataContext as Quote | TimeAndSale | MarketAlert ;
 
         if(dataContext1['isSectionRow']){
             return `<div class="section-name">${value}</div>`;
@@ -244,9 +244,9 @@ export class GenericFormatters implements Formatter{
     }
 
     private flagAnnotationFormatter(value: unknown, dataContext: GridData) {
-        let dataContext1 = dataContext as FinancialData | FinancialIndicatorRealTimeData;
-        let name = value as string;
-       return  dataContext1.flagAnnouncement ? `<div>${name}</div><div class="grid-tooltip flag-icon ${dataContext1.flag}"></div>` : name;
+       //  let dataContext1 = dataContext
+       //  let name = value as string;
+       // return  dataContext1.flagAnnouncement ? `<div>${name}</div><div class="grid-tooltip flag-icon ${dataContext1.flag}"></div>` : name;
     }
 
     private balloonAnnotationFormater(value: unknown) {

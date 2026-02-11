@@ -1,13 +1,13 @@
 import {GridBoxType} from '../../components/shared/index';
-import {Chart, IChartTheme} from 'tc-web-chart-lib';
-import {ChartElementsContainerTabType} from '../../components/modals/chart/chart-elements-container/chart-elements-container-tab-type';
-import {ChartElementsContainer} from '../../components/chart/chart-elements-container';
-import {PublishedIdea} from '../publisher/published-chart';
-import {AddIntervalCaller} from '../../components/modals/add-interval/add-interval.component';
+// import {Chart, IChartTheme} from 'tc-web-chart-lib';
+// import {ChartElementsContainerTabType} from '../../components/modals/chart/chart-elements-container/chart-elements-container-tab-type';
+// import {ChartElementsContainer} from '../../components/chart/chart-elements-container';
+// import {PublishedIdea} from '../publisher/published-chart';
+// import {AddIntervalCaller} from '../../components/modals/add-interval/add-interval.component';
 import {OverlayBoxesContainerEventType} from '../../components/shared/grid-box/market-box';
-import {TcChartComponent , IBaseDrawingsSettings,IIndicatorSettingsAdvanced} from 'tc-web-chart-lib';
-import {DerayahOrder} from '../trading';
-import {ChartSettingsContainer} from "../../components/chart/chart-settings-container";
+// import {TcChartComponent , IBaseDrawingsSettings,IIndicatorSettingsAdvanced} from 'tc-web-chart-lib';
+// import {DerayahOrder} from '../trading';
+// import {ChartSettingsContainer} from "../../components/chart/chart-settings-container";
 
 
 export enum ChannelRequestType {
@@ -170,48 +170,48 @@ export interface ActionableChannelRequest extends ChannelRequest{
     requester?: ChannelRequester
 }
 
-export interface ShowDrawingSettingsDialogRequest extends ChannelRequest {
-    drawingSettings : IBaseDrawingsSettings;
-    caller:TcChartComponent
-}
+// export interface ShowDrawingSettingsDialogRequest extends ChannelRequest {
+//     drawingSettings : IBaseDrawingsSettings;
+//     caller:TcChartComponent
+// }
+//
+// export interface ShowIndicatorSettingsDialogRequest extends ChannelRequest {
+//     indicatorSettings : IIndicatorSettingsAdvanced;
+//     caller:TcChartComponent;
+// }
 
-export interface ShowIndicatorSettingsDialogRequest extends ChannelRequest {
-    indicatorSettings : IIndicatorSettingsAdvanced;
-    caller:TcChartComponent;
-}
+// export interface ShowDrawingToolbarRequest extends ChannelRequest {
+//     drawingSettings : IBaseDrawingsSettings;
+//     visible :boolean;
+//     caller:TcChartComponent;
+// }
 
-export interface ShowDrawingToolbarRequest extends ChannelRequest {
-    drawingSettings : IBaseDrawingsSettings;
-    visible :boolean;
-    caller:TcChartComponent;
-}
+// export interface ChartScreenshotRequest extends ChannelRequest {
+//     tcChartComp: TcChartComponent;
+//     backgroundScreenshot?:boolean;
+//     backgroundScreenshotCb?: (imageBas64Data:string) => void
+// }
 
-export interface ChartScreenshotRequest extends ChannelRequest {
-    tcChartComp: TcChartComponent;
-    backgroundScreenshot?:boolean;
-    backgroundScreenshotCb?: (imageBas64Data:string) => void
-}
-
-
-export interface ChartSignatureRequest extends ChannelRequest {
-    tcChartComp: TcChartComponent;
-}
+//
+// export interface ChartSignatureRequest extends ChannelRequest {
+//     tcChartComp: TcChartComponent;
+// }
 
 export interface ShowPublishIdeaModalRequest extends ChannelRequest {
-    publishedIdea: PublishedIdea;
+    // publishedIdea: PublishedIdea;
 }
 
 
-export interface ShowObjectTreeDialogRequest extends ChannelRequest {
-    activeTab: ChartElementsContainerTabType,
-    container: ChartElementsContainer
-}
+// export interface ShowObjectTreeDialogRequest extends ChannelRequest {
+//     activeTab: ChartElementsContainerTabType,
+//     container: ChartElementsContainer
+// }
 
-export interface ShowChartSettingsDialogRequest extends ChannelRequest {
-    container: ChartSettingsContainer;
-    tcChartComp: TcChartComponent;
-    themeType: IChartTheme
-}
+// export interface ShowChartSettingsDialogRequest extends ChannelRequest {
+//     container: ChartSettingsContainer;
+//     tcChartComp: TcChartComponent;
+//     themeType: IChartTheme
+// }
 
 export interface ForceScreenReloadRequest extends ChannelRequest {
     market: string;
@@ -254,9 +254,9 @@ export interface AlinmainvestLoginModalChannelRequest extends ChannelRequest{
     startConnectingImmediately: boolean;
 }
 
-export interface AddIntervalRequest extends ChannelRequest {
-    caller: AddIntervalCaller
-}
+// export interface AddIntervalRequest extends ChannelRequest {
+//     caller: AddIntervalCaller
+// }
 
 export interface AlrajhicapitalLoginChannelRequest extends ChannelRequest{
     startConnectingImmediately: boolean;

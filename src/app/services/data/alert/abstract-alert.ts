@@ -3,25 +3,24 @@ import {LanguageService} from '../../state/language';
 import {AlertType} from './alert-type';
 import {NotificationMethods} from '../notification/notification-methods';
 import {AlertTriggerType} from './alert-trigger';
-import {Interval, IntervalType} from 'tc-web-chart-lib';
+// import {Interval, IntervalType} from 'tc-web-chart-lib';
 
 export abstract class AbstractAlert {
-    public static isSupportedInterval(interval: Interval): boolean {
-        switch (interval.type) {
-            case IntervalType.TenMinutes:
-            case IntervalType.TwentyMinutes:
-            case IntervalType.Quarter:
-            case IntervalType.Year:
-            case IntervalType.Custom:
-                return false;
-            default:
-                return true;
-        }
-    }
+    // public static isSupportedInterval(interval: Interval): boolean {
+    //     switch (interval.type) {
+    //         case IntervalType.TenMinutes:
+    //         case IntervalType.TwentyMinutes:
+    //         case IntervalType.Quarter:
+    //         case IntervalType.Year:
+    //         case IntervalType.Custom:
+    //             return false;
+    //         default:
+    //             return true;
+    //     }
+    // }
 
     protected constructor(
         public id: string,
-        public interval: IntervalType,
         public paused: boolean,
         public reactivateMinutes: boolean,
         public triggerType: AlertTriggerType,

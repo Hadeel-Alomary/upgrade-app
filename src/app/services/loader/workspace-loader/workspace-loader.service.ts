@@ -70,10 +70,22 @@ export class WorkspaceLoader {
             }));
     }
 
-    public loadWorkspace(id:string):Observable<{[key:string]:unknown}> {
-        return this.http.get(Tc.url(`/m/liveweb/workspaces/${id}?language=${this.languageService.getLanguage()}`)).pipe(
-            map(res => res == [] ? null : res));
-    }
+  public loadWorkspace(id: string): Observable<{ [key: string]: unknown } | null> {
+    return this.http.get<{ [key: string]: unknown }>(
+      Tc.url(`/m/liveweb/workspaces/${id}?language=${this.languageService.getLanguage()}`)
+    ).pipe(
+      map(res => {
+        // If res is an array and empty, return null
+        if (Array.isArray(res) && res.length === 0) return null;
+
+        // If res is an object and empty, return null
+        if (typeof res === 'object' && res !== null && Object.keys(res).length === 0) return null;
+
+        return res;
+      })
+    );
+  }
+
 
     public loadPage(id:string):Observable<Page> {
         return this.http.get<Page>(Tc.url(`/m/liveweb/pages/${id}`));

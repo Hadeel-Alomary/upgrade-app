@@ -21,7 +21,7 @@ export class TradesSummary {
     }
 
     static formatTradesSummaryMessage(message: TimeAndSaleMessage): TradesSummary {
-        let price: string = round(message.last , 3)
+        let price: string = round(+message.last , 3).toString();
         let trades: number = +(message.split);
         let volume: number = +(message.lastvolume);
         let value: number = Tc._2digits(+price * volume);

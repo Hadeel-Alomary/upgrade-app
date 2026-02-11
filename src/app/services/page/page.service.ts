@@ -3,11 +3,11 @@ import {AppBrowserUtils, StringUtils, Tc, AppTcTracker} from '../../utils/index'
 import {GridConfigData} from '../../components/grid/grid.component';
 import {StateKey, WorkspaceStateService} from '../state/workspace/workspace-state.service';
 import {LanguageService} from '../state/language/language.service';
-import {Observable} from 'rxjs/internal/Observable';
+import {Observable} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import {WorkspaceLoader} from '../loader/workspace-loader';
 import {AlertService} from '../data/alert';
-import {OverlayBoxesPage} from '../../components/mobile/overlay-boxes-page';
+// import {OverlayBoxesPage} from '../../components/mobile/overlay-boxes-page';
 import {BehaviorSubject} from 'rxjs';
 import {Loader} from '../loader';
 import {GridBoxType} from '../../components/shared/grid-box/grid-box-type';
@@ -114,9 +114,9 @@ private activePageChangedStream: BehaviorSubject<Page>;
             }
         }
 
-        if(componentId in OverlayBoxesPage.page().grid.boxes) {
-            return OverlayBoxesPage.page().guid;
-        }
+        // if(componentId in OverlayBoxesPage.page().grid.boxes) {
+        //     return OverlayBoxesPage.page().guid;
+        // }
 
         Tc.error("fail to find page containing component " + componentId);
         return null;

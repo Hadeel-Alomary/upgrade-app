@@ -5,6 +5,7 @@ import {LanguageService} from '../../../services/index';
 import {AbstractSyncValidator} from './abstract-sync-validator';
 
 @Directive({
+    standalone:true,
     selector: '[moreThanOrEqualNumberValidator][ngModel]',
     providers: [{provide: NG_VALIDATORS, useExisting: MoreThanOrEqualNumberValidatorDirective, multi: true}],
     inputs: ['activated', 'minNumber']

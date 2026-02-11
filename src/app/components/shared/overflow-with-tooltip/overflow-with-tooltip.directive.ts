@@ -9,7 +9,8 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[overflow-with-tooltip]'
+  selector: '[overflow-with-tooltip]',
+  standalone:true
 })
 export class OverflowWithTooltipDirective implements AfterViewInit, OnChanges {
     @Input() tooltipTitle: string;

@@ -9,15 +9,20 @@ import {
 
 import {FilterCondition} from "./filter-condition";
 import {FilterConditionOperatorType, FilterConditionOperator} from "./filter-condition-operator";
+import {NumberWithStepsComponent} from '../number-with-steps/number-with-steps.component';
+import {NgForOf} from '@angular/common';
+import {FormsModule} from '@angular/forms';
 
 const filter = require("lodash/filter");
 
 @Component({
+    standalone:true,
     selector: 'filter-condition',
     templateUrl:'./filter-condition.component.html',
     styleUrls:['./filter-condition.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    imports:[NumberWithStepsComponent,NgForOf,FormsModule]
 })
 
 export class FilterConditionComponent  {

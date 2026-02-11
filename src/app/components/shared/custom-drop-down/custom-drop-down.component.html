@@ -2,14 +2,14 @@
     <div class="custom-dropdown">
         <div *ngIf="isArabic()" class="right-arrow-icon icon" [class.hide-arrow]="selectedExecutionIndex == 0" (click)="onClickRightArrow()" ></div>
         <div *ngIf="!isArabic()" class="left-arrow-icon icon" [class.hide-arrow]="selectedExecutionIndex == 0" (click)="onClickRightArrow()" ></div>
-        <div class="selected-option">{{selectedItemName | translate}}</div>
+        <div class="selected-option">{{selectedItemName }}</div>
         <div *ngIf="isArabic()" class="left-arrow-icon icon" [class.hide-arrow]="selectedExecutionIndex == items.length - 1" (click)="onClickLeftArrow()"></div>
         <div *ngIf="!isArabic()" class="right-arrow-icon icon" [class.hide-arrow]="selectedExecutionIndex == items.length - 1" (click)="onClickLeftArrow()"></div>
     </div>
     <div class="downward-arrow-icon icon" (click)="toggleDropdown()"></div>
     <ul class="dropdown-list" *ngIf="isDropdownOpen">
         <li *ngFor="let item of items" class="icon" (click)="selectExecution(item.value)" [class.tick] = "hasTick(item.value)">
-            <span *ngIf="translate">{{item.text | translate}}</span>
+            <span *ngIf="translate">{{item.text}}</span>
             <span *ngIf="!translate">{{item.text}}</span>
         </li>
     </ul>

@@ -51,21 +51,31 @@ export class Tc {
 
 
   // http://stackoverflow.com/questions/5916900/how-can-you-detect-the-version-of-a-browser
-  static getBrowserVersion(){
-    var ua= navigator.userAgent, tem,
-      M: RegExpMatchArray = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
-    if(/trident/i.test(M[1])){
-      tem=  /\brv[ :]+(\d+)/g.exec(ua) || [];
-      return 'IE '+(tem[1] || '');
+  static getBrowserVersion() {
+    const ua = navigator.userAgent;
+    let tem: RegExpMatchArray | null;
+    let M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
+
+    // Make M type-safe
+    if (!M || M.length === 0) return 'Unknown';
+
+    if (/trident/i.test(M[1])) {
+      tem = /\brv[ :]+(\d+)/g.exec(ua);
+      return 'IE ' + (tem ? tem[1] : '');
     }
-    if(M[1]=== 'Chrome'){
-      tem= ua.match(/\b(OPR|Edge)\/(\d+)/);
-      if(tem!= null) return tem.slice(1).join(' ').replace('OPR', 'Opera');
+
+    if (M[1] === 'Chrome') {
+      tem = ua.match(/\b(OPR|Edge)\/(\d+)/);
+      if (tem != null) return tem.slice(1).join(' ').replace('OPR', 'Opera');
     }
-    M= M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
-    if((tem= ua.match(/version\/(\d+)/i))!= null) M.splice(1, 1, tem[1]);
+
+    // Check for version number in Safari/other browsers
+    tem = ua.match(/version\/(\d+)/i);
+    if (tem != null && M.length > 1) M.splice(1, 1, tem[1]);
+
     return M.join(' ');
   }
+
 
   // http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
   static getParameterByName(name:string, url:string = null) {

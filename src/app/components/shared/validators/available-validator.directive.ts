@@ -2,14 +2,15 @@ import {AfterViewInit, Directive, ElementRef, OnChanges} from '@angular/core';
 import {AsyncValidator, NG_ASYNC_VALIDATORS} from '@angular/forms';
 import {ValidationMessage, ValidationMessageType} from './validation-message';
 import {LanguageService, UserService} from '../../../services/index';
-import {Observable} from 'rxjs/index';
+import {Observable} from 'rxjs';
 import {Tc} from '../../../utils';
 import {AbstractAsyncValidator} from './abstract-async-validator';
-import {PublishService} from '../../../services/publisher/publish.service';
+// import {PublishService} from '../../../services/publisher/publish.service';
 import {map} from 'rxjs/operators';
 
 // MA with the help of: http://www.deanpdx.com/2018/02/04/angular-5-forms-dynamic-validation-summary.html
 @Directive({
+    standalone:true,
     selector: '[availableValidator][ngModel]',
     providers: [{provide: NG_ASYNC_VALIDATORS, useExisting: AvailableValidatorDirective, multi: true}],
     inputs: ['activated', 'resource', 'countryCode']
@@ -22,7 +23,7 @@ export class AvailableValidatorDirective extends AbstractAsyncValidator implemen
 
     constructor(public el: ElementRef,
                 private userService: UserService,
-                private publishService: PublishService,
+                // private publishService: PublishService,
                 private languageService: LanguageService) {
         super(el);
     }
@@ -38,8 +39,8 @@ export class AvailableValidatorDirective extends AbstractAsyncValidator implemen
                 return this.userService.isMobileTaken(this.countryCode + value).pipe(map(mobileTaken => !mobileTaken));//invalid if mobile is not taken
             case AvailableResourceType.EMAIL:
                 return this.userService.isEmailTaken(value);
-            case AvailableResourceType.PUBLISH_NICKNAME:
-                return this.publishService.isNickNameTaken(value);
+            // case AvailableResourceType.PUBLISH_NICKNAME:
+            //     return this.publishService.isNickNameTaken(value);
         }
 
         Tc.assert(false, "should not be here")

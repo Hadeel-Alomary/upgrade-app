@@ -13,7 +13,7 @@ export { MarketDepthByOrderService, MarketDepthByPriceService, MarketDepth, Mark
 export { MarketAlertService, MarketAlert } from './market-alert/index';
 
 export {TechnicalScopeService} from './technical-scope/index';
-export {IntradayChartUpdaterService , DailyChartUpdaterService} from './chart-updater/index';
+// export {IntradayChartUpdaterService , DailyChartUpdaterService} from './chart-updater/index';
 export {ShareholdersService} from './shareholders';
 
 export {
@@ -61,15 +61,15 @@ export {
     NotificationMethodResponse
 } from './notification';
 
-export {
-    LiquidityService,
-    LiquidityPoint
-} from './liquidity';
+// export {
+//     LiquidityService,
+//     LiquidityPoint
+// } from './liquidity';
 
-export { VolumeProfilerService } from './volume-profiler/volume-profiler.service';
-export { FinancialIndicatorService, FinancialDataService, FinancialData, FinancialIndicatorStreamerService } from './financials';
+// export { VolumeProfilerService } from './volume-profiler/volume-profiler.service';
+// export { FinancialIndicatorService, FinancialDataService, FinancialData, FinancialIndicatorStreamerService } from './financials';
 export {TechnicalIndicatorQuoteService} from './technical-indicator/technical-indicator-quote.service';
 
 export {TechnicalScopeQuoteService} from './technical-indicator/technical-scope-quote.service';
 
-export {AbstractChartCompatability} from './chart-compatability/index';
+// export {AbstractChartCompatability} from './chart-compatability/index';

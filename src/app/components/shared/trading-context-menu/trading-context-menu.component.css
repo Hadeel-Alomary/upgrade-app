@@ -3,11 +3,11 @@
 }
 
 .trading-context-menu li.menuitem.open-trading-buy:before {
-    background-image: url('~img/trading/buy.png');
+    /*background-image: url('~img/trading/buy.png');*/
 }
 
 .trading-context-menu li.menuitem.open-trading-sell:before {
-    background-image: url('~img/trading/sell.png');
+    /*background-image: url('~img/trading/sell.png');*/
 }
 
 .trading-context-menu li.menuitem.inactive{
@@ -27,11 +27,11 @@
 /* dark theme */
 
 .dark .trading-context-menu li.menuitem.open-trading-buy:before {
-    background: url('~img/trading/buy-dark.png') no-repeat center;
+    /*background: url('~img/trading/buy-dark.png') no-repeat center;*/
     filter: none;
 }
 
 .dark .trading-context-menu li.menuitem.open-trading-sell:before {
-    background: url('~img/trading/sell-dark.png') no-repeat center;
+    /*background: url('~img/trading/sell-dark.png') no-repeat center;*/
     filter: none;
 }

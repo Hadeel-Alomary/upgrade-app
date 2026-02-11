@@ -1,7 +1,8 @@
 import {Directive, OnInit, OnChanges, OnDestroy, Input, Output, EventEmitter, ElementRef} from '@angular/core';
 import {LanguageService} from '../../../services/index';
 @Directive({
-    selector: '[explain]'
+    selector: '[explain]',
+    standalone:true
 })
 
 export class ExplainDirective implements OnChanges, OnInit, OnDestroy {
@@ -12,9 +13,9 @@ export class ExplainDirective implements OnChanges, OnInit, OnDestroy {
     @Input() show:boolean;
     @Output() showChange:EventEmitter<boolean> = new EventEmitter<boolean>();
 
-    
+
     constructor( public el: ElementRef, private languageService:LanguageService) {}
-    
+
     ngOnInit() {
         $(this.el.nativeElement).popover({
             title: this.languageService.translate(this.title),
@@ -23,7 +24,7 @@ export class ExplainDirective implements OnChanges, OnInit, OnDestroy {
             trigger: 'manual'
         });
     }
-    
+
     ngOnChanges() {
         if(this.show) {
 
@@ -38,10 +39,10 @@ export class ExplainDirective implements OnChanges, OnInit, OnDestroy {
             }, 2500);
         }
     }
-    
+
     ngOnDestroy() {
         $(this.el.nativeElement).popover('destroy');
     }
-    
+
 }
 

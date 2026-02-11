@@ -93,27 +93,27 @@
 }
 
 .footer .footer-btns .btn-small .icon.icon-my-account:before {
-    background-image: url('~img/footer-settings.png');
+    /*background-image: url('~img/footer-settings.png');*/
 }
 
 .footer .footer-btns .btn-small .icon.icon-logout:before {
-    background-image: url('~img/footer-logout.png');
+    /*background-image: url('~img/footer-logout.png');*/
 }
 
 .footer .footer-btns .btn-small .icon.icon-login:before {
-    background-image: url('~img/footer-login.png');
+    /*background-image: url('~img/footer-login.png');*/
 }
 .footer .footer-btns .btn-small .icon.icon-trading:before ,
 .footer .footer-btns .btn-small .icon.icon-subscription:before {
-    background-image: url('~img/footer-trading.png');
+    /*background-image: url('~img/footer-trading.png');*/
 }
 
 .footer .footer-btns .btn-small .icon.icon-reset-workspace:before{
-    background-image: url('~img/footer-reset-workspace.png');
+    /*background-image: url('~img/footer-reset-workspace.png');*/
 }
 
 .footer .footer-btns .separator:before{
-    background-image: url('~img/separator2.png');
+    /*background-image: url('~img/separator2.png');*/
     display: inline-block;
     width: 10px;
     height: 100%;
@@ -158,7 +158,7 @@
 
 
 .footer .footer-btns .btn-small .icon.icon-save-workspace:before {
-    background-image: url('~img/cloud-load.png');
+    /*background-image: url('~img/cloud-load.png');*/
 }
 
 @keyframes cloud-uploading-animation {
@@ -171,7 +171,7 @@
 }
 
 .footer .footer-btns .btn-small .icon.icon-save-workspace.saving:before {
-    background-image: url('~img/cloud-uploading.png');
+    /*background-image: url('~img/cloud-uploading.png');*/
     width:24px;
     height:22px;
     animation: cloud-uploading-animation 1.5s infinite steps(1);
@@ -193,23 +193,23 @@
 }
 
 .footer .footer-btns .btn-small .icon.icon-screen.fullscreen:before {
-    background-image: url('~img/full-screen.png');
+    /*background-image: url('~img/full-screen.png');*/
 }
 
 .footer .footer-btns .btn-small .icon.icon-screen.normal:before {
-    background-image: url('~img/normal-screen.png');
+    /*background-image: url('~img/normal-screen.png');*/
 }
 
 .footer .footer-btns .btn-small .icon.icon-technical-support:before {
-    background-image: url('~img/footer-support.png');
+    /*background-image: url('~img/footer-support.png');*/
 }
 
 .footer .footer-btns .btn-small .icon.icon-switch-theme:before {
-    background-image: url('~img/moon.png');
+    /*background-image: url('~img/moon.png');*/
 }
 
 .footer .footer-btns .btn-small .icon.icon-font-size:before {
-    background-image: url('~img/footer-font.png');
+    /*background-image: url('~img/footer-font.png');*/
 }
 
 
@@ -249,7 +249,7 @@
 }
 
 .dark .footer .footer-btns .btn-small .icon.icon-switch-theme:before {
-    background-image: url('~img/sun.png');
+    /*background-image: url('~img/sun.png');*/
     filter: none;
 }
 

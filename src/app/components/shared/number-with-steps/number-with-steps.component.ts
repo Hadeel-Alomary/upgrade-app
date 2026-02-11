@@ -5,6 +5,7 @@ import {AppBrowserUtils} from '../../../utils';
 import {AppMathUtils} from '../../../utils/app.math.utils';
 
 @Component({
+  standalone:true,
     selector: 'number-with-steps',
     templateUrl: './number-with-steps.component.html',
     styleUrls: ['./number-with-steps.component.css'],
@@ -85,17 +86,17 @@ export class NumberWithStepsComponent implements ControlValueAccessor {
         return parent.nativeElement.contains(child);
     }
 
-    onInputMouseWheel(event: MouseWheelEvent) {
-        this.setNumValue(this.getInputField().value);
-
-        if (event.wheelDelta > 0) {
-            this.increaseInputValue();
-        } else {
-            this.decreaseInputValue();
-        }
-
-        event.preventDefault();
-    }
+    // onInputMouseWheel(event: MouseWheelEvent) {
+    //     this.setNumValue(this.getInputField().value);
+    //
+    //     if (event.wheelDelta > 0) {
+    //         this.increaseInputValue();
+    //     } else {
+    //         this.decreaseInputValue();
+    //     }
+    //
+    //     event.preventDefault();
+    // }
 
     public valueAsString(): string {
         let value: number = 0;

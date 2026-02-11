@@ -3,7 +3,8 @@ import {AppBrowserUtils} from '../../../utils';
 
 @Directive({
     selector: '[draggable-element]',
-    exportAs: 'draggable-element'
+    exportAs: 'draggable-element',
+    standalone:true
 })
 export class DraggableElementDirective implements AfterViewInit {
 

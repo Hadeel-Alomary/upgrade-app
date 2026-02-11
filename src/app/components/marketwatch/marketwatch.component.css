@@ -29,7 +29,7 @@
 }
 
 .mobile .marketwatch .box-toolbar .box-toolbar-child .symbol-selector {
-    width: 300px;
+    /*width: 300px;*/
 }
 
 .marketwatch .slick-header-column.news > .slick-column-name,
@@ -73,15 +73,15 @@
 }
 
 .marketwatch .slick-header-column .header-icon.header-alert:before {
-    background-image: url('~img/alert-mw-header.png');
+    /*background-image: url('~img/alert-mw-header.png');*/
 }
 
 .marketwatch .slick-header-column .header-icon.header-flag:before {
-    background-image: url('~img/marketwatch-flag-header.png');
+    /*background-image: url('~img/marketwatch-flag-header.png');*/
 }
 
 .marketwatch .slick-header-column .header-icon.header-news:before {
-    background-image: url('~img/news-mw-header.png');
+    /*background-image: url('~img/news-mw-header.png');*/
 }
 
 /* marketwatch grid cells */
@@ -134,34 +134,34 @@
 
 
 .marketwatch .slick-cell.flag > .flag-icon.r:before {
-    background-image: url('~img/marketwatch-flag-red.png');
+    /*background-image: url('~img/marketwatch-flag-red.png');*/
 }
 
 .marketwatch .slick-cell.flag > .flag-icon.o:before {
-    background-image: url('~img/marketwatch-flag-orange.png');
+    /*background-image: url('~img/marketwatch-flag-orange.png');*/
 }
 
 .marketwatch .slick-cell.flag > .flag-icon.y:before {
-    background-image: url('~img/marketwatch-flag-yellow.png');
+    /*background-image: url('~img/marketwatch-flag-yellow.png');*/
 }
 
 .marketwatch .slick-cell.company-alert >.alert-icon.shown:before {
-    background-image: url('~img/marketwatch-alert.png');
+    /*background-image: url('~img/marketwatch-alert.png');*/
 }
 
 .marketwatch .slick-cell.news >.news-icon.shown.viewed:before{
-    background-image: url('~img/news-open.png');
+    /*background-image: url('~img/news-open.png');*/
 }
 .marketwatch .slick-cell.news >.news-icon.shown.not-viewed:before{
-    background-image: url('~img/news-close.png');
+    /*background-image: url('~img/news-close.png');*/
 }
 
 .marketwatch .slick-cell.analysis >.analysis-icon.shown.viewed:before{
-    background-image: url('~img/analysis-watched.png');
+    /*background-image: url('~img/analysis-watched.png');*/
 }
 
 .marketwatch .slick-cell.analysis >.analysis-icon.shown.not-viewed:before{
-    background-image: url('~img/analysis-not-watched.png');
+    /*background-image: url('~img/analysis-not-watched.png');*/
 }
 
 .marketwatch .slick-cell.liquidityInflowPercent {
@@ -238,20 +238,20 @@
 /* marketwatch context menu */
 
 .marketwatch li.menuitem.add-alert:before {
-    background-image: url('~img/alert-mw-header.png');
+    /*background-image: url('~img/alert-mw-header.png');*/
 }
 
 .marketwatch li.menuitem.add-company:before {
-    background-image: url('~img/alert-add.png');
+    /*background-image: url('~img/alert-add.png');*/
 }
 
 .marketwatch li.menuitem.remove-company:before {
-    background-image: url('~img/menu-delete-focused.png');
+    /*background-image: url('~img/menu-delete-focused.png');*/
 }
 
 /* toolbar */
 .marketwatch .toolbar-button .columns-icon:before {
-    background-image: url('~img/settings-knob.png');
+    /*background-image: url('~img/settings-knob.png');*/
 }
 
 /* dark theme */
@@ -286,6 +286,6 @@
 }
 
 .dark .marketwatch .slick-cell.company-alert >.alert-icon.shown:before {
-    background-image: url('~img/marketwatch-alert-dark.png');
+    /*background-image: url('~img/marketwatch-alert-dark.png');*/
     filter: none;
 }

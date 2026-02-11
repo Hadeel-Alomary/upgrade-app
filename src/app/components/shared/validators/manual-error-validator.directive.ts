@@ -5,6 +5,7 @@ import {LanguageService} from '../../../services/index';
 import {AbstractSyncValidator} from './abstract-sync-validator';
 
 @Directive({
+    standalone:true,
     selector: '[manualErrorValidator][ngModel]',
     providers: [{provide: NG_VALIDATORS, useExisting: ManualErrorValidatorDirective, multi: true}],
     inputs: ['required', 'manualError']

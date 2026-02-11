@@ -46,7 +46,7 @@ export class TradesSummaryService {
         priceData.forEach(priceData => {
             let price = round(priceData.close, priceDecimals);
             historicalTradesSummaries.push(new TradesSummary(
-                price, //id
+                price.toString(), //id
                 symbol, //symbol
                 +price, //price
                 priceData.contracts, //trades

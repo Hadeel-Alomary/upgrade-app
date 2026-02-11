@@ -45,7 +45,7 @@
     left: 5px;
     width: 15px;
     height: 15px;
-    background-image: url('~img/chart-technical-drawings-Lock-active.png');
+    /*background-image: url('~img/chart-technical-drawings-Lock-active.png');*/
     background-size: contain;
 }
 
@@ -53,130 +53,130 @@
     left: 20px;
 }
 
-/* window-toolbar icons */
-.window-toolbar .marketwatch:before {
-    background-image: url('~img/window-watchlist.png');
-}
-.window-toolbar .index-analysis:before {
-    background-image: url('~img/index-analysis.png');
-}
-.window-toolbar .chart:before {
-    background-image: url('~img/window-tools-chart.png');
-}
-.window-toolbar .detailed-quote:before {
-    background-image: url('~img/window-add-detail-quote.png');
-}
-.window-toolbar .time-and-sale:before {
-    background-image: url('~img/window-add-time-and-sale.png');
-}
+/*!* window-toolbar icons *!*/
+/*.window-toolbar .marketwatch:before {*/
+/*    background-image: url('~img/window-watchlist.png');*/
+/*}*/
+/*.window-toolbar .index-analysis:before {*/
+/*    background-image: url('~img/index-analysis.png');*/
+/*}*/
+/*.window-toolbar .chart:before {*/
+/*    background-image: url('~img/window-tools-chart.png');*/
+/*}*/
+/*.window-toolbar .detailed-quote:before {*/
+/*    background-image: url('~img/window-add-detail-quote.png');*/
+/*}*/
+/*.window-toolbar .time-and-sale:before {*/
+/*    background-image: url('~img/window-add-time-and-sale.png');*/
+/*}*/
 
-.window-toolbar .trades-summary:before {
-    background-image: url('~img/window-tools-trades-summary.png');
-}
+/*.window-toolbar .trades-summary:before {*/
+/*    background-image: url('~img/window-tools-trades-summary.png');*/
+/*}*/
 
-.window-toolbar .market-depth-by-price:before {
-    background-image: url('~img/window-add-market-depth-grouped.png');
-}
-.window-toolbar .market-depth-by-order:before {
-    background-image: url('~img/window-add-market-depth.png');
-}
-.window-toolbar .announcement:before {
-    background-image: url('~img/window-add-news.png');
-}
-.window-toolbar .market-trades:before {
-    background-image: url('~img/window-tools-market-trades.png');
-}
-.window-toolbar .technical-scope:before {
-    background-image: url('~img/window-technical-scope.png');
-}
-.window-toolbar .market-movers:before {
-    background-image: url('~img/window-market-movers.png');
-}
-.window-toolbar .market-alerts:before {
-    background-image: url('~img/window-tools-market-alarms.png');
-}
-.window-toolbar .large-trades:before {
-    background-image: url('~img/window-tools-large-trades.png');
-}
-.window-toolbar .watchlist:before {
-    background-image: url('~img/window-watchlist-settings.png');
-}
+/*.window-toolbar .market-depth-by-price:before {*/
+/*    background-image: url('~img/window-add-market-depth-grouped.png');*/
+/*}*/
+/*.window-toolbar .market-depth-by-order:before {*/
+/*    background-image: url('~img/window-add-market-depth.png');*/
+/*}*/
+/*.window-toolbar .announcement:before {*/
+/*    background-image: url('~img/window-add-news.png');*/
+/*}*/
+/*.window-toolbar .market-trades:before {*/
+/*    background-image: url('~img/window-tools-market-trades.png');*/
+/*}*/
+/*.window-toolbar .technical-scope:before {*/
+/*    background-image: url('~img/window-technical-scope.png');*/
+/*}*/
+/*.window-toolbar .market-movers:before {*/
+/*    background-image: url('~img/window-market-movers.png');*/
+/*}*/
+/*.window-toolbar .market-alerts:before {*/
+/*    background-image: url('~img/window-tools-market-alarms.png');*/
+/*}*/
+/*.window-toolbar .large-trades:before {*/
+/*    background-image: url('~img/window-tools-large-trades.png');*/
+/*}*/
+/*.window-toolbar .watchlist:before {*/
+/*    background-image: url('~img/window-watchlist-settings.png');*/
+/*}*/
 
-.window-toolbar .alert-icon:before {
-    background-image: url('~img/tools-alerts.png');
-}
+/*.window-toolbar .alert-icon:before {*/
+/*    background-image: url('~img/tools-alerts.png');*/
+/*}*/
 
-.window-toolbar .filter-icon:before {
-    background-image: url('~img/tools_filter.png');
-}
+/*.window-toolbar .filter-icon:before {*/
+/*    background-image: url('~img/tools_filter.png');*/
+/*}*/
 
-.window-toolbar .market-pre-open:before {
-    background-image: url('~img/window-add-pre-open.png');
-}
+/*.window-toolbar .market-pre-open:before {*/
+/*    background-image: url('~img/window-add-pre-open.png');*/
+/*}*/
 
-.window-toolbar .analysis-center:before {
-    background-image: url('~img/window-add-analysis-center.png');
-}
+/*.window-toolbar .analysis-center:before {*/
+/*    background-image: url('~img/window-add-analysis-center.png');*/
+/*}*/
 
-  .window-toolbar .shareholders:before {
-      background-image: url('~img/window-major-shareholder.png');
-  }
+/*  .window-toolbar .shareholders:before {*/
+/*      background-image: url('~img/window-major-shareholder.png');*/
+/*  }*/
 
-  .window-toolbar .financial-data:before {
-      background-image: url('~img/financial-reports.png');
-  }
+/*  .window-toolbar .financial-data:before {*/
+/*      background-image: url('~img/financial-reports.png');*/
+/*  }*/
 
-.window-toolbar .trading-positions:before {
-    background-image: url('~img/trading/portfolio.png');
-}
+/*.window-toolbar .trading-positions:before {*/
+/*    background-image: url('~img/trading/portfolio.png');*/
+/*}*/
 
-.window-toolbar .trading-account:before {
-    background-image: url('~img/trading/balance.png');
-}
+/*.window-toolbar .trading-account:before {*/
+/*    background-image: url('~img/trading/balance.png');*/
+/*}*/
 
-.window-toolbar .trading-transfer-money:before {
-    background-image: url('~img/trading/transfer-money.png');
-}
+/*.window-toolbar .trading-transfer-money:before {*/
+/*    background-image: url('~img/trading/transfer-money.png');*/
+/*}*/
 
-.window-toolbar .trading-orders:before {
-    background-image: url('~img/trading/orders.png');
-}
+/*.window-toolbar .trading-orders:before {*/
+/*    background-image: url('~img/trading/orders.png');*/
+/*}*/
 
-.window-toolbar .trading-settings:before {
-    background-image: url('~img/trading/settings.png');
-}
+/*.window-toolbar .trading-settings:before {*/
+/*    background-image: url('~img/trading/settings.png');*/
+/*}*/
 
-.english .window-toolbar .trading-orders{
-    transform: scaleX(-1);
-}
+/*.english .window-toolbar .trading-orders{*/
+/*    transform: scaleX(-1);*/
+/*}*/
 
-.window-toolbar .trading-floating-bar:before {
-    background-image: url('~img/trading/navigation-toolbar.png');
-}
+/*.window-toolbar .trading-floating-bar:before {*/
+/*    background-image: url('~img/trading/navigation-toolbar.png');*/
+/*}*/
 
-.window-toolbar .community-ideas:before {
-    background: url('~img/community-ideas-light.png') no-repeat center;
-}
+/*.window-toolbar .community-ideas:before {*/
+/*    background: url('~img/community-ideas-light.png') no-repeat center;*/
+/*}*/
 
-.window-toolbar .community-notifications:before {
-    background: url('~img/community-notifications-light.png')  no-repeat center;
-}
+/*.window-toolbar .community-notifications:before {*/
+/*    background: url('~img/community-notifications-light.png')  no-repeat center;*/
+/*}*/
 
-.window-toolbar .community-my-ideas:before {
-    background: url('~img/community-my-ideas-light.png') no-repeat center;
-}
+/*.window-toolbar .community-my-ideas:before {*/
+/*    background: url('~img/community-my-ideas-light.png') no-repeat center;*/
+/*}*/
 
-.window-toolbar .community-ideas.focus:before {
-    background: url('~img/community-ideas-focus.png')  no-repeat center;
-}
+/*.window-toolbar .community-ideas.focus:before {*/
+/*    background: url('~img/community-ideas-focus.png')  no-repeat center;*/
+/*}*/
 
-.window-toolbar .community-notifications.focus:before {
-    background: url('~img/community-notifications-focus.png')  no-repeat center;
-}
+/*.window-toolbar .community-notifications.focus:before {*/
+/*    background: url('~img/community-notifications-focus.png')  no-repeat center;*/
+/*}*/
 
-.window-toolbar .community-my-ideas.focus:before {
-    background: url('~img/community-my-ideas-focus.png')  no-repeat center;
-}
+/*.window-toolbar .community-my-ideas.focus:before {*/
+/*    background: url('~img/community-my-ideas-focus.png')  no-repeat center;*/
+/*}*/
 
 /* window-toolbar > window-toolbar-separator */
 
@@ -262,17 +262,17 @@
     background-position: top right;
 }
 
-@keyframes star-change {
-    0% {  background-image: url('~img/star.png') }
-    50% {  background-image: url('~img/star.png') }
-    100% { background-image: none; }
-}
+/*@keyframes star-change {*/
+/*    0% {  background-image: url('~img/star.png') }*/
+/*    50% {  background-image: url('~img/star.png') }*/
+/*    100% { background-image: none; }*/
+/*}*/
 
 /* dynamic-dropdown */
 
 .window-toolbar .dynamic-dropdown-menu-icon:before {
     height:100%;
-    background-image: url('~img/dynamic-menu-dots-24x24.png');
+    /*background-image: url('~img/dynamic-menu-dots-24x24.png');*/
 }
 
 .window-toolbar .windows .dynamic-dropdown .dynamic-dropdown-menu-elements{
@@ -317,7 +317,7 @@
 
 .dark .window-toolbar .trading-floating-bar:before {
     filter: none;
-    background-image: url('~img/trading/navigation-toolbar-dark.png');
+    /*background-image: url('~img/trading/navigation-toolbar-dark.png');*/
 }
 
 
@@ -326,20 +326,20 @@
     background-repeat: no-repeat;
 }
 
-.dark .window-toolbar .community-ideas.focus:before {
-    background: url('~img/community-ideas-focus.png')  no-repeat center;
-}
+/*.dark .window-toolbar .community-ideas.focus:before {*/
+/*    background: url('~img/community-ideas-focus.png')  no-repeat center;*/
+/*}*/
 
-.dark .window-toolbar .community-notifications.focus:before {
-    background: url('~img/community-notifications-focus.png')  no-repeat center;
-}
+/*.dark .window-toolbar .community-notifications.focus:before {*/
+/*    background: url('~img/community-notifications-focus.png')  no-repeat center;*/
+/*}*/
 
-.dark .window-toolbar .community-my-ideas.focus:before {
-    background: url('~img/community-my-ideas-focus.png')  no-repeat center;
-}
+/*.dark .window-toolbar .community-my-ideas.focus:before {*/
+/*    background: url('~img/community-my-ideas-focus.png')  no-repeat center;*/
+/*}*/
 
-@keyframes dark-star-change {
-    0% {  background-image: url('~img/star.png') }
-    50% {  background-image: url('~img/star.png') }
-    100% { background-image: none; }
-}
+/*@keyframes dark-star-change {*/
+/*    0% {  background-image: url('~img/star.png') }*/
+/*    50% {  background-image: url('~img/star.png') }*/
+/*    100% { background-image: none; }*/
+/*}*/

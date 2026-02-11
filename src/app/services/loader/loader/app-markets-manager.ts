@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Company, Market} from './market';
-import {ArrayUtils,MarketUtils} from 'tc-web-chart-lib';
 import {AuthorizationService} from '../../auhtorization';
 import {MiscStateService} from '../../state/misc/misc-state.service';
 import {MarketsManager} from './markets-manager';
+import {ArrayUtils, MarketUtils} from '../../../utils';
 
 const find = require("lodash/find");
 

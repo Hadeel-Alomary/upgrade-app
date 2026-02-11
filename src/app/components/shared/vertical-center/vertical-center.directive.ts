@@ -1,6 +1,7 @@
 import {AfterViewInit, Directive, ElementRef} from '@angular/core';
 
 @Directive({
+    standalone:true,
     selector: '[vertical-center]',
     exportAs: 'vertical-center'
 })

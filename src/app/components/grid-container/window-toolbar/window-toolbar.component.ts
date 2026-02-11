@@ -1,23 +1,29 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, OnDestroy, Output, ViewEncapsulation} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import {AppModeAuthorizationService, AuthorizationService, ChannelRequest, ChannelRequestType, CommunityService, MarketsManager, PageService, SharedChannel, TradingService} from '../../../services/index';
+import {AppModeAuthorizationService, AuthorizationService, ChannelRequest, ChannelRequestType, CommunityService, MarketsManager, PageService, SharedChannel} from '../../../services/index';
 import {GridBoxType} from '../../shared/grid-box/index';
 import {SubscriptionLike as ISubscription} from 'rxjs';
 import {Feature, FeatureType} from '../../../services/auhtorization/feature';
-import {CommunityTabType} from '../../modals/community/CommunityTabType';
-import {CommunityWindowCaller, ShowCommunityWindowRequest} from '../../modals/community/community.component';
-import {BrokerType} from '../../../services/trading/broker/broker';
+// import {CommunityTabType} from '../../modals/community/CommunityTabType';
+// import {CommunityWindowCaller, ShowCommunityWindowRequest} from '../../modals/community/community.component';
 import {FeatureGridBox} from '../../../services/auhtorization/feature-grid-box';
 import {AppModeFeatureType} from '../../../services/auhtorization/app-mode-authorization';
-import {UpgradeMessageChannelRequest, UpgradeMessageType} from '../../modals/popup/upgrade-message';
-import {AccessType} from '../../../services/auhtorization/access-type';
+// import {UpgradeMessageChannelRequest, UpgradeMessageType} from '../../modals/popup/upgrade-message';
+// import {AccessType} from '../../../services/auhtorization/access-type';
+import {OverflowToolbar} from '../../shared';
+import {DropdownDirective} from '../../../ng2-bootstrap/components/dropdown/dropdown.directive';
+import {DropdownToggleDirective} from '../../../ng2-bootstrap/components/dropdown/dropdown-toggle.directive';
+import {DropdownMenuDirective} from '../../../ng2-bootstrap/components/dropdown/dropdown-menu.directive';
+import {NgFor, NgIf} from '@angular/common';
 
 @Component({
+    standalone:true,
     selector: 'window-toolbar',
     templateUrl:'./window-toolbar.component.html',
     styleUrls:['./window-toolbar.component.css'],
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
+    imports:[OverflowToolbar,DropdownDirective,DropdownToggleDirective,DropdownMenuDirective,NgIf],
     animations: [
         trigger('expandTools', [
             state('expanded', style({
@@ -71,11 +77,11 @@ import {AccessType} from '../../../services/auhtorization/access-type';
         ]),
     ],
     host: {
-        '(window:resize)': 'onResize($event)'
+        '(window:resize)': 'onResize()'
     }
 })
 
-export class WindowToolbarComponent implements CommunityWindowCaller, OnDestroy {
+export class WindowToolbarComponent implements OnDestroy {
     toolsExpanded = false;
     marketWindowsExpanded = true;
     companyWindowsExpanded = false;
@@ -93,14 +99,13 @@ export class WindowToolbarComponent implements CommunityWindowCaller, OnDestroy 
 
     constructor( public sharedChannel:SharedChannel,
                  public cd:ChangeDetectorRef,
-                 public tradingService:TradingService,
                  public pageService:PageService,
                  public authorizationService:AuthorizationService,
                  public communityService:CommunityService,
                  public marketsManager: MarketsManager,
                  public appModeAuthorizationService: AppModeAuthorizationService) {
-        this.subscriptions.push(this.tradingService.getSessionStream()
-            .subscribe(validSession => this.onTradingSession(validSession)));
+        // this.subscriptions.push(this.tradingService.getSessionStream()
+        //     .subscribe(validSession => this.onTradingSession(validSession)));
 
         this.subscriptions.push(
             this.communityService.getNotificationsStream().subscribe(notifications => {
@@ -183,40 +188,40 @@ export class WindowToolbarComponent implements CommunityWindowCaller, OnDestroy 
     }
 
     onShowSettingsModal(){
-        let settingsModalType: ChannelRequestType = null;
-        switch (this.tradingService.getBrokerType()) {
-            case BrokerType.VirtualTrading:
-                settingsModalType = ChannelRequestType.VirtualTradingSettings;
-                break;
-            case BrokerType.Tradestation:
-                settingsModalType = ChannelRequestType.TradestationSettings;
-               break;
-            case BrokerType.Snbcapital:
-                settingsModalType = ChannelRequestType.SnbcapitalSettings;
-                break;
-            case BrokerType.Riyadcapital:
-                settingsModalType = ChannelRequestType.RiyadcapitalSettings;
-                break;
-            case BrokerType.Alinmainvest:
-                settingsModalType = ChannelRequestType.AlinmainvestSettings;
-                break;
-            case BrokerType.Aljaziracapital:
-                settingsModalType = ChannelRequestType.AljaziracapitalSettings;
-                break;
-            case BrokerType.Alrajhicapital:
-                settingsModalType = ChannelRequestType.AlrajhicapitalSettings;
-                break;
-            case BrokerType.Musharaka:
-                settingsModalType = ChannelRequestType.MusharakaSettings;
-                break
-            case BrokerType.Bsf:
-                settingsModalType = ChannelRequestType.BsfSettings;
-                break;
-            case BrokerType.Alkhabeercapital:
-                settingsModalType = ChannelRequestType.AlkhabeercapitalSettings;
-                break;
-        }
-        this.sendChannelRequest({type: settingsModalType});
+        // let settingsModalType: ChannelRequestType = null;
+        // switch (this.tradingService.getBrokerType()) {
+        //     case BrokerType.VirtualTrading:
+        //         settingsModalType = ChannelRequestType.VirtualTradingSettings;
+        //         break;
+        //     case BrokerType.Tradestation:
+        //         settingsModalType = ChannelRequestType.TradestationSettings;
+        //        break;
+        //     case BrokerType.Snbcapital:
+        //         settingsModalType = ChannelRequestType.SnbcapitalSettings;
+        //         break;
+        //     case BrokerType.Riyadcapital:
+        //         settingsModalType = ChannelRequestType.RiyadcapitalSettings;
+        //         break;
+        //     case BrokerType.Alinmainvest:
+        //         settingsModalType = ChannelRequestType.AlinmainvestSettings;
+        //         break;
+        //     case BrokerType.Aljaziracapital:
+        //         settingsModalType = ChannelRequestType.AljaziracapitalSettings;
+        //         break;
+        //     case BrokerType.Alrajhicapital:
+        //         settingsModalType = ChannelRequestType.AlrajhicapitalSettings;
+        //         break;
+        //     case BrokerType.Musharaka:
+        //         settingsModalType = ChannelRequestType.MusharakaSettings;
+        //         break
+        //     case BrokerType.Bsf:
+        //         settingsModalType = ChannelRequestType.BsfSettings;
+        //         break;
+        //     case BrokerType.Alkhabeercapital:
+        //         settingsModalType = ChannelRequestType.AlkhabeercapitalSettings;
+        //         break;
+        // }
+        // this.sendChannelRequest({type: settingsModalType});
     }
 
     onShowAccountTransactions() {
@@ -224,28 +229,29 @@ export class WindowToolbarComponent implements CommunityWindowCaller, OnDestroy 
     }
 
     onShowTransferMoney() {
-        let request = this.tradingService.getTransferMoneyType();
-        this.sendChannelRequest({type: request})
+        // let request = this.tradingService.getTransferMoneyType();
+        // this.sendChannelRequest({type: request})
     }
 
     shouldDisplaySettings(): boolean {
-        return this.tradingService.shouldDisplaySettings();
+
+        return false; //this.tradingService.shouldDisplaySettings();
     }
 
     showAccountTransactions(): boolean{
-        return this.tradingService.shouldDisplayAccountTransactions()
+        return false;//this.tradingService.shouldDisplayAccountTransactions()
     }
 
     showTransferMoney():boolean {
-        return this.tradingService.shouldDisplayTransferMoney();
+        return false;//this.tradingService.shouldDisplayTransferMoney();
     }
 
     shouldDisplayAccountBalances():boolean {
-        return this.tradingService.shouldDisplayAccountBalances();
+        return false; //this.tradingService.shouldDisplayAccountBalances();
     }
 
     shouldDisplayAccount(): boolean {
-        return this.tradingService.shouldDisplayAccount();
+        return false; //this.tradingService.shouldDisplayAccount();
     }
 
      onExpandMarketWindows() {
@@ -300,18 +306,18 @@ export class WindowToolbarComponent implements CommunityWindowCaller, OnDestroy 
     /* trading */
 
     onAddTradingOrdersScreen():void{
-        let boxType:GridBoxType = this.tradingService.getTradingOrdersGridBoxType();
-        this.onAddMarketBox(boxType);
+        // let boxType:GridBoxType = this.tradingService.getTradingOrdersGridBoxType();
+        // this.onAddMarketBox(boxType);
     }
 
     onAddTradingPositionsScreen():void{
-        let boxType:GridBoxType = this.tradingService.getTradingPositionsGridBoxType();
-        this.onAddMarketBox(boxType);
+        // let boxType:GridBoxType = this.tradingService.getTradingPositionsGridBoxType();
+        // this.onAddMarketBox(boxType);
     }
 
     onAddTradingAccountBalanceScreen(): void {
-        let boxType: GridBoxType = this.tradingService.getTradingAccountBalanceGridBoxType();
-        this.onAddMarketBox(boxType);
+        // let boxType: GridBoxType = this.tradingService.getTradingAccountBalanceGridBoxType();
+        // this.onAddMarketBox(boxType);
     }
 
     /* Community */
@@ -323,7 +329,7 @@ export class WindowToolbarComponent implements CommunityWindowCaller, OnDestroy 
     onToggleCommunityIdeas() {
         this.authorizationService.authorize(FeatureType.COMMUNITY, () => {
             this.focusOnCommunityIdeasIcon();
-            this.openCommunityWindow(CommunityTabType.Ideas);
+            // this.openCommunityWindow(CommunityTabType.Ideas);
         })
     }
 
@@ -336,7 +342,7 @@ export class WindowToolbarComponent implements CommunityWindowCaller, OnDestroy 
     onToggleCommunityNotifications() {
         this.authorizationService.authorize(FeatureType.COMMUNITY, () => {
             this.focusOnCommunityNotificationIcon();
-            this.openCommunityWindow(CommunityTabType.Notifications);
+            // this.openCommunityWindow(CommunityTabType.Notifications);
         });
     }
 
@@ -349,7 +355,7 @@ export class WindowToolbarComponent implements CommunityWindowCaller, OnDestroy 
     onToggleCommunityMyIdeas() {
         this.authorizationService.authorize(FeatureType.COMMUNITY, () => {
             this.focusOnCommunityMyIdeasIcon();
-            this.openCommunityWindow(CommunityTabType.MyIdeas);
+            // this.openCommunityWindow(CommunityTabType.MyIdeas);
         })
     }
 
@@ -359,10 +365,10 @@ export class WindowToolbarComponent implements CommunityWindowCaller, OnDestroy 
         this.communityMyIdeasIconFocused = !this.communityMyIdeasIconFocused;
     }
 
-    openCommunityWindow(type: CommunityTabType) {
-        let showCommunityWindowRequest: ShowCommunityWindowRequest = {type: ChannelRequestType.CommunityWindows, communityTabType: type , caller:this};
-        this.sharedChannel.request(showCommunityWindowRequest);
-    }
+    // openCommunityWindow(type: CommunityTabType) {
+    //     let showCommunityWindowRequest: ShowCommunityWindowRequest = {type: ChannelRequestType.CommunityWindows, communityTabType: type , caller:this};
+    //     this.sharedChannel.request(showCommunityWindowRequest);
+    // }
 
     onCloseWindow() {
         this.communityIdeasIconFocused = false;

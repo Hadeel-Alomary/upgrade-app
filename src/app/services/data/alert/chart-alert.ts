@@ -5,17 +5,16 @@ import {AlertType} from './alert-type';
 import {NotificationMethods} from '../notification';
 import {ChartAlertFunction, ChartAlertFunctionType} from './chart-alert-function';
 import {ChartAlertIndicator} from './chart-alert-indicator';
-import {Interval, IntervalType} from 'tc-web-chart-lib';
+// import {Interval, IntervalType} from 'tc-web-chart-lib';
 import {AlertTriggerType} from './alert-trigger';
 import {HostedAlert} from './hosted-alert';
 import {StringUtils, Tc} from '../../../utils';
-import {MathUtils} from 'tc-web-chart-lib';
+// import {MathUtils} from 'tc-web-chart-lib';
 
 export class ChartAlert extends HostedAlert {
 
     constructor(
         id: string,
-        interval: IntervalType,
         paused: boolean,
         reactivateMinutes: boolean,
         triggerType: AlertTriggerType,
@@ -35,7 +34,7 @@ export class ChartAlert extends HostedAlert {
         hostId:string,
         public equationDefinition:ChartAlertEquationDefinition
     ) {
-        super(id, interval, paused, reactivateMinutes, triggerType, fireOnChange, expiryDate, message, language, expired,
+        super(id, paused, reactivateMinutes, triggerType, fireOnChange, expiryDate, message, language, expired,
             createdAt, updatedAt, company, lastTriggerTime, history, notificationMethods, type, deleted, hostId);
     }
 
@@ -51,14 +50,13 @@ export class ChartAlert extends HostedAlert {
 
     public static createNewAlert(language: string,
                                  company: Company,
-                                 intervalType: IntervalType,
+                                 intervalType: any , //IntervalType,
                                  hostId:string,
                                  equationDefinition:ChartAlertEquationDefinition): ChartAlert {
 
 
         return new ChartAlert(
             null,
-            intervalType,
             false,
             false,
             AlertTriggerType.ONCE,
@@ -86,13 +84,13 @@ export class ChartAlert extends HostedAlert {
             ChartAlertFunction.fromType(this.equationDefinition.alertFunctionType).englishMessageTemplate;
         return template
             .replace('INDICATOR', StringUtils.markLeftToRightInRightToLeftContext(this.parameter.selectedIndicatorField + this.parameter.indicatorParametersString))
-            .replace('VALUE1', StringUtils.formatVariableDigitsNumber(MathUtils.roundAccordingMarket(this.equationDefinition.value1, this.company.symbol)))
-            .replace('VALUE2', StringUtils.formatVariableDigitsNumber(MathUtils.roundAccordingMarket(this.equationDefinition.value2, this.company.symbol)));
+            // .replace('VALUE1', StringUtils.formatVariableDigitsNumber(MathUtils.roundAccordingMarket(this.equationDefinition.value1, this.company.symbol)))
+            // .replace('VALUE2', StringUtils.formatVariableDigitsNumber(MathUtils.roundAccordingMarket(this.equationDefinition.value2, this.company.symbol)));
     }
 
     public getEquation(): string {
         let technicalFunction = this.getTechnicalFunction();
-        let serverInterval = Interval.toAlertServerInterval(this.interval);
+        let serverInterval = '1min' //Interval.toAlertServerInterval(this.interval);
         let p1 = ([this.parameter.selectedIndicatorField, serverInterval] as (string | number)[]).concat(this.parameter.indicatorParameters).join('_');
         technicalFunction = this.replaceAll(technicalFunction, 'P_1', p1);
         technicalFunction = this.replaceAll(technicalFunction, 'P_2_prv1', this.equationDefinition.value1.toString());

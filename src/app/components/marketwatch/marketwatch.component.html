@@ -26,7 +26,7 @@
 
       <div class="box-toolbar-separator"></div>
       <div class="box-toolbar-child fill">
-        <symbol-selector (outputSymbol)="onSelectingSymbol($event)" [placeHolderText]="getSymbolSelectorPlaceHolderText()"></symbol-selector>
+<!--        <symbol-selector (outputSymbol)="onSelectingSymbol($event)" [placeHolderText]="getSymbolSelectorPlaceHolderText()"></symbol-selector>-->
       </div>
 
     </div>
@@ -40,7 +40,7 @@
       </div>
       <div class="box-toolbar-separator"></div>
       <div class="box-toolbar-child fill">
-        <symbol-selector (outputSymbol)="onSelectingSymbol($event)"></symbol-selector>
+<!--        <symbol-selector (outputSymbol)="onSelectingSymbol($event)"></symbol-selector>-->
       </div>
     </div>
 
@@ -52,7 +52,7 @@
         <annotation-delayed *ngIf="annotationDelayed.item" [symbol]="getSymbol(annotationDelayed.item.symbol)" [marketName]="getMarket(annotationDelayed.item.symbol)"></annotation-delayed>
     </div>
     <div  class="dropdown-menu upgrade-annotation-tooltip context-menu" context-menu [isHoveredTooltip]="true" [left]="upgradeAnnotation.left" [top]="upgradeAnnotation.top">
-        <upgrade-annotation *ngIf="upgradeAnnotation.item"></upgrade-annotation>
+<!--        <upgrade-annotation *ngIf="upgradeAnnotation.item"></upgrade-annotation>-->
     </div>
 
   <ul *ngIf="!isVisitor()" class="dropdown-menu context-menu" context-menu [left]="contextMenu.left" [top]="contextMenu.top" role="menu" aria-labelledby="single-button">
@@ -89,7 +89,7 @@
       <div i18n="@@marketwatch_iconsColumns">أعمدة الايقونات</div>
       <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
         <li *ngFor="let icon of iconColumnIds" class="menuitem icon" role="menuitem" [class.tick]="!excludedIconColumns.includes(icon)" (click)="onToggleIconColumn(icon)">
-          <div><span i18n="@@marketwatch_showIconColumn"> اظهار </span>&nbsp;{{iconColumns[icon] | translate}}</div>
+<!--          <div><span i18n="@@marketwatch_showIconColumn"> اظهار </span>&nbsp;{{iconColumns[icon] | translate}}</div>-->
         </li>
       </ul>
     </li>

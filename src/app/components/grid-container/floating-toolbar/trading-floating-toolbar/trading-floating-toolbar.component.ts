@@ -14,9 +14,7 @@ import {
     Accessor,
     QuoteService,
     AutoLinkType,
-    ChannelRequest,
-    TradingService
-} from '../../../../services/index';
+    ChannelRequest} from '../../../../services/index';
 
 import {
     ChannelListener
@@ -26,14 +24,18 @@ import {
     MarketUtils,
     StringUtils
 } from '../../../../utils/index';
-import {AppBrowserUtils} from '../../../../utils';
+import {BrowserUtils} from '../../../../utils';
+import {DraggableElementDirective} from '../../../shared';
+import {NgFor, NgIf} from '@angular/common';
 
 @Component({
+    standalone:true,
     selector: 'trading-floating-toolbar',
     templateUrl:'./trading-floating-toolbar.component.html',
     styleUrls:['./trading-floating-toolbar.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    imports:[DraggableElementDirective,NgIf]
 })
 
 export class TradingFloatingToolbarComponent extends ChannelListener<TradingToolbarChannelRequest> implements AfterViewInit, OnDestroy{
@@ -45,18 +47,17 @@ export class TradingFloatingToolbarComponent extends ChannelListener<TradingTool
     constructor(
         public cd:ChangeDetectorRef,
         public accessor:Accessor,
-        public quoteService:QuoteService,
-        public tradingService:TradingService){
+        public quoteService:QuoteService){
         super(accessor.sharedChannel, ChannelRequestType.TradingFloatingToolbar);
     }
 
     isDesktop():boolean {
-        return AppBrowserUtils.isDesktop();
+        return BrowserUtils.isDesktop();
     }
 
     ngAfterViewInit() {
 
-        this.setPosition(this.tradingService.toolbarPosition);
+        // this.setPosition(this.tradingService.toolbarPosition);
 
         this.subscriptions.push(
             this.quoteService.getSnapshotStream()
@@ -73,17 +74,17 @@ export class TradingFloatingToolbarComponent extends ChannelListener<TradingTool
                 .subscribe(autoLinkInfo => this.onAutolink(autoLinkInfo))
         );
 
-        this.subscriptions.push(
-            this.tradingService.getSessionStream()
-                .subscribe(connected => {
-                    if(connected) {
-                        this.visible = this.tradingService.toolbarVisible;
-                        this.cd.markForCheck();
-                    } else {
-                        this.visible = false;
-                    }
-                })
-        );
+        // this.subscriptions.push(
+        //     this.tradingService.getSessionStream()
+        //         .subscribe(connected => {
+        //             if(connected) {
+        //                 this.visible = this.tradingService.toolbarVisible;
+        //                 this.cd.markForCheck();
+        //             } else {
+        //                 this.visible = false;
+        //             }
+        //         })
+        // );
 
     }
 
@@ -98,7 +99,7 @@ export class TradingFloatingToolbarComponent extends ChannelListener<TradingTool
 
     protected onChannelRequest(){
         this.visible = !this.visible;
-        this.tradingService.toolbarVisible = this.visible;
+        // this.tradingService.toolbarVisible = this.visible;
         this.cd.markForCheck();
     }
 
@@ -110,7 +111,7 @@ export class TradingFloatingToolbarComponent extends ChannelListener<TradingTool
     }
 
     savePosition(position:{left:number, top:number}):void{
-        this.tradingService.toolbarPosition = position;
+        // this.tradingService.toolbarPosition = position;
     }
 
     /* data methods */
@@ -136,9 +137,9 @@ export class TradingFloatingToolbarComponent extends ChannelListener<TradingTool
         if (this.quote)
             this.quoteService.unSubscribeQuote(this.quote.symbol);
 
-        if(!this.tradingService.isSymbolTradableByBroker(autoLinkInfo.symbol)){
-            return;
-        }
+        // if(!this.tradingService.isSymbolTradableByBroker(autoLinkInfo.symbol)){
+        //     return;
+        // }
 
         this.quote = this.quotes.data[autoLinkInfo.symbol];
         this.quoteService.subscribeQuote(this.quote.symbol);
@@ -170,7 +171,7 @@ export class TradingFloatingToolbarComponent extends ChannelListener<TradingTool
         if(!this.canBuyAndSell()){
             return;
         }
-        this.tradingService.openSellScreen(this.quote.symbol);
+        // this.tradingService.openSellScreen(this.quote.symbol);
     }
 
     onOpenBuy(){
@@ -178,7 +179,7 @@ export class TradingFloatingToolbarComponent extends ChannelListener<TradingTool
             return;
         }
 
-        this.tradingService.openBuyScreen(this.quote.symbol);
+        // this.tradingService.openBuyScreen(this.quote.symbol);
     }
 }
 

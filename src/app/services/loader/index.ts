@@ -21,7 +21,6 @@ export {WatchlistLoader} from './watchlist-loader/index';
 export {PredefinedWatchlistLoaderService} from './predefined-watchlist-loader/index';
 export {WorkspaceLoader} from './workspace-loader/index';
 export {MyDrawingsLoader} from './my-drawings-loader/index';
-export {PublishLoader} from './publish-loader/publish-loader.service';
 export {PriceLoader, GroupedPriceData, Split} from './price-loader/price-loader.service';
 export {BigTradeLoader} from './big-trade-loader/big-trade-loader.service';
 export {MarketAlertLoader} from './market-alert-loader/market-alert-loader.service';
@@ -34,28 +33,28 @@ export {StreamerLoader} from './streamer-loader/streamer-loader.service';
 export {AnalysisCenterLoaderService} from './analysis-center-loader/index';
 export {CommunityLoaderService} from './community-loader/community-loader.service';
 export {UpgradeMessageLoaderService} from './upgrade-message-loader/index';
-export {
-    DerayahLoaderService,
-    SnbcapitalPortfoliosResponse,
-    SnbcapitalPositionResponse,
-    RiyadcapitalPortfoliosResponse,
-    RiyadcapitalPositionResponse,
-    AlinmainvestPortfoliosResponse,
-    AlinmainvestPositionResponse,
-    VirtualTradingLoader,
-    VirtualTradingAccountResponse,
-    VirtualTradingPositionResponse,
-    VirtualTradingOrderResponse,
-    VirtualTradingOrderActionResponse,
-    VirtualTradingTransactionResponse,
-    TradestationLoaderService,
-    BrokerRegisterLoaderService,
-    AljaziracapitalLoginResponse ,
-    AljaziracapitalPortfoliosResponse,
-    AljaziracapitalPositionResponse,
-    AljaziracapitalPortfolioResponse ,
-    AljaziracapitalOrderRequestResponse
-} from './trading/index';
+// export {
+//     DerayahLoaderService,
+//     SnbcapitalPortfoliosResponse,
+//     SnbcapitalPositionResponse,
+//     RiyadcapitalPortfoliosResponse,
+//     RiyadcapitalPositionResponse,
+//     AlinmainvestPortfoliosResponse,
+//     AlinmainvestPositionResponse,
+//     VirtualTradingLoader,
+//     VirtualTradingAccountResponse,
+//     VirtualTradingPositionResponse,
+//     VirtualTradingOrderResponse,
+//     VirtualTradingOrderActionResponse,
+//     VirtualTradingTransactionResponse,
+//     TradestationLoaderService,
+//     BrokerRegisterLoaderService,
+//     AljaziracapitalLoginResponse ,
+//     AljaziracapitalPortfoliosResponse,
+//     AljaziracapitalPositionResponse,
+//     AljaziracapitalPortfolioResponse ,
+//     AljaziracapitalOrderRequestResponse
+// } from './trading/index';
 export {MarketsTickSizeLoaderService} from './markets-tick-size-loader/index';
 export {LanguageLoaderService} from './language-loader/index';
 export {UserLoaderService} from './user/index';

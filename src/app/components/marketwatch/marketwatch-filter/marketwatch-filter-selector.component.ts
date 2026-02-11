@@ -1,15 +1,21 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angular/core';
 import {AppModeAuthorizationService, AuthorizationService, ChannelRequestType, Filter, FilterService, LanguageService, SharedChannel} from '../../../services/index';
-import {FilterPropertiesRequest} from '../../modals/index';
+// import {FilterPropertiesRequest} from '../../modals/index';
 import {FeatureType} from '../../../services/auhtorization/feature';
 import {AppModeFeatureType} from '../../../services/auhtorization/app-mode-authorization';
+import {DropdownDirective} from '../../../ng2-bootstrap/components/dropdown/dropdown.directive';
+import {DropdownToggleDirective} from '../../../ng2-bootstrap/components/dropdown/dropdown-toggle.directive';
+import {DropdownMenuDirective} from '../../../ng2-bootstrap/components/dropdown/dropdown-menu.directive';
+import {NgFor, NgIf} from '@angular/common';
 
 @Component({
+    standalone:true,
     selector: 'marketwatch-filter-selector',
     templateUrl:'./marketwatch-filter-selector.component.html',
     styleUrls:['./marketwatch-filter-selector.component.css'],
     encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports:[DropdownDirective,DropdownToggleDirective,DropdownMenuDirective,NgIf,NgFor]
 })
 
 export class MarketwatchFilterSelectorComponent  {
@@ -58,11 +64,11 @@ export class MarketwatchFilterSelectorComponent  {
 
      onUpdateFilters() {
          this.authorizationService.authorize(FeatureType.UPDATE_WATCHLIST_FILTER, () => {
-             let filterPropertiesRequest:FilterPropertiesRequest = {type: ChannelRequestType.FilterProperties};
-             if(!this.filter.builtin){
-                 filterPropertiesRequest.filter = this.filter;
-             }
-             this.sharedChannel.request(filterPropertiesRequest);
+             // let filterPropertiesRequest:FilterPropertiesRequest = {type: ChannelRequestType.FilterProperties};
+             // if(!this.filter.builtin){
+             //     filterPropertiesRequest.filter = this.filter;
+             // }
+             // this.sharedChannel.request(filterPropertiesRequest);
          });
     }
 

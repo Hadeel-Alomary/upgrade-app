@@ -2,16 +2,19 @@ import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnDe
 import {LanguageService} from '../../../services/state/language';
 import {BS_VIEW_PROVIDERS} from '../../../ng2-bootstrap/ng2-bootstrap';
 import {MiscStateService} from '../../../services/state';
-import {ReCaptcha2Component} from 'ngx-captcha';
+import {NgxCaptchaModule, ReCaptcha2Component} from 'ngx-captcha';
+import {FormsModule} from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
 
 @Component({
+  standalone:true,
   selector: 'recaptcha',
   templateUrl: './recaptcha.component.html',
   styleUrls: ['./recaptcha.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   viewProviders:[BS_VIEW_PROVIDERS],
-  encapsulation: ViewEncapsulation.None
-
+  encapsulation: ViewEncapsulation.None,
+  imports:[NgxCaptchaModule ,FormsModule,BrowserModule]
 })
 export class RecaptchaComponent implements OnChanges, OnDestroy {
 

@@ -13,7 +13,7 @@
 <div *ngIf="!isArrowSteps" class="number-with-plus-minus-steps" [class.active]="isInputFieldClicked()" [class.disabled]="disabled" tabindex="0" #plusMinusSteps>
     <div class="plus-minus-arrow-container">
         <div class="minus-arrow-container icon" (click)="decreaseInputValue()"></div>
-        <input class="english" type="{{formatWhole?'text':'number'}}" [step]="step" (keypress)="mustBeNumber($event)" [value]="valueAsString()" (input)="fireUserInput($event.target.value)" (change)="setNumValue($event.target.value)" [placeholder]="placeHolder" i18n-placeholder="{{placeHolderTransitionStatement}}" (mousewheel)="onInputMouseWheel($event)" (click)="shadingInputValueInMobile()" [disabled]="disabled" #inputPlusMinus>
+<!--        <input class="english" type="{{formatWhole?'text':'number'}}" [step]="step" (keypress)="mustBeNumber($event)" [value]="valueAsString()" (input)="fireUserInput($event.target.value)" (change)="setNumValue($event.target.value)" [placeholder]="placeHolder" i18n-placeholder="{{placeHolderTransitionStatement}}" (mousewheel)="onInputMouseWheel($event)" (click)="shadingInputValueInMobile()" [disabled]="disabled" #inputPlusMinus>-->
 
         <div class="plus-arrow-container icon" (click)="increaseInputValue()"></div>
     </div>

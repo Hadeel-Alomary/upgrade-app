@@ -81,7 +81,7 @@ export {PasswordFieldWrapperComponent} from './form';
 
 export { LeadingZeroTrimmerDirective } from './leading-zero-trimmer/leading-zero-trimmer.directive';
 
-export {IntervalSelectorContentComponent , IntervalSelectorComponent} from './interval/index'
+// export {IntervalSelectorContentComponent , IntervalSelectorComponent} from './interval/index'
 
 export { CustomTooltipDirective } from './custom-tooltip/custom-tooltip.directive';
 

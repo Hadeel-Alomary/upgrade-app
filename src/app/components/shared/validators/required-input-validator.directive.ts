@@ -5,8 +5,9 @@ import {LanguageService} from '../../../services/index';
 import {AbstractSyncValidator} from './abstract-sync-validator';
 
 @Directive({
+    standalone:true,
     selector: '[requiredInputValidator][ngModel]',
-    providers: [{provide: NG_VALIDATORS, useExisting: RequiredInputValidatorDirective, multi: true}],
+    // providers: [{provide: NG_VALIDATORS, useExisting: RequiredInputValidatorDirective, multi: true}],
     inputs: ['activated']
 })
 export class RequiredInputValidatorDirective extends AbstractSyncValidator implements Validator, AfterViewInit, OnChanges{
@@ -22,7 +23,7 @@ export class RequiredInputValidatorDirective extends AbstractSyncValidator imple
     protected isValid(value:unknown):boolean {
         return (value || value === 0) && (0 < (value as string|number).toString().trim().length);
     }
-    
+
     protected getErrorMessage():string{
         return ValidationMessage.getMessage(ValidationMessageType.RequiredInput, this.languageService);
     }

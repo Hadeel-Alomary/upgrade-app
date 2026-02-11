@@ -5,8 +5,9 @@ import {LanguageService} from '../../../services/index';
 import {AbstractSyncValidator} from './abstract-sync-validator';
 
 @Directive({
+    standalone:true,
     selector: '[integerValueValidator][ngModel]',
-    providers: [{provide: NG_VALIDATORS, useExisting: IntegerValueOnlyValidatorDirective, multi: true}],
+    // providers: [{provide: NG_VALIDATORS, useExisting: IntegerValueOnlyValidatorDirective, multi: true}],
     inputs: ['activated']
 })
 export class IntegerValueOnlyValidatorDirective extends AbstractSyncValidator implements Validator, AfterViewInit, OnChanges{

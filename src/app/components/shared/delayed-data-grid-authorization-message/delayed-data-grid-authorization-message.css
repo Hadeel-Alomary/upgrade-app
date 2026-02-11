@@ -10,11 +10,11 @@
     margin-top: 40px;
     display: inline-flex;
     background-repeat: no-repeat;
-    background-image: url('~img/popup-alert.png');
+    /*background-image: url('~img/popup-alert.png');*/
 }
 
 .dark .delayed-data-grid-message .warning-icon {
-    background-image: url('~img/popup-alert-dark.png');;
+    /*background-image: url('~img/popup-alert-dark.png');;*/
 }
 
 .delayed-data-grid-message .message {

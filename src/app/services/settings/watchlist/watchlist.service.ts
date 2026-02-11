@@ -4,12 +4,12 @@ import {StringUtils, Tc, AppTcTracker} from '../../../utils/index';
 import {WatchlistLoader} from '../../loader/watchlist-loader';
 import {Market} from '../../loader/loader/market';
 import {LanguageService, StateKey, WorkspaceStateService} from '../../state/index';
-import {ArrayUtils} from 'tc-web-chart-lib';
+// import {ArrayUtils} from 'tc-web-chart-lib';
 import {MarketsManager} from '../../loader/loader/markets-manager';
 import {Loader} from '../../loader/loader';
 import {ChannelRequestType, SharedChannel} from '../../shared-channel';
 import {AuthorizationService} from '../../auhtorization';
-import {MessageBoxRequest} from '../../../components/modals/popup/message-box';
+// import {MessageBoxRequest} from '../../../components/modals/popup/message-box';
 import {PredefinedWatchlistService} from '../../predefined-watchlist';
 import {FeatureType} from '../../auhtorization/feature';
 
@@ -153,8 +153,8 @@ export class WatchlistService {
     private showExceedMessage(): void {
         let message: string = this.languageService.translate('لا يمكن إضافة جميع الشركات المختارة إلى لائحة الأسهم .');
         let message2:string = this.languageService.translate('عدد الشركات في لائحة الأسهم سيتجاوز الحد المسموح به وهو (700) شركة , الرجاء حذف بعض الشركات من اللائحة لتتمكن من إضافة شركات اخرى .');
-        let request: MessageBoxRequest = {type: ChannelRequestType.MessageBox, messageLine: message,messageLine2: message2};
-        this.sharedChannel.request(request);
+        // let request: MessageBoxRequest = {type: ChannelRequestType.MessageBox, messageLine: message,messageLine2: message2};
+        // this.sharedChannel.request(request);
     }
 
     addSymbolsToWatchlist(watchlist:Watchlist, symbols:string[]){

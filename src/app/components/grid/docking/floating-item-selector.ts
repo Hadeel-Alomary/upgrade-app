@@ -12,7 +12,7 @@ export class FloatingItemSelector {
 
         let floatingItems:DockingItemDirective[] = this.items.filter(item => !item.config.docked);
         if(floatingItems.length == 0) { return; }
-        
+
         let floatingItemsUnderMouse:DockingItemDirective[] = floatingItems.filter(item => item.isUnderMouse(x, y));
         if(floatingItemsUnderMouse.length == 0) { return; }
 
@@ -25,14 +25,14 @@ export class FloatingItemSelector {
         let maxOrderElement = maxBy(floatingItemsUnderMouse, (item: DockingItemDirective) => item.order);
 
         maxOrderElement.select();
-        
+
     }
 
     selectItem(item:DockingItemDirective):void {
         Tc.assert(!item.config.docked, "cannot select a docked item");
         let selectedItem:DockingItemDirective = this.items.find(item => !item.config.docked && item.isSelected());
         if(selectedItem != null) { selectedItem.unselect(); }
-        item.select();        
+        item.select();
     }
-    
+
 }

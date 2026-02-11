@@ -13,10 +13,10 @@
     <div *ngIf="hasWorkspaceLoaded() && !isBasicSubscriber()" class="separator"></div>
     <a *ngIf="hasWorkspaceLoaded() && appModeAllowedFeature(appModeFeatureType.SAVE_WORKSPACE)" class="btn btn-small btn-default btn-icon" (click)="onSelectWorkspace()" data-toggle="tooltip" data-placement="top" data-animation="false" i18n-title="@@footer_selectWorkspace" title="اختيار مساحة العمل">
         <span class="icon icon-save-workspace" [class.saving]="savingWorkspace"></span>
-        <div class="workspace-name" [innerHTML]="getWorkspaceName() | englishMarker"></div>
+        <div class="workspace-name" [innerHTML]="getWorkspaceName() "></div>
     </a>
     <div class="separator"></div>
-    <a class="btn btn-small btn-default btn-icon" (click)="onToggleScreenMode()" data-toggle="tooltip" data-placement="top" data-animation="false" i18n-title="@@footer_screenMode" [attr.data-original-title]="screenModeTooltipTitle | translate"><span class="icon icon-screen {{screenModeCssClass}}"></span></a>
+<!--    <a class="btn btn-small btn-default btn-icon" (click)="onToggleScreenMode()" data-toggle="tooltip" data-placement="top" data-animation="false" i18n-title="@@footer_screenMode" [attr.data-original-title]="screenModeTooltipTitle "><span class="icon icon-screen {{screenModeCssClass}}"></span></a>-->
     <div class="separator"></div>
     <a class="btn btn-small btn-default btn-icon" data-toggle="tooltip" data-placement="right" data-animation="false" i18n-title="@@footer_fontSize" title="تغيير حجم الخط" dropdownToggle><span class="icon icon-font-size"></span></a>
     <div class="separator"></div>

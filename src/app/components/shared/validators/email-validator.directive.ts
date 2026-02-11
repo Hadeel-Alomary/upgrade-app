@@ -5,8 +5,9 @@ import {LanguageService} from '../../../services/index';
 import {AbstractSyncValidator} from './abstract-sync-validator';
 
 @Directive({
+    standalone:true,
     selector: '[emailValidator][ngModel]',
-    providers: [{provide: NG_VALIDATORS, useExisting: EmailValidatorDirective, multi: true}],
+    // providers: [{provide: NG_VALIDATORS, useExisting: EmailValidatorDirective, multi: true}],
     inputs: ['activated']
 })
 export class EmailValidatorDirective extends AbstractSyncValidator implements Validator, AfterViewInit, OnChanges{

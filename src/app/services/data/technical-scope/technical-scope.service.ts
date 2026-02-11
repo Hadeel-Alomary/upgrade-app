@@ -5,7 +5,7 @@ import {Observable, Subject} from 'rxjs';
 import {TechnicalScopeSignal} from './technical-scope-signal';
 import {MarketAlertMessage, TechnicalScopeMessage} from '../../streaming/shared';
 import {TechnicalScopeLoader} from '../../loader';
-import {Interval} from 'tc-web-chart-lib';
+// import {Interval} from 'tc-web-chart-lib';
 import {map} from 'rxjs/operators';
 
 @Injectable()
@@ -22,7 +22,7 @@ export class TechnicalScopeService {
         return this.streamerSubscription;
     }
 
-    public loadHistoricalData(interval: Interval, market: Market): Observable<TechnicalScopeSignal[]> {
+    public loadHistoricalData(interval: any , market: Market): Observable<TechnicalScopeSignal[]> {
         return this.technicalScopeLoader.loadTechnicalScopeHistoricalData(this.getServerInterval(interval), market.abbreviation)
             .pipe(map(message => this.processHistoricalData(message)));
     }
@@ -42,7 +42,7 @@ export class TechnicalScopeService {
         return TechnicalScopeSignal.getTechnicalScopeStrategies();
     }
 
-    public subscribeTopic(interval: Interval, marketAbbr: string) {
+    public subscribeTopic(interval: any, marketAbbr: string) {
         let topic = this.getTopic(interval , marketAbbr);
         if (Object.keys(this.subscribedTopics).includes(topic)) {
             this.subscribedTopics[topic]++;
@@ -54,7 +54,7 @@ export class TechnicalScopeService {
         }
     }
 
-    public unsubscribeTopic(interval: Interval, marketAbbr: string) {
+    public unsubscribeTopic(interval: any, marketAbbr: string) {
         let topic = this.getTopic(interval , marketAbbr);
         if (Object.keys(this.subscribedTopics).includes(topic)) {
             this.subscribedTopics[topic]--;
@@ -64,12 +64,12 @@ export class TechnicalScopeService {
         }
     }
 
-    public getTopic(interval: Interval , marketAbbr: string): string{
+    public getTopic(interval: any , marketAbbr: string): string{
         return this.getServerInterval(interval) + '.num-alerts.' + marketAbbr;
     }
 
-    public getServerInterval(interval: Interval): string{
-        return Interval.toAlertServerInterval(interval.type);
+    public getServerInterval(interval: any): string{
+        return '1min' //Interval.toAlertServerInterval(interval.type);
     }
 
     private subscribeToStreamerMessages() {

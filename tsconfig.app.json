@@ -4,7 +4,31 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "typeRoots": [
+      "./src/typings","./node_modules/@types"
+    ],
+    "types": [
+      "node",
+      "jquery",
+      "bootstrap",
+      "jqueryui",
+      "spectrum",
+      "bootstrap-select",
+      "eonasdan-bootstrap-datetimepicker",
+      "lodash",
+      "switchery",
+      "moment",
+      "detectizr",
+      "jquery.gwfselect",
+      "jquery.autocolumnlist",
+      "tinycolor",
+      "base64",
+      "prng4",
+      "rng",
+      "rsa",
+      "jsbn",
+      "jsencrypt"
+    ]
   },
   "include": [
     "src/**/*.ts" ,  "src/**/**/*.ts"

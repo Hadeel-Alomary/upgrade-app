@@ -6,6 +6,7 @@ import {FeatureType} from '../../../services/auhtorization/feature';
 import {FeatureGridBox} from '../../../services/auhtorization/feature-grid-box';
 
 @Component({
+    standalone:true,
     selector:'box-context-menu',
     templateUrl:'./box-context-menu.component.html',
     styleUrls:['./box-context-menu.component.css'],

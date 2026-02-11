@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable, Subject} from 'rxjs';
 import {AlertMessage, Streamer} from '../../streaming/index';
 import {AlertLoader, Company, Loader, LoaderConfig, LoaderUrlType} from '../../loader/index';
-import {IntervalType, TrendLineAlertDrawingDefinition} from 'tc-web-chart-lib';
+// import {IntervalType, TrendLineAlertDrawingDefinition} from 'tc-web-chart-lib';
 import {AbstractAlert} from './abstract-alert';
 import {Tc, AppTcTracker} from '../../../utils/index';
 import {CredentialsStateService, LanguageService} from '../../state/index';
@@ -167,27 +167,27 @@ export class AlertService {
         });
     }
 
-    public updateTrendLineAlert(intervalType : IntervalType , company:Company , hostId : string , trendLineDefinition :TrendLineAlertDrawingDefinition ,drawingId:string) {
-        let newTrendLineAlert = this.createTrendLineAlert(intervalType , company , hostId , trendLineDefinition , drawingId);
-        let trendLineAlert = this.getTrendLineAlertByDrawingId(drawingId);
+    // public updateTrendLineAlert(intervalType : IntervalType , company:Company , hostId : string , trendLineDefinition :TrendLineAlertDrawingDefinition ,drawingId:string) {
+    //     let newTrendLineAlert = this.createTrendLineAlert(intervalType , company , hostId , trendLineDefinition , drawingId);
+    //     let trendLineAlert = this.getTrendLineAlertByDrawingId(drawingId);
+    //
+    //     if(this._updateAlertTimeoutHandle) {
+    //         clearTimeout(this._updateAlertTimeoutHandle);
+    //         this._updateAlertTimeoutHandle = null;
+    //     }
+    //
+    //     if(trendLineAlert.hasDifferentTrendLineDefinition(newTrendLineAlert.trendLine)) {
+    //         trendLineAlert.updateTrendLineDefinitionAndInterval(newTrendLineAlert.trendLine, newTrendLineAlert.interval);
+    //         this._updateAlertTimeoutHandle = window.setTimeout(() => {
+    //             this.updateAlert(trendLineAlert);
+    //         }, 2000);
+    //     }
+    // }
 
-        if(this._updateAlertTimeoutHandle) {
-            clearTimeout(this._updateAlertTimeoutHandle);
-            this._updateAlertTimeoutHandle = null;
-        }
-
-        if(trendLineAlert.hasDifferentTrendLineDefinition(newTrendLineAlert.trendLine)) {
-            trendLineAlert.updateTrendLineDefinitionAndInterval(newTrendLineAlert.trendLine, newTrendLineAlert.interval);
-            this._updateAlertTimeoutHandle = window.setTimeout(() => {
-                this.updateAlert(trendLineAlert);
-            }, 2000);
-        }
-    }
-
-    public createTrendLineAlert(intervalType : IntervalType , company:Company , hostId : string , trendLineDefinition :TrendLineAlertDrawingDefinition ,drawingId:string): TrendLineAlert {
-        return TrendLineAlert.createNewAlert(intervalType, company, trendLineDefinition ,
-            hostId , drawingId , this.languageService.arabic ? 'arabic' : 'english');
-    }
+    // public createTrendLineAlert(intervalType : IntervalType , company:Company , hostId : string , trendLineDefinition :TrendLineAlertDrawingDefinition ,drawingId:string): TrendLineAlert {
+    //     return TrendLineAlert.createNewAlert(intervalType, company, trendLineDefinition ,
+    //         hostId , drawingId , this.languageService.arabic ? 'arabic' : 'english');
+    // }
 
     public indicatorSettingsUpdated(chartHostId:string , indicatorId:string , alertParameter:(string | number)[]) {
         let indicatorAlerts = this.getIndicatorChartAlerts(chartHostId, indicatorId);

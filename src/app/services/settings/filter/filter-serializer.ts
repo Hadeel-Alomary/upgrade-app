@@ -27,14 +27,14 @@ export class FilterSerializer {
         return filter;
     }
 
-    static toJson(filter:Filter):string {               
+    static toJson(filter:Filter):string {
         return JSON.stringify(filter);
     }
-    
+
     private static extendCondition(condition:Condition):Condition {
         if(condition == null) {
             return;
-        }        
+        }
         if(condition.type == ConditionType.Simple){
             return FilterSerializer.extendSimpleCondition(condition);
         } else {
@@ -78,7 +78,7 @@ export class FilterSerializer {
 
     private static extendSimpleConditionOperand(operandData:SimpleConditionOperand):SimpleConditionOperand {
         let operand:SimpleConditionOperand;
-        switch(operandData.type) {            
+        switch(operandData.type) {
         case SimpleConditionOperandType.Field:
             operand = new SimpleConditionFieldOperand(null, null);
             extend(operand, operandData);
@@ -92,5 +92,5 @@ export class FilterSerializer {
         }
         return operand;
     }
-    
+
 }

@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
 import {PriceData} from './price-data';
 import {AppTcTracker, MarketUtils, Tc} from '../../../utils/index';
 import {CredentialsStateService} from '../../state/index';
-import {Interval, Period} from 'tc-web-chart-lib';
+// import {Interval, Period} from 'tc-web-chart-lib';
 
 const cloneDeep = require("lodash/cloneDeep");
 const round = require("lodash/round");
@@ -35,29 +35,29 @@ export class PriceLoader {
     // 3. pass the password as "encrypted" and not plainly as this (on web, users can easy look into urls)
     // 4. we need to add a flag to prevent this from "being" cached
     // 5. we need to add signing for the urls.
-    loadPriceData(baseUrl:string, symbol:string, interval:Interval, period:Period):Observable<GroupedPriceData>{
-        return this.loadRawPricesData(baseUrl, symbol, interval, period).pipe(map(data => {
-            return {groupedData: data.priceData , splits: cloneDeep(data.splits)};
-        }))
-    }
+    // loadPriceData(baseUrl:string, symbol:string):Observable<GroupedPriceData>{
+        // return this.loadRawPricesData(baseUrl, symbol, interval, period).pipe(map(data => {
+        //     return {groupedData: data.priceData , splits: cloneDeep(data.splits)};
+        // }))
+    // }
 
-    private loadRawPricesData(baseUrl:string, symbol:string, interval:Interval, period:Period , applySplit:boolean = true):Observable<{priceData: PriceData[], splits:Split[]}>{
-
-        let startTime:number = new Date().getTime();
-
-        // MA TODO Add a helper for the url (which add timestamp and such)
-        let url:string = baseUrl + '?' +
-            `user_name=${this.credentialsService.username}&symbol=${symbol}` +
-            `&interval=${Interval.mapIntervalToServerInterval(interval).serverInterval}&period=${period.serverPeriod}`;
-
-        Tc.info("request prices history: " + url);
-        return this.http.get(Tc.url(url), {responseType: 'text'})
-            .pipe(map( response => {
-                this.logSlowRequest(startTime, 'price-loader');
-                return this.processPriceData(response, Interval.isDaily(interval));
-            }));
-
-    }
+    // private loadRawPricesData(baseUrl:string, symbol:string, interval:Interval, period:Period , applySplit:boolean = true):Observable<{priceData: PriceData[], splits:Split[]}>{
+    //
+    //     let startTime:number = new Date().getTime();
+    //
+    //     // MA TODO Add a helper for the url (which add timestamp and such)
+    //     let url:string = baseUrl + '?' +
+    //         `user_name=${this.credentialsService.username}&symbol=${symbol}` +
+    //         `&interval=${Interval.mapIntervalToServerInterval(interval).serverInterval}&period=${period.serverPeriod}`;
+    //
+    //     Tc.info("request prices history: " + url);
+    //     return this.http.get(Tc.url(url), {responseType: 'text'})
+    //         .pipe(map( response => {
+    //             this.logSlowRequest(startTime, 'price-loader');
+    //             return this.processPriceData(response, Interval.isDaily(interval));
+    //         }));
+    //
+    // }
 
 
     loadTimeAndSale(baseUrl:string, symbol:string, period:string, date:string):Observable<PriceData[]>{

@@ -3,7 +3,7 @@ import {
 } from '@angular/core';
 import {DropdownDirective} from './dropdown.directive';
 
-@Directive({selector: '[dropdownToggle]'})
+@Directive({selector: '[dropdownToggle]',standalone:true})
 export class DropdownToggleDirective implements OnInit {
   @HostBinding('class.disabled')
   @Input() public isDisabled:boolean = false;

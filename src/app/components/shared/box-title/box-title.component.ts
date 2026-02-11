@@ -1,14 +1,14 @@
 import {Component, Input, Output, EventEmitter, ViewEncapsulation, ChangeDetectionStrategy} from '@angular/core';
 import {AutoLinkType, SharedChannel, ChannelRequest, ChannelRequestType, AuthorizationService, MarketsManager} from '../../../services/index';
 import {FeatureType} from '../../../services/auhtorization/feature';
-import {AppBrowserUtils} from '../../../utils';
+import {AppBrowserUtils, MarketUtils} from '../../../utils';
 import {AnnotationDelayedRequest} from '../../modals/annotation-delayed-modal/annotation-delayed-modal.component';
-import {MarketUtils} from 'tc-web-chart-lib'
 
 @Component({
     selector: 'box-title',
     templateUrl:'./box-title.component.html',
     styleUrls:['./box-title.component.css'],
+    standalone:true,
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush
 })

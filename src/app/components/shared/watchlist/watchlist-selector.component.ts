@@ -1,18 +1,25 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnDestroy, Output, ViewEncapsulation} from '@angular/core';
 import {Accessor, AuthorizationService, ChannelRequestType, PredefinedWatchlistService, Watchlist, WatchlistService, WatchlistType} from '../../../services/index';
-import {NewWatchlistCaller, NewWatchlistRequest} from '../../index';
-import {WatchlistPropertiesRequest} from '../../modals/index';
-import {SubscriptionLike as ISubscription} from 'rxjs/index';
+// import {NewWatchlistCaller, NewWatchlistRequest} from '../../index';
+import {NewWatchlistCaller, NewWatchlistRequest, WatchlistPropertiesRequest} from '../../modals/index';
+import {SubscriptionLike as ISubscription} from 'rxjs';
 import {FeatureType} from '../../../services/auhtorization/feature';
 import {AppBrowserUtils} from '../../../utils';
 import {AppModeFeatureType} from '../../../services/auhtorization/app-mode-authorization';
+import {DropdownDirective} from '../../../ng2-bootstrap/components/dropdown/dropdown.directive';
+import {DropdownToggleDirective} from '../../../ng2-bootstrap/components/dropdown/dropdown-toggle.directive';
+import {DropdownMenuDirective} from '../../../ng2-bootstrap/components/dropdown/dropdown-menu.directive';
+import {NgFor, NgIf} from '@angular/common';
+import {SubmenuToggleDirective} from '../submenu-toggle/submenu-toggle.directive';
 
 @Component({
+    standalone:true,
     selector: 'watchlist-selector',
     templateUrl:'./watchlist-selector.component.html',
     styleUrls:['./watchlist-selector.component.css'],
     encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports:[DropdownDirective,DropdownToggleDirective,DropdownMenuDirective,NgFor,NgIf,SubmenuToggleDirective]
 })
 
 export class WatchlistSelectorComponent implements NewWatchlistCaller, OnDestroy {

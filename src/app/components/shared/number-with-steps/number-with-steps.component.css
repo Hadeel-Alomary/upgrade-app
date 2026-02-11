@@ -160,19 +160,19 @@
 }
 
 .number-with-plus-minus-steps .plus-minus-arrow-container .minus-arrow-container.icon:before {
-    background-image: url('~img/minus-sign-gray.png');
+    /*background-image: url('~img/minus-sign-gray.png');*/
 }
 
 .number-with-plus-minus-steps .plus-minus-arrow-container .minus-arrow-container.icon:hover:before {
-    background-image: url('~img/minus-sign-black.png');
+    /*background-image: url('~img/minus-sign-black.png');*/
 }
 
 .number-with-plus-minus-steps .plus-minus-arrow-container .plus-arrow-container.icon:before {
-    background-image: url('~img/plus-sign-gray.png');
+    /*background-image: url('~img/plus-sign-gray.png');*/
 }
 
 .number-with-plus-minus-steps .plus-minus-arrow-container .plus-arrow-container.icon:hover:before {
-    background-image: url('~img/plus-sign-black.png');
+    /*background-image: url('~img/plus-sign-black.png');*/
 }
 
 .number-with-plus-minus-steps .plus-minus-arrow-container input,

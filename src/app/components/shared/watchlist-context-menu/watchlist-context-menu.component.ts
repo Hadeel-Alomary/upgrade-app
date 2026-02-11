@@ -3,13 +3,19 @@ import {GridBoxType} from '../grid-box';
 import {AbstractAlert, Accessor, ChannelRequestType, NormalAlert, Watchlist, WatchlistType} from '../../../services';
 import {FeatureType} from '../../../services/auhtorization/feature';
 import {AlertChannelRequest, AlertChannelRequestCaller, ConfirmationCaller, ConfirmationRequest, NewWatchlistCaller, NewWatchlistRequest} from '../../modals';
+import {TradingContextMenuComponent} from '../trading-context-menu';
+import {BoxContextMenuComponent} from '../box-context-menu/box-context-menu.component';
+import {ContextMenuDirective} from '../context-menu/context-menu.directive';
+import {NgIf, NgIfContext} from '@angular/common';
 
 @Component({
+    standalone:true,
     selector:'watchlist-context-menu',
     templateUrl:'./watchlist-context-menu.component.html',
     styleUrls:['./watchlist-context-menu.component.css'],
     encapsulation:ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports:[TradingContextMenuComponent,BoxContextMenuComponent,ContextMenuDirective,NgIf]
 })
 
 export class WatchlistContextMenuComponent  implements  AlertChannelRequestCaller , NewWatchlistCaller , ConfirmationCaller  {

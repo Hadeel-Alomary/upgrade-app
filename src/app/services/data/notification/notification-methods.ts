@@ -1,5 +1,5 @@
 // TODO use it with the trading objects.
-import {EnumUtils} from 'tc-web-chart-lib';
+// import {EnumUtils} from 'tc-web-chart-lib';
 
 export class NotificationMethods {
     private methods: {[method: number]: string} = {};
@@ -11,7 +11,7 @@ export class NotificationMethods {
     public static fromResponseData(response: NotificationMethodResponse[]): NotificationMethods {
         let methods = new NotificationMethods();
         for (let responseObject of response) {
-            methods.setMethod(EnumUtils.enumStringToValue(NotificationMethodType, responseObject.method_type), responseObject.method_param);
+            // methods.setMethod(EnumUtils.enumStringToValue(NotificationMethodType, responseObject.method_type), responseObject.method_param);
         }
         return methods;
     }

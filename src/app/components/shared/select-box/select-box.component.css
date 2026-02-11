@@ -36,7 +36,7 @@
 }
 
 .select-box .entry.ticked:before {
-    background-image: url('~img/my-drawings-tick.png');
+    /*background-image: url('~img/my-drawings-tick.png');*/
     background-position: right;
     background-repeat: no-repeat;
     content: "";

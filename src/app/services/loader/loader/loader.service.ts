@@ -14,7 +14,7 @@ import {AppModeAuthorizationService, AuthorizationService} from '../../auhtoriza
 import {MarketsManager} from './markets-manager';
 import {ChannelRequestType, SharedChannel} from '../../shared-channel';
 import {ProxyService} from './proxy.service';
-import {AlrajhicapitalStateService, MusharakaStateService, SnbcapitalStateService, WorkspaceStateService, BsfStateService,AlkhabeercapitalStateService} from '../../state';
+import {WorkspaceStateService} from '../../state';
 import {WorkspaceData} from '../../state/workspace/workspace-data';
 import {SnbcapitalLoginInfo} from './snbcapital-login-info';
 import {PredefinedWatchlistService} from '../../predefined-watchlist/predefined-watchlist.service';
@@ -68,16 +68,12 @@ export class Loader {
                 private logoutService:LogoutService,
                 private languageService:LanguageService,
                 private marketsManager:MarketsManager,
-                private snbcapitalStateService: SnbcapitalStateService,
                 private authorizationService:AuthorizationService,
                 private sharedChannel:SharedChannel,
                 private proxyService: ProxyService,
                 private tcAuthenticatedHttpClient: TcAuthenticatedHttpClient,
                 private predefinedWatchlistService: PredefinedWatchlistService,
-                private alrajhicapitalStateService: AlrajhicapitalStateService,
-                private musharakaStateService: MusharakaStateService,
-                private bsfStateService: BsfStateService,
-                private alkhabeercapitalStateService: AlkhabeercapitalStateService){
+               ){
 
         this.marketStream = new ReplaySubject();
         this.configStream = new BehaviorSubject(null);
@@ -136,70 +132,70 @@ export class Loader {
                     this.processBsfLoginInfo(responseBody.response.bsf);
                     this.processAlkhabeercapitalLoginInfo(responseBody.response.alkhabeer);
 
-                    let isSnbcapitalSubscriber = responseBody.response.alahli.subscribed;
-                    let snbcapitalSubscriptionChanged: boolean = this.snbcapitalStateService.getIsSubscriptionChanged();
-
-                    let isAlrajhiSubscriber = responseBody.response.alrajhi.subscribed;
-                    let alrajhicapitalSubscriptionCanChanged: boolean = this.alrajhicapitalStateService.getIsSubscriptionChanged();
-
-                    let isMusharakaSubscriber = responseBody.response.musharaka.subscribed;
-                    let musharakaSubscriptionCanChanged: boolean = this.musharakaStateService.getIsSubscriptionChanged();
-
-                    let isBsfSubscriber = responseBody.response.bsf.subscribed;
-                    let bsfSubscriptionCanChanged: boolean =  this.bsfStateService.getIsSubscriptionChanged();
-
-                    let isAlkhabeercapitalSubscriber = responseBody.response.alkhabeer.subscribed;
-                    let alkhabeercapitalSubscriptionCanChanged: boolean =  this.alkhabeercapitalStateService.getIsSubscriptionChanged();
+                    // let isSnbcapitalSubscriber = responseBody.response.alahli.subscribed;
+                    // let snbcapitalSubscriptionChanged: boolean = this.snbcapitalStateService.getIsSubscriptionChanged();
+                    //
+                    // let isAlrajhiSubscriber = responseBody.response.alrajhi.subscribed;
+                    // let alrajhicapitalSubscriptionCanChanged: boolean = this.alrajhicapitalStateService.getIsSubscriptionChanged();
+                    //
+                    // let isMusharakaSubscriber = responseBody.response.musharaka.subscribed;
+                    // let musharakaSubscriptionCanChanged: boolean = this.musharakaStateService.getIsSubscriptionChanged();
+                    //
+                    // let isBsfSubscriber = responseBody.response.bsf.subscribed;
+                    // let bsfSubscriptionCanChanged: boolean =  this.bsfStateService.getIsSubscriptionChanged();
+                    //
+                    // let isAlkhabeercapitalSubscriber = responseBody.response.alkhabeer.subscribed;
+                    // let alkhabeercapitalSubscriptionCanChanged: boolean =  this.alkhabeercapitalStateService.getIsSubscriptionChanged();
                     let shouldLoadMarketInfo: boolean = false;
+                    //
+                    // if (isSnbcapitalSubscriber) {
+                    //     if (snbcapitalSubscriptionChanged) {
+                    //         this.snbcapitalStateService.removeIsSubscriptionChanged();
+                    //         shouldLoadMarketInfo = true;
+                    //     } else {
+                    //         this.showSnbcapitalLogin();
+                    //         return of(null);
+                    //     }
+                    // } else if (isAlrajhiSubscriber) {
+                    //     if (alrajhicapitalSubscriptionCanChanged) {
+                    //         this.showAlrajhicapitalLogin();
+                    //         return of(null)
+                    //     } else {
+                    //         this.showAlrajhicapitalLogin(500);
+                    //         return of(null);
+                    //     }
+                    // }
+                    // else if (isMusharakaSubscriber) {
+                    //     if (musharakaSubscriptionCanChanged) {
+                    //         this.showMusharakaLogin();
+                    //         return of(null)
+                    //     } else {
+                    //         this.showMusharakaLogin(500);
+                    //         return of(null);
+                    //     }
+                    // }
+                    // else if (isBsfSubscriber) {
+                    //     if (bsfSubscriptionCanChanged) {
+                    //         this.showBsfLogin();
+                    //         return of(null);
+                    //     } else {
+                    //         this.showBsfLogin(500);
+                    //         return of(null);
+                    //     }
+                    // }
+                    // else if (isAlkhabeercapitalSubscriber) {
+                    //     if (alkhabeercapitalSubscriptionCanChanged) {
+                    //         this.showAlkhabeercapitalLogin();
+                    //         return of(null);
+                    //     } else {
+                    //         this.showAlkhabeercapitalLogin(500);
+                    //         return of(null);
+                    //     }
+                    // }
 
-                    if (isSnbcapitalSubscriber) {
-                        if (snbcapitalSubscriptionChanged) {
-                            this.snbcapitalStateService.removeIsSubscriptionChanged();
-                            shouldLoadMarketInfo = true;
-                        } else {
-                            this.showSnbcapitalLogin();
-                            return of(null);
-                        }
-                    } else if (isAlrajhiSubscriber) {
-                        if (alrajhicapitalSubscriptionCanChanged) {
-                            this.showAlrajhicapitalLogin();
-                            return of(null)
-                        } else {
-                            this.showAlrajhicapitalLogin(500);
-                            return of(null);
-                        }
-                    }
-                    else if (isMusharakaSubscriber) {
-                        if (musharakaSubscriptionCanChanged) {
-                            this.showMusharakaLogin();
-                            return of(null)
-                        } else {
-                            this.showMusharakaLogin(500);
-                            return of(null);
-                        }
-                    }
-                    else if (isBsfSubscriber) {
-                        if (bsfSubscriptionCanChanged) {
-                            this.showBsfLogin();
-                            return of(null);
-                        } else {
-                            this.showBsfLogin(500);
-                            return of(null);
-                        }
-                    }
-                    else if (isAlkhabeercapitalSubscriber) {
-                        if (alkhabeercapitalSubscriptionCanChanged) {
-                            this.showAlkhabeercapitalLogin();
-                            return of(null);
-                        } else {
-                            this.showAlkhabeercapitalLogin(500);
-                            return of(null);
-                        }
-                    }
-
-                    else {
+                    // else {
                         shouldLoadMarketInfo = true;
-                    }
+                    // }
 
                     if (shouldLoadMarketInfo) {
                         let isNewProfile: boolean = responseBody.new_profile;

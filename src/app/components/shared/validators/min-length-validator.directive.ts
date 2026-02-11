@@ -5,6 +5,7 @@ import {LanguageService} from '../../../services/index';
 import {AbstractSyncValidator} from './abstract-sync-validator';
 
 @Directive({
+    standalone:true,
     selector: '[minLengthValidator][ngModel]',
     providers: [{provide: NG_VALIDATORS, useExisting: MinLengthValidatorDirective, multi: true}],
     inputs: ['activated', 'minLength']

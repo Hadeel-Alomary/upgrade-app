@@ -5,6 +5,7 @@ import {AbstractSyncValidator} from './abstract-sync-validator';
 import {LanguageService} from '../../../services';
 
 @Directive({
+    standalone:true,
     selector: '[emailExistValidator][ngModel]',
     providers: [{provide: NG_VALIDATORS, useExisting: EmailExistValidatorDirective, multi: true}],
     inputs: ['emailExistValid', 'emailNotExistValid']

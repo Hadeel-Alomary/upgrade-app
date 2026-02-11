@@ -1,4 +1,4 @@
-import {ElementRef} from '@angular/core';
+import {Directive, ElementRef} from '@angular/core';
 import {AbstractControl} from '@angular/forms';
 
 /* NK
@@ -9,7 +9,7 @@ import {AbstractControl} from '@angular/forms';
 *  1. Add the validation field (input field) inside div with form-group class.
 *  2. The validation field should has ngModel attribute alone or assigned to any model value.
 * */
-
+@Directive()
 export abstract class AbstractValidator{
 
     activated:boolean = true;//input

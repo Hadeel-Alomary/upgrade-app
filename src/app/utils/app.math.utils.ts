@@ -1,4 +1,4 @@
-import {MarketUtils, Tc} from 'tc-web-chart-lib';
+// import {MarketUtils, Tc} from 'tc-web-chart-lib';
 
 export class AppMathUtils {
 
@@ -18,15 +18,15 @@ export class AppMathUtils {
         }
     }
 
-    static roundAccordingMarket(value: number, symbol: string): number {
-        var splitted = MarketUtils.splitSymbol(symbol);
-        Tc.assert(splitted.length == 2, "fail to roundToRequiredDigits. Invalid symbol " + symbol);
-
-        if(splitted[1] == "FRX") {
-            return this._5digits(value);
-        }
-        else return this._3digits(value);
-    }
+    // static roundAccordingMarket(value: number, symbol: string): number {
+    //     var splitted = MarketUtils.splitSymbol(symbol);
+    //     Tc.assert(splitted.length == 2, "fail to roundToRequiredDigits. Invalid symbol " + symbol);
+    //
+    //     if(splitted[1] == "FRX") {
+    //         return this._5digits(value);
+    //     }
+    //     else return this._3digits(value);
+    // }
 
     static _3digits(num:number):number {
         return Math.round(num * 1000) / 1000;

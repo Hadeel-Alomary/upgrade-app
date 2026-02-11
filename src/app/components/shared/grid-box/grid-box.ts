@@ -1,12 +1,12 @@
 import {EventEmitter} from "@angular/core";
 import {Properties, BoxProperties} from './properties';
 import {GridBoxType, GridBoxUtils} from './grid-box-type';
-import {Page, Accessor, ChannelRequestType, DerayahOrder} from '../../../services/index';
+import {Page, Accessor, ChannelRequestType} from '../../../services/index';
 import {ArrayUtils, AppBrowserUtils, AppTcTracker} from '../../../utils/index';
-import {ToggleMaximizeRequest} from "../../grid/index";
 
 import {SubscriptionLike as ISubscription} from 'rxjs';
 import {GridNotification} from "../grid-notification-bar/index";
+import {ToggleMaximizeRequest} from '../../grid';
 
 export abstract class GridBox<T extends GridBoxProperties> extends Properties<T> {
 

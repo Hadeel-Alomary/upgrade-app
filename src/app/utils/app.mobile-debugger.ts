@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Config} from '../config/config';
-import {Tc} from 'tc-web-chart-lib';
+// import {Tc} from 'tc-web-chart-lib';
 
 @Injectable()
 export class AppMobileDebugger {
@@ -20,7 +20,7 @@ export class AppMobileDebugger {
             return;
         }
         if(!AppMobileDebugger.instance) {
-            Tc.debug("mobile debugger is turned off and can be enabled by injecting it in chart component");
+            // Tc.debug("mobile debugger is turned off and can be enabled by injecting it in chart component");
             return;
         }
         if(!AppMobileDebugger.instance.inited) {

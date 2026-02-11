@@ -5,6 +5,7 @@ import {LanguageService} from '../../../services/index';
 import {AbstractSyncValidator} from './abstract-sync-validator';
 
 @Directive({
+    standalone:true,
     selector: '[alphanumericValidator][ngModel]',
     providers: [{provide: NG_VALIDATORS, useExisting: AlphanumericValidatorDirective, multi: true}],
     inputs: ['activated','allowDash']

@@ -6,13 +6,13 @@
   <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="single-button">
 
     <li role="menuitem" class="menuitem" (click)="onSelectFilter(defaultFilter)">
-      <div>{{defaultFilter.name | translate}}</div>
+      <div>{{defaultFilter.name }}</div>
     </li>
 
     <li class="divider dropdown-divider"></li>
 
     <li *ngFor="let filter of builtinFilters" role="menuitem" class="menuitem" (click)="onSelectFilter(filter)">
-      <div>{{filter.name | translate}}</div>
+      <div>{{filter.name }}</div>
     </li>
 
     <li *ngIf="userDefinedFilters.length" class="divider dropdown-divider"></li>

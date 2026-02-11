@@ -5,8 +5,9 @@ import {LanguageService} from '../../../services/index';
 import {AbstractSyncValidator} from './abstract-sync-validator';
 
 @Directive({
+    standalone:true,
     selector: '[phoneNumberValidator][ngModel]',
-    providers: [{provide: NG_VALIDATORS, useExisting: PhoneNumberValidatorDirective, multi: true}],
+    // providers: [{provide: NG_VALIDATORS, useExisting: PhoneNumberValidatorDirective, multi: true}],
     inputs: ['activated', 'countryCode']
 })
 export class PhoneNumberValidatorDirective extends AbstractSyncValidator implements Validator, AfterViewInit, OnChanges{

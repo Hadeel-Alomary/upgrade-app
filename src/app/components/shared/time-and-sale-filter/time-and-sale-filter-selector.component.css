@@ -35,12 +35,12 @@
 }
 
 .time-and-sale-filter .toolbar-button .filter-icon:before {
-    background-image: url('~img/filter-unselected.png');
+    /*background-image: url('~img/filter-unselected.png');*/
 }
 
 
 .time-and-sale-filter .toolbar-button.activated .filter-icon:before {
-    background-image: url('~img/filter-selected.png');
+    /*background-image: url('~img/filter-selected.png');*/
 }
 
 /* interaction buttons */

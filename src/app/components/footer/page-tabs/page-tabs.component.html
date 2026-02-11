@@ -3,7 +3,7 @@
   <div *ngFor="let page of pages">
     <div *ngIf="inRange(page)" class="tab" [class.active]="page == selectedPage" [class.editable]="multiplePages()" (click)="onSelectPage(page)">
         <div [class.page-name-container]="unAuthorizedMarketWatchPage(page.tag)">
-            <div class="title" [innerHTML]="page.title | englishMarker" overflow-with-tooltip [tooltipTitle]="page.title" [forceUpdateTooltip]="page.active"></div>
+            <div class="title" [innerHTML]="page.title" overflow-with-tooltip [tooltipTitle]="page.title" [forceUpdateTooltip]="page.active"></div>
             <span *ngIf="unAuthorizedMarketWatchPage(page.tag)"  class="unauthorized-lock-icon"></span>
         </div>
         <div class="icons">

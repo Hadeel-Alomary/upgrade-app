@@ -5,6 +5,7 @@ import {LanguageService} from '../../../services/index';
 import {AbstractSyncValidator} from './abstract-sync-validator';
 
 @Directive({
+    standalone:true,
     selector: '[matchTextValidator][ngModel]',
     providers: [{provide: NG_VALIDATORS, useExisting: MatchTextValidatorDirective, multi: true}],
     inputs: ['activated', 'matchingText']

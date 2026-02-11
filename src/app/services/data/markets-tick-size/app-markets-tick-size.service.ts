@@ -3,7 +3,7 @@ import {Loader, MarketsTickSizeLoaderService} from '../../loader/index';
 import {MarketTick} from './market-tick';
 import {Tc} from '../../../utils/index';
 import {MarketsTickSizeService} from './markets-tick-size.service';
-import {tick} from '@angular/core/testing';
+// import {tick} from '@angular/core/testing';
 import {AppMathUtils} from '../../../utils/app.math.utils';
 
 @Injectable()

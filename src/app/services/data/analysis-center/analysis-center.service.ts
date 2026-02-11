@@ -4,7 +4,7 @@ import {AnalysisMessage, Streamer} from '../../streaming/index';
 import {AnalysisCenterLoaderService, Loader, MarketsManager} from '../../loader/index';
 import {Analysis, Analyzer} from './analysis';
 import {MiscStateService} from '../../state/index';
-import {AnalysisSortType} from '../../../components/analysis-center/analysis-sort/analysis-sort.component';
+// import {AnalysisSortType} from '../../../components/analysis-center/analysis-sort/analysis-sort.component';
 import {AppModeAuthorizationService} from '../../auhtorization';
 import {AppModeFeatureType} from '../../auhtorization/app-mode-authorization';
 
@@ -42,13 +42,13 @@ export class AnalysisCenterService{
         return this.analysisStreamer;
     }
 
-    public analysisByAnalyzer(marketId: number, nickName: string, sortType: AnalysisSortType, pageNumber: number):Observable<Analysis[]>{
-        return this.analysisCenterLoaderService.getAnalysesByAnalyst(marketId , nickName, sortType, pageNumber );
-    }
-
-    public analysisByMarket(marketId: number, sortType: AnalysisSortType, pageNumber: number):Observable<Analysis[]>{
-        return this.analysisCenterLoaderService.getAnalysesByMarket(marketId , sortType, pageNumber);
-    }
+    // public analysisByAnalyzer(marketId: number, nickName: string, sortType: AnalysisSortType, pageNumber: number):Observable<Analysis[]>{
+    //     return this.analysisCenterLoaderService.getAnalysesByAnalyst(marketId , nickName, sortType, pageNumber );
+    // }
+    //
+    // public analysisByMarket(marketId: number, sortType: AnalysisSortType, pageNumber: number):Observable<Analysis[]>{
+    //     return this.analysisCenterLoaderService.getAnalysesByMarket(marketId , sortType, pageNumber);
+    // }
 
     public getAnalyzersList(marketId:number):Observable<Analyzer[]>{
         return this.analysisCenterLoaderService.getAnalystsList(marketId);
@@ -83,10 +83,10 @@ export class AnalysisCenterService{
     }
 
     private onStreamerMessage(message:AnalysisMessage){
-        let analysis = this.analysisCenterLoaderService.mapStreamerMessageToAnalysis(message);
-        if(analysis) {
-            this.analysisStreamer.next(analysis);
-        }
+        // let analysis = this.analysisCenterLoaderService.mapStreamerMessageToAnalysis(message);
+        // if(analysis) {
+        //     this.analysisStreamer.next(analysis);
+        // }
     }
 
 }

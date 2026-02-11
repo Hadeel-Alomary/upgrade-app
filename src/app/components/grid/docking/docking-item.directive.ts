@@ -6,6 +6,7 @@ import {DomRectangle, DomUtils, Tc} from '../../../utils/index';
 @Directive({
     selector: '[docking-item]',
     inputs: ['config: docking-item'],
+    standalone:true
 })
 
 export class DockingItemDirective implements OnInit {

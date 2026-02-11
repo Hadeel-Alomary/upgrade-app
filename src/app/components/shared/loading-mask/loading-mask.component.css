@@ -16,7 +16,7 @@
 }
 
 .loading-mask-wrapper:before {
-    background-image: url("~img/loading-data.gif");
+    /*background-image: url("~img/loading-data.gif");*/
     background-position:center;
     background-repeat: no-repeat;
     width:100%;

@@ -1,3 +1,4 @@
+
 import {
     SharedChannel,
     ChannelRequest,
@@ -13,7 +14,7 @@ export abstract class ChannelListener<T extends ChannelRequest> {
     protected channelRequest:T;
 
     protected subscriptions:ISubscription[] = [];
-    
+
     constructor(protected sharedChannel:SharedChannel, ...types: ChannelRequestType[]){
         this.types = types;
         this.subscriptions.push(
@@ -27,12 +28,12 @@ export abstract class ChannelListener<T extends ChannelRequest> {
         this.subscriptions.forEach(subscription => subscription.unsubscribe());
         this.subscriptions = null;
     }
-    
+
      processChannelRequest(channelRequest:ChannelRequest) {
         if(this.types.includes(channelRequest.type)){
             this.channelRequest = channelRequest as T;
-            this.onChannelRequest();            
+            this.onChannelRequest();
         }
     }
-        
+
 }

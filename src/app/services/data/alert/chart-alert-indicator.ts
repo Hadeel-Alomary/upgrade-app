@@ -1,4 +1,4 @@
-import {IndicatorHelper} from 'tc-web-chart-lib';
+// import {IndicatorHelper} from 'tc-web-chart-lib';
 
 export class ChartAlertIndicator {
 
@@ -9,7 +9,8 @@ export class ChartAlertIndicator {
         if(this.indicatorType == ChartAlertIndicator.CLOSE_INDICATOR_TYPE) {
             return 'CLOSE';
         }
-        return IndicatorHelper.indicatorToString(this.indicatorType) + ' ' + this.indicatorParametersString;
+      return 'CLOSE';
+        // return IndicatorHelper.indicatorToString(this.indicatorType) + ' ' + this.indicatorParametersString;
     }
 
     public get indicatorParametersString(): string {

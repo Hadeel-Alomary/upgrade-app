@@ -1,4 +1,4 @@
-import {IIndicatorOptions, IndicatorParam,ParameterOptions, ParameterValueType} from 'tc-web-chart-lib';
+// import {IIndicatorOptions, IndicatorParam,ParameterOptions, ParameterValueType} from 'tc-web-chart-lib';
 
 const cloneDeep = require('lodash/cloneDeep');
 
@@ -33,40 +33,40 @@ export class AppThemeUtils {
 
     }
 
-    public static mapIndicatorParametersForBackwardCompatibility(currentParams:{ [key: string]: ParameterOptions; } ,defaultParams: { [key: string]: ParameterOptions; } , isFinancial:boolean ) {
-        // Remove any params not in defaultParams
-        Object.keys(currentParams).forEach(key => {
-            if (!(key in defaultParams)) {
-                //Financial indicators don't include "FINANCIAL_PERIOD" in default settings and we need it in current parameters .
-                if (isFinancial && key == IndicatorParam.FINANCIAL_PERIOD) {
-                    defaultParams[key] = currentParams[key];
-                } else {
-                    delete currentParams[key];
-                }
-            }
-        });
-
-        // Merge defaults and current params
-        Object.keys(defaultParams).forEach(key => {
-            let defaultParam = defaultParams[key];
-            let customParam = currentParams[key];
-
-            let mergedParam: ParameterOptions = {value: 0, min: 0, max: 0};
-
-            Object.keys(defaultParam).forEach(prop => {
-                if (customParam && typeof customParam === 'object' && prop in customParam) {
-                    mergedParam[prop] = customParam[prop];
-                } else {
-                    mergedParam[prop] = defaultParam[prop];
-                }
-            });
-
-            // If customParam is just a primitive value (like value: 5), override the value
-            if (customParam !== undefined && (typeof customParam !== 'object' || !('value' in customParam))) {
-                mergedParam.value = customParam as ParameterValueType;
-            }
-            currentParams[key] = mergedParam;
-        });
-    }
+    // public static mapIndicatorParametersForBackwardCompatibility(currentParams:{ [key: string]: ParameterOptions; } ,defaultParams: { [key: string]: ParameterOptions; } , isFinancial:boolean ) {
+    //     // Remove any params not in defaultParams
+    //     Object.keys(currentParams).forEach(key => {
+    //         if (!(key in defaultParams)) {
+    //             //Financial indicators don't include "FINANCIAL_PERIOD" in default settings and we need it in current parameters .
+    //             // if (isFinancial && key == IndicatorParam.FINANCIAL_PERIOD) {
+    //             //     defaultParams[key] = currentParams[key];
+    //             // } else {
+    //             //     delete currentParams[key];
+    //             // }
+    //         }
+    //     });
+    //
+    //     // Merge defaults and current params
+    //     Object.keys(defaultParams).forEach(key => {
+    //         let defaultParam = defaultParams[key];
+    //         let customParam = currentParams[key];
+    //
+    //         // let mergedParam: ParameterOptions = {value: 0, min: 0, max: 0};
+    //         //
+    //         // Object.keys(defaultParam).forEach(prop => {
+    //         //     if (customParam && typeof customParam === 'object' && prop in customParam) {
+    //         //         mergedParam[prop] = customParam[prop];
+    //         //     } else {
+    //         //         mergedParam[prop] = defaultParam[prop];
+    //         //     }
+    //         // });
+    //
+    //         // // If customParam is just a primitive value (like value: 5), override the value
+    //         // if (customParam !== undefined && (typeof customParam !== 'object' || !('value' in customParam))) {
+    //         //     mergedParam.value = customParam as ParameterValueType;
+    //         // }
+    //         // currentParams[key] = mergedParam;
+    //     });
+    // }
 
 }

@@ -9,7 +9,7 @@ export const DISABLED = 'disabled';
 export const OUTSIDECLICK = 'outsideClick';
 export const NONINPUT = 'nonInput';
 
-@Directive({selector: '[dropdown]'})
+@Directive({selector: '[dropdown]',standalone:true})
 export class DropdownDirective implements OnInit, OnDestroy {
   @HostBinding('class.open')
   @Input()

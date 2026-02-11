@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {Tc} from '../../../utils/index';
+import {EnumUtils, Tc} from '../../../utils/index';
 import {Loader, LoaderConfig, LoaderUrlType, MarketsManager} from '../loader/index';
 import {CredentialsStateService, LanguageService} from '../../state/index';
 import {TrendLineAlert} from '../../data/alert/trend-line-alert';
@@ -15,7 +15,7 @@ import {AlertTriggerType} from '../../data/alert/alert-trigger';
 import {ChartAlert} from '../../data/alert/chart-alert';
 import {ChartAlertFunctionType} from '../../data/alert/chart-alert-function';
 import {ChartAlertIndicator} from '../../data/alert/chart-alert-indicator';
-import {Interval , EnumUtils} from 'tc-web-chart-lib';
+// import {Interval , EnumUtils} from 'tc-web-chart-lib';
 import {TcAuthenticatedHttpClient} from '../../../utils/app.tc-authenticated-http-client.service';
 
 @Injectable()
@@ -52,7 +52,7 @@ export class AlertLoader {
 
         let alertAsJson: {[key: string]: string | number | Object} = {
             "alert_type": EnumUtils.enumValueToString(AlertType, alert.alertType),
-            "data_interval": Interval.toAlertServerInterval(alert.interval),
+            // "data_interval": Interval.toAlertServerInterval(alert.interval),
             "equation": alert.getEquation(),
             "equation_description": alert.getEquationDescription(),
             "expiry_time": `${alert.expiryDate} 00:00:00`,
@@ -79,7 +79,7 @@ export class AlertLoader {
 
         return this.tcHttpClient.postWithAuth(url, {
             "alert_type": EnumUtils.enumValueToString(AlertType, alert.alertType),
-            "data_interval": Interval.toAlertServerInterval(alert.interval),
+            // "data_interval": Interval.toAlertServerInterval(alert.interval),
             "equation": alert.getEquation(),
             "equation_description": alert.getEquationDescription(),
             "expiry_time": `${alert.expiryDate} 00:00:00`,
@@ -150,7 +150,7 @@ export class AlertLoader {
 
         return new NormalAlert(
             responseObject.id,
-            Interval.fromAlertServerInterval(responseObject.data_interval),
+            // Interval.fromAlertServerInterval(responseObject.data_interval),
             responseObject.paused == "1",
             responseObject.reactivate_minutes == "1",
             EnumUtils.enumStringToValue(AlertTriggerType, responseObject.trigger_type),
@@ -191,7 +191,7 @@ export class AlertLoader {
 
         return new TrendLineAlert(
             responseObject.id,
-            Interval.fromAlertServerInterval(responseObject['data_interval']),
+            // Interval.fromAlertServerInterval(responseObject['data_interval']),
             responseObject.paused == "1",
             responseObject.reactivate_minutes == "1",
             EnumUtils.enumStringToValue(AlertTriggerType, responseObject.trigger_type),
@@ -230,7 +230,7 @@ export class AlertLoader {
 
         return new ChartAlert(
             responseObject.id,
-            Interval.fromAlertServerInterval(responseObject.data_interval),
+            // Interval.fromAlertServerInterval(responseObject.data_interval),
             responseObject.paused == "1",
             responseObject.reactivate_minutes == "1",
             EnumUtils.enumStringToValue(AlertTriggerType, responseObject.trigger_type),

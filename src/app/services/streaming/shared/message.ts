@@ -101,8 +101,9 @@ export interface TimeAndSaleMessage {
     direction:string,
     split:string,
     st:string,
-    tradestate:string
+    tradestate:string,
 
+    [key: string]: unknown;
 }
 
 export interface MarketSummaryMessage {
@@ -236,11 +237,13 @@ export interface MarketDepthMessage {
 }
 
 export interface MarketAlertMessage {
-    topic:string,
-    time:string,
-    symbol:string,
-    Type:string,
-    EV:string
+  topic: string,
+  time: string,
+  symbol: string,
+  Type: string,
+  EV: string,
+
+  [key: string]: unknown;
 }
 
 export interface AlertMessage{

@@ -1,8 +1,8 @@
 import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnChanges, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
-import {AbstractAlert, Accessor, Analysis, AnalysisCenterService, AutoLinkType, ChannelRequestType, Filter, FilterService, LanguageService, MarketBoxOpenRequest, MarketSummaryService, MarketSummaryStatus, TechnicalScopeQuoteService, News, NewsService, NormalAlert, Quote, QuoteService, TechnicalIndicatorQuoteService, Watchlist, WatchlistType, GridColumn, PredefinedWatchlistService} from '../../services/index';
+import {AbstractAlert, Accessor, Analysis, AnalysisCenterService, AutoLinkType, ChannelRequestType, Filter, FilterService, LanguageService, MarketBoxOpenRequest, MarketSummaryService, TechnicalScopeQuoteService, News, NewsService, NormalAlert, Quote, QuoteService, TechnicalIndicatorQuoteService, Watchlist, WatchlistType, GridColumn, PredefinedWatchlistService} from '../../services/index';
 import {AppBrowserUtils, AppMarketInfoUtils, MarketUtils, Tc} from '../../utils/index';
 import {GridBoxType, MarketBox, MarketBoxProperties} from '../shared/grid-box/index';
-import {AlertChannelRequest, AlertChannelRequestCaller, ConfirmationCaller, ConfirmationRequest, NewsDetailsRequest, NewWatchlistCaller, NewWatchlistRequest} from '../modals/index';
+// import {AlertChannelRequest, AlertChannelRequestCaller, ConfirmationCaller, ConfirmationRequest, NewWatchlistCaller, NewWatchlistRequest} from '../modals/index';
 import {FeatureType} from '../../services/auhtorization/feature';
 import {bufferTime} from 'rxjs/operators';
 import {MarketWatchCategory} from './market-watch-category';
@@ -10,10 +10,20 @@ import {GridBoxUtils} from '../shared/grid-box/grid-box-type';
 import {TechnicalIndicatorColumns} from '../../services/data/technical-indicator';
 import {WatchlistSections} from '../../services/loader/predefined-watchlist-loader/predefined-watchlist-loader.service';
 import {ColumnDefinition} from '../../services/slick-grid/slick-grid-columns.service';
-
-const cloneDeep = require('lodash/cloneDeep');
+import {
+  AnnotationDelayedComponent,
+  BoxTitleComponent, ContextMenuDirective, ExplainDirective,
+  TradingContextMenuComponent,
+  WatchlistSelectorComponent
+} from '../shared';
+import {MarketwatchFilterSelectorComponent} from './marketwatch-filter';
+import {BoxContextMenuComponent} from '../shared/box-context-menu/box-context-menu.component';
+import {NgFor, NgIf} from '@angular/common';
+import cloneDeep from 'lodash/cloneDeep';
+// const cloneDeep = require('lodash/cloneDeep');
 
 @Component({
+    standalone:true,
     selector: 'marketwatch',
     templateUrl:'./marketwatch.component.html',
     styleUrls:['./marketwatch.component.css'],
@@ -21,9 +31,11 @@ const cloneDeep = require('lodash/cloneDeep');
     encapsulation: ViewEncapsulation.None,
     inputs: [ 'width', 'height', 'id', 'page', 'inputWatchlistId'],
     outputs: [ 'close'],
+    imports:[BoxTitleComponent,WatchlistSelectorComponent,MarketwatchFilterSelectorComponent,TradingContextMenuComponent,
+      BoxContextMenuComponent , AnnotationDelayedComponent , ContextMenuDirective , ExplainDirective,NgIf,NgFor]
 })
 
-export class MarketwatchComponent extends MarketBox<MarketwatchProperties, Quote> implements AfterViewInit, OnChanges, OnInit, AlertChannelRequestCaller, NewWatchlistCaller, ConfirmationCaller, OnDestroy {
+export class MarketwatchComponent extends MarketBox<MarketwatchProperties, Quote> implements AfterViewInit, OnChanges, OnInit, OnDestroy {
 
      isGlobalPredefinedWatchListSelected: boolean = false;
      quotes:Quote[];
@@ -92,14 +104,14 @@ export class MarketwatchComponent extends MarketBox<MarketwatchProperties, Quote
         // column width based on data available.
         if (AppBrowserUtils.isMobile()) {
             this.marketSummaryService.getMarketStatusChangeStream().subscribe((summary) => {
-                if(summary.status == MarketSummaryStatus.OPEN) {
-                    // for coming minute (5sec * i), keep resizing column width as more data are coming in
-                    for (let i = 0; i < 12; ++i) {
-                        window.setTimeout(() => {
-                            this.slickGrid.resizeColumnWidthsBasedOnTheirData();
-                        }, 5000 * i);
-                    }
-                }
+                // if(summary.status == MarketSummaryStatus.OPEN) {
+                //     // for coming minute (5sec * i), keep resizing column width as more data are coming in
+                //     for (let i = 0; i < 12; ++i) {
+                //         window.setTimeout(() => {
+                //             this.slickGrid.resizeColumnWidthsBasedOnTheirData();
+                //         }, 5000 * i);
+                //     }
+                // }
             });
         }
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -186,8 +198,8 @@ export class MarketwatchComponent extends MarketBox<MarketwatchProperties, Quote
 
     onWatchlistCreated(watchlist:Watchlist) {
         let message:string = this.accessor.languageService.translate("هل تريد عرض لائحة أسهمي الجديدة؟");
-        let confirmationRequest:ConfirmationRequest = {type: ChannelRequestType.Confirmation, messageLine: message, param: watchlist, caller: this};
-        this.accessor.sharedChannel.request(confirmationRequest);
+        // let confirmationRequest:ConfirmationRequest = {type: ChannelRequestType.Confirmation, messageLine: message, param: watchlist, caller: this};
+        // this.accessor.sharedChannel.request(confirmationRequest);
     }
 
     onConfirmation(confirmed:boolean, param:unknown){
@@ -202,8 +214,8 @@ export class MarketwatchComponent extends MarketBox<MarketwatchProperties, Quote
                 let symbols = this.quotes.map(quote => quote.symbol);
                 let removedSymbol = (this.getContextMenuItem() as Quote).symbol;
                 symbols.splice(symbols.indexOf(removedSymbol), 1);
-                let newWatchlistRequest:NewWatchlistRequest = {type: ChannelRequestType.NewWatchlist, caller: this, symbols: symbols};
-                this.accessor.sharedChannel.request(newWatchlistRequest);
+                // let newWatchlistRequest:NewWatchlistRequest = {type: ChannelRequestType.NewWatchlist, caller: this, symbols: symbols};
+                // this.accessor.sharedChannel.request(newWa/tchlistRequest);
             }
         }
     }
@@ -241,8 +253,8 @@ export class MarketwatchComponent extends MarketBox<MarketwatchProperties, Quote
                     let language = this.accessor.languageService.arabic ? 'arabic' : 'english';
                     alert = NormalAlert.createNewAlert(language, this.accessor.marketsManager.getCompanyBySymbol(item.symbol));
                 }
-                let channelRequest:AlertChannelRequest = {type: ChannelRequestType.Alert, caller:this, alert:alert};
-                this.accessor.sharedChannel.request(channelRequest);
+                // let channelRequest:AlertChannelRequest = {type: ChannelRequestType.Alert, caller:this, alert:alert};
+                // this.accessor.sharedChannel.request(channelRequest);
             })
         }
         else if(columnId == 'news'){
@@ -310,8 +322,8 @@ export class MarketwatchComponent extends MarketBox<MarketwatchProperties, Quote
                  let newSymbols: string[] = [];
                  this.getWatchlistQuotes().forEach(quote => newSymbols.push(quote.symbol));
                  newSymbols.push(symbol);
-                 let newWatchlistRequest:NewWatchlistRequest = {type: ChannelRequestType.NewWatchlist, caller: this, symbols:newSymbols};
-                 this.accessor.sharedChannel.request(newWatchlistRequest);
+                 // let newWatchlistRequest:NewWatchlistRequest = {type: ChannelRequestType.NewWatchlist, caller: this, symbols:newSymbols};
+                 // this.accessor.sharedChannel.request(newWatchlistRequest);
              }
          }
          let quote:Quote = this.quoteService.getQuotes().list.find(quote => quote.symbol == symbol);
@@ -326,21 +338,21 @@ export class MarketwatchComponent extends MarketBox<MarketwatchProperties, Quote
     }
 
      onNewAlert() {
-         this.accessor.authorizationService.authorize(FeatureType.ALERT, () => {
-             let company = this.accessor.marketsManager.getCompanyBySymbol(this.getContextMenuItem().symbol);
-             let channelRequest: AlertChannelRequest = {
-                 type: ChannelRequestType.Alert,
-                 caller: this,
-                 alert: NormalAlert.createNewAlert(this.accessor.languageService.arabic ? 'arabic' : 'english', company)
-             };
-             this.accessor.sharedChannel.request(channelRequest);
-         })
+         // this.accessor.authorizationService.authorize(FeatureType.ALERT, () => {
+         //     let company = this.accessor.marketsManager.getCompanyBySymbol(this.getContextMenuItem().symbol);
+         //     let channelRequest: AlertChannelRequest = {
+         //         type: ChannelRequestType.Alert,
+         //         caller: this,
+         //         alert: NormalAlert.createNewAlert(this.accessor.languageService.arabic ? 'arabic' : 'english', company)
+         //     };
+         //     this.accessor.sharedChannel.request(channelRequest);
+         // })
     }
 
      onNewWatchlist() {
          let symbol = this.getContextMenuItem().symbol;
-         let newWatchlistRequest:NewWatchlistRequest = {type: ChannelRequestType.NewWatchlist, caller: this, symbols:[symbol]};
-         this.accessor.sharedChannel.request(newWatchlistRequest);
+         // let newWatchlistRequest:NewWatchlistRequest = {type: ChannelRequestType.NewWatchlist, caller: this, symbols:[symbol]};
+         // this.accessor.sharedChannel.request(newWatchlistRequest);
     }
 
      onRemoveCompany() {
@@ -348,8 +360,8 @@ export class MarketwatchComponent extends MarketBox<MarketwatchProperties, Quote
          if(this.watchlist.type != WatchlistType.UserDefined) {
              let line1:string = this.accessor.languageService.translate("يمكنك الاضافة أو الحذف من لائحة أسهمي الخاصة بك.");
              let line2:string = this.accessor.languageService.translate("هل تريد إنشاء لائحة أسهمي جديدة؟");
-             let confirmationRequest:ConfirmationRequest = {type: ChannelRequestType.Confirmation, messageLine: line1, messageLine2:line2, caller: this};
-             this.accessor.sharedChannel.request(confirmationRequest);
+             // let confirmationRequest:ConfirmationRequest = {type: ChannelRequestType.Confirmation, messageLine: line1, messageLine2:line2, caller: this};
+             // this.accessor.sharedChannel.request(confirmationRequest);
          } else {
              this.accessor.watchlistService.removeSymbolFromWatchlist(this.watchlist, symbol);
              this.slickGrid.refresh();
@@ -744,10 +756,10 @@ export class MarketwatchComponent extends MarketBox<MarketwatchProperties, Quote
     }
 
     private openNews(quote:Quote):void{
-        let channelRequest:NewsDetailsRequest = {type: ChannelRequestType.News, news:quote.news};
-        this.accessor.sharedChannel.request(channelRequest);
-        this.newsService.markAsViewed(quote.news);
-        this.slickGrid.updateItem(quote);
+        // let channelRequest:NewsDetailsRequest = {type: ChannelRequestType.News, news:quote.news};
+        // this.accessor.sharedChannel.request(channelRequest);
+        // this.newsService.markAsViewed(quote.news);
+        // this.slickGrid.updateItem(quote);
     }
 
     private openAnalysis(quote:Quote):void{

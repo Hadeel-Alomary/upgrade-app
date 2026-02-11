@@ -12,7 +12,7 @@ import {GeneralPurposeStreamer} from "./general-purpose-streamer.service";
 import {DebugModeService} from '../../debug-mode/index';
 import {ForceScreenReloadRequest} from '../../shared-channel/channel-request';
 import {TechnicalReportsStreamer} from './technical-reports-streamer.service';
-import {RealTimeChartUpdaterMessage} from 'tc-web-chart-lib';
+// import {RealTimeChartUpdaterMessage} from 'tc-web-chart-lib';
 import {AuthorizationService} from '../../auhtorization';
 import {TechnicalIndicatorStreamer} from './technical-indicator-streamer';
 import {FinancialStreamer} from './financial-streamer';
@@ -189,13 +189,13 @@ export class Streamer {
         return this.marketStreamers[market].getTimeAndSaleMessageStream();
     }
 
-    getChartIntradayMessageStream(market:string):Subject<RealTimeChartUpdaterMessage> {
-        return this.marketStreamers[market].getChartIntradayMessageStream();
-    }
-
-    getChartDailyMessageStream(market:string):Subject<RealTimeChartUpdaterMessage> {
-        return this.marketStreamers[market].getChartDailyMessageStream();
-    }
+    // getChartIntradayMessageStream(market:string):Subject<RealTimeChartUpdaterMessage> {
+    //     return this.marketStreamers[market].getChartIntradayMessageStream();
+    // }
+    //
+    // getChartDailyMessageStream(market:string):Subject<RealTimeChartUpdaterMessage> {
+    //     return this.marketStreamers[market].getChartDailyMessageStream();
+    // }
 
     getMarketSummaryStream(market:string):Subject<MarketSummaryMessage> {
         return this.marketStreamers[market].getMarketSummaryStream();

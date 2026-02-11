@@ -5,7 +5,7 @@
 }
 
 .grid-body.empty:before {
-    background-image: url('~img/empty-page.png');
+    /*background-image: url('~img/empty-page.png');*/
     background-position: center;
     background-repeat: no-repeat;
     content: "";
@@ -15,7 +15,7 @@
 }
 
 .english .grid-body.empty:before {
-    background-image: url('~img/empty-page-english.png');
+    /*background-image: url('~img/empty-page-english.png');*/
 }
 
 .grid-body.active {
@@ -28,7 +28,7 @@
 }
 
 
-/* docking item */ 
+/* docking item */
 
 /* MA DO NOT set z-index on this if you want the menus to appear over floating windows */
 .grid-body .docking-item  {
@@ -37,7 +37,7 @@
     position: absolute;
     /* default width of the box, expect boxes to override this with their custom settings */
     width: 300px;
-    height: 300px;    
+    height: 300px;
 }
 
 
@@ -106,7 +106,7 @@
 }
 
 .grid-body.docking-container .docking-container-root-icon:before {
-    background-image: url('~img/window.png');
+    /*background-image: url('~img/window.png');*/
     background-repeat: no-repeat;
     background-position: center;
     display:inline-block;
@@ -134,7 +134,7 @@
 }
 
 .grid-body.docking-container .docking-container-arrows > .docking-arrow:before {
-    background-image: url('~img/arrow.png');
+    /*background-image: url('~img/arrow.png');*/
     height: 40px;
     width: 40px;
     content: "";
@@ -213,12 +213,12 @@
 }
 
 .dark .grid-body.empty:before {
-    background-image: url('~img/empty-page-dark.png');
+    /*background-image: url('~img/empty-page-dark.png');*/
     filter: none;
 }
 
 .dark.english .grid-body.empty:before {
-    background-image: url('~img/empty-page-english-dark.png');
+    /*background-image: url('~img/empty-page-english-dark.png');*/
     filter: none;
 }
 

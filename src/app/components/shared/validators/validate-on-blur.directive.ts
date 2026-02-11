@@ -7,9 +7,10 @@ import {filter} from "rxjs/operators";
 @Directive({
     selector: '[validateOnBlur]',
     host: {
-        '(focus)': 'onFocus($event)',
-        '(blur)' : 'onBlur($event)'
-    }
+        '(focus)': 'onFocus()',
+        '(blur)' : 'onBlur()'
+    },
+  standalone:true
 })
 
 export class ValidateOnBlurDirective {

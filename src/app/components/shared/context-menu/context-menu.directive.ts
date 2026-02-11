@@ -8,7 +8,7 @@ import {AppDropdownMenuPosition, Tc, DomUtils, StringUtils} from "../../../utils
 
 import {SharedChannel, ChannelRequestType, ChannelRequest} from '../../../services/index';
 
-@Directive({selector: '[context-menu]'})
+@Directive({selector: '[context-menu]' , standalone: true})
 export class ContextMenuDirective implements OnChanges, OnInit, OnDestroy {
 
     @Input() public left:number;

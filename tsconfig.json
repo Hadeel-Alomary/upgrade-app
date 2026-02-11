@@ -1,74 +1,31 @@
-/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
-/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
   "compileOnSave": false,
+  "preserveWhitespaces": false,
   "compilerOptions": {
-    "strict": false,
-    "strictNullChecks": false,
-    "strictFunctionTypes": false,
-    "strictBindCallApply": false,
-    "strictPropertyInitialization": false,
-    "noPropertyAccessFromIndexSignature": false,
-    "noUncheckedIndexedAccess": false,
-    "exactOptionalPropertyTypes": false,
-
-    "skipLibCheck": true,
-    "isolatedModules": false,
-    "noEmitOnError": false,
+    "baseUrl": "./",
+    "module": "es2022",
+    "moduleResolution": "bundler",
     "target": "ES2022",
-    "module": "preserve",
-    "lib": ["ES2022","dom"],
-    "typeRoots": [
-      "./src/typings","node_modules/@types"
-    ],
-    "types": [
-      "node",
-      "jquery",
-      "bootstrap",
-      "jqueryui",
-      "spectrum",
-      "Html2Canvas",
-      "bootstrap-select",
-      "eonasdan-bootstrap-datetimepicker",
-      "lodash",
-      "switchery",
-      "moment",
-      "detectizr",
-      "jquery.gwfselect",
-      "jquery.autoclumnlist",
-      "tinycolor",
-      "base64",
-      "prng4",
-      "rng",
-      "rsa",
-      "jsbn",
-      "jsencrypt"
-    ],
-    "noImplicitAny": true
+    "paths": {
+      "@angular/*": ["../node_modules/@angular/*"]
+    },
+    "lib": ["ES2022", "DOM"],
+    "strict": false,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
 
   "angularCompilerOptions": {
+    "skipTemplateCodegen": true,
     "fullTemplateTypeCheck": false,
-//    "strictTemplates": false,
-//    "strictInputTypes": false,
-//    "strictOutputEventTypes": false,
-//    "strictDomLocalRefTypes": false,
-//    "strictAttributeTypes": false,
-//    "strictSafeNavigationTypes": false,
-//    "extendedDiagnostics": false
+    "strictTemplates": false
   },
+
   "exclude": [
     "test.ts",
     "**/*.spec.ts",
     "./e2e/*.ts"
-  ],
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.spec.json"
-    }
   ]
 }

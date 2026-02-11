@@ -1,11 +1,12 @@
 import {ElementRef} from '@angular/core';
-import {AbstractControl} from '@angular/forms';
+import {AbstractControl, ValidationErrors} from '@angular/forms';
 import {AbstractValidator} from './abstract-validator';
-import {ValidationErrors} from '@angular/forms/src/directives/validators';
-import {Observable} from 'rxjs/index';
+// import {ValidationErrors} from '@angular/forms/src/directives/validators';
+import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
 
-
+@Injectable()
 export abstract class AbstractAsyncValidator extends AbstractValidator{
 
     constructor(public el:ElementRef){
@@ -19,12 +20,12 @@ export abstract class AbstractAsyncValidator extends AbstractValidator{
         this.initControl(control);
 
         if (!this.isTouched() && !this.hasValue()) {
-            return new Promise<ValidationErrors>(resolve => resolve(null));
+            // return new Promise<ValidationErrors>(resolve => resolve(null));
         }
 
         if (!this.activated) {
             this.removeErrorIfExisted();
-            return new Promise<ValidationErrors>(resolve => resolve(null));
+            // return new Promise<ValidationErrors>(resolve => resolve(null));
         }
 
         let value: string = control.value;
@@ -32,7 +33,7 @@ export abstract class AbstractAsyncValidator extends AbstractValidator{
         // MA if the value hasn't changed from the lastValid one, then no need to redo async validation.
         if(value == this.lastValidValue) {
             this.removeErrorIfExisted();
-            return new Promise<ValidationErrors>(resolve => resolve(null));
+            // return new Promise<ValidationErrors>(resolve => resolve(null));
         }
 
         return this.isValid(value).pipe(map(

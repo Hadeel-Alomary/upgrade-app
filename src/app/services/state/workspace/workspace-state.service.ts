@@ -15,9 +15,9 @@ import {Watchlist} from '../../settings/watchlist';
 import {CredentialsStateService} from '../credentials/credentials-state.service';
 import {VolatileStateService} from '../volatile/volatile-state.service';
 import {WorkspaceData} from './workspace-data';
-import {WorkspaceSelectRequest} from '../../../components/modals/workspace';
+// import {WorkspaceSelectRequest} from '../../../components/modals/workspace';
 import {LogoutService} from '../../logout';
-import {Interval} from 'tc-web-chart-lib';
+// import {Interval} from 'tc-web-chart-lib';
 
 
 @Injectable()
@@ -233,11 +233,11 @@ export class WorkspaceStateService {
                             })
                         }  else {
                             // Let the user to manual select workspace.
-                            let workspaceSelectRequest: WorkspaceSelectRequest = {
-                                type: ChannelRequestType.WorkspaceSelect,
-                                forceSelection: true
-                            };
-                            this.sharedChannel.request(workspaceSelectRequest);
+                            // let workspaceSelectRequest: WorkspaceSelectRequest = {
+                            //     type: ChannelRequestType.WorkspaceSelect,
+                            //     forceSelection: true
+                            // };
+                            // this.sharedChannel.request(workspaceSelectRequest);
                         }
                     });
                 }, 0);
@@ -428,9 +428,9 @@ export class WorkspaceStateService {
         if(this.has(StateKey.Watchlist)) {
             AppTcTracker.trackWatchlistsCount((this.get(StateKey.Watchlist) as Watchlist[]).length);
         }
-        if(this.has(StateKey.CustomIntervals)) {
-            AppTcTracker.trackUserDefinedIntervalsCount((this.get(StateKey.CustomIntervals) as Interval[]).length);
-        }
+        // if(this.has(StateKey.CustomIntervals)) {
+        //     AppTcTracker.trackUserDefinedIntervalsCount((this.get(StateKey.CustomIntervals) as Interval[]).length);
+        // }
         if(this.has(StateKey.Filter)) {
             AppTcTracker.trackFiltersCount((this.get(StateKey.Filter) as string[]).length);
         }

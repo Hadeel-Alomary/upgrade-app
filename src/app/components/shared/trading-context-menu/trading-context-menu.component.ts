@@ -1,7 +1,8 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, ViewEncapsulation} from '@angular/core';
-import {MarketsManager, SharedChannel, TradingService} from '../../../services/index';
+import {MarketsManager, SharedChannel} from '../../../services/index';
 
 @Component({
+    standalone:true,
     selector:'trading-context-menu',
     templateUrl:'./trading-context-menu.component.html',
     styleUrls:['./trading-context-menu.component.css'],
@@ -14,33 +15,34 @@ export class TradingContextMenuComponent{
     @Input() price:number;
     showContextMenu:boolean;
 
-    constructor( public tradingService:TradingService,
+    constructor(
                  public cd:ChangeDetectorRef,
                  public marketsManager:MarketsManager,
                  public sharedChannel:SharedChannel) {
 
-        this.tradingService.getSessionStream()
-            .subscribe(validSession => {
-                this.showContextMenu = validSession;
-                this.cd.markForCheck();
-            });
+        // this.tradingService.getSessionStream()
+        //     .subscribe(validSession => {
+        //         this.showContextMenu = validSession;
+        //         this.cd.markForCheck();
+        //     });
     }
 
     canBuyAndSell():boolean{
-        return this.tradingService.isSymbolTradableByBroker(this.symbol);
+      return false;
+        // return this.tradingService.isSymbolTradableByBroker(this.symbol);
     }
 
     onOpenSell(){
         if(!this.canBuyAndSell()){
             return;
         }
-        this.tradingService.openSellScreen(this.symbol, this.price);
+        // this.tradingService.openSellScreen(this.symbol, this.price);
     }
 
     onOpenBuy(){
         if(!this.canBuyAndSell()){
             return;
         }
-        this.tradingService.openBuyScreen(this.symbol, this.price);
+        // this.tradingService.openBuyScreen(this.symbol, this.price);
     }
 }

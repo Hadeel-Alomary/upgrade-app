@@ -50,7 +50,7 @@ export class TechnicalReportsStreamer extends AbstractStreamer{
                 this.processLiquidityMessage(message as {[key:string]:string});
                 break;
             case MessageType.HEARTBEAT:
-                this.processHeartbeatMessage(message as HeartbeatMessage);
+                this.processHeartbeatMessage(message as unknown as HeartbeatMessage);
                 break;
             default:
                 Tc.error('unknown message type: ' + MessageType[messageType]);

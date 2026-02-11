@@ -14,6 +14,7 @@ import { ComponentsHelper } from '../utils/components-helper.service';
 import {AppBrowserUtils} from '../../../utils';
 
 @Directive({
+  standalone:true,
   /* tslint:disable */
   selector: '[typeahead][ngModel],[typeahead][formControlName]'
   /* tslint:enable */
@@ -95,7 +96,7 @@ export class TypeaheadDirective implements OnInit {
     }
   }
 
-  @HostListener('focus', ['$event.target'])
+  @HostListener('focus')
   protected onFocus():void {
       if(AppBrowserUtils.isMobile()){return;}
     if (this.typeaheadMinLength === 0) {

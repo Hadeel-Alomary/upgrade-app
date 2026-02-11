@@ -1,11 +1,11 @@
 .watchlist-context-menu li.menuitem.add-alert:before {
-    background-image: url('~img/alert-mw-header.png');
+    /*background-image: url('~img/alert-mw-header.png');*/
 }
 
 .watchlist-context-menu li.menuitem.add-company:before {
-    background-image: url('~img/alert-add.png');
+    /*background-image: url('~img/alert-add.png');*/
 }
 
 .watchlist-context-menu li.menuitem.remove-company:before {
-    background-image: url('~img/menu-delete-focused.png');
+    /*background-image: url('~img/menu-delete-focused.png');*/
 }

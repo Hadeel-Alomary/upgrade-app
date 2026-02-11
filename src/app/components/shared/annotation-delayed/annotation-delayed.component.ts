@@ -3,6 +3,7 @@ import {AppModeAuthorizationService, AppModeFeatureType} from '../../../services
 import {LanguageService} from '../../../services';
 
 @Component({
+  standalone:true,
   selector: 'annotation-delayed',
   templateUrl: './annotation-delayed.component.html',
   encapsulation: ViewEncapsulation.None,

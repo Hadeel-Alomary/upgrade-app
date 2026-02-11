@@ -1,7 +1,7 @@
 import {Directive, ElementRef, Host, OnInit, HostBinding, HostListener} from '@angular/core';
 import {DropdownDirective} from './dropdown.directive';
 
-@Directive({selector: '[dropdownMenu]'})
+@Directive({selector: '[dropdownMenu]',standalone:true})
 export class DropdownMenuDirective implements OnInit {
   public dropdown:DropdownDirective;
   public el:ElementRef;
@@ -36,6 +36,6 @@ export class DropdownMenuDirective implements OnInit {
       event.stopPropagation();
     }
     return true;
-  }    
-  
+  }
+
 }

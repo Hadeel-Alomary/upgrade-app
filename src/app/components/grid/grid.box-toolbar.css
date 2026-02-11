@@ -1,114 +1,114 @@
-.box-toolbar {    
-    display: flex;
-    background-color: var(--toolbar-back-color);
-    overflow:hidden;
-}
+/*.box-toolbar {    */
+/*    display: flex;*/
+/*    background-color: var(--toolbar-back-color);*/
+/*    overflow:hidden;*/
+/*}*/
 
-.arabic .box-toolbar{
-    flex-direction: row-reverse;
-}
+/*.arabic .box-toolbar{*/
+/*    flex-direction: row-reverse;*/
+/*}*/
 
-.english .box-toolbar{
-    flex-direction: row;
-}
+/*.english .box-toolbar{*/
+/*    flex-direction: row;*/
+/*}*/
 
-/* hiding the toolbar */
-.hide-toolbar .box-toolbar:not(.box-title) {
-    display: none;
-}
+/*!* hiding the toolbar *!*/
+/*.hide-toolbar .box-toolbar:not(.box-title) {*/
+/*    display: none;*/
+/*}*/
 
-/* form version of the control */
-.box-toolbar.box-toolbar-form {
-    background-color: transparent;
-}
+/*!* form version of the control *!*/
+/*.box-toolbar.box-toolbar-form {*/
+/*    background-color: transparent;*/
+/*}*/
 
-/* toolbar button */
-.box-toolbar .toolbar-button {
-    border: 1px solid transparent;
-    border-radius: 5px;
-    margin: 3px;
-    font-size: 1.3rem;
-    height: 24px;
-    padding: 0px 5px;
+/*!* toolbar button *!*/
+/*.box-toolbar .toolbar-button {*/
+/*    border: 1px solid transparent;*/
+/*    border-radius: 5px;*/
+/*    margin: 3px;*/
+/*    font-size: 1.3rem;*/
+/*    height: 24px;*/
+/*    padding: 0px 5px;*/
 
-}
+/*}*/
 
-.arabic .box-toolbar .toolbar-button{
-    direction:rtl;
-}
+/*.arabic .box-toolbar .toolbar-button{*/
+/*    direction:rtl;*/
+/*}*/
 
-.english .box-toolbar .toolbar-button{
-    direction: ltr;
-}
+/*.english .box-toolbar .toolbar-button{*/
+/*    direction: ltr;*/
+/*}*/
 
-.box-toolbar .toolbar-button.selected,
-.box-toolbar .toolbar-button.selected:hover {
-    background-color: oldlace;
-    border-color: darkgoldenrod;
-}
+/*.box-toolbar .toolbar-button.selected,*/
+/*.box-toolbar .toolbar-button.selected:hover {*/
+/*    background-color: oldlace;*/
+/*    border-color: darkgoldenrod;*/
+/*}*/
 
 
-/* http://stackoverflow.com/questions/7273338/how-to-vertically-align-an-image-inside-div */
-.box-toolbar .toolbar-button .toolbar-icon {
-    height: 22px;
-    line-height: 24px;
-    display: flex;
-}
+/*!* http://stackoverflow.com/questions/7273338/how-to-vertically-align-an-image-inside-div *!*/
+/*.box-toolbar .toolbar-button .toolbar-icon {*/
+/*    height: 22px;*/
+/*    line-height: 24px;*/
+/*    display: flex;*/
+/*}*/
 
-.box-toolbar .toolbar-button .toolbar-icon:before {
-    width: 20px;
-    height: 22px;
-    content:"";
-    background-repeat:no-repeat;
-}
+/*.box-toolbar .toolbar-button .toolbar-icon:before {*/
+/*    width: 20px;*/
+/*    height: 22px;*/
+/*    content:"";*/
+/*    background-repeat:no-repeat;*/
+/*}*/
 
-.english .box-toolbar .toolbar-button .toolbar-icon:before {
-    background-position:center left;
-}
+/*.english .box-toolbar .toolbar-button .toolbar-icon:before {*/
+/*    background-position:center left;*/
+/*}*/
 
-.arabic .box-toolbar .toolbar-button .toolbar-icon:before {
-    background-position:center right;
-}
+/*.arabic .box-toolbar .toolbar-button .toolbar-icon:before {*/
+/*    background-position:center right;*/
+/*}*/
 
-.english .box-toolbar .toolbar-button .toolbar-icon.textless:before,
-.arabic .box-toolbar .toolbar-button .toolbar-icon.textless:before {
-    width: 16px;
-    background-position:center;
-}
+/*.english .box-toolbar .toolbar-button .toolbar-icon.textless:before,*/
+/*.arabic .box-toolbar .toolbar-button .toolbar-icon.textless:before {*/
+/*    width: 16px;*/
+/*    background-position:center;*/
+/*}*/
 
-.box-toolbar .toolbar-button:hover {
-    border-color: var(--button-border-color-hover);
-    background-color: var(--button-back-color-hover);    
-}
+/*.box-toolbar .toolbar-button:hover {*/
+/*    border-color: var(--button-border-color-hover);*/
+/*    background-color: var(--button-back-color-hover);    */
+/*}*/
 
-.box-toolbar .box-toolbar-separator:before {
-    display: inline-block;
-    background-image: url('~img/separator.png');
-    width: 3px;
-    height: 100%;
-    content: "";
-    background-position: center;
-    background-repeat: no-repeat;
-}
+/*.box-toolbar .box-toolbar-separator:before {*/
+/*    display: inline-block;*/
+/*    background-image: url('~img/separator.png');*/
+/*    width: 3px;*/
+/*    height: 100%;*/
+/*    content: "";*/
+/*    background-position: center;*/
+/*    background-repeat: no-repeat;*/
+/*}*/
 
-.box-toolbar .box-toolbar-child.fill {
-    flex: 1;
-}
+/*.box-toolbar .box-toolbar-child.fill {*/
+/*    flex: 1;*/
+/*}*/
 
-/* dark theme */
+/*!* dark theme *!*/
 
-.dark .box-toolbar {
-    background-color: #333;
-    color: lightgrey;
-}
+/*.dark .box-toolbar {*/
+/*    background-color: #333;*/
+/*    color: lightgrey;*/
+/*}*/
 
-.dark .box-toolbar .toolbar-button:hover {
-    background-color: black;
-    border-color: #666;
-}
+/*.dark .box-toolbar .toolbar-button:hover {*/
+/*    background-color: black;*/
+/*    border-color: #666;*/
+/*}*/
 
-.dark .box-toolbar .toolbar-button.selected,
-.dark .box-toolbar .toolbar-button.selected:hover {
-    background-color: #002b3a;
-    border-color: #176b8c;
-}
+/*.dark .box-toolbar .toolbar-button.selected,*/
+/*.dark .box-toolbar .toolbar-button.selected:hover {*/
+/*    background-color: #002b3a;*/
+/*    border-color: #176b8c;*/
+/*}*/
